@@ -1,6 +1,6 @@
 {
   "active_pane_modifiers": { "inactive_opacity": 0.7 },
-  "assistant": {
+  "agent": {
     "default_height": 256,
     "default_model": {
       "model": "claude-3-7-sonnet-latest",
