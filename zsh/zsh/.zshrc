@@ -406,6 +406,12 @@ zle -N my-yazi-cd
 my-bindkey '\el' my-yazi-cd
 my-bindkey '^y' my-yazi-cd
 
+# fetch
+
+my-fetch-cd() { my-cd /tmp/fetch-dir }
+zle -N my-fetch-cd
+my-bindkey '^f' my-fetch-cd
+
 # dir colors
 
 autoload -Uz colors && colors
