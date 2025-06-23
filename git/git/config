@@ -203,23 +203,9 @@
   name = greg
   # signingkey = ~/.ssh/sig.pub
   signingkey = F49061714C719E6D
-[includeIf "hasconfig:remote.*.url:**/ApsisInternational/audience"]
-  path = go.inc
-[includeIf "hasconfig:remote.*.url:**/ApsisInternational/cleanup"]
-  path = go.inc
 [includeIf "hasconfig:remote.*.url:**/ApsisInternational/email-sdk-go"]
   path = go.inc
-[includeIf "hasconfig:remote.*.url:**/ApsisInternational/email-validator-go"]
-  path = go.inc
-[includeIf "hasconfig:remote.*.url:**/ApsisInternational/env"]
-  path = go.inc
-[includeIf "hasconfig:remote.*.url:**/ApsisInternational/go-backoff"]
-  path = go.inc
-[includeIf "hasconfig:remote.*.url:**/ApsisInternational/terminator"]
-  path = go.inc
-[includeIf "hasconfig:remote.*.url:**/ApsisInternational/toolbox"]
-  path = go.inc
-[includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-audience"]
+[includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-audience-sdk"]
   path = go.inc
 [includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-shared-cleanup"]
   path = go.inc
@@ -230,6 +216,8 @@
 [includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-shared-env"]
   path = go.inc
 [includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-shared-go-backoff"]
+  path = go.inc
+[includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-shared-go-toolkit"]
   path = go.inc
 [includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-shared-terminator"]
   path = go.inc
