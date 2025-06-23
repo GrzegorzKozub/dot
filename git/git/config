@@ -203,13 +203,9 @@
   name = greg
   # signingkey = ~/.ssh/sig.pub
   signingkey = F49061714C719E6D
-[includeIf "hasconfig:remote.*.url:**/ApsisInternational/email-sdk-go"]
-  path = go.inc
-[includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-audience-sdk"]
+[includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-audience-sdk-go"]
   path = go.inc
 [includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-shared-cleanup"]
-  path = go.inc
-[includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-shared-email-sdk-go"]
   path = go.inc
 [includeIf "hasconfig:remote.*.url:**/efficy-sa/apsis-shared-email-validator-go"]
   path = go.inc
