@@ -60,7 +60,7 @@ if [[ $HOST = 'drifter' ]]; then
 
 fi
 
-if [[ $HOST = 'player' ]]; then
+if [[ $HOST =~ ^(player|worker)$ ]]; then
 
   ln -sf $DIR/environment/environment.d/20-nvidia.conf $XDG_CONFIG_HOME/environment.d/20-nvidia.conf
 
@@ -69,7 +69,7 @@ if [[ $HOST = 'player' ]]; then
 
 fi
 
-if [[ $HOST = 'worker' ]]; then
+if [[ $HOST = 'sacrifice' ]]; then
 
   ln -sf $DIR/environment/environment.d/20-amd.conf $XDG_CONFIG_HOME/environment.d/20-amd.conf
 
