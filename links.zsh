@@ -34,7 +34,7 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
 
   # alacritty dust flameshot foot gdu iex
 
-# if [[ $HOST = 'player' ]]; then
+# if [[ $HOST =~ ^(player|worker)$ ]]; then
 #
 #   stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
 #     redshift

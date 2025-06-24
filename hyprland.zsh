@@ -14,17 +14,10 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}
 
 stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   dunst \
+  foot \
   gammastep \
   hyprland \
   swayimg \
   swaylock \
   waybar \
   wofi
-
-if [[ $HOST = 'player' ]]; then
-
-  stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
-    foot
-
-fi
-
