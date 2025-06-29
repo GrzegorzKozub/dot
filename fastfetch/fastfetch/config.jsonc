@@ -1,16 +1,34 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "display": {
+    "bar": {
+      "borderLeft": "",
+      "borderRight": "",
+      "charElapsed": "⠶",
+      "charTotal": " ",
+      "width": 8
+    },
+    "brightColor": false,
+    "color": { "keys": "white" },
+    "key": { "width": 32, "type": "both" },
+    "percent": {
+      "color": { "green": "green", "red": "red", "yellow": "yellow" },
+      "type": 3
+    },
+    "separator": ""
+  },
   "logo": {
-    // https://github.com/fastfetch-cli/fastfetch/discussions/1039#discussioncomment-10860217
+    "source": "~/.config/fastfetch/arch.png",
     "type": "kitty-icat",
-    "width": 16,
-    "source": "~/.config/fastfetch/arch.png"
+    "width": 16
   },
   "modules": [
-    "title",
-    "separator",
-    "os",
-    "host",
+    {
+      "type": "title",
+      "color": { "at": "90", "host": "blue", "user": "blue" }
+    },
+    { "outputColor": "90", "type": "separator" },
+    { "key": "OS", "type": "os" },
     "kernel",
     "uptime",
     "packages",
@@ -25,12 +43,14 @@
     "cursor",
     "terminal",
     "terminalfont",
+    { "type": "separator", "string": " " },
+    { "key": "Host", "type": "host" },
     "cpu",
     "gpu",
     "memory",
+    { "outputColor": "90", "type": "separator" },
     "swap",
     "disk",
-    "localip",
     "battery",
     "poweradapter",
     "locale",
