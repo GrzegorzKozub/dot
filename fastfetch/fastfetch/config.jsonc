@@ -23,15 +23,14 @@
     "width": 16
   },
   "modules": [
-    {
-      "type": "title",
-      "color": { "at": "90", "host": "blue", "user": "blue" }
-    },
-    { "outputColor": "90", "type": "separator" },
-    { "key": "OS", "type": "os" },
-    "kernel",
-    "uptime",
-    "packages",
+    { "format": "{#blue}{host-name}", "type": "title" },
+    { "type": "os" },
+    { "type": "kernel" },
+    { "type": "uptime" },
+    { "type": "packages" },
+    "locale",
+    "terminal",
+    "terminalfont",
     "shell",
     "display",
     "de",
@@ -41,8 +40,6 @@
     "icons",
     "font",
     "cursor",
-    "terminal",
-    "terminalfont",
     { "type": "separator", "string": " " },
     { "key": "Host", "type": "host" },
     "cpu",
@@ -53,7 +50,6 @@
     "disk",
     "battery",
     "poweradapter",
-    "locale",
     "break",
     "colors"
   ]
