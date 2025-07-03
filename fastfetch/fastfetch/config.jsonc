@@ -27,7 +27,6 @@
     "break",
     "os",
     "kernel",
-    "vulkan",
     "locale",
     { "key": "Init system", "type": "initsystem" },
     { "key": "Login manager", "type": "lm" },
