@@ -60,7 +60,6 @@
     "sound",
     "camera",
     "break",
-    "battery", // todo: only show on drifter and add a break
     "colors"
   ]
 }
