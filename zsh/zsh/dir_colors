@@ -61,6 +61,7 @@ EXEC 32
 .dockerignore 37
 .editorconfig 37
 .env 37
+.eslintignore 37
 .eslintrc 37
 .eslintrc.js 37
 .eslintrc.json 37
