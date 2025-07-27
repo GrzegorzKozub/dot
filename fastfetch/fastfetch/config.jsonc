@@ -60,6 +60,6 @@
     "sound",
     "camera",
     "break",
-    "colors"
+    { "symbol": "circle", "type": "colors" }
   ]
 }
