@@ -24,7 +24,6 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   satty \
   silicon \
   teams-for-linux \
-  tidal-hifi \
   tmux \
   vscode \
   yamllint \
