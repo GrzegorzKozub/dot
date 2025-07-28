@@ -48,8 +48,8 @@
 	"trayIcon": false,
 	"updateFrequency": 500,
 	"windowBounds": {
-		"width": 1144,
-		"height": 680
+		"width": 1124,
+		"height": 830
 	},
 	"__internal__": {
 		"migrations": {
