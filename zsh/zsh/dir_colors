@@ -50,9 +50,8 @@ EXEC 32
 .png 35
 .svg 35
 
-.mp3 35
-.ogg 35
-.opus 35
+.flac 35
+.m4a 35
 
 .mkv 35
 .mp4 35
