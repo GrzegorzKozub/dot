@@ -75,6 +75,10 @@ if [[ $CURRENT != $LATEST ]]; then
   fnm uninstall $CURRENT
 fi
 
+# python
+
+pipx upgrade-all
+
 # rust
 
 rustup update

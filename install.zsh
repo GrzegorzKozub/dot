@@ -92,6 +92,11 @@ npm install --global \
 
   # artillery autocannon mdpdf
 
+# python
+
+pipx install \
+  tidal-dl-ng
+
 # rust
 
 export CARGO_HOME=$XDG_DATA_HOME/cargo
