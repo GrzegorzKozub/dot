@@ -1,4 +1,2 @@
 --cookies-from-browser brave # requires python-secretstorage
---embed-chapters
---output "%(title)s%(artist& - {}|)s"
-# --playlist-random
+--output "%(title)s.%(ext)s" # skips yt id
