@@ -546,6 +546,10 @@ export LESSHISTFILE=-
 
 alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub'
 
+# mpv
+
+alias music="mpv --no-resume-playback --shuffle /run/media/$USER/data/music"
+
 # neovim
 
 export EDITOR='nvim'
