@@ -95,6 +95,9 @@ npm install --global \
 # python
 
 pipx install \
+  awscli-local \
+  cfn-lint \
+  lastversion \
   tidal-dl-ng
 
 # rust

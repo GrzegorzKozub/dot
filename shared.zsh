@@ -33,16 +33,11 @@ done
 
 # python
 
-pip install --user --upgrade --break-system-packages \
-  wheel
+# pip install --user --upgrade --break-system-packages \
+#   wheel
 
-pip install --user --upgrade --break-system-packages \
-  awscli-local \
-  cfn-lint \
-  lastversion \
-  pynvim
-
-[[ -d $XDG_CONFIG_HOME/ipython ]] || mkdir -p $XDG_CONFIG_HOME/ipython
+# pip install --user --upgrade --break-system-packages \
+#   pynvim
 
 # ruby
 
