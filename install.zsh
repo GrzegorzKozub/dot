@@ -144,7 +144,6 @@ for EXTENSION in \
   ms-python.python \
   ms-python.vscode-pylance \
   pkief.material-icon-theme \
-  redhat.vscode-yaml \
   rust-lang.rust-analyzer \
   streetsidesoftware.code-spell-checker \
   sumneko.lua \
@@ -153,7 +152,6 @@ do
   code --install-extension $EXTENSION --force
 done
 
-  # asvetliakov.vscode-neovim \
   # github.copilot \
   # github.copilot-chat \
   # jakebecker.elixir-ls \
@@ -168,7 +166,8 @@ if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
     kddejong.vscode-cfn-lint \
     ms-dotnettools.csdevkit \
     ms-dotnettools.csharp \
-    ms-dotnettools.vscode-dotnet-runtime
+    ms-dotnettools.vscode-dotnet-runtime \
+    redhat.vscode-yaml
   do
     code --install-extension $EXTENSION --force
   done
