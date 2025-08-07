@@ -95,10 +95,16 @@ npm install --global \
 # python
 
 pipx install \
-  awscli-local \
-  cfn-lint \
   lastversion \
   tidal-dl-ng
+
+if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
+
+  pipx install \
+    awscli-local \
+    cfn-lint
+
+fi
 
 # rust
 
@@ -125,18 +131,12 @@ popd
 # vscode
 
 for EXTENSION in \
-  bierner.markdown-mermaid \
-  cucumberopen.cucumber-official \
   dbaeumer.vscode-eslint \
   editorconfig.editorconfig \
   esbenp.prettier-vscode \
   golang.go \
   grzegorzkozub.gruvbox-material-flat \
-  kddejong.vscode-cfn-lint \
   ms-azuretools.vscode-docker \
-  ms-dotnettools.csdevkit \
-  ms-dotnettools.csharp \
-  ms-dotnettools.vscode-dotnet-runtime \
   ms-python.black-formatter \
   ms-python.debugpy \
   ms-python.isort \
@@ -159,6 +159,21 @@ done
   # jakebecker.elixir-ls \
   # ms-vscode-remote.remote-containers \
   # vadimcn.vscode-lldb \
+
+if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
+
+  for EXTENSION in \
+    bierner.markdown-mermaid \
+    cucumberopen.cucumber-official \
+    kddejong.vscode-cfn-lint \
+    ms-dotnettools.csdevkit \
+    ms-dotnettools.csharp \
+    ms-dotnettools.vscode-dotnet-runtime
+  do
+    code --install-extension $EXTENSION --force
+  done
+
+fi
 
 # docker
 

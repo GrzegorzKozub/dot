@@ -23,7 +23,6 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   ripgrep \
   satty \
   silicon \
-  teams-for-linux \
   tidal_dl_ng \
   tmux \
   vscode \
@@ -35,6 +34,13 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   zsh
 
   # alacritty dust flameshot foot gdu iex
+
+if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
+
+  stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
+    teams-for-linux
+
+fi
 
 # if [[ $HOST =~ ^(player|worker)$ ]]; then
 #
