@@ -632,8 +632,8 @@ alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
 # zed
 
-alias z='zeditor .'
-alias zed='zeditor'
+alias z='WAYLAND_DISPLAY= zeditor .'
+alias zed='WAYLAND_DISPLAY= zeditor'
 
 # zoxide
 
