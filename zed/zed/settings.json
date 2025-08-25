@@ -37,11 +37,30 @@
   "journal": { "hour_format": "hour24" },
   "languages": {
     "JavaScript": {
-      "code_actions_on_format": { "source.organizeImports": true }
+      "code_actions_on_format": { "source.organizeImports": true },
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "Python": {
+      "formatter": [
+        { "external": { "command": "isort", "arguments": ["-"] } },
+        { "external": { "command": "black", "arguments": ["-"] } }
+      ],
+      "tab_size": 4
     },
     "Rust": { "tab_size": 4 },
     "TypeScript": {
-      "code_actions_on_format": { "source.organizeImports": true }
+      "code_actions_on_format": { "source.organizeImports": true },
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
     }
   },
   "lsp": {

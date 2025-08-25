@@ -95,6 +95,7 @@ npm install --global \
 # python
 
 pipx install \
+  black isort
   lastversion \
   tidal-dl-ng
 
