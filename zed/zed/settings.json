@@ -9,6 +9,7 @@
     "default_width": 512
   },
   "auto_install_extensions": {
+    "basher": true,
     "docker-compose": true,
     "dockerfile": true,
     "env": true,
@@ -17,7 +18,8 @@
     "html": true,
     "lua": true,
     "sql": true,
-    "toml": true
+    "toml": true,
+    "xml": true
   },
   "buffer_font_family": "Cascadia Code",
   "buffer_font_features": { "calt": true, "ss01": true },
@@ -56,6 +58,17 @@
       "tab_size": 4
     },
     "Rust": { "tab_size": 4 },
+
+    // handled by basher
+    // "Shell Script": {
+    //   "formatter": {
+    //     "external": {
+    //       "command": "shfmt",
+    //       "arguments": ["--filename", "{buffer_path}"]
+    //     }
+    //   }
+    // },
+
     "TypeScript": {
       "code_actions_on_format": { "source.organizeImports": true },
       "formatter": {
