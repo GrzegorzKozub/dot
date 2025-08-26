@@ -16,6 +16,7 @@
     "golangci-lint": true,
     "html": true,
     "lua": true,
+    "sql": true,
     "toml": true
   },
   "buffer_font_family": "Cascadia Code",
