@@ -13,6 +13,7 @@
     "dockerfile": true,
     "env": true,
     "git-firefly": true,
+    "golangci-lint": true,
     "html": true,
     "lua": true,
     "toml": true
@@ -36,6 +37,7 @@
   "indent_guides": { "enabled": false },
   "journal": { "hour_format": "hour24" },
   "languages": {
+    "Go": { "language_servers": ["gopls", "golangci-lint"] },
     "JavaScript": {
       "code_actions_on_format": { "source.organizeImports": true },
       "formatter": {
@@ -64,6 +66,17 @@
     }
   },
   "lsp": {
+    "golangci-lint": {
+      "initialization_options": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--issues-exit-code=1",
+          "--output.json.path=stdout",
+          "--show-stats=false"
+        ]
+      }
+    },
     "gopls": {
       "initialization_options": {
         "analyses": { "shadow": true },
@@ -75,6 +88,16 @@
           "functionTypeParameters": true,
           "parameterNames": true,
           "rangeVariableTypes": true
+        }
+      }
+    },
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "autoSearchPaths": true,
+          "diagnosticMode": "openFilesOnly",
+          "typeCheckingMode": "strict",
+          "useLibraryCodeForTypes": true
         }
       }
     },
