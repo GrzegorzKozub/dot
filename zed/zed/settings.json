@@ -9,7 +9,7 @@
     "default_width": 512
   },
   "auto_install_extensions": {
-    "basher": true,
+    "csharp": true,
     "docker-compose": true,
     "dockerfile": true,
     "env": true,
@@ -50,6 +50,14 @@
         }
       }
     },
+    "Lua": {
+      "formatter": {
+        "external": {
+          "command": "stylua",
+          "arguments": ["--stdin-filepath", "{buffer_path}", "-"]
+        }
+      }
+    },
     "Python": {
       "formatter": [
         { "external": { "command": "isort", "arguments": ["-"] } },
@@ -58,17 +66,14 @@
       "tab_size": 4
     },
     "Rust": { "tab_size": 4 },
-
-    // handled by basher
-    // "Shell Script": {
-    //   "formatter": {
-    //     "external": {
-    //       "command": "shfmt",
-    //       "arguments": ["--filename", "{buffer_path}"]
-    //     }
-    //   }
-    // },
-
+    "Shell Script": {
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": ["--filename", "{buffer_path}"]
+        }
+      }
+    },
     "TypeScript": {
       "code_actions_on_format": { "source.organizeImports": true },
       "formatter": {
