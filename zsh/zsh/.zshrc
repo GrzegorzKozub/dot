@@ -345,7 +345,7 @@ export FZF_DEFAULT_OPTS="
   --no-separator
   --padding 0
   --pointer '▎'
-  --prompt ' '
+  --prompt ' '
   --scroll-off 4
   --tabstop 2
 "
