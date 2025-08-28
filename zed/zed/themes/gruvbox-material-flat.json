@@ -65,7 +65,7 @@
         "pane.focused_border": "#ff0000",
         "pane.group_border": "#ff0000",
         "scrollbar.thumb.background": "#45403dc0",
-        "scrollbar.thumb.hover_background": "#ff0000",
+        "scrollbar.thumb.hover_background": "#45403d",
         "scrollbar.thumb.border": "#00000000",
         "scrollbar.track.background": "#00000000",
         "scrollbar.track.border": "#00000000",
@@ -138,9 +138,9 @@
         "hidden": "#7c6f64",
         "hidden.background": "#ff0000",
         "hidden.border": "#ff0000",
-        "hint": "#8f9a52",
-        "hint.background": "#8f9a5240",
-        "hint.border": "#8f9a52",
+        "hint": "#5a524c",
+        "hint.background": "#5a524c40",
+        "hint.border": "#5a524c",
         "ignored": "#5a524c",
         "ignored.background": "#ff0000",
         "ignored.border": "#ff0000",
@@ -199,7 +199,7 @@
             "font_weight": null
           },
           "constructor": {
-            "color": "#ff0000",
+            "color": "#e78a4e",
             "font_style": null,
             "font_weight": null
           },
@@ -324,7 +324,7 @@
             "font_weight": null
           },
           "string.special": {
-            "color": "#ff0000",
+            "color": "#d8a657",
             "font_style": null,
             "font_weight": null
           },
@@ -438,7 +438,7 @@
         "pane.focused_border": "#ff0000",
         "pane.group_border": "#ff0000",
         "scrollbar.thumb.background": "#e0cfa9c0",
-        "scrollbar.thumb.hover_background": "#ff0000",
+        "scrollbar.thumb.hover_background": "#e0cfa9",
         "scrollbar.thumb.border": "#00000000",
         "scrollbar.track.background": "#00000000",
         "scrollbar.track.border": "#00000000",
@@ -511,9 +511,9 @@
         "hidden": "#a89984",
         "hidden.background": "#ff0000",
         "hidden.border": "#ff0000",
-        "hint": "#8f9a52",
-        "hint.background": "#8f9a5240",
-        "hint.border": "#8f9a52",
+        "hint": "#c9b99a",
+        "hint.background": "#c9b99a40",
+        "hint.border": "#c9b99a",
         "ignored": "#c9b99a",
         "ignored.background": "#ff0000",
         "ignored.border": "#ff0000",
@@ -572,7 +572,7 @@
             "font_weight": null
           },
           "constructor": {
-            "color": "#ff0000",
+            "color": "#c35e0a",
             "font_style": null,
             "font_weight": null
           },
@@ -697,7 +697,7 @@
             "font_weight": null
           },
           "string.special": {
-            "color": "#ff0000",
+            "color": "#b47109",
             "font_style": null,
             "font_weight": null
           },

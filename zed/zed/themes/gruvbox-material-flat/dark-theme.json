@@ -60,7 +60,7 @@
     "pane.focused_border": "{{flag}}",
     "pane.group_border": "{{flag}}",
     "scrollbar.thumb.background": "{{bg4}}c0",
-    "scrollbar.thumb.hover_background": "{{flag}}",
+    "scrollbar.thumb.hover_background": "{{bg4}}",
     "scrollbar.thumb.border": "{{unset}}00",
     "scrollbar.track.background": "{{unset}}00",
     "scrollbar.track.border": "{{unset}}00",
@@ -133,9 +133,9 @@
     "hidden": "{{grey0}}",
     "hidden.background": "{{flag}}",
     "hidden.border": "{{flag}}",
-    "hint": "{{dimGreen}}",
-    "hint.background": "{{dimGreen}}40",
-    "hint.border": "{{dimGreen}}",
+    "hint": "{{bg6}}",
+    "hint.background": "{{bg6}}40",
+    "hint.border": "{{bg6}}",
     "ignored": "{{bg6}}",
     "ignored.background": "{{flag}}",
     "ignored.border": "{{flag}}",
@@ -194,7 +194,7 @@
         "font_weight": null
       },
       "constructor": {
-        "color": "{{flag}}",
+        "color": "{{orange}}",
         "font_style": null,
         "font_weight": null
       },
@@ -319,7 +319,7 @@
         "font_weight": null
       },
       "string.special": {
-        "color": "{{flag}}",
+        "color": "{{yellow}}",
         "font_style": null,
         "font_weight": null
       },
