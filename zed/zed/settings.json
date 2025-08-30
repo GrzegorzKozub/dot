@@ -1,13 +1,6 @@
 {
   "active_pane_modifiers": { "inactive_opacity": 0.7 },
-  "agent": {
-    "default_height": 256,
-    "default_model": {
-      "model": "claude-3-7-sonnet-latest",
-      "provider": "zed.dev"
-    },
-    "default_width": 512
-  },
+  "agent": { "default_height": 256, "default_width": 512 },
   "auto_install_extensions": {
     "csharp": true,
     "docker-compose": true,
@@ -32,16 +25,18 @@
     "disabled_globs": ["**/credentials", "**/*.ovpn"],
     "mode": "subtle"
   },
+  "expand_excerpt_lines": 4,
   "features": { "edit_prediction_provider": "zed" },
   "file_finder": { "modal_max_width": "medium" },
   "git": { "inline_blame": { "enabled": false } },
   "git_panel": { "default_width": 256 },
+  "gutter": { "min_line_number_digits": 3 },
   "horizontal_scroll_margin": 8,
-  "icon_theme": {
-    "dark": "Colored Zed Icons Theme Light",
-    "light": "Colored Zed Icons Theme Dark",
-    "mode": "dark"
-  },
+  // "icon_theme": {
+  //   "dark": "Colored Zed Icons Theme Light",
+  //   "light": "Colored Zed Icons Theme Dark",
+  //   "mode": "dark"
+  // },
   "indent_guides": { "enabled": false },
   "journal": { "hour_format": "hour24" },
   "languages": {
@@ -176,7 +171,6 @@
     "indent_size": 8
   },
   "restore_on_startup": "none",
-  "show_edit_predictions": false,
   "show_whitespaces": "none",
   "tab_bar": { "show_nav_history_buttons": false },
   "tab_size": 2,
@@ -186,6 +180,7 @@
     "copy_on_select": true,
     "default_height": 256,
     "default_width": 512,
+    "font_size": 16,
     "line_height": "standard",
     "minimum_contrast": 0
   },
@@ -194,6 +189,7 @@
     "light": "Gruvbox Material Flat Light",
     "mode": "dark"
   },
+  "title_bar": { "show_branch_icon": true },
   "ui_font_size": 16,
   "vertical_scroll_margin": 4,
   "vim_mode": false,
