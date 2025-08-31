@@ -561,6 +561,7 @@ alias vim='nvim'
 
 # node
 
+export NODE_NO_WARNINGS=1
 export NODE_REPL_HISTORY=''
 
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
