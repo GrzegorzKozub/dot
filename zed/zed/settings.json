@@ -189,7 +189,6 @@
     "light": "Gruvbox Material Flat Light",
     "mode": "dark"
   },
-  "title_bar": { "show_branch_icon": true },
   "ui_font_size": 16,
   "vertical_scroll_margin": 4,
   "vim_mode": false,
