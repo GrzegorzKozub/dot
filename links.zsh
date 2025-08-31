@@ -50,6 +50,7 @@ fi
 # fi
 
 stow --dir=`dirname $0` --target=$HOME --stow \
+  gemini \
   zprofile
 
   # imwheel
