@@ -127,6 +127,8 @@
     "version_control.renamed": "{{dimYellow}}",
     "version_control.conflict": "{{dimYellow}}",
     "version_control.ignored": "{{bg6}}",
+    "version_control.conflict_marker.ours": "{{dimGreen}}40",
+    "version_control.conflict_marker.theirs": "{{dimBlue}}40",
     "conflict": "{{dimYellow}}",
     "conflict.background": "{{flag}}",
     "conflict.border": "{{flag}}",
