@@ -86,6 +86,7 @@ fnm install --latest
 fnm use default
 
 npm install --global \
+  @google/gemini-cli \
   eslint \
   neovim \
   typescript
