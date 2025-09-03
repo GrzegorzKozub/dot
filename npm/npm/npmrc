@@ -1,6 +1,3 @@
-@apsisinternational:registry=https://npm.pkg.github.com/
+@efficy-sa:registry=https://npm.pkg.github.com/
 //npm.pkg.github.com/:_authToken=$GITHUB_TOKEN
-
-@apsis:registry=https://registry.npmjs.org/
-//registry.npmjs.org/:_authToken=$NPM_TOKEN
 
