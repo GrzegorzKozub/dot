@@ -1,5 +1,5 @@
 [general]
-output-filename = "/home/greg/Downloads/Shot %b %0d %H:%M.png"
+output-filename = "/home/greg/Downloads/Shot %b %0d %H:%M:%S.png"
 early-exit = true
 corner-roundness = 8
 initial-tool = "rectangle"
