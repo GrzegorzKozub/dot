@@ -132,11 +132,13 @@ popd
 # vscode
 
 for EXTENSION in \
+  Catppuccin.catppuccin-vsc-icons \
   dbaeumer.vscode-eslint \
   editorconfig.editorconfig \
   esbenp.prettier-vscode \
   golang.go \
   grzegorzkozub.gruvbox-material-flat \
+  miguelsolorio.symbols \
   ms-azuretools.vscode-docker \
   ms-python.black-formatter \
   ms-python.debugpy \
@@ -144,7 +146,6 @@ for EXTENSION in \
   ms-python.pylint \
   ms-python.python \
   ms-python.vscode-pylance \
-  pkief.material-icon-theme \
   rust-lang.rust-analyzer \
   streetsidesoftware.code-spell-checker \
   sumneko.lua \
