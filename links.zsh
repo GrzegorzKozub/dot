@@ -56,33 +56,18 @@ stow --dir=`dirname $0` --target=$HOME --stow \
 
 DIR=$(dirname $(realpath $0))
 
+ln -sf $DIR/flags/brave-flags.conf $XDG_CONFIG_HOME/brave-flags.conf
+ln -sf $DIR/flags/code-flags.conf $XDG_CONFIG_HOME/code-flags.conf
+
 [[ -d $XDG_CONFIG_HOME/environment.d ]] || mkdir -p $XDG_CONFIG_HOME/environment.d
 ln -sf $DIR/environment/environment.d/10-common.conf $XDG_CONFIG_HOME/environment.d/10-common.conf
 
-if [[ $HOST = 'drifter' ]]; then
-
+[[ $HOST = 'drifter' ]] &&
   ln -sf $DIR/environment/environment.d/20-intel.conf $XDG_CONFIG_HOME/environment.d/20-intel.conf
 
-  ln -sf $DIR/flags/brave-flags.intel.conf $XDG_CONFIG_HOME/brave-flags.conf
-  ln -sf $DIR/flags/code-flags.intel.conf $XDG_CONFIG_HOME/code-flags.conf
-
-fi
-
-if [[ $HOST =~ ^(player|worker)$ ]]; then
-
+[[ $HOST =~ ^(player|worker)$ ]] &&
   ln -sf $DIR/environment/environment.d/20-nvidia.conf $XDG_CONFIG_HOME/environment.d/20-nvidia.conf
 
-  ln -sf $DIR/flags/brave-flags.nvidia.conf $XDG_CONFIG_HOME/brave-flags.conf
-  ln -sf $DIR/flags/code-flags.nvidia.conf $XDG_CONFIG_HOME/code-flags.conf
-
-fi
-
-if [[ $HOST = 'sacrifice' ]]; then
-
+[[ $HOST = 'sacrifice' ]] &&
   ln -sf $DIR/environment/environment.d/20-amd.conf $XDG_CONFIG_HOME/environment.d/20-amd.conf
-
-  ln -sf $DIR/flags/brave-flags.amd.conf $XDG_CONFIG_HOME/brave-flags.conf
-  ln -sf $DIR/flags/code-flags.amd.conf $XDG_CONFIG_HOME/code-flags.conf
-
-fi
 

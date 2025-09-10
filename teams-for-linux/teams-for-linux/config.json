@@ -3,6 +3,12 @@
   "disableNotificationSound": true,
   "disableNotificationWindowFlash": true,
   "disableNotifications": true,
+  "electronCLIFlags": [
+    [
+      "enable-features",
+      "AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder,VaapiOnNvidiaGPUs"
+    ]
+  ],
   "followSystemTheme": true,
   "logConfig": false,
   "spellCheckerLanguages": ["en", "pl"],
