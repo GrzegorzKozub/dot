@@ -135,6 +135,8 @@ popd
 
 # vscode
 
+set +e
+
 for EXTENSION in \
   Catppuccin.catppuccin-vsc-icons \
   dbaeumer.vscode-eslint \
@@ -163,6 +165,8 @@ done
   # jakebecker.elixir-ls \
   # ms-vscode-remote.remote-containers \
   # vadimcn.vscode-lldb \
+
+set -e
 
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
 
