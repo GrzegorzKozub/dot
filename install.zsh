@@ -186,6 +186,9 @@ fi
 
 # docker
 
+export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock # rootless
+
 docker run --privileged --rm tonistiigi/binfmt --install arm64
 docker rmi $(docker images tonistiigi/binfmt -a -q)
 
