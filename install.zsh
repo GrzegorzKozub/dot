@@ -82,6 +82,7 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 # nvm install-latest-npm
 # nvm cache clear
 
+eval "$(fnm env)"
 fnm install --latest
 fnm use default
 
