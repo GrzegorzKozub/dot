@@ -18,6 +18,7 @@ set -e -o verbose
 # go
 
 export GOCACHE=$XDG_CACHE_HOME/go
+export GOPATH=$XDG_DATA_HOME/go
 
 for PACKAGE in \
   github.com/cweill/gotests/gotests \
