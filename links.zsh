@@ -70,5 +70,5 @@ ln -sf $DIR/environment/environment.d/10-common.conf $XDG_CONFIG_HOME/environmen
 
 [[ $HOST = 'sacrifice' ]] &&
   ln -sf $DIR/environment/environment.d/20-amd.conf $XDG_CONFIG_HOME/environment.d/20-amd.conf ||
-  exit 0
+  return 0
 
