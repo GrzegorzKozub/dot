@@ -110,7 +110,10 @@ fi
 
 # rust
 
+path=( $XDG_DATA_HOME/cargo/bin $path[@])
+
 export CARGO_HOME=$XDG_DATA_HOME/cargo
+export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
 cargo install cargo-update
   # --force --features vendored-libgit2 --features vendored-openssl
