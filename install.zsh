@@ -177,8 +177,6 @@ done
   # ms-vscode-remote.remote-containers \
   # vadimcn.vscode-lldb \
 
-set -e
-
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
 
   for EXTENSION in \
@@ -194,6 +192,8 @@ if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
   done
 
 fi
+
+set -e
 
 # docker
 
