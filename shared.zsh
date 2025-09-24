@@ -47,14 +47,3 @@ done
 # gem install --user-install \
 #   neovim
 
-# yazi
-
-rm -rf ~/.local/state/yazi/packages
-pushd $XDG_CONFIG_HOME/yazi && git clean -dfx && popd
-
-for PLUGIN in \
-  yazi-rs/plugins:git
-do
-  ya pkg add "$PLUGIN"
-done
-

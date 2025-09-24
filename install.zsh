@@ -38,6 +38,17 @@ tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf new-session -d
 $XDG_DATA_HOME/tmux/plugins/tpm/bindings/install_plugins
 tmux kill-server
 
+# yazi
+
+rm -rf ~/.local/state/yazi/packages
+pushd $XDG_CONFIG_HOME/yazi && git clean -dfx && popd
+
+for PLUGIN in \
+  yazi-rs/plugins:git
+do
+  ya pkg add "$PLUGIN"
+done
+
 # gnupg
 
 # export GNUPGHOME=$XDG_DATA_HOME/gnupg
