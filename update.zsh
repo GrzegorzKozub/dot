@@ -94,3 +94,9 @@ nvim --headless -c 'autocmd User MasonToolsUpdateCompleted quitall' -c 'MasonToo
 
 code --update-extensions
 
+for EXTENSION in \
+  ms-python.vscode-python-envs
+do
+  code --uninstall-extension $EXTENSION --force
+done
+
