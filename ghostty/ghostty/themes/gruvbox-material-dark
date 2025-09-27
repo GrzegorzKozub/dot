@@ -32,8 +32,8 @@ palette = 15=#d4be98
 cursor-color = #928374
 cursor-text = #32302f
 
-# bg1
-split-divider-color = #3c3836
+# bg3 as bg1 #3c3836 is not visible
+split-divider-color = #504945
 
 # bg0, fg0
 window-titlebar-background = #32302f
