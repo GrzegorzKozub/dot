@@ -77,7 +77,7 @@ right-click-action = ignore
 
 confirm-close-surface = false
 
-shell-integration = none
+# shell-integration = none
 
 bell-features= no-system,no-audio,no-attention,title,no-border
 
