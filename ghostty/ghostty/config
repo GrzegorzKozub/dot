@@ -64,6 +64,7 @@ window-padding-balance = true
 
 window-theme = ghostty
 
+# https://github.com/ghostty-org/ghostty/issues/7937
 window-height = 40
 window-width = 160
 
