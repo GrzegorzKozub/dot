@@ -156,7 +156,7 @@ for EXTENSION in \
   golang.go \
   grzegorzkozub.gruvbox-material-flat \
   miguelsolorio.symbols \
-  ms-azuretools.vscode-docker \
+  ms-azuretools.vscode-containers \
   ms-python.black-formatter \
   ms-python.debugpy \
   ms-python.isort \
