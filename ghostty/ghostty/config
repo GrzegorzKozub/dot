@@ -18,9 +18,6 @@ mouse-hide-while-typing = true
 
 background-opacity = 0.95
 
-# works on kde plasma only
-background-blur = true
-
 # doesn't work
 unfocused-split-opacity = 0.9
 unfocused-split-fill = #000000
