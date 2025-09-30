@@ -23,7 +23,6 @@
   "buffer_font_family": "Cascadia Code",
   "buffer_font_features": { "calt": true, "ss01": true },
   "buffer_font_size": 16,
-  "chat_panel": { "default_width": 256 },
   "collaboration_panel": { "default_width": 256 },
   "current_line_highlight": "line",
   "cursor_blink": false,
