@@ -6,9 +6,6 @@ set -e -o verbose
 
 pushd `dirname $0`
 
-# for ITEM ('connections.xml' 'wb_options.xml' 'wb_state.xml')
-#   git update-index --assume-unchanged mysql/.mysql/workbench/$ITEM
-
 for ITEM (
   '.metadata/.config/connection-types.xml'
   '.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs'
@@ -24,9 +21,6 @@ for ITEM (
 popd
 
 # links
-
-# stow --dir=`dirname $0` --target=$HOME --stow \
-#   mysql
 
 stow --dir=`dirname $0` --target=$XDG_DATA_HOME --stow \
   dbeaver
