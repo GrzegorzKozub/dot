@@ -546,6 +546,11 @@ export LESSHISTFILE=-
 
 alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub'
 
+# maven
+
+export MAVEN_ARGS="--settings $XDG_CONFIG_HOME/maven/settings.xml"
+export MAVEN_OPTS="-Dmaven.repo.local=$XDG_CACHE_HOME/maven/repository"
+
 # mpv
 
 alias music="mpv --no-resume-playback --shuffle /run/media/$USER/data/music"
