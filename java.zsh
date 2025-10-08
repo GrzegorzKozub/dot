@@ -23,3 +23,5 @@ do
   code --install-extension $EXTENSION --force
 done
 
+  # redhat.java
+
