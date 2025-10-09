@@ -539,6 +539,13 @@ export GOPRIVATE=github.com/efficy-sa/*
 
 alias pass='gopass'
 
+# intellij
+
+idea() {
+  nohup intellij-idea-community-edition "$@" >/dev/null 2>&1 &
+  disown
+}
+
 # less
 
 export LESSHISTFILE=-
@@ -548,8 +555,8 @@ alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw 
 
 # maven
 
-export MAVEN_ARGS="--settings $XDG_CONFIG_HOME/maven/settings.xml" # zed uses userSettings in ~/.config/zed/settings.json instead
-export MAVEN_OPTS="-Dmaven.repo.local=$XDG_CACHE_HOME/maven/repository" # zed uses localRepository in ~/.config/maven/settings.xml instead
+export MAVEN_ARGS="--settings $XDG_CONFIG_HOME/maven/settings.xml"
+export MAVEN_OPTS="-Dmaven.repo.local=$XDG_CACHE_HOME/maven/repository"
 
 # mpv
 

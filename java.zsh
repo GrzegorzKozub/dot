@@ -6,12 +6,18 @@ set -e -o verbose
 
 pushd `dirname $0`
 
-git update-index --assume-unchanged maven/maven/settings.xml
+for ITEM (
+  'intellij/JetBrains/IdeaIC2025.2/idea64.vmoptions'
+  'intellij/JetBrains/IdeaIC2025.2/options/project.default.xml'
+  'maven/maven/settings.xml'
+)
+  git update-index --assume-unchanged $ITEM
 
 popd
 
 # links
 
 stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
+  intellij \
   maven
 
