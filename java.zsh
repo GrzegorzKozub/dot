@@ -13,7 +13,6 @@ for ITEM (
   'intellij/JetBrains/IdeaIC2025.2/options/ide.general.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/project.default.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/trusted-paths.xml'
-  'intellij/JetBrains/IdeaIC2025.2/options/window.state.xml'
   'maven/maven/settings.xml'
 )
   git update-index --assume-unchanged $ITEM
