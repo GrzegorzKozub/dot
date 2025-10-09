@@ -4,30 +4,10 @@
       <component name="MavenImportPreferences">
         <option name="generalSettings">
           <MavenGeneralSettings>
-            <option name="localRepository" value="$USER_HOME$/.cache/maven/repository" />
-            <option name="userSettingsFile" value="$USER_HOME$/.config/maven/settings.xml" />
+            <option name="localRepository" value="/home/greg/.cache/maven/repository"></option>
+            <option name="userSettingsFile" value="/home/greg/.config/maven/settings.xml"></option>
           </MavenGeneralSettings>
         </option>
-      </component>
-      <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "settings.editor.selected.configurable": "advanced.settings"
-  }
-}]]></component>
-      <component name="TaskManager">
-        <task active="true" id="Default" summary="Default task">
-          <created>1760004796108</created>
-          <option name="number" value="Default" />
-          <option name="presentableId" value="Default" />
-          <updated>1760004796108</updated>
-        </task>
-        <servers />
-      </component>
-      <component name="WindowStateProjectService">
-        <state x="0" y="0" key="SettingsEditor" timestamp="1760004876652">
-          <screen x="0" y="0" width="3840" height="2160" />
-        </state>
-        <state x="0" y="0" key="SettingsEditor/3840.0.3840.2160/0.0.3840.2160" timestamp="1760004876652" />
       </component>
     </defaultProject>
   </component>
