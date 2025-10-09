@@ -15,13 +15,3 @@ popd
 stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   maven
 
-# vscode
-
-for EXTENSION in \
-  Oracle.oracle-java
-do
-  code --install-extension $EXTENSION --force
-done
-
-  # redhat.java
-

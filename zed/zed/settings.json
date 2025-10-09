@@ -14,7 +14,6 @@
     "git-firefly": true,
     "golangci-lint": true,
     "html": true,
-    "java": true,
     "lua": true,
     "sql": true,
     "symbols": true,
@@ -113,17 +112,6 @@
           "functionTypeParameters": true,
           "parameterNames": true,
           "rangeVariableTypes": true
-        }
-      }
-    },
-    "jdtls": {
-      "initialization_options": {
-        "settings": {
-          "java": {
-            "configuration": {
-              "maven": { "userSettings": "~/.config/maven/settings.xml" }
-            }
-          }
         }
       }
     },
