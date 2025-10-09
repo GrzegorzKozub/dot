@@ -26,3 +26,10 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   intellij \
   maven
 
+# intellij
+
+intellij-idea-community-edition installPlugins \
+  cucumber-java \
+  gherkin \
+  JUnit
+
