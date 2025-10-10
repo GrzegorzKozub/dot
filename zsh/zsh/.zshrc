@@ -433,11 +433,18 @@ typeset -U ZSH_AUTOSUGGEST_STRATEGY && ZSH_AUTOSUGGEST_STRATEGY=(history complet
 zsh-defer zinit ice lucid depth=1
 zsh-defer zinit light zsh-users/zsh-autosuggestions
 
+# ansible
+
+export ANSIBLE_HOME=$XDG_CONFIG_HOME/ansible
+export ANSIBLE_CONFIG=$XDG_CONFIG_HOME/ansible/ansible.cfg
+
+export ANSIBLE_LOCAL_TEMP=$XDG_CACHE_HOME/ansible/tmp
+
 # aws
 
 export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws/config
 export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials
-export AWS_PROFILE=apsis-waw-stage
+export AWS_PROFILE=au_stage
 export AWS_SDK_LOAD_CONFIG=1
 
 export SAM_CLI_TELEMETRY=0
