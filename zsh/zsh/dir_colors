@@ -20,6 +20,7 @@ STICKY 36
 EXEC 32
 
 .AppImage 32
+.flatpak 32
 
 # .nu 32
 # .sh 32
@@ -29,6 +30,9 @@ EXEC 32
 # .cmd 32
 # .exe 32
 # .ps1 32
+
+.deb 33
+.rpm 33
 
 .7z 33
 .gz 33
