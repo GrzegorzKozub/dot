@@ -174,7 +174,6 @@ done
   # github.copilot \
   # github.copilot-chat \
   # jakebecker.elixir-ls \
-  # ms-vscode-remote.remote-containers \
   # vadimcn.vscode-lldb \
 
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
