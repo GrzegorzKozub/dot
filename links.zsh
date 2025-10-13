@@ -38,6 +38,7 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
 
   stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
+    ansible \
     teams-for-linux
 
 fi
