@@ -61,6 +61,7 @@ EXEC 32
 .mp4 35
 .webm 35
 
+.classpath 37
 .dockerignore 37
 .editorconfig 37
 .env 37
@@ -68,6 +69,7 @@ EXEC 32
 .eslintrc 37
 .eslintrc.js 37
 .eslintrc.json 37
+.factorypath 37
 .git 37
 .gitattributes 37
 .gitignore 37
@@ -80,6 +82,7 @@ EXEC 32
 .nvmrc 37
 .prettierignore 37
 .prettierrc 37
+.project 37
 .pylintrc 37
 .stylua.toml 37
 .taplo.toml 37
