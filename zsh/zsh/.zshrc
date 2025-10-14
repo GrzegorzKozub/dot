@@ -677,7 +677,7 @@ zsh-defer eval "$(zoxide init --cmd cd zsh)"
 
 # tmux
 
-if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ -z $TMUX ]]; then
+if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $TMUX ]]; then
   tmux has-session -t 0 2> /dev/null
   if [[ $? = 0 ]]; then
     if [[ $(tmux list-clients -f '#{==:#{client_session},0}' 2> /dev/null) ]]; then
