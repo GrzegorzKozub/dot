@@ -121,7 +121,7 @@ fi
 
 # rust
 
-path=( $XDG_DATA_HOME/cargo/bin $path[@])
+path=($XDG_DATA_HOME/cargo/bin $path[@])
 
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup

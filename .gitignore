@@ -1,6 +1,7 @@
 ansible/ansible/vault
 btop/btop/btop.log
 cava/cava/shaders
+cava/cava/themes
 ghostty/ghostty/shaders
 tidal_dl_ng/tidal_dl_ng/token.json
 zsh/zsh/.zcompdump
