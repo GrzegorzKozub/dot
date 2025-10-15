@@ -1,10 +1,11 @@
 [general]
-output-filename = "/home/greg/Downloads/Shot %b %0d %H:%M:%S.png"
 early-exit = true
 corner-roundness = 8
 initial-tool = "rectangle"
 copy-command = "wl-copy"
 annotation-size-factor = 0.5
+output-filename = "~/Pictures/Screenshots/Screenshot From %Y-%m-%d %H-%M-%S.png"
+save-after-copy = true
 
 [font]
 family = "DejaVu Sans Condensed"
