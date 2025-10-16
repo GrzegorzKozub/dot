@@ -47,13 +47,15 @@
   "languages": {
     "Go": { "language_servers": ["gopls", "golangci-lint"] },
     "JavaScript": {
-      "code_actions_on_format": { "source.organizeImports": true },
-      "formatter": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
-        }
-      }
+      "formatter": [
+        {
+          "external": {
+            "command": "prettier",
+            "arguments": ["--stdin-filepath", "{buffer_path}"]
+          }
+        },
+        { "code_action": "source.organizeImports" }
+      ]
     },
     "Lua": {
       "formatter": {
@@ -80,13 +82,15 @@
       }
     },
     "TypeScript": {
-      "code_actions_on_format": { "source.organizeImports": true },
-      "formatter": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
-        }
-      }
+      "formatter": [
+        {
+          "external": {
+            "command": "prettier",
+            "arguments": ["--stdin-filepath", "{buffer_path}"]
+          }
+        },
+        { "code_action": "source.organizeImports" }
+      ]
     }
   },
   "lsp": {
