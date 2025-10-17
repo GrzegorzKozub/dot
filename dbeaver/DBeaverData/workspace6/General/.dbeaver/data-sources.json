@@ -1,138 +1,544 @@
 {
-	"folders": {},
-	"connections": {
-		"mysql8-18c8b42ad69-6f5bf4cfc214d7e1": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "au-stage-writer",
-			"configuration": {
-				"host": "localhost",
-				"port": "3307",
-				"url": "jdbc:mysql://localhost:3307/",
-				"configurationType": "MANUAL",
-				"type": "dev",
-				"auth-model": "native"
-			}
-		},
-		"mysql8-18c8b5b8b21-582dbcb1d92fb9d2": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "au-stage-reader",
-			"read-only": true,
-			"configuration": {
-				"host": "localhost",
-				"port": "3308",
-				"url": "jdbc:mysql://localhost:3308/",
-				"configurationType": "MANUAL",
-				"type": "dev",
-				"auth-model": "native"
-			}
-		},
-		"mysql8-18c8b5e377b-4c77553226de6305": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "localhost",
-			"configuration": {
-				"host": "localhost",
-				"port": "3306",
-				"url": "jdbc:mysql://localhost:3306/",
-				"configurationType": "MANUAL",
-				"type": "dev",
-				"auth-model": "native"
-			}
-		},
+  "folders": {},
+  "connections": {
+    "mysql8-18c8b5ebbac-5c0ca74f3f947349": {
+      "provider": "mysql",
+      "driver": "mysql8",
+      "name": "audb-beta-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "localhost",
+        "port": "3311",
+        "database": "audb",
+        "url": "jdbc:mysql://localhost:3311/audb",
+        "configurationType": "MANUAL",
+        "type": "test",
+        "closeIdleConnection": false,
+        "provider-properties": {
+          "@dbeaver-show-all-dbs@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
     "mysql8-190c50f474a-9dfdb1d5d3babad": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "au-beta-writer",
-			"configuration": {
-				"host": "localhost",
-				"port": "3312",
-				"url": "jdbc:mysql://localhost:3312/",
-				"configurationType": "MANUAL",
-				"type": "test",
-				"auth-model": "native"
-			}
-		},
-		"mysql8-18c8b5ebbac-5c0ca74f3f947349": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "au-beta-reader",
-			"read-only": true,
-			"configuration": {
-				"host": "localhost",
-				"port": "3311",
-				"url": "jdbc:mysql://localhost:3311/",
-				"configurationType": "MANUAL",
-				"type": "test",
-				"auth-model": "native"
-			}
-		},
-		"mysql8-18c8b604822-52eb84778e11c061": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "au-prod-reader",
-			"read-only": true,
-			"configuration": {
-				"host": "localhost",
-				"port": "3309",
-				"url": "jdbc:mysql://localhost:3309/",
-				"configurationType": "MANUAL",
-				"type": "prod",
-				"auth-model": "native"
-			}
-		},
-		"mysql8-18c8b610267-71430e3b3ff5beea": {
-			"provider": "mysql",
-			"driver": "mysql8",
-			"name": "au-prod-apac-reader",
-			"read-only": true,
-			"configuration": {
-				"host": "localhost",
-				"port": "3310",
-				"url": "jdbc:mysql://localhost:3310/",
-				"configurationType": "MANUAL",
-				"type": "prod",
-				"auth-model": "native"
-			}
-		}
-	},
-	"connection-types": {
-		"dev": {
-			"name": "Development",
-			"color": "255,255,255",
-			"description": "Regular development database",
-			"auto-commit": true,
-			"confirm-execute": false,
-			"confirm-data-change": false,
-			"smart-commit": false,
-			"smart-commit-recover": false,
-			"auto-close-transactions": true,
-			"close-transactions-period": 1800
-		},
-		"test": {
-			"name": "Test",
-			"color": "org.jkiss.dbeaver.color.connectionType.qa.background",
-			"description": "Test (QA) database",
-			"auto-commit": true,
-			"confirm-execute": false,
-			"confirm-data-change": true,
-			"smart-commit": false,
-			"smart-commit-recover": false,
-			"auto-close-transactions": true,
-			"close-transactions-period": 1800
-		},
-		"prod": {
-			"name": "Production",
-			"color": "org.jkiss.dbeaver.color.connectionType.prod.background",
-			"description": "Production database",
-			"auto-commit": false,
-			"confirm-execute": true,
-			"confirm-data-change": true,
-			"smart-commit": false,
-			"smart-commit-recover": false,
-			"auto-close-transactions": true,
-			"close-transactions-period": 600
-		}
-	}
+      "provider": "mysql",
+      "driver": "mysql8",
+      "name": "audb-beta-writer",
+      "configuration": {
+        "host": "localhost",
+        "port": "3312",
+        "database": "audb",
+        "url": "jdbc:mysql://localhost:3312/audb",
+        "configurationType": "MANUAL",
+        "type": "test",
+        "closeIdleConnection": false,
+        "provider-properties": {
+          "@dbeaver-show-all-dbs@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "mysql8-18c8b610267-71430e3b3ff5beea": {
+      "provider": "mysql",
+      "driver": "mysql8",
+      "name": "audb-prod-apac-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "localhost",
+        "port": "3310",
+        "database": "audb",
+        "url": "jdbc:mysql://localhost:3310/audb",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": false,
+        "provider-properties": {
+          "@dbeaver-show-all-dbs@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "mysql8-18c8b604822-52eb84778e11c061": {
+      "provider": "mysql",
+      "driver": "mysql8",
+      "name": "audb-prod-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "localhost",
+        "port": "3309",
+        "database": "audb",
+        "url": "jdbc:mysql://localhost:3309/audb",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": false,
+        "provider-properties": {
+          "@dbeaver-show-all-dbs@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "mysql8-18c8b5b8b21-582dbcb1d92fb9d2": {
+      "provider": "mysql",
+      "driver": "mysql8",
+      "name": "audb-stage-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "localhost",
+        "port": "3308",
+        "database": "audb",
+        "url": "jdbc:mysql://localhost:3308/audb",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "provider-properties": {
+          "@dbeaver-show-all-dbs@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "mysql8-18c8b42ad69-6f5bf4cfc214d7e1": {
+      "provider": "mysql",
+      "driver": "mysql8",
+      "name": "audb-stage-writer",
+      "configuration": {
+        "host": "localhost",
+        "port": "3307",
+        "database": "audb",
+        "url": "jdbc:mysql://localhost:3307/audb",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": false,
+        "provider-properties": {
+          "@dbeaver-show-all-dbs@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b7bb2-ae461706f5cf279": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "consent2-beta-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-consent-2-v1-dbcluster-d34ndc7cwbml.cluster-ro-czg1c0otznkg.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "consent_2_db",
+        "url": "jdbc:postgresql://rds5-consent-2-v1-dbcluster-d34ndc7cwbml.cluster-ro-czg1c0otznkg.eu-west-1.rds.amazonaws.com:5432/consent_2_db",
+        "configurationType": "MANUAL",
+        "type": "test",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b6a7b-692d18207ae38d44": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "consent2-prod-apac-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-consent-2-v1-dbcluster-cvzdve1otwzb.cluster-ro-cjbzcdbuscd3.ap-southeast-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "consent_2_db",
+        "url": "jdbc:postgresql://rds5-consent-2-v1-dbcluster-cvzdve1otwzb.cluster-ro-cjbzcdbuscd3.ap-southeast-1.rds.amazonaws.com:5432/consent_2_db",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b215a-53ca8038e68a75af": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "consent2-prod-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-consent-2-v1-dbcluster-4dqy88c2fdeu.cluster-ro-cwpyledxmnq1.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "consent_2_db",
+        "url": "jdbc:postgresql://rds5-consent-2-v1-dbcluster-4dqy88c2fdeu.cluster-ro-cwpyledxmnq1.eu-west-1.rds.amazonaws.com:5432/consent_2_db",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f16a2595-473f6033da7fa087": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "consent2-stage-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-consent-2-v1-dbcluster-omt7ebo5ae0i.cluster-ro-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "consent_2_db",
+        "url": "jdbc:postgresql://rds5-consent-2-v1-dbcluster-omt7ebo5ae0i.cluster-ro-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com:5432/consent_2_db",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f16a17b4-539f678d81ef3606": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "consent2-stage-writer",
+      "configuration": {
+        "host": "rds5-consent-2-v1-dbcluster-omt7ebo5ae0i.cluster-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "consent_2_db",
+        "url": "jdbc:postgresql://rds5-consent-2-v1-dbcluster-omt7ebo5ae0i.cluster-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com:5432/consent_2_db",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b31de-1c1f63282f71f17c": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "folder-beta-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-folder-v1-dbcluster-eqrvwis8ebfu.cluster-ro-czg1c0otznkg.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "folderdb",
+        "url": "jdbc:postgresql://rds5-folder-v1-dbcluster-eqrvwis8ebfu.cluster-ro-czg1c0otznkg.eu-west-1.rds.amazonaws.com:5432/folderdb",
+        "configurationType": "MANUAL",
+        "type": "test",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b628c-60ded56a5b8a445f": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "folder-prod-apac-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-folder-v1-dbcluster-sny7v7kkhtlc.cluster-ro-cjbzcdbuscd3.ap-southeast-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "folderdb",
+        "url": "jdbc:postgresql://rds5-folder-v1-dbcluster-sny7v7kkhtlc.cluster-ro-cjbzcdbuscd3.ap-southeast-1.rds.amazonaws.com:5432/folderdb",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b47e2-75aadeab91304c0": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "folder-prod-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-folder-v1-dbcluster-7ducptnlvf3f.cluster-ro-cwpyledxmnq1.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "folderdb",
+        "url": "jdbc:postgresql://rds5-folder-v1-dbcluster-7ducptnlvf3f.cluster-ro-cwpyledxmnq1.eu-west-1.rds.amazonaws.com:5432/folderdb",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f163d28c-414ec420e76e2cb0": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "folder-stage-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-folder-v1-dbcluster-0xyuiyuajefk.cluster-ro-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "folderdb",
+        "url": "jdbc:postgresql://rds5-folder-v1-dbcluster-0xyuiyuajefk.cluster-ro-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com:5432/folderdb",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f163e669-c297cec119187c4": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "folder-stage-writer",
+      "configuration": {
+        "host": "rds5-folder-v1-dbcluster-0xyuiyuajefk.cluster-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "folderdb",
+        "url": "jdbc:postgresql://rds5-folder-v1-dbcluster-0xyuiyuajefk.cluster-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com:5432/folderdb",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b51a5-6edd171e86c43007": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "lagometer-beta-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-lagometer-v1-dbcluster-1ltxhyodeyc4.cluster-ro-czg1c0otznkg.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "lagometer_db",
+        "url": "jdbc:postgresql://rds5-lagometer-v1-dbcluster-1ltxhyodeyc4.cluster-ro-czg1c0otznkg.eu-west-1.rds.amazonaws.com:5432/lagometer_db",
+        "configurationType": "MANUAL",
+        "type": "test",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b3e16-5312dafcf31c9f89": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "lagometer-prod-apac-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-lagometer-v1-dbcluster-fpcr6wkhmtud.cluster-ro-cjbzcdbuscd3.ap-southeast-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "lagometer_db",
+        "url": "jdbc:postgresql://rds5-lagometer-v1-dbcluster-fpcr6wkhmtud.cluster-ro-cjbzcdbuscd3.ap-southeast-1.rds.amazonaws.com:5432/lagometer_db",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b5997-2301a8572fbf544a": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "lagometer-prod-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-lagometer-v2-dbcluster-fo3kj7csfknp.cluster-ro-cwpyledxmnq1.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "lagometer_db",
+        "url": "jdbc:postgresql://rds5-lagometer-v2-dbcluster-fo3kj7csfknp.cluster-ro-cwpyledxmnq1.eu-west-1.rds.amazonaws.com:5432/lagometer_db",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f128d8c4-1e583931e5fbdd1a": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "lagometer-stage-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-lagometer-v2-dbcluster-edxpnw7ziixl.cluster-ro-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "lagometer_db",
+        "url": "jdbc:postgresql://rds5-lagometer-v2-dbcluster-edxpnw7ziixl.cluster-ro-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com:5432/lagometer_db",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f12817d3-3fdb34a4c789074e": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "lagometer-stage-writer",
+      "configuration": {
+        "host": "rds5-lagometer-v2-dbcluster-edxpnw7ziixl.cluster-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "lagometer_db",
+        "url": "jdbc:postgresql://rds5-lagometer-v2-dbcluster-edxpnw7ziixl.cluster-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com:5432/lagometer_db",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "mysql8-18c8b5e377b-4c77553226de6305": {
+      "provider": "mysql",
+      "driver": "mysql8",
+      "name": "localhost",
+      "configuration": {
+        "host": "localhost",
+        "port": "3306",
+        "url": "jdbc:mysql://localhost:3306/",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b7436-538c5837e6af07d6": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "meta-beta-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-meta-v1-dbcluster-9kospbt9c8cr.cluster-ro-czg1c0otznkg.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "metadb",
+        "url": "jdbc:postgresql://rds5-meta-v1-dbcluster-9kospbt9c8cr.cluster-ro-czg1c0otznkg.eu-west-1.rds.amazonaws.com:5432/metadb",
+        "configurationType": "MANUAL",
+        "type": "test",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f1928659-33b309bda56b71d4": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "meta-prod-apac-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-meta-v1-dbcluster-giyw48ckwywe.cluster-ro-cjbzcdbuscd3.ap-southeast-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "metadb",
+        "url": "jdbc:postgresql://rds5-meta-v1-dbcluster-giyw48ckwywe.cluster-ro-cjbzcdbuscd3.ap-southeast-1.rds.amazonaws.com:5432/metadb",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f17b850c-5629bcc9b89e3c7b": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "meta-prod-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-meta-v1-dbcluster-wyidnn5ojmsv.cluster-ro-cwpyledxmnq1.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "metadb",
+        "url": "jdbc:postgresql://rds5-meta-v1-dbcluster-wyidnn5ojmsv.cluster-ro-cwpyledxmnq1.eu-west-1.rds.amazonaws.com:5432/metadb",
+        "configurationType": "MANUAL",
+        "type": "prod",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199e7472d11-34b7c9679662357e": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "meta-stage-reader",
+      "read-only": true,
+      "configuration": {
+        "host": "rds5-meta-v1-dbcluster-ivtsuww2ktzn.cluster-ro-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "metadb",
+        "url": "jdbc:postgresql://rds5-meta-v1-dbcluster-ivtsuww2ktzn.cluster-ro-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com:5432/metadb",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
+    "postgres-jdbc-199f121f258-587d8ff0fe318b29": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "meta-stage-writer",
+      "configuration": {
+        "host": "rds5-meta-v1-dbcluster-ivtsuww2ktzn.cluster-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com",
+        "port": "5432",
+        "database": "metadb",
+        "url": "jdbc:postgresql://rds5-meta-v1-dbcluster-ivtsuww2ktzn.cluster-cu9o8bsraw4x.eu-west-1.rds.amazonaws.com:5432/metadb",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    }
+  },
+  "connection-types": {
+    "dev": {
+      "name": "Development",
+      "color": "255,255,255",
+      "description": "Regular development database",
+      "auto-commit": true,
+      "confirm-execute": false,
+      "confirm-data-change": false,
+      "smart-commit": false,
+      "smart-commit-recover": false,
+      "auto-close-transactions": true,
+      "close-transactions-period": 1800
+    },
+    "test": {
+      "name": "Test",
+      "color": "org.jkiss.dbeaver.color.connectionType.qa.background",
+      "description": "Test (QA) database",
+      "auto-commit": true,
+      "confirm-execute": false,
+      "confirm-data-change": true,
+      "smart-commit": false,
+      "smart-commit-recover": false,
+      "auto-close-transactions": true,
+      "close-transactions-period": 1800
+    },
+    "prod": {
+      "name": "Production",
+      "color": "org.jkiss.dbeaver.color.connectionType.prod.background",
+      "description": "Production database",
+      "auto-commit": false,
+      "confirm-execute": true,
+      "confirm-data-change": true,
+      "smart-commit": false,
+      "smart-commit-recover": false,
+      "auto-close-transactions": true,
+      "close-transactions-period": 600
+    }
+  }
 }
