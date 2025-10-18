@@ -642,6 +642,10 @@ if [[ -a $commands[cargo] ]]; then
   zsh-defer compdef _my-compdef-cargo cargo
 fi
 
+# tex
+
+export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
+
 # vscode
 
 alias c='code . 2> /dev/null'
