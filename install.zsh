@@ -185,6 +185,7 @@ if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
     ms-dotnettools.csdevkit \
     ms-dotnettools.csharp \
     ms-dotnettools.vscode-dotnet-runtime \
+    redhat.java \
     redhat.vscode-yaml
   do
     code --install-extension $EXTENSION --force
