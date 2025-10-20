@@ -444,9 +444,11 @@ export ANSIBLE_LOCAL_TEMP=$XDG_CACHE_HOME/ansible/tmp
 # aws
 
 export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws/config
-export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials
-export AWS_PROFILE=au_stage
 export AWS_SDK_LOAD_CONFIG=1
+
+export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials
+
+export AWS_PROFILE=au_stage
 
 export SAM_CLI_TELEMETRY=0
 
