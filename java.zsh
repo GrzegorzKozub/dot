@@ -16,7 +16,7 @@ for ITEM (
   'intellij/JetBrains/IdeaIC2025.2/options/laf.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/project.default.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/trusted-paths.xml'
-  'maven/.m2/settings.xml'
+  'maven/maven/settings.xml'
 )
   git update-index --assume-unchanged $ITEM
 
@@ -25,9 +25,7 @@ popd
 # links
 
 stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
-  intellij
-
-stow --dir=`dirname $0` --target=$HOME --stow \
+  intellij \
   maven
 
 # intellij

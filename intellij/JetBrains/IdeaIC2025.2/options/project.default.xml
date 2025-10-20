@@ -3,7 +3,10 @@
     <defaultProject>
       <component name="MavenImportPreferences">
         <option name="generalSettings">
-          <MavenGeneralSettings><!-- <option name="localRepository" value="/home/greg/.cache/maven/repository"></option> --><!-- <option name="userSettingsFile" value="/home/greg/.config/maven/settings.xml"></option> --></MavenGeneralSettings>
+          <MavenGeneralSettings>
+            <option name="localRepository" value="/home/greg/.cache/maven/repository"></option>
+            <option name="userSettingsFile" value="/home/greg/.config/maven/settings.xml"></option>
+          </MavenGeneralSettings>
         </option>
       </component>
     </defaultProject>
