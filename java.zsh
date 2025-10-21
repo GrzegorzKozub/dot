@@ -14,8 +14,11 @@ for ITEM (
   'intellij/JetBrains/IdeaIC2025.2/options/ide.general.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/jdk.table.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/laf.xml'
+  'intellij/JetBrains/IdeaIC2025.2/options/notifications.xml'
+  'intellij/JetBrains/IdeaIC2025.2/options/other.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/project.default.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/trusted-paths.xml'
+  'intellij/JetBrains/IdeaIC2025.2/options/ui.lnf.xml'
   'maven/maven/settings.xml'
 )
   git update-index --assume-unchanged $ITEM
@@ -41,6 +44,7 @@ CACHE=/run/media/$USER/data/.cache
 # intellij
 
 intellij-idea-community-edition installPlugins \
+  com.intellij.plugins.vscodekeymap \
   cucumber-java \
   gherkin \
   JUnit

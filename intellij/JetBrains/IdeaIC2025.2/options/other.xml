@@ -1,0 +1,26 @@
+<application>
+  <component name="PropertyService"><![CDATA[{
+  "keyToString": {
+    "FileColorsEnabled": "false",
+    "NextRunPlatformUpdateBuild": "IC-252.26830.84",
+    "NextRunPlatformUpdateSelfBuild": "IC-252.26199.169",
+    "NextRunPlatformUpdateVersion": "2025.2.3",
+    "experimental.ui.on.first.startup": "true",
+    "experimental.ui.used.version": "252.26199.169",
+    "fileTypeChangedCounter": "1",
+    "fontSizeToResetConsole": "14.0",
+    "fontSizeToResetEditor": "14.0",
+    "got.it.tooltip.settings.sync.in.settings": "1",
+    "idea.islands.enabled": "true",
+    "input.method.disabler.muted": "true",
+    "previousColorScheme": "_@user_Light",
+    "registry.to.advanced.settings.migration.build": "IC-252.26199.169"
+  },
+  "keyToStringList": {
+    "fileTypeDetectors": [
+      "com.intellij.ide.scratch.ScratchFileServiceImpl$Detector",
+      "org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector"
+    ]
+  }
+}]]></component>
+</application>
