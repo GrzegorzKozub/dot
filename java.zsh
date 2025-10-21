@@ -11,6 +11,7 @@ for ITEM (
   'intellij/JetBrains/IdeaIC2025.2/idea64.vmoptions'
   'intellij/JetBrains/IdeaIC2025.2/options/colors.scheme.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/editor-font.xml'
+  'intellij/JetBrains/IdeaIC2025.2/options/editor.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/ide.general.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/jdk.table.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/laf.xml'
