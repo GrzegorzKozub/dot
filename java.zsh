@@ -15,6 +15,7 @@ for ITEM (
   'intellij/JetBrains/IdeaIC2025.2/options/ide.general.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/jdk.table.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/laf.xml'
+  'intellij/JetBrains/IdeaIC2025.2/options/linux/keymap.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/notifications.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/other.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/project.default.xml'
