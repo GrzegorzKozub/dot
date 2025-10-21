@@ -28,6 +28,16 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   intellij \
   maven
 
+CACHE=/run/media/$USER/data/.cache
+[[ -d $CACHE ]] || {
+  sudo mkdir $CACHE
+  sudo chown $USER $CACHE
+  sudo chgrp users $CACHE
+}
+
+[[ -d $CACHE/maven ]] || mkdir $CACHE/maven
+[[ -L $XDG_CACHE_HOME/maven ]] || ln -s $CACHE/maven $XDG_CACHE_HOME/maven
+
 # intellij
 
 intellij-idea-community-edition installPlugins \
