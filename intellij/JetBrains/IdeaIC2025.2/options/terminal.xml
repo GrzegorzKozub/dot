@@ -1,0 +1,7 @@
+<application>
+  <component name="TerminalOptionsProvider">
+    <option name="cursorShape" value="VERTICAL" />
+    <option name="myShellIntegration" value="false" />
+    <option name="mySoundBell" value="false" />
+  </component>
+</application>

@@ -1,6 +1,7 @@
 <application>
   <component name="GeneralSettings">
     <option name="reopenLastProject" value="false"></option>
+    <option name="autoSaveFiles" value="false"></option>
     <option name="confirmExit" value="false"></option>
     <option name="confirmOpenNewProject2" value="0"></option>
   </component>

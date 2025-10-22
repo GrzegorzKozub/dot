@@ -1,5 +1,9 @@
 <application>
   <component name="UISettings">
     <option name="compactTreeIndents" value="true"></option>
+    <option name="CONSOLE_COMMAND_HISTORY_LIMIT" value="1000"></option>
+    <option name="EDITOR_TAB_LIMIT" value="32"></option>
+    <option name="MARK_MODIFIED_TABS_WITH_ASTERISK" value="true"></option>
+    <option name="OPEN_IN_PREVIEW_TAB_IF_POSSIBLE" value="true"></option>
   </component>
 </application>

@@ -7,8 +7,10 @@ set -e -o verbose
 pushd `dirname $0`
 
 for ITEM (
+  'intellij/JetBrains/IdeaIC2025.2/codestyles/Default.xml'
   'intellij/JetBrains/IdeaIC2025.2/early-access-registry.txt'
   'intellij/JetBrains/IdeaIC2025.2/idea64.vmoptions'
+  'intellij/JetBrains/IdeaIC2025.2/options/advancedSettings.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/colors.scheme.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/editor-font.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/editor.xml'
@@ -19,6 +21,7 @@ for ITEM (
   'intellij/JetBrains/IdeaIC2025.2/options/notifications.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/other.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/project.default.xml'
+  'intellij/JetBrains/IdeaIC2025.2/options/terminal.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/trusted-paths.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/ui.lnf.xml'
   'maven/maven/settings.xml'
