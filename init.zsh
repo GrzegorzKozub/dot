@@ -10,7 +10,6 @@ git submodule update --init
 git submodule foreach --recursive git checkout master
 
 git update-index --assume-unchanged btop/btop/btop.conf
-git update-index --assume-unchanged rclone/rclone/rclone.conf
 
 [[ $SWITCHED = 1 ]] && popd
 
