@@ -12,7 +12,7 @@ theme[title]="#928374" # grey1
 
 theme[graph_text]="#665c54" # bg5
 
-theme[selected_bg]="#00000000"
+theme[selected_bg]="#32302f" # bg0
 theme[selected_fg]="#b47109" # term_orange
 
 theme[inactive_fg]="#3c3836" # bg1
