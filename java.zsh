@@ -51,6 +51,5 @@ CACHE=/run/media/$USER/data/.cache
 intellij-idea-community-edition installPlugins \
   com.intellij.plugins.vscodekeymap \
   cucumber-java \
-  gherkin \
-  JUnit
+  gherkin
 
