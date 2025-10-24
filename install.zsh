@@ -171,8 +171,6 @@ do
   code --install-extension $EXTENSION --force
 done
 
-  # github.copilot \
-  # github.copilot-chat \
   # jakebecker.elixir-ls \
   # vadimcn.vscode-lldb \
 
@@ -181,6 +179,8 @@ if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
   for EXTENSION in \
     bierner.markdown-mermaid \
     cucumberopen.cucumber-official \
+    github.copilot \
+    github.copilot-chat \
     kddejong.vscode-cfn-lint \
     ms-dotnettools.csdevkit \
     ms-dotnettools.csharp \
