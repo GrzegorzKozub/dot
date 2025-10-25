@@ -79,6 +79,9 @@ fi
 
 pipx upgrade-all
 
+pipx upgrade --pip-args='--ignore-requires-python' \
+  tidal-dl-ng
+
 # rust
 
 rustup update

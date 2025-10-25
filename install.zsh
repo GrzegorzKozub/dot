@@ -108,7 +108,9 @@ npm install --global \
 
 pipx install \
   black isort \
-  lastversion \
+  lastversion
+
+pipx install --pip-args='--ignore-requires-python' \
   tidal-dl-ng
 
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
