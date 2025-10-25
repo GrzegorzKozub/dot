@@ -1,6 +1,9 @@
 [
   {
     "bindings": {
+      "ctrl-,": "zed::OpenSettingsFile",
+      "ctrl-alt-,": "zed::OpenSettings",
+
       "ctrl-o": "pane::GoBack",
 
       "ctrl-w": null
