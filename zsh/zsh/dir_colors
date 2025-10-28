@@ -61,6 +61,7 @@ EXEC 32
 .mp4 35
 .webm 35
 
+.SRCINFO 37
 .classpath 37
 .dockerignore 37
 .editorconfig 37
