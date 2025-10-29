@@ -557,6 +557,10 @@ idea() {
   disown
 }
 
+# java
+
+export _JAVA_OPTIONS=-Djavafx.cachedir="$XDG_CACHE_HOME/openjfx"
+
 # less
 
 export LESSHISTFILE=-
