@@ -559,7 +559,7 @@ idea() {
 
 # java
 
-export _JAVA_OPTIONS=-Djavafx.cachedir="$XDG_CACHE_HOME/openjfx"
+# export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_DATA_HOME/java -Djavafx.cachedir=$XDG_CACHE_HOME/openjfx"
 
 # less
 
