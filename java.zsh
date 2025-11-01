@@ -24,7 +24,6 @@ for ITEM (
   'intellij/JetBrains/IdeaIC2025.2/options/terminal.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/trusted-paths.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/ui.lnf.xml'
-  'maven/maven/settings.xml'
 )
   git update-index --assume-unchanged $ITEM
 
@@ -33,20 +32,9 @@ popd
 # links
 
 stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
-  intellij \
-  maven
+  intellij
 
-CACHE=/run/media/$USER/data/.cache
-[[ -d $CACHE ]] || {
-  sudo mkdir $CACHE
-  sudo chown $USER $CACHE
-  sudo chgrp users $CACHE
-}
-
-[[ -d $CACHE/maven ]] || mkdir $CACHE/maven
-[[ -L $XDG_CACHE_HOME/maven ]] || ln -s $CACHE/maven $XDG_CACHE_HOME/maven
-
-# intellij
+# plugins
 
 intellij-idea-community-edition installPlugins \
   com.intellij.plugins.vscodekeymap \
