@@ -24,6 +24,7 @@ for ITEM (
   'intellij/JetBrains/IdeaIC2025.2/options/terminal.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/trusted-paths.xml'
   'intellij/JetBrains/IdeaIC2025.2/options/ui.lnf.xml'
+  'intellij/JetBrains/IdeaIC2025.2/options/updates.xml'
 )
   git update-index --assume-unchanged $ITEM
 
