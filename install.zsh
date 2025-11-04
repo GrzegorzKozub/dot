@@ -106,19 +106,10 @@ npm install --global \
 
 # python
 
-pipx install \
-  black isort \
-  lastversion
-
-pipx install --pip-args='--ignore-requires-python' \
-  tidal-dl-ng
+for TOOL in black isort lastversion tidal-dl-ng; do uv tool install $TOOL; done
 
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
-
-  pipx install \
-    awscli-local \
-    cfn-lint
-
+  for TOOL in awscli-local cfn-lint; do uv tool install $TOOL; done
 fi
 
 # rust

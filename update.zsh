@@ -77,10 +77,7 @@ fi
 
 # python
 
-pipx upgrade-all
-
-pipx upgrade --pip-args='--ignore-requires-python' \
-  tidal-dl-ng
+uv tool upgrade --all
 
 # rust
 
