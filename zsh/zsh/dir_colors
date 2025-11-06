@@ -63,6 +63,7 @@ EXEC 32
 
 .SRCINFO 37
 .classpath 37
+.claude.json 37
 .dockerignore 37
 .editorconfig 37
 .env 37
@@ -88,6 +89,9 @@ EXEC 32
 .stylua.toml 37
 .taplo.toml 37
 .vscodeignore 37
+.zprofile 37
+.zshenv 37
+.zshrc 37
 
 .backup 90
 .bak 90
