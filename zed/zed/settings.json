@@ -1,8 +1,12 @@
 {
   "active_pane_modifiers": { "inactive_opacity": 0.7 },
   "agent": {
+    "default_profile": "write",
     "default_height": 256,
-    "default_model": { "provider": "zed.dev", "model": "claude-sonnet-4" },
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.5"
+    },
     "default_width": 512
   },
   "auto_install_extensions": {
