@@ -102,7 +102,7 @@ npm install --global \
   neovim \
   typescript
 
-  # @google/gemini-cli artillery autocannon mdpdf
+  # @anthropic-ai/claude-code @google/gemini-cli artillery autocannon mdpdf
 
 # python
 
