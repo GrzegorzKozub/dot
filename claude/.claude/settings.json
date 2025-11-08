@@ -6,6 +6,7 @@
       "Read(**/*.crt)",
       "Read(**/*.env)",
       "Read(**/*.key)",
+      "Read(**/*.ovpn)",
       "Read(**/*.pem)",
       "Read(**/*credentials)",
       "Read(**/*settings.xml)",

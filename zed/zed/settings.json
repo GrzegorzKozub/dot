@@ -32,7 +32,20 @@
   "current_line_highlight": "line",
   "cursor_blink": false,
   "edit_predictions": {
-    "disabled_globs": ["**/credentials", "**/*.ovpn"],
+    "disabled_globs": [
+      "**/*.*env",
+      "**/*.cert",
+      "**/*.crt",
+      "**/*.env",
+      "**/*.key",
+      "**/*.ovpn",
+      "**/*.pem",
+      "**/*credentials",
+      "**/*settings.xml",
+      "**/*vault",
+      "**/.secrets/**",
+      "**/keys/**"
+    ],
     "mode": "subtle"
   },
   "expand_excerpt_lines": 4,
@@ -190,6 +203,20 @@
     "indent_guides": { "show": "never" },
     "indent_size": 8
   },
+  "private_files": [
+    "**/*.*env",
+    "**/*.cert",
+    "**/*.crt",
+    "**/*.env",
+    "**/*.key",
+    "**/*.ovpn",
+    "**/*.pem",
+    "**/*credentials",
+    "**/*settings.xml",
+    "**/*vault",
+    "**/.secrets/**",
+    "**/keys/**"
+  ],
   "project_panel": {
     "default_width": 256,
     "indent_guides": { "show": "never" },
