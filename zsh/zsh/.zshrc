@@ -320,7 +320,7 @@ zsh-defer source /usr/share/fzf/key-bindings.zsh
 
 export FZF_DEFAULT_OPTS="
   --bind=ctrl-d:page-down,ctrl-u:page-up
-  --bind=ctrl-w:toggle-wrap
+  --bind=ctrl-r:toggle-raw,ctrl-w:toggle-wrap
   --bind 'ctrl-y:execute-silent(echo -n {} | wl-copy)+abort'
   --bind=shift-down:preview-page-down,shift-up:preview-page-up
   --bind=alt-shift-down:preview-down,alt-shift-up:preview-up
@@ -333,6 +333,7 @@ export FZF_DEFAULT_OPTS="
   --color border:bright-black,label:bright-black
   --color prompt:magenta,pointer:magenta,marker:magenta
   --color spinner:bright-black,header:bright-black
+  --color nomatch:bright-black
   --ellipsis '…'
   --gutter ' ' --gutter-raw ' '
   --height 50%
@@ -513,7 +514,7 @@ export FORGIT_GLO_FORMAT='%C(yellow)%h %C(auto)%s %C(cyan)%an %C(brightblack)%ar
 export FORGIT_FZF_DEFAULT_OPTS="
   --height 100%
   --preview-window='right:50%'
-  --bind 'alt-p:change-preview-window(down|hidden|)'
+  --bind 'ctrl-r:toggle-raw,alt-p:change-preview-window(down|hidden|)'
 "
 
 zsh-defer zinit ice lucid depth=1
