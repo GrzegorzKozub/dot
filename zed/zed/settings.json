@@ -83,13 +83,7 @@
         }
       }
     },
-    "Python": {
-      "formatter": [
-        { "external": { "command": "isort", "arguments": ["-"] } },
-        { "external": { "command": "black", "arguments": ["-"] } }
-      ],
-      "tab_size": 4
-    },
+    "Python": { "tab_size": 4 },
     "Rust": { "tab_size": 4 },
     "Shell Script": {
       "formatter": {
@@ -112,6 +106,11 @@
     }
   },
   "lsp": {
+    "basedpyright": {
+      "settings": {
+        "analysis": { "autoSearchPaths": true, "typeCheckingMode": "strict" }
+      }
+    },
     "golangci-lint": {
       "initialization_options": {
         "command": [
@@ -145,16 +144,6 @@
               "maven": { "userSettings": "~/.config/maven/settings.xml" }
             }
           }
-        }
-      }
-    },
-    "pyright": {
-      "settings": {
-        "python.analysis": {
-          "autoSearchPaths": true,
-          "diagnosticMode": "openFilesOnly",
-          "typeCheckingMode": "strict",
-          "useLibraryCodeForTypes": true
         }
       }
     },

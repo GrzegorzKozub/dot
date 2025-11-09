@@ -106,7 +106,7 @@ npm install --global \
 
 # python
 
-for TOOL in black isort lastversion tidal-dl-ng; do uv tool install $TOOL; done
+for TOOL in lastversion tidal-dl-ng; do uv tool install $TOOL; done
 
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
   for TOOL in awscli-local cfn-lint; do uv tool install $TOOL; done
@@ -150,10 +150,7 @@ for EXTENSION in \
   grzegorzkozub.gruvbox-material-flat \
   miguelsolorio.symbols \
   ms-azuretools.vscode-containers \
-  ms-python.black-formatter \
   ms-python.debugpy \
-  ms-python.isort \
-  ms-python.pylint \
   ms-python.python \
   ms-python.vscode-pylance \
   rust-lang.rust-analyzer \
