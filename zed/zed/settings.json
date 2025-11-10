@@ -106,11 +106,6 @@
     }
   },
   "lsp": {
-    "basedpyright": {
-      "settings": {
-        "analysis": { "autoSearchPaths": true, "typeCheckingMode": "strict" }
-      }
-    },
     "golangci-lint": {
       "initialization_options": {
         "command": [
