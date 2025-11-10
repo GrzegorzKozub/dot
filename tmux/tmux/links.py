@@ -24,9 +24,9 @@ content: str = subprocess.check_output(
         "-p",
         "-J",
         "-S",
-        f"{ - scroll }",
+        f"{-scroll}",
         "-E",
-        f"{ height - scroll - 1 }",
+        f"{height - scroll - 1}",
     ),
     text=True,
 )
