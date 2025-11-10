@@ -143,7 +143,9 @@ set +e
 
 for EXTENSION in \
   Catppuccin.catppuccin-vsc-icons \
+  charliermarsh.ruff \
   dbaeumer.vscode-eslint \
+  detachhead.basedpyright \
   editorconfig.editorconfig \
   esbenp.prettier-vscode \
   golang.go \
@@ -152,7 +154,6 @@ for EXTENSION in \
   ms-azuretools.vscode-containers \
   ms-python.debugpy \
   ms-python.python \
-  ms-python.vscode-pylance \
   rust-lang.rust-analyzer \
   streetsidesoftware.code-spell-checker \
   sumneko.lua \
