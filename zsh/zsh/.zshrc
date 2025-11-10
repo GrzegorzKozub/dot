@@ -624,6 +624,8 @@ zsh-defer source /usr/share/doc/pkgfile/command-not-found.zsh
 
 export PYLINTHOME=$XDG_CACHE_HOME/pylint
 
+export RUFF_CACHE_DIR=$XDG_CACHE_HOME/ruff
+
 # ripgrep
 
 export RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgrep/ripgreprc
