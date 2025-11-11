@@ -97,6 +97,7 @@ code --update-extensions
 set +e
 
 for EXTENSION in \
+  ms-python.vscode-pylance \
   ms-python.vscode-python-envs
 do
   code --uninstall-extension $EXTENSION --force
