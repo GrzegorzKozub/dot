@@ -230,7 +230,7 @@
             "font_weight": 600
           },
           "enum": {
-            "color": "#ff0000",
+            "color": "#7daea3",
             "font_style": null,
             "font_weight": null
           },
@@ -240,7 +240,7 @@
             "font_weight": null
           },
           "hint": {
-            "color": "#ff0000",
+            "color": "#5a524c",
             "font_style": null,
             "font_weight": null
           },
@@ -614,7 +614,7 @@
             "font_weight": 600
           },
           "enum": {
-            "color": "#ff0000",
+            "color": "#45707a",
             "font_style": null,
             "font_weight": null
           },
@@ -624,7 +624,7 @@
             "font_weight": null
           },
           "hint": {
-            "color": "#ff0000",
+            "color": "#c9b99a",
             "font_style": null,
             "font_weight": null
           },

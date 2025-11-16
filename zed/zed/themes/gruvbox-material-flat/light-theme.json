@@ -225,7 +225,7 @@
         "font_weight": 600
       },
       "enum": {
-        "color": "{{flag}}",
+        "color": "{{blue}}",
         "font_style": null,
         "font_weight": null
       },
@@ -235,7 +235,7 @@
         "font_weight": null
       },
       "hint": {
-        "color": "{{flag}}",
+        "color": "{{bg6}}",
         "font_style": null,
         "font_weight": null
       },
