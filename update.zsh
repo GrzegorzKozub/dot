@@ -34,7 +34,7 @@ done
 
 # yazi
 
-ya pkg --upgrade
+ya pkg upgrade
 
 # links
 
