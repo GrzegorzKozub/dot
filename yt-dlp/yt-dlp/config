@@ -1,2 +1,3 @@
 --cookies-from-browser brave # requires python-secretstorage
+--js-runtimes node
 --output "%(title)s.%(ext)s" # skips yt id

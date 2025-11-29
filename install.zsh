@@ -108,6 +108,8 @@ npm install --global \
 
 for TOOL in lastversion tidal-dl-ng; do uv tool install $TOOL; done
 
+uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
+
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
   for TOOL in awscli-local cfn-lint; do uv tool install $TOOL; done
 fi
