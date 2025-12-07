@@ -30,10 +30,9 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   yazi \
   yt-dlp \
   zed \
-  zellij \
   zsh
 
-  # alacritty dust flameshot foot gdu iex
+  # alacritty dust flameshot foot gdu iex zellij
 
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
 
