@@ -551,6 +551,10 @@ export GOPRIVATE=github.com/efficy-sa/*
 
 alias pass='gopass'
 
+# gradle
+
+export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
+
 # intellij
 
 idea() {
