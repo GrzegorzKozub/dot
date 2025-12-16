@@ -9,6 +9,7 @@
           </MavenGeneralSettings>
         </option>
       </component>
+      <component languageLevel="JDK_21" name="ProjectRootManager" project-jdk-name="21" project-jdk-type="JavaSDK" version="2"></component>
     </defaultProject>
   </component>
 </application>
