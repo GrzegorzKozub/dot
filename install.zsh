@@ -121,6 +121,7 @@ path=($XDG_DATA_HOME/cargo/bin $path[@])
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
+curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
 cargo install cargo-update
   # --force --features vendored-libgit2 --features vendored-openssl
   # https://github.com/nabijaczleweli/cargo-update/issues/243
