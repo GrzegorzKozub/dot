@@ -408,6 +408,24 @@
         "auth-model": "native"
       }
     },
+    "postgres-jdbc-19b3196c389-645119ef4644ea66": {
+      "provider": "postgresql",
+      "driver": "postgres-jdbc",
+      "name": "localhost",
+      "configuration": {
+        "host": "localhost",
+        "port": "5432",
+        "database": "postgres",
+        "url": "jdbc:postgresql://localhost:5432/postgres",
+        "configurationType": "MANUAL",
+        "type": "dev",
+        "closeIdleConnection": true,
+        "provider-properties": {
+          "@dbeaver-show-non-default-db@": "false"
+        },
+        "auth-model": "native"
+      }
+    },
     "postgres-jdbc-199f17b7436-538c5837e6af07d6": {
       "provider": "postgresql",
       "driver": "postgres-jdbc",
