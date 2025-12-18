@@ -551,10 +551,6 @@ export GOPRIVATE=github.com/efficy-sa/*
 
 alias pass='gopass'
 
-# gradle
-
-export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
-
 # intellij
 
 idea() {
@@ -566,17 +562,17 @@ idea() {
 
 # export JAVA_TOOL_OPTIONS="-Djava.util.prefs.userRoot=$XDG_DATA_HOME/java -Djavafx.cachedir=$XDG_CACHE_HOME/openjfx"
 
+export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
+
+export MAVEN_ARGS="--settings $XDG_CONFIG_HOME/maven/settings.xml"
+export MAVEN_OPTS="-Dmaven.repo.local=$XDG_CACHE_HOME/maven/repository"
+
 # less
 
 export LESSHISTFILE=-
 # export MANPAGER='less --RAW-CONTROL-CHARS +Gg --squeeze-blank-lines --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub'
 
 alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub'
-
-# maven
-
-export MAVEN_ARGS="--settings $XDG_CONFIG_HOME/maven/settings.xml"
-export MAVEN_OPTS="-Dmaven.repo.local=$XDG_CACHE_HOME/maven/repository"
 
 # mpv
 
