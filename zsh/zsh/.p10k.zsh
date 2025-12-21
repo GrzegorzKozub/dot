@@ -17,7 +17,7 @@
   # layout
 
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs newline prompt_char)
-  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(aws command_execution_time status)
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status) # aws
 
   typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=
 
@@ -143,20 +143,20 @@
 
   # aws
 
-  typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws'
-
-  typeset -g POWERLEVEL9K_AWS_CLASSES=(
-    '*prod*' PROD
-    '*beta*' TEST
-    '*stage*' DEV
-    '*' DEV
-  )
-
-  typeset -g POWERLEVEL9K_AWS_{PROD,TEST,DEV}_VISUAL_IDENTIFIER_EXPANSION=''
-
-  typeset -g POWERLEVEL9K_AWS_PROD_FOREGROUND='red'
-  typeset -g POWERLEVEL9K_AWS_TEST_FOREGROUND='yellow'
-  typeset -g POWERLEVEL9K_AWS_DEV_FOREGROUND='green'
+  # typeset -g POWERLEVEL9K_AWS_SHOW_ON_COMMAND='aws'
+  #
+  # typeset -g POWERLEVEL9K_AWS_CLASSES=(
+  #   '*prod*' PROD
+  #   '*beta*' TEST
+  #   '*stage*' DEV
+  #   '*' DEV
+  # )
+  #
+  # typeset -g POWERLEVEL9K_AWS_{PROD,TEST,DEV}_VISUAL_IDENTIFIER_EXPANSION=''
+  #
+  # typeset -g POWERLEVEL9K_AWS_PROD_FOREGROUND='red'
+  # typeset -g POWERLEVEL9K_AWS_TEST_FOREGROUND='yellow'
+  # typeset -g POWERLEVEL9K_AWS_DEV_FOREGROUND='green'
 
   # status
 
