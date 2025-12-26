@@ -1,4 +1,11 @@
 {
+  "env": {
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+    // "DISABLE_AUTOUPDATER": "1",
+    // "DISABLE_BUG_COMMAND": "1",
+    // "DISABLE_ERROR_REPORTING": "1",
+    // "DISABLE_TELEMETRY": "1"
+  },
   "permissions": {
     "deny": [
       "Read(**/*.*env)",
@@ -14,5 +21,7 @@
       "Read(**/.secrets/**)",
       "Read(**/keys/**)"
     ]
-  }
+  },
+  "sandbox": { "enabled": true, "excludedCommands": ["docker", "git"] },
+  "attribution": { "commit": "", "pr": "" }
 }
