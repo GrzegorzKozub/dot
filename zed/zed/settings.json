@@ -4,10 +4,10 @@
     "default_profile": "write",
     "default_height": 256,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5"
+      "provider": "openai",
+      "model": "gpt-5",
     },
-    "default_width": 512
+    "default_width": 512,
   },
   "auto_install_extensions": {
     "catppuccin-icons": true,
@@ -23,7 +23,7 @@
     "sql": true,
     "symbols": true,
     "toml": true,
-    "xml": true
+    "xml": true,
   },
   "buffer_font_family": "Cascadia Code",
   "buffer_font_features": { "calt": true, "ss01": true },
@@ -44,9 +44,9 @@
       "**/*settings.xml",
       "**/*vault",
       "**/.secrets/**",
-      "**/keys/**"
+      "**/keys/**",
     ],
-    "mode": "subtle"
+    "mode": "subtle",
   },
   "expand_excerpt_lines": 4,
   "features": { "edit_prediction_provider": "zed" },
@@ -58,7 +58,7 @@
   "icon_theme": {
     "dark": "Catppuccin Latte",
     "light": "Catppuccin Latte",
-    "mode": "dark"
+    "mode": "dark",
   },
   "indent_guides": { "enabled": false },
   "journal": { "hour_format": "hour24" },
@@ -69,19 +69,19 @@
         {
           "external": {
             "command": "prettier",
-            "arguments": ["--stdin-filepath", "{buffer_path}"]
-          }
+            "arguments": ["--stdin-filepath", "{buffer_path}"],
+          },
         },
-        { "code_action": "source.organizeImports" }
-      ]
+        { "code_action": "source.organizeImports" },
+      ],
     },
     "Lua": {
       "formatter": {
         "external": {
           "command": "stylua",
-          "arguments": ["--stdin-filepath", "{buffer_path}", "-"]
-        }
-      }
+          "arguments": ["--stdin-filepath", "{buffer_path}", "-"],
+        },
+      },
     },
     "Python": { "tab_size": 4 },
     "Rust": { "tab_size": 4 },
@@ -89,21 +89,21 @@
       "formatter": {
         "external": {
           "command": "shfmt",
-          "arguments": ["--filename", "{buffer_path}"]
-        }
-      }
+          "arguments": ["--filename", "{buffer_path}"],
+        },
+      },
     },
     "TypeScript": {
       "formatter": [
         {
           "external": {
             "command": "prettier",
-            "arguments": ["--stdin-filepath", "{buffer_path}"]
-          }
+            "arguments": ["--stdin-filepath", "{buffer_path}"],
+          },
         },
-        { "code_action": "source.organizeImports" }
-      ]
-    }
+        { "code_action": "source.organizeImports" },
+      ],
+    },
   },
   "lsp": {
     "golangci-lint": {
@@ -113,9 +113,9 @@
           "run",
           "--issues-exit-code=1",
           "--output.json.path=stdout",
-          "--show-stats=false"
-        ]
-      }
+          "--show-stats=false",
+        ],
+      },
     },
     "gopls": {
       "initialization_options": {
@@ -127,20 +127,20 @@
           "constantValues": true,
           "functionTypeParameters": true,
           "parameterNames": true,
-          "rangeVariableTypes": true
-        }
-      }
+          "rangeVariableTypes": true,
+        },
+      },
     },
     "jdtls": {
       "initialization_options": {
         "settings": {
           "java": {
             "configuration": {
-              "maven": { "userSettings": "~/.config/maven/settings.xml" }
-            }
-          }
-        }
-      }
+              "maven": { "userSettings": "~/.config/maven/settings.xml" },
+            },
+          },
+        },
+      },
     },
     "rust-analyzer": {
       "initialization_options": {
@@ -154,9 +154,9 @@
           "implicitDrops": { "enable": true },
           "lifetimeElisionHints": { "enable": "always" },
           "rangeExclusiveHints": { "enable": true },
-          "reborrowHints": { "enable": "always" }
-        }
-      }
+          "reborrowHints": { "enable": "always" },
+        },
+      },
     },
     "typescript-language-server": {
       "initialization_options": {
@@ -168,24 +168,24 @@
           "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
           "includeInlayPropertyDeclarationTypeHints": true,
           "includeInlayVariableTypeHints": true,
-          "includeInlayVariableTypeHintsWhenTypeMatchesName": true
-        }
-      }
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": true,
+        },
+      },
     },
     "yaml-language-server": {
       "settings": {
         "yaml": {
           "format": { "enabled": true, "singleQuote": true },
-          "validate": false
-        }
-      }
-    }
+          "validate": false,
+        },
+      },
+    },
   },
   "notification_panel": { "default_width": 256 },
   "outline_panel": {
     "default_width": 256,
     "indent_guides": { "show": "never" },
-    "indent_size": 8
+    "indent_size": 8,
   },
   "private_files": [
     "**/*.*env",
@@ -199,15 +199,16 @@
     "**/*settings.xml",
     "**/*vault",
     "**/.secrets/**",
-    "**/keys/**"
+    "**/keys/**",
   ],
   "project_panel": {
     "default_width": 256,
     "indent_guides": { "show": "never" },
-    "indent_size": 8
+    "indent_size": 8,
   },
   "restore_on_startup": "none",
   "show_whitespaces": "none",
+  "sticky_scroll": { "enabled": true },
   "tab_bar": { "show_nav_history_buttons": false },
   "tab_size": 2,
   "tabs": { "file_icons": true, "git_status": true, "show_diagnostics": "all" },
@@ -218,15 +219,15 @@
     "default_width": 512,
     "font_size": 16,
     "line_height": "standard",
-    "minimum_contrast": 0
+    "minimum_contrast": 0,
   },
   "theme": {
     "dark": "Gruvbox Material Flat Dark",
     "light": "Gruvbox Material Flat Light",
-    "mode": "dark"
+    "mode": "dark",
   },
   "ui_font_size": 16,
   "vertical_scroll_margin": 4,
   "vim_mode": false,
-  "wrap_guides": [80]
+  "wrap_guides": [80],
 }
