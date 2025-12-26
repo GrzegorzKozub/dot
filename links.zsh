@@ -63,7 +63,7 @@ fi
 stow --dir=`dirname $0` --target=$HOME --stow \
   zprofile
 
-  # gemini imwheel
+  # imwheel
 
 DIR=$(dirname $(realpath $0))
 

@@ -1,10 +1,17 @@
 {
-  "hideBanner": true,
-  "hideTips": true,
-  "selectedAuthType": "gemini-api-key",
+  "ui": {
+    "hideTips": true,
+    "hideBanner": true
+  },
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    }
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
   "telemetry": {
     "enabled": false
-  },
-  "usageStatisticsEnabled": false
+  }
 }
-
