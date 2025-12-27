@@ -1,7 +1,14 @@
 ansible/ansible/vault
+
 cava/cava/shaders
 cava/cava/themes
+
+claude/*
+!claude/claude/settings2.json
+
 ghostty/ghostty/shaders
+
 tidal_dl_ng/tidal_dl_ng/token.json
+
 zsh/zsh/.zcompdump
 zsh/zsh/.zshenv

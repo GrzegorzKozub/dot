@@ -5,9 +5,7 @@ set -e -o verbose
 # repo
 
 pushd `dirname $0`
-
 git update-index --assume-unchanged libreoffice/libreoffice/4/user/registrymodifications.xcu
-
 popd
 
 # links
