@@ -4,6 +4,6 @@ set -e -o verbose
 
 # links
 
-stow --dir=`dirname $0` --target=$HOME --stow \
+stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   claude
 
