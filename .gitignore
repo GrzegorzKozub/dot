@@ -1,14 +1,47 @@
+# ansible
+
 ansible/ansible/vault
+
+# cava
 
 cava/cava/shaders
 cava/cava/themes
 
-claude/*
-!claude/claude/settings2.json
+# claude
+
+claude/**
+!claude/**/
+
+claude/claude/plugins/
+
+!claude/claude/settings.json
+
+# dbeaver
+
+dbeaver/**
+!dbeaver/**/
+
+!dbeaver/DBeaverData/workspace6/.metadata/.config/connection-types.xml
+
+!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs
+!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs
+!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.jkiss.dbeaver.core.prefs
+!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.jkiss.dbeaver.ui.app.standalone.prefs
+!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.jkiss.dbeaver.ui.statistics.prefs
+
+!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.jkiss.dbeaver.ui/dialog_settings.xml
+
+!dbeaver/DBeaverData/workspace6/General/.dbeaver/data-sources.json
+
+# ghostty
 
 ghostty/ghostty/shaders
 
+# tidal_dl_ng
+
 tidal_dl_ng/tidal_dl_ng/token.json
+
+# zsh
 
 zsh/zsh/.zcompdump
 zsh/zsh/.zshenv
