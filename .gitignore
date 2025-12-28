@@ -4,8 +4,8 @@ ansible/ansible/vault
 
 # cava
 
-cava/cava/shaders
-cava/cava/themes
+cava/cava/shaders/
+cava/cava/themes/
 
 # claude
 
@@ -33,9 +33,58 @@ dbeaver/**
 
 !dbeaver/DBeaverData/workspace6/General/.dbeaver/data-sources.json
 
+# gemini
+
+gemini/**
+!gemini/**/
+
+gemini/.gemini/history/
+
+!gemini/.gemini/settings.json
+
 # ghostty
 
-ghostty/ghostty/shaders
+ghostty/ghostty/shaders/
+
+# intellij
+
+intellij/**
+!intellij/**/
+
+!/intellij/JetBrains/IdeaIC2025.2/codestyles/Default.xml
+
+!/intellij/JetBrains/IdeaIC2025.2/early-access-registry.txt
+!/intellij/JetBrains/IdeaIC2025.2/idea64.vmoptions
+
+!/intellij/JetBrains/IdeaIC2025.2/options/advancedSettings.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/colors.scheme.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/editor-font.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/editor.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/ide.general.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/jdk.table.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/laf.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/linux/keymap.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/notifications.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/other.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/project.default.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/terminal.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/trusted-paths.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/ui.lnf.xml
+!/intellij/JetBrains/IdeaIC2025.2/options/updates.xml
+
+# libreoffice
+
+libreoffice/**
+!libreoffice/**/
+
+!/libreoffice/libreoffice/4/user/registrymodifications.xcu
+
+# teams-for-linux
+
+teams-for-linux/**
+!teams-for-linux/**/
+
+!teams-for-linux/teams-for-linux/config.json
 
 # tidal_dl_ng
 
