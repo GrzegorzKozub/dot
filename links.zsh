@@ -32,7 +32,7 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   zed \
   zsh
 
-  # alacritty dust flameshot foot gdu iex zellij
+  # iex zellij
 
 if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
 
@@ -53,17 +53,8 @@ if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
 
 fi
 
-# if [[ $HOST =~ ^(player|worker)$ ]]; then
-#
-#   stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
-#     redshift
-#
-# fi
-
 stow --dir=`dirname $0` --target=$HOME --stow \
   zprofile
-
-  # imwheel
 
 DIR=$(dirname $(realpath $0))
 

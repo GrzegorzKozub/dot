@@ -46,23 +46,6 @@ ya pkg upgrade
 
 # node
 
-# set +o verbose
-#
-# export NVM_DIR=$XDG_DATA_HOME/nvm
-# source $NVM_DIR/nvm.sh
-#
-# nvm install node --reinstall-packages-from=node --latest-npm
-# nvm install-latest-npm
-# nvm cache clear
-#
-# for version in $(nvm ls --no-alias --no-colors | sed 's/ //g' | sed 's/\*//'); do
-#   [[ $version =~ '->' ]] || nvm uninstall $version
-# done
-#
-# set -o verbose
-#
-# npm update --global
-
 CURRENT=$(fnm current)
 LATEST=$(fnm ls-remote | tail -1)
 if [[ $CURRENT != $LATEST ]]; then

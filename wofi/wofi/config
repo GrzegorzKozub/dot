@@ -1,5 +1,5 @@
 show=run
-term=foot --override=include=~/.config/foot/$HOST-$XDG_CURRENT_DESKTOP.ini
+term=kitty
 
 lines=10
 width=33%

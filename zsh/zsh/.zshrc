@@ -598,13 +598,6 @@ export NODE_REPL_HISTORY=''
 
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-# export NPM_CONFIG_PREFIX=$XDG_DATA_HOME/npm
-
-# export NVM_DIR=$XDG_DATA_HOME/nvm
-# zsh-defer source $NVM_DIR/nvm.sh
-
-# zsh-defer -c 'eval "$(fnm env --use-on-cd)"' # fnm env is slow
-# zsh-defer fnm use default --log-level quiet
 
 if [[ -a $commands[fnm] ]]; then
   _my-fnm-init() {

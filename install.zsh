@@ -87,11 +87,6 @@ bat cache --build
 
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-# export NPM_CONFIG_PREFIX=$XDG_DATA_HOME/npm
-
-# nvm install node --latest-npm
-# nvm install-latest-npm
-# nvm cache clear
 
 eval "$(fnm env)"
 fnm install --latest
@@ -102,7 +97,7 @@ npm install --global \
   neovim \
   typescript
 
-  # @anthropic-ai/claude-code @google/gemini-cli artillery autocannon mdpdf
+  # mdpdf
 
 # python
 

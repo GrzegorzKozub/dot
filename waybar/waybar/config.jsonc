@@ -50,7 +50,7 @@
     "format-wifi": "{icon}",
     "format-disconnected": "󰤭",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "on-click": "foot --override=include=~/.config/foot/$HOST-$XDG_CURRENT_DESKTOP.ini iwctl",
+    "on-click": "kitty iwctl",
     "tooltip-format-ethernet": "󰈀  {ifname}",
     "tooltip-format-wifi": "{icon}  {signalStrength}%  󱄙  {essid}",
     "tooltip-format-disconnected": "disconnected"
@@ -61,7 +61,7 @@
     "format-off": "󰂲",
     "format-connected": "󰂱",
     "format-disabled": "󰂲",
-    "on-click": "foot --override=include=~/.config/foot/$HOST-$XDG_CURRENT_DESKTOP.ini bluetoothctl",
+    "on-click": "kitty bluetoothctl",
     "tooltip-format-on": "enabled",
     "tooltip-format-off": "disabled",
     "tooltip-format-connected": "{device_enumerate}",
