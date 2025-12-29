@@ -126,7 +126,6 @@ for EXTENSION in \
   charliermarsh.ruff \
   dbaeumer.vscode-eslint \
   detachhead.basedpyright \
-  docker.docker \
   editorconfig.editorconfig \
   esbenp.prettier-vscode \
   github.copilot-chat \
