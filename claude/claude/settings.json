@@ -15,9 +15,9 @@
       "Read(**/*.key)",
       "Read(**/*.ovpn)",
       "Read(**/*.pem)",
+      "Read(**/*.secret)",
       "Read(**/*credentials)",
       "Read(**/*settings.xml)",
-      "Read(**/*vault)",
       "Read(**/.secrets/**)",
       "Read(**/keys/**)"
     ]
