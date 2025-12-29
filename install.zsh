@@ -144,8 +144,10 @@ for EXTENSION in \
   charliermarsh.ruff \
   dbaeumer.vscode-eslint \
   detachhead.basedpyright \
+  docker.docker \
   editorconfig.editorconfig \
   esbenp.prettier-vscode \
+  github.copilot-chat \
   golang.go \
   grzegorzkozub.gruvbox-material-flat \
   miguelsolorio.symbols \
@@ -168,8 +170,6 @@ if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
   for EXTENSION in \
     bierner.markdown-mermaid \
     cucumberopen.cucumber-official \
-    github.copilot \
-    github.copilot-chat \
     kddejong.vscode-cfn-lint \
     ms-dotnettools.csdevkit \
     ms-dotnettools.csharp \
