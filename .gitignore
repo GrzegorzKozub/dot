@@ -79,6 +79,10 @@ libreoffice/**
 
 !/libreoffice/libreoffice/4/user/registrymodifications.xcu
 
+# maven
+
+maven/maven/settings.xml
+
 # teams-for-linux
 
 teams-for-linux/**

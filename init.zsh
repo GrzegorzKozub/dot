@@ -11,10 +11,6 @@ git submodule foreach --recursive git checkout master
 
 git update-index --assume-unchanged btop/btop/btop.conf
 
-if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
-  git update-index --assume-unchanged maven/maven/settings.xml
-fi
-
 [[ $SWITCHED = 1 ]] && popd
 
 # env
