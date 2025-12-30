@@ -105,8 +105,10 @@ cargo install cargo-update
 
 # neovim
 
-# nvim -c 'autocmd User VeryLazy lua require("lazy").load({ plugins = { "mason-lspconfig.nvim", "mason-null-ls.nvim" } })'
-nvim -c 'autocmd User MasonToolsUpdateCompleted quitall' -c 'autocmd User VeryLazy MasonToolsUpdate'
+nvim \
+  -c 'lua vim.opt.messagesopt = "wait:100,history:500"' \
+  -c 'autocmd User MasonToolsUpdateCompleted quitall' \
+  -c 'autocmd User VeryLazy MasonToolsUpdate'
 
 # silicon
 

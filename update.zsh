@@ -71,7 +71,9 @@ cargo install-update --all
 
 nvim --headless -c 'Lazy! sync' -c 'quitall'
 nvim --headless -c 'TSUpdate' -c 'quitall'
-nvim --headless -c 'autocmd User MasonToolsUpdateCompleted quitall' -c 'MasonToolsUpdate'
+nvim --headless \
+  -c 'autocmd User MasonToolsUpdateCompleted quitall' \
+  -c 'MasonToolsUpdate'
 
 # vscode
 
