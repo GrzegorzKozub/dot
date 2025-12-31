@@ -32,14 +32,6 @@ do
   go install -v $PACKAGE@latest
 done
 
-# python
-
-# pip install --user --upgrade --break-system-packages \
-#   wheel
-#
-# pip install --user --upgrade --break-system-packages \
-#   pynvim
-
 # ruby
 
 # [[ -d $XDG_DATA_HOME/gem ]] && rm -rf $XDG_DATA_HOME/gem

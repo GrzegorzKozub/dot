@@ -87,10 +87,6 @@ for TOOL in lastversion tidal-dl-ng; do uv tool install $TOOL; done
 
 uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
 
-if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
-  for TOOL in awscli-local cfn-lint; do uv tool install $TOOL; done
-fi
-
 # rust
 
 path=($XDG_DATA_HOME/cargo/bin $path[@])
@@ -147,23 +143,6 @@ done
 
   # jakebecker.elixir-ls \
   # vadimcn.vscode-lldb \
-
-if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
-
-  for EXTENSION in \
-    bierner.markdown-mermaid \
-    cucumberopen.cucumber-official \
-    kddejong.vscode-cfn-lint \
-    ms-dotnettools.csdevkit \
-    ms-dotnettools.csharp \
-    ms-dotnettools.vscode-dotnet-runtime \
-    redhat.java \
-    redhat.vscode-yaml
-  do
-    code --install-extension $EXTENSION --force
-  done
-
-fi
 
 for EXTENSION in \
   ms-python.vscode-pylance \

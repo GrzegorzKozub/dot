@@ -34,25 +34,6 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
 
   # iex zellij
 
-if [[ $HOST =~ ^(drifter|worker)$ ]]; then # work
-
-  stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
-    ansible \
-    maven \
-    teams-for-linux
-
-  CACHE=/run/media/$USER/data/.cache
-  [[ -d $CACHE ]] || {
-    sudo mkdir $CACHE
-    sudo chown $USER $CACHE
-    sudo chgrp users $CACHE
-  }
-
-  [[ -d $CACHE/maven ]] || mkdir $CACHE/maven
-  [[ -L $XDG_CACHE_HOME/maven ]] || ln -s $CACHE/maven $XDG_CACHE_HOME/maven
-
-fi
-
 stow --dir=`dirname $0` --target=$HOME --stow \
   zprofile
 
