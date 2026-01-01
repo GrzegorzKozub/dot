@@ -4,6 +4,9 @@ set -e -o verbose
 
 # links
 
+stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
+  aws
+
 DIR=$(dirname $(realpath $0))
 
 ln -sf $DIR/environment/environment.d/30-aws.conf \

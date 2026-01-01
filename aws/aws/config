@@ -1,0 +1,47 @@
+[profile au_stage]
+output = json
+region = eu-west-1
+
+[profile audience_stage]
+output = json
+region = eu-west-1
+
+[profile audience_beta]
+output = json
+region = eu-west-1
+
+[profile audience_prod]
+output = json
+region = eu-west-1
+
+[profile audience_prod_apac]
+output = json
+region = ap-southeast-1
+
+[profile sms_sandbox]
+output = json
+region = eu-west-1
+
+[profile waw_stage]
+output = json
+region = eu-west-1
+
+[profile webscript_stage]
+output = json
+region = eu-west-1
+
+[profile root_webscript_stage]
+output = json
+region = eu-west-1
+
+[profile root_webscript_beta]
+output = json
+region = eu-west-1
+
+[profile root_webscript_prod]
+output = json
+region = eu-west-1
+
+[profile root_webscript_prod-apac]
+output = json
+region = ap-southeast-1
