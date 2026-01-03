@@ -23,5 +23,5 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}
 
 # links
 
-. `dirname $0`/links.zsh
+`dirname $0`/links.zsh
 

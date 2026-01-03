@@ -38,11 +38,11 @@ ya pkg upgrade
 
 # links
 
-. `dirname $0`/links.zsh
+`dirname $0`/links.zsh
 
 # shared
 
-. `dirname $0`/shared.zsh
+`dirname $0`/shared.zsh
 
 # node
 
