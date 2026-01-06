@@ -15,7 +15,7 @@ git update-index --assume-unchanged btop/btop/btop.conf
 
 # env
 
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 
 # dirs
 

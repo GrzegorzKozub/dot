@@ -4,9 +4,9 @@ set -e -o verbose
 
 # env
 
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}
-export XDG_CACHE_HOME=${XDG_CACHE_HOME:-~/.cache}
-export XDG_DATA_HOME=${XDG_DATA_HOME:-~/.local/share}
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 
 # dirs
 
@@ -16,7 +16,10 @@ export XDG_DATA_HOME=${XDG_DATA_HOME:-~/.local/share}
 
 # zsh
 
-export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
+
+[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p $XDG_CACHE_HOME/zsh
+# [[ -d $XDG_DATA_HOME/zsh ]] || mkdir -p $XDG_DATA_HOME/zsh
 
 [[ -d $XDG_DATA_HOME/zinit ]] && rm -rf $XDG_DATA_HOME/zinit
 mkdir -p $XDG_DATA_HOME/zinit

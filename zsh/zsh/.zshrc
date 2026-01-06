@@ -1,17 +1,6 @@
 # perf check: hyperfine 'zsh -i -c exit' --warmup 10
 # key scan: cat -v or showkey -a
 
-# env
-
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}
-export XDG_CACHE_HOME=${XDG_CACHE_HOME:-~/.cache}
-export XDG_DATA_HOME=${XDG_DATA_HOME:-~/.local/share}
-
-# dirs
-
-[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p $XDG_CACHE_HOME/zsh
-# [[ -d $XDG_DATA_HOME/zsh ]] || mkdir -p $XDG_DATA_HOME/zsh
-
 # plugin support
 
 declare -A ZINIT

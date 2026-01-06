@@ -34,8 +34,8 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
 
   # iex zellij
 
-stow --dir=`dirname $0` --target=$HOME --stow \
-  zprofile
+# stow --dir=`dirname $0` --target=$HOME --stow \
+#   zprofile
 
 DIR=$(dirname $(realpath $0))
 
