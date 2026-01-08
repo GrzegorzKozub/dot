@@ -206,7 +206,7 @@
     "indent_guides": { "show": "never" },
     "indent_size": 8,
   },
-  "restore_on_startup": "none",
+  "restore_on_startup": "launchpad",
   "show_whitespaces": "none",
   "sticky_scroll": { "enabled": true },
   "tab_bar": { "show_nav_history_buttons": false },
