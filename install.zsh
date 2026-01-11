@@ -136,6 +136,7 @@ for EXTENSION in \
   ms-azuretools.vscode-containers \
   ms-python.debugpy \
   ms-python.python \
+  ms-vscode-remote.remote-containers \
   rust-lang.rust-analyzer \
   streetsidesoftware.code-spell-checker \
   sumneko.lua \
