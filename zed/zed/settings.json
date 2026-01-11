@@ -5,7 +5,7 @@
     "default_height": 256,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-opus-4.5",
+      "model": "claude-sonnet-4.5",
     },
     "default_width": 512,
   },
