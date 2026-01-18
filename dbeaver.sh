@@ -1,12 +1,11 @@
+set -eo pipefail -ux
 #!/usr/bin/env zsh
-
-set -e -o verbose
 
 # repo
 
-pushd `dirname $0`
+pushd "${BASH_SOURCE%/*}"
 
-for ITEM (
+FILES=(
   '.metadata/.config/connection-types.xml'
   '.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs'
   '.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs'
@@ -16,12 +15,14 @@ for ITEM (
   '.metadata/.plugins/org.jkiss.dbeaver.ui/dialog_settings.xml'
   'General/.dbeaver/data-sources.json'
 )
-  git update-index --assume-unchanged dbeaver/DBeaverData/workspace6/$ITEM
+
+for FILE in "${FILES[@]}"; do
+  git update-index --assume-unchanged dbeaver/DBeaverData/workspace6/"$FILE"
+done
 
 popd
 
 # links
 
-stow --dir=`dirname $0` --target=$XDG_DATA_HOME --stow \
+stow --dir="${BASH_SOURCE%/*}" --target="$XDG_DATA_HOME" --stow \
   dbeaver
-
