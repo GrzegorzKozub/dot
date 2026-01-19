@@ -10,6 +10,10 @@ region = eu-west-1
 output = json
 region = eu-west-1
 
+[profile audience_beta_dr]
+output = json
+region = eu-central-1
+
 [profile audience_prod]
 output = json
 region = eu-west-1
