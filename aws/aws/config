@@ -1,3 +1,11 @@
+[default]
+s3 =
+  addressing_style = path
+  max_concurrent_requests = 100
+  max_queue_size = 10000
+  multipart_chunksize = 16MB
+  multipart_threshold = 64MB
+
 [profile au_stage]
 output = json
 region = eu-west-1
@@ -9,10 +17,6 @@ region = eu-west-1
 [profile audience_beta]
 output = json
 region = eu-west-1
-
-[profile audience_beta_dr]
-output = json
-region = eu-central-1
 
 [profile audience_prod]
 output = json
@@ -49,3 +53,4 @@ region = eu-west-1
 [profile root_webscript_prod-apac]
 output = json
 region = ap-southeast-1
+
