@@ -1,5 +1,6 @@
 {
   "appIconType": "light",
+  "disableAutogain": true,
   "disableNotificationSound": true,
   "disableNotificationWindowFlash": true,
   "disableNotifications": true,
