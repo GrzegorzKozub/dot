@@ -22,6 +22,6 @@
       "Read(**/keys/**)"
     ]
   },
-  "sandbox": { "enabled": true, "excludedCommands": ["docker", "git"] },
+  "sandbox": { "enabled": false, "excludedCommands": ["docker", "git"] },
   "attribution": { "commit": "", "pr": "" }
 }
