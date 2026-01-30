@@ -62,6 +62,7 @@ EXEC 32
 .webm 35
 
 .SRCINFO 37
+.cfnlintrc 37
 .classpath 37
 .claude.json 37
 .dockerignore 37
@@ -81,6 +82,7 @@ EXEC 32
 .lock 37
 .luacheckrc 37
 .luarc.json 37
+.markdownlint.json 37
 .npmrc 37
 .nvmrc 37
 .prettierignore 37
