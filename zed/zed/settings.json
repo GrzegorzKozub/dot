@@ -22,6 +22,7 @@
     "lua": true,
     "sql": true,
     "symbols": true,
+    "terraform": true,
     "toml": true,
     "xml": true,
   },
@@ -93,6 +94,11 @@
         },
       },
     },
+    "Terraform": {
+      "formatter": {
+        "external": { "command": "terraform", "arguments": ["fmt", "-"] },
+      },
+    },
     "TypeScript": {
       "formatter": [
         {
@@ -156,6 +162,11 @@
           "rangeExclusiveHints": { "enable": true },
           "reborrowHints": { "enable": "always" },
         },
+      },
+    },
+    "terraform-ls": {
+      "initialization_options": {
+        "experimentalFeatures": { "prefillRequiredFields": true },
       },
     },
     "typescript-language-server": {
