@@ -6,6 +6,10 @@
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_TELEMETRY": "1"
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "deny": [
       "Read(**/*.*env)",
@@ -22,6 +26,8 @@
       "Read(**/keys/**)"
     ]
   },
-  "sandbox": { "enabled": false, "excludedCommands": ["docker", "git"] },
-  "attribution": { "commit": "", "pr": "" }
+  "sandbox": {
+    "enabled": false,
+    "excludedCommands": ["docker", "git"]
+  }
 }
