@@ -40,5 +40,6 @@
     "filename_delimiter_album_artist": ", ",
     "metadata_target_upc": "UPC",
     "api_rate_limit_batch_size": 20,
-    "api_rate_limit_delay_sec": 3.0
+    "api_rate_limit_delay_sec": 3.0,
+    "initial_key_format": "alphanumeric"
 }
