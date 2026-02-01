@@ -174,6 +174,7 @@ path=(
   $XDG_CACHE_HOME/dotnet/.dotnet/tools
   $XDG_DATA_HOME/cargo/bin
   $XDG_DATA_HOME/go/bin
+  $XDG_DATA_HOME/lmstudio/bin
   ~/code/arch
   $path[@]
 )
