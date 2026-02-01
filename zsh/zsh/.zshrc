@@ -356,7 +356,7 @@ zsh-defer my-bindkey '^r' fzf-history-widget-no-numbers
 
 # last working dir
 
-zinit snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
+[[ $TMUX ]] && zinit snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
 
 # dir history
 
@@ -692,7 +692,7 @@ fi
 
 # zellij
 
-# if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ -z $ZELLIJ ]]; then
+# if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $ZELLIJ ]]; then
 #   zellij attach --create
 # fi
 
