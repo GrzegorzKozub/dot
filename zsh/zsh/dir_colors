@@ -96,6 +96,8 @@ EXEC 32
 .zshenv 37
 .zshrc 37
 
+.lmstudio-home-pointer 90
+
 .backup 90
 .bak 90
 .log 90
