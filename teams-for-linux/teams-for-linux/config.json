@@ -1,6 +1,7 @@
 {
   "appIconType": "light",
   "disableAutogain": true,
+  "disableBadgeCount": true,
   "disableNotificationSound": true,
   "disableNotificationWindowFlash": true,
   "disableNotifications": true,
