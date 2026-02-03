@@ -67,6 +67,8 @@ procs() {
     less --chop-long-lines
 }
 
+timestamp() { date --date @$(($1/1000)) --iso-8601=seconds }
+
 # vi mode
 
 bindkey -v # enable vi mode
