@@ -37,15 +37,6 @@ dbeaver/**
 
 !dbeaver/DBeaverData/workspace6/General/.dbeaver/data-sources.json
 
-# gemini
-
-gemini/**
-!gemini/**/
-
-gemini/.gemini/history/
-
-!gemini/.gemini/settings.json
-
 # ghostty
 
 ghostty/ghostty/shaders/
