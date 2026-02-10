@@ -442,8 +442,6 @@ export AWS_SDK_LOAD_CONFIG=1
 
 export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials
 
-export AWS_PROFILE=au_stage
-
 export SAM_CLI_TELEMETRY=0
 
 zsh-defer complete -C /usr/bin/aws_completer aws
