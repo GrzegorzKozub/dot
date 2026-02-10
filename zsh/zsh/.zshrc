@@ -570,6 +570,10 @@ export LESSHISTFILE=-
 
 alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub'
 
+# llama.cpp
+
+# export LLAMA_CACHE=$XDG_CACHE_HOME/llama.cpp # default
+
 # mpv
 
 alias music="mpv --no-resume-playback --shuffle /run/media/$USER/data/music"
