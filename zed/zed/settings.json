@@ -4,8 +4,8 @@
     "default_profile": "write",
     "default_height": 256,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5",
+      "provider": "llama.cpp",
+      "model": "ggml-org/gpt-oss-20b-GGUF",
     },
     "default_width": 512,
   },
@@ -50,7 +50,6 @@
     "mode": "subtle",
   },
   "expand_excerpt_lines": 4,
-  "features": { "edit_prediction_provider": "zed" },
   "file_finder": { "modal_max_width": "medium" },
   "git": { "inline_blame": { "enabled": false } },
   "git_panel": { "default_width": 256 },
@@ -63,6 +62,25 @@
   },
   "indent_guides": { "enabled": false },
   "journal": { "hour_format": "hour24" },
+  "language_models": {
+    "openai_compatible": {
+      "llama.cpp": {
+        "api_url": "http://127.0.0.1:8080/v1",
+        "available_models": [
+          {
+            "name": "ggml-org/gpt-oss-20b-GGUF",
+            "max_tokens": 0,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+            },
+          },
+        ],
+      },
+    },
+  },
   "languages": {
     "Go": { "language_servers": ["gopls", "golangci-lint"] },
     "JavaScript": {
