@@ -10,18 +10,9 @@
       "tools": {
         "edit_file": {
           "always_deny": [
-            { "pattern": "**/*.*env" },
-            { "pattern": "**/*.cert" },
-            { "pattern": "**/*.crt" },
-            { "pattern": "**/*.env" },
-            { "pattern": "**/*.key" },
-            { "pattern": "**/*.ovpn" },
-            { "pattern": "**/*.pem" },
-            { "pattern": "**/*.secret" },
-            { "pattern": "**/*credentials" },
-            { "pattern": "**/*settings.xml" },
-            { "pattern": "**/.secrets/**" },
-            { "pattern": "**/keys/**" },
+            { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)" },
+            { "pattern": "(credentials|settings.xml)" },
+            { "pattern": "(.secrets|keys)/" },
           ],
         },
       },
