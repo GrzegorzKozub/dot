@@ -661,6 +661,8 @@ alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 alias z='zeditor .'
 alias zed='zeditor'
 
+export LLAMA_API_KEY='foo' # https://zed.dev/docs/ai/llm-providers#openai-api-compatible
+
 # zoxide
 
 export _ZO_DATA_DIR=~/code/hist/$HOST

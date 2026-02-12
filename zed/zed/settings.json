@@ -3,11 +3,29 @@
   "agent": {
     "default_profile": "write",
     "default_height": 256,
-    "default_model": {
-      "provider": "llama.cpp",
-      "model": "ggml-org/gpt-oss-20b-GGUF",
-    },
+    "default_model": { "provider": "llama", "model": "llama" },
     "default_width": 512,
+    "enable_feedback": false,
+    "tool_permissions": {
+      "tools": {
+        "edit_file": {
+          "always_deny": [
+            { "pattern": "**/*.*env" },
+            { "pattern": "**/*.cert" },
+            { "pattern": "**/*.crt" },
+            { "pattern": "**/*.env" },
+            { "pattern": "**/*.key" },
+            { "pattern": "**/*.ovpn" },
+            { "pattern": "**/*.pem" },
+            { "pattern": "**/*.secret" },
+            { "pattern": "**/*credentials" },
+            { "pattern": "**/*settings.xml" },
+            { "pattern": "**/.secrets/**" },
+            { "pattern": "**/keys/**" },
+          ],
+        },
+      },
+    },
   },
   "auto_install_extensions": {
     "catppuccin-icons": true,
@@ -64,20 +82,9 @@
   "journal": { "hour_format": "hour24" },
   "language_models": {
     "openai_compatible": {
-      "llama.cpp": {
+      "llama": {
         "api_url": "http://127.0.0.1:8080/v1",
-        "available_models": [
-          {
-            "name": "ggml-org/gpt-oss-20b-GGUF",
-            "max_tokens": 0,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-            },
-          },
-        ],
+        "available_models": [{ "max_tokens": 32768, "name": "llama" }],
       },
     },
   },
