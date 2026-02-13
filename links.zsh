@@ -2,7 +2,12 @@
 
 set -e -o verbose
 
-# links
+# ~
+
+# stow --dir=`dirname $0` --target=$HOME --stow \
+#   zprofile
+
+# config
 
 stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
   bat \
@@ -34,9 +39,6 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
 
   # iex zellij
 
-# stow --dir=`dirname $0` --target=$HOME --stow \
-#   zprofile
-
 DIR=$(dirname $(realpath $0))
 
 ln -sf $DIR/flags/brave-flags.conf $XDG_CONFIG_HOME/brave-flags.conf
@@ -52,6 +54,13 @@ ln -sf $DIR/environment/environment.d/10-common.conf $XDG_CONFIG_HOME/environmen
   ln -sf $DIR/environment/environment.d/20-nvidia.conf $XDG_CONFIG_HOME/environment.d/20-nvidia.conf
 
 [[ $HOST = 'sacrifice' ]] &&
-  ln -sf $DIR/environment/environment.d/20-amd.conf $XDG_CONFIG_HOME/environment.d/20-amd.conf ||
-  return 0
+  ln -sf $DIR/environment/environment.d/20-amd.conf $XDG_CONFIG_HOME/environment.d/20-amd.conf
+
+# cache
+
+CACHE=/run/media/$USER/data/.cache
+
+[[ -d $CACHE/llama.cpp ]] || mkdir "$CACHE"/llama.cpp
+[[ -e $XDG_CACHE_HOME/llama.cpp ]] && rm -rf "$XDG_CACHE_HOME"/llama.cpp
+ln -s "$CACHE"/llama.cpp "$XDG_CACHE_HOME"/llama.cpp
 

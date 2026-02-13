@@ -2,15 +2,6 @@
 
 set -e -o verbose
 
-# config
-
-CACHE=/run/media/$USER/data/.cache
-
-[[ -d $CACHE/maven ]] || mkdir $CACHE/maven
-
-[[ -e $XDG_CACHE_HOME/maven ]] && rm -rf $XDG_CACHE_HOME/maven
-ln -s $CACHE/maven $XDG_CACHE_HOME/maven
-
 # links
 
 stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
@@ -20,6 +11,12 @@ stow --dir=`dirname $0` --target=$XDG_CONFIG_HOME --stow \
 #
 # ln -sf $DIR/environment/environment.d/30-java.conf \
 #   $XDG_CONFIG_HOME/environment.d/30-java.conf
+
+CACHE=/run/media/$USER/data/.cache
+
+[[ -d $CACHE/maven ]] || mkdir $CACHE/maven
+[[ -e $XDG_CACHE_HOME/maven ]] && rm -rf $XDG_CACHE_HOME/maven
+ln -s $CACHE/maven $XDG_CACHE_HOME/maven
 
 # vscode
 
