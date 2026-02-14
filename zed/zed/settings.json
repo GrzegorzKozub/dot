@@ -6,6 +6,7 @@
     "default_model": { "provider": "llama", "model": "llama" },
     "default_width": 512,
     "enable_feedback": false,
+    "favorite_models": [{ "provider": "llama", "model": "llama" }],
     "tool_permissions": {
       "tools": {
         "edit_file": {

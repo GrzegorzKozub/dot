@@ -192,6 +192,41 @@
             "cursor": "#a89984",
             "background": "#ff0000",
             "selection": "#7c6f6480"
+          },
+          {
+            "cursor": "#b85651",
+            "background": "#ff0000",
+            "selection": "#7c6f6480"
+          },
+          {
+            "cursor": "#8f9a52",
+            "background": "#ff0000",
+            "selection": "#7c6f6480"
+          },
+          {
+            "cursor": "#c18f41",
+            "background": "#ff0000",
+            "selection": "#7c6f6480"
+          },
+          {
+            "cursor": "#68948a",
+            "background": "#ff0000",
+            "selection": "#7c6f6480"
+          },
+          {
+            "cursor": "#ab6c7d",
+            "background": "#ff0000",
+            "selection": "#7c6f6480"
+          },
+          {
+            "cursor": "#72966c",
+            "background": "#ff0000",
+            "selection": "#7c6f6480"
+          },
+          {
+            "cursor": "#bd6f3e",
+            "background": "#ff0000",
+            "selection": "#7c6f6480"
           }
         ],
         "syntax": {
@@ -585,6 +620,41 @@
         "players": [
           {
             "cursor": "#7c6f64",
+            "background": "#ff0000",
+            "selection": "#a8998480"
+          },
+          {
+            "cursor": "#b85651",
+            "background": "#ff0000",
+            "selection": "#a8998480"
+          },
+          {
+            "cursor": "#8f9a52",
+            "background": "#ff0000",
+            "selection": "#a8998480"
+          },
+          {
+            "cursor": "#c18f41",
+            "background": "#ff0000",
+            "selection": "#a8998480"
+          },
+          {
+            "cursor": "#68948a",
+            "background": "#ff0000",
+            "selection": "#a8998480"
+          },
+          {
+            "cursor": "#ab6c7d",
+            "background": "#ff0000",
+            "selection": "#a8998480"
+          },
+          {
+            "cursor": "#72966c",
+            "background": "#ff0000",
+            "selection": "#a8998480"
+          },
+          {
+            "cursor": "#bd6f3e",
             "background": "#ff0000",
             "selection": "#a8998480"
           }

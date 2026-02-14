@@ -187,6 +187,41 @@
         "cursor": "{{grey2}}",
         "background": "{{flag}}",
         "selection": "{{grey0}}80"
+      },
+      {
+        "cursor": "{{dimRed}}",
+        "background": "{{flag}}",
+        "selection": "{{grey0}}80"
+      },
+      {
+        "cursor": "{{dimGreen}}",
+        "background": "{{flag}}",
+        "selection": "{{grey0}}80"
+      },
+      {
+        "cursor": "{{dimYellow}}",
+        "background": "{{flag}}",
+        "selection": "{{grey0}}80"
+      },
+      {
+        "cursor": "{{dimBlue}}",
+        "background": "{{flag}}",
+        "selection": "{{grey0}}80"
+      },
+      {
+        "cursor": "{{dimPurple}}",
+        "background": "{{flag}}",
+        "selection": "{{grey0}}80"
+      },
+      {
+        "cursor": "{{dimAqua}}",
+        "background": "{{flag}}",
+        "selection": "{{grey0}}80"
+      },
+      {
+        "cursor": "{{dimOrange}}",
+        "background": "{{flag}}",
+        "selection": "{{grey0}}80"
       }
     ],
     "syntax": {
