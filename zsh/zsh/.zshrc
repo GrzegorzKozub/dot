@@ -458,6 +458,11 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
 
+alias claude-llama='ANTHROPIC_API_KEY=foo \
+  ANTHROPIC_BASE_URL=http://localhost:8080 \
+  ANTHROPIC_MODEL=llama \
+  claude'
+
 # docker
 
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
