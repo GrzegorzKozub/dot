@@ -1,7 +1,8 @@
 {
   "appIconType": "light",
-  "disableAutogain": true,
+  "closeAppOnCross": true,
   "disableBadgeCount": true,
+  "disableGpu": false,
   "disableNotificationSound": true,
   "disableNotificationWindowFlash": true,
   "disableNotifications": true,
@@ -12,7 +13,10 @@
     ]
   ],
   "followSystemTheme": true,
+  "graphApi": { "enabled": true },
   "logConfig": false,
+  "media": { "microphone": { "disableAutogain": true } },
+  "quickChat": { "enabled": true, "shortcut": "CommandOrControl+Alt+Q" },
   "spellCheckerLanguages": ["en", "pl"],
   "trayIconEnabled": false
 }
