@@ -15,8 +15,17 @@
   "followSystemTheme": true,
   "graphApi": { "enabled": true },
   "logConfig": false,
-  "media": { "microphone": { "disableAutogain": true } },
-  "quickChat": { "enabled": true, "shortcut": "CommandOrControl+Alt+Q" },
+  "media": {
+    "camera": {
+      "resolution": {
+        "enabled": true,
+        "height": 1080,
+        "mode": "override",
+        "width": 1920
+      }
+    },
+    "microphone": { "disableAutogain": true }
+  },
   "spellCheckerLanguages": ["en", "pl"],
   "trayIconEnabled": false
 }
