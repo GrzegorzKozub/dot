@@ -85,6 +85,13 @@ teams-for-linux/**
 
 !teams-for-linux/teams-for-linux/config.json
 
+# tidal-hifi
+
+tidal-hifi/**
+!tidal-hifi/**/
+
+!tidal-hifi/tidal-hifi/config.json
+
 # tidal_dl_ng
 
 tidal_dl_ng/tidal_dl_ng/token.json
