@@ -28,7 +28,7 @@
     ]
   },
   "sandbox": {
-    "enabled": true,
+    "enabled": false,
     "excludedCommands": ["docker", "git"]
   },
   "model": "opus"
