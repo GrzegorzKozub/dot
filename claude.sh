@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
-# post-install cleanup
+# keep settings provided by installer
 
-rm -rf "$XDG_CONFIG_HOME"/claude ~/.claude
+if [[ ! -L "$XDG_CONFIG_HOME"/claude ]] && [[ -d "$XDG_CONFIG_HOME"/claude ]]; then
+
+  shopt -s dotglob
+  mv "$XDG_CONFIG_HOME"/claude/* ~/code/dot/claude/claude
+  shopt -u dotglob
+
+  rm -r "$XDG_CONFIG_HOME"/claude/
+
+fi
 
 # links
 
