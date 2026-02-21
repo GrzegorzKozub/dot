@@ -10,6 +10,7 @@ git submodule update --init
 git submodule foreach --recursive git checkout master
 
 git update-index --assume-unchanged btop/btop/btop.conf
+git update-index --assume-unchanged tidal-hifi/tidal-hifi/config.json
 
 [[ $SWITCHED = 1 ]] && popd
 
