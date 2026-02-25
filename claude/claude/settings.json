@@ -27,10 +27,12 @@
       "Read(**/keys/**)"
     ]
   },
-  "model": "opus",
   "sandbox": {
     "enabled": false,
-    "excludedCommands": ["docker", "git"]
+    "excludedCommands": [
+      "docker",
+      "git"
+    ]
   },
   "effortLevel": "medium"
 }
