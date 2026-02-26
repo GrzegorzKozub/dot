@@ -34,7 +34,8 @@
 	"flags": {
 		"disableHardwareMediaKeys": false,
 		"enableWaylandSupport": true,
-		"gpuRasterization": true
+		"gpuRasterization": true,
+		"disableSandbox": false
 	},
 	"hotkeys": {
 		"toggleFavorite": "control+a",
@@ -84,7 +85,7 @@
 	},
 	"__internal__": {
 		"migrations": {
-			"version": "6.1.0"
+			"version": "6.2.0"
 		}
 	}
 }
