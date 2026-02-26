@@ -13,7 +13,6 @@
     ]
   ],
   "followSystemTheme": true,
-  "graphApi": { "enabled": true },
   "logConfig": false,
   "media": {
     "camera": {
