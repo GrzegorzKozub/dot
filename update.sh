@@ -1,6 +1,5 @@
-#!/usr/bin/env zsh
-
-set -o verbose
+#!/usr/bin/env bash
+set -eo pipefail -ux
 
 # update self
 
@@ -9,27 +8,15 @@ git submodule update --init
 git submodule foreach --recursive git checkout master
 git submodule foreach --recursive git pull
 
-# zsh
+# zsh & zinit
 
-set +o verbose
-
-declare -A ZINIT
-export ZINIT[HOME_DIR]=$XDG_DATA_HOME/zinit
-export ZINIT[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
-
-source $ZINIT[HOME_DIR]/bin/zinit.zsh
-
-zinit self-update
-zinit update --all
-
-set -o verbose
+"${BASH_SOURCE%/*}"/zinit.zsh
 
 # tmux
 
-for plugin in $XDG_DATA_HOME/tmux/plugins/*; do
-  $XDG_DATA_HOME/tmux/plugins/tpm/scripts/update_plugin.sh \
-    --shell-echo \
-    $(echo $plugin | sed 's/^.*\///')
+for PLUGIN in "$XDG_DATA_HOME"/tmux/plugins/*; do
+  "$XDG_DATA_HOME"/tmux/plugins/tpm/scripts/update_plugin.sh \
+    --shell-echo "$(echo "$PLUGIN" | sed 's/^.*\///')"
 done
 
 # yazi
@@ -38,24 +25,24 @@ ya pkg upgrade
 
 # links
 
-`dirname $0`/links.zsh
+"${BASH_SOURCE%/*}"/links.sh
 
 # shared
 
-`dirname $0`/shared.zsh
+"${BASH_SOURCE%/*}"/shared.sh
 
 # node
 
 CURRENT=$(fnm current)
 LATEST=$(fnm ls-remote | tail -1)
-if [[ $CURRENT != $LATEST ]]; then
+if [[ $CURRENT != "$LATEST" ]]; then
   fnm install --latest
-  fnm alias $LATEST default
+  fnm alias "$LATEST" default
   fnm use default
-  fnm exec --using $CURRENT npm ls --global --json |
+  fnm exec --using "$CURRENT" npm ls --global --json |
     jq --raw-output '.dependencies | to_entries[] | .key' |
     xargs npm install --global
-  fnm uninstall $CURRENT
+  fnm uninstall "$CURRENT"
 fi
 
 # python
@@ -83,10 +70,8 @@ set +e
 
 for EXTENSION in \
   ms-python.vscode-pylance \
-  ms-python.vscode-python-envs
-do
+  ms-python.vscode-python-envs; do
   code --uninstall-extension $EXTENSION --force
 done
 
 set -e
-

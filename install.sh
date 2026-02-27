@@ -1,6 +1,5 @@
-#!/usr/bin/env zsh
-
-set -e -o verbose
+#!/usr/bin/env bash
+set -eo pipefail -ux
 
 # env
 
@@ -10,45 +9,45 @@ export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 
 # dirs
 
-[[ -d $XDG_CONFIG_HOME ]] || mkdir -p $XDG_CONFIG_HOME
-[[ -d $XDG_CACHE_HOME ]] || mkdir -p $XDG_CACHE_HOME
-[[ -d $XDG_DATA_HOME ]] || mkdir -p $XDG_DATA_HOME
+[[ -d $XDG_CONFIG_HOME ]] || mkdir -p "$XDG_CONFIG_HOME"
+[[ -d $XDG_CACHE_HOME ]] || mkdir -p "$XDG_CACHE_HOME"
+[[ -d $XDG_DATA_HOME ]] || mkdir -p "$XDG_DATA_HOME"
 
-# zsh
+# zsh & zinit
 
 export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
 
-[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p $XDG_CACHE_HOME/zsh
-# [[ -d $XDG_DATA_HOME/zsh ]] || mkdir -p $XDG_DATA_HOME/zsh
+[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p "$XDG_CACHE_HOME"/zsh
+# [[ -d $XDG_DATA_HOME/zsh ]] || mkdir -p "$XDG_DATA_HOME"/zsh
 
-[[ -d $XDG_DATA_HOME/zinit ]] && rm -rf $XDG_DATA_HOME/zinit
-mkdir -p $XDG_DATA_HOME/zinit
+[[ -d $XDG_DATA_HOME/zinit ]] && rm -rf "$XDG_DATA_HOME"/zinit
+mkdir -p "$XDG_DATA_HOME"/zinit
 
-git clone https://github.com/zdharma-continuum/zinit.git $XDG_DATA_HOME/zinit/bin
+git clone https://github.com/zdharma-continuum/zinit.git "$XDG_DATA_HOME"/zinit/bin
 
 export TMUX=1
-zsh -c "source $XDG_CONFIG_HOME/zsh/.zshrc && exit"
+zsh -c "source '$XDG_CONFIG_HOME/zsh/.zshrc' && exit"
 unset TMUX
 
 # tmux
 
-[[ -d $XDG_DATA_HOME/tmux ]] && rm -rf $XDG_DATA_HOME/tmux
-mkdir -p $XDG_DATA_HOME/tmux/plugins
+[[ -d $XDG_DATA_HOME/tmux ]] && rm -rf "$XDG_DATA_HOME"/tmux
+mkdir -p "$XDG_DATA_HOME"/tmux/plugins
 
-git clone https://github.com/tmux-plugins/tpm $XDG_DATA_HOME/tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm "$XDG_DATA_HOME"/tmux/plugins/tpm
 
-tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf new-session -d
-$XDG_DATA_HOME/tmux/plugins/tpm/bindings/install_plugins
+tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf new-session -d
+"$XDG_DATA_HOME"/tmux/plugins/tpm/bindings/install_plugins
 tmux kill-server
 
 # yazi
 
 rm -rf ~/.local/state/yazi/packages
-pushd $XDG_CONFIG_HOME/yazi && git clean -dfx && popd
+pushd "$XDG_CONFIG_HOME"/yazi && git clean -dfx && popd
 
+# shellcheck disable=SC2043
 for PLUGIN in \
-  yazi-rs/plugins:git
-do
+  yazi-rs/plugins:git; do
   ya pkg add "$PLUGIN"
 done
 
@@ -56,13 +55,13 @@ done
 
 export PASSWORD_STORE_DIR=$XDG_DATA_HOME/pass
 
-[[ -d $PASSWORD_STORE_DIR ]] && rm -rf $PASSWORD_STORE_DIR
+[[ -d $PASSWORD_STORE_DIR ]] && rm -rf "$PASSWORD_STORE_DIR"
 
 pass init grzegorz.kozub@gmail.com
 
 # shared
 
-. `dirname $0`/shared.zsh
+"${BASH_SOURCE%/*}"/shared.sh
 
 # bat
 
@@ -92,7 +91,7 @@ uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
 
 # rust
 
-path=($XDG_DATA_HOME/cargo/bin $path[@])
+path=("$XDG_DATA_HOME"/cargo/bin "${path[@]}")
 
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
@@ -111,7 +110,7 @@ nvim \
 
 # silicon
 
-pushd $XDG_CONFIG_HOME/silicon
+pushd "$XDG_CONFIG_HOME"/silicon
 
 [[ -d syntaxes ]] || mkdir syntaxes
 silicon --build-cache
@@ -140,8 +139,7 @@ for EXTENSION in \
   rust-lang.rust-analyzer \
   streetsidesoftware.code-spell-checker \
   sumneko.lua \
-  tamasfe.even-better-toml
-do
+  tamasfe.even-better-toml; do
   code --install-extension $EXTENSION --force
 done
 
@@ -150,8 +148,7 @@ done
 
 for EXTENSION in \
   ms-python.vscode-pylance \
-  ms-python.vscode-python-envs
-do
+  ms-python.vscode-python-envs; do
   code --uninstall-extension $EXTENSION --force
 done
 
@@ -163,7 +160,6 @@ export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock # rootless
 
 docker run --privileged --rm tonistiigi/binfmt --install arm64
-docker rmi $(docker images tonistiigi/binfmt -a -q)
+docker rmi "$(docker images tonistiigi/binfmt -a -q)"
 
 docker buildx create --name builder --use
-
