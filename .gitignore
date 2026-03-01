@@ -20,6 +20,15 @@ claude/claude/plugins/
 
 !claude/claude/settings.json
 
+# copilot
+
+copilot/**
+!copilot/**/
+
+copilot/.copilot/logs/
+
+!copilot/.copilot/config.json
+
 # dbeaver
 
 dbeaver/**
