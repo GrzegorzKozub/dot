@@ -463,6 +463,18 @@ alias claude-llama='ANTHROPIC_API_KEY=foo \
   ANTHROPIC_MODEL=llama \
   claude'
 
+# copilot
+
+alias copilot="copilot \
+  --deny-tool 'read(.env)' \
+  --deny-tool 'read(.secret)' \
+  --deny-tool 'read(.secrets)' \
+  --deny-tool 'read(.zshenv)' \
+  --deny-tool 'read(~/.ssh)' \
+  --deny-tool 'read(~/code/keys)' \
+  --deny-tool 'read(credentials)' \
+  --deny-tool 'read(settings.xml)'"
+
 # docker
 
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
