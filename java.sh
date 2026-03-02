@@ -6,7 +6,7 @@ set -eo pipefail -ux
 stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   maven
 
-# ln -sf "${BASH_SOURCE%/*}"/environment/environment.d/30-java.conf \
+# ln -sf "$(dirname "$(realpath "$0")")"/environment/environment.d/30-java.conf \
 #   "$XDG_CONFIG_HOME"/environment.d/30-java.conf
 
 CACHE=/run/media/$USER/data/.cache

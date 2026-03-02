@@ -6,7 +6,7 @@ set -eo pipefail -ux
 stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   aws
 
-ln -sf "${BASH_SOURCE%/*}"/environment/environment.d/30-aws.conf \
+ln -sf "$(dirname "$(realpath "$0")")"/environment/environment.d/30-aws.conf \
   "$XDG_CONFIG_HOME"/environment.d/30-aws.conf
 
 # python

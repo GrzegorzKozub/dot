@@ -38,7 +38,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
 
   # iex zellij
 
-DIR="${BASH_SOURCE%/*}"
+DIR=$(dirname "$(realpath "$0")")
 
 ln -sf "$DIR"/flags/brave-flags.conf "$XDG_CONFIG_HOME"/brave-flags.conf
 ln -sf "$DIR"/flags/code-flags.conf "$XDG_CONFIG_HOME"/code-flags.conf
