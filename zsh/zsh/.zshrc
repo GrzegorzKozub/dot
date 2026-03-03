@@ -1,6 +1,11 @@
 # perf check: hyperfine 'zsh -i -c exit' --warmup 10
 # key scan: cat -v or showkey -a
 
+# debug
+
+export PS4='\e[90m→ \e[0m'
+# export PS4='\e[90m→ \e[37m${BASH_SOURCE##*/}:${LINENO} \e[0m'
+
 # plugin support
 
 declare -A ZINIT
