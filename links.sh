@@ -27,7 +27,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   ripgrep \
   satty \
   silicon \
-  tidal-hifi tidal_dl_ng \
+  tidal-hifi tidal-dl-ng \
   tmux \
   vscode \
   yamllint \

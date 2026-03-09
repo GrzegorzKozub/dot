@@ -86,7 +86,7 @@ npm install --global \
 
 # python
 
-for TOOL in lastversion tidal-dl-ng; do uv tool install $TOOL; done
+for TOOL in lastversion tidal-dl-ng-for-dj; do uv tool install $TOOL; done
 
 uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
 
