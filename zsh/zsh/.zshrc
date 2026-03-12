@@ -678,6 +678,13 @@ alias code='code 2> /dev/null'
 
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
+# worktrunk
+
+if [[ -a $commands[wt] ]]; then
+  _my-compdef-wt() { eval "$(wt config shell init zsh)" }
+  zsh-defer compdef _my-compdef-wt wt
+fi
+
 # zed
 
 alias z='zeditor .'
