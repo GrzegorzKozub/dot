@@ -18,6 +18,10 @@ region = eu-west-1
 output = json
 region = ap-southeast-1
 
+[profile audience_dr]
+output = json
+region = eu-central-1
+
 [profile sms_sandbox]
 output = json
 region = eu-west-1
