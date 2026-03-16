@@ -35,6 +35,14 @@ cursor-text = #32302f
 # bg1
 split-divider-color = #3c3836
 
+# bg0, yellow
+search-foreground = #32302f
+search-background = #d8a657
+
+# bg0, term_yellow
+search-selected-foreground = #32302f
+search-selected-background = #b47109
+
 # bg0, fg0
 window-titlebar-background = #32302f
 window-titlebar-foreground = #d4be98

@@ -46,9 +46,10 @@ keybind = ctrl+equal=increase_font_size:1
 keybind = ctrl+minus=decrease_font_size:1
 keybind = ctrl+zero=reset_font_size
 
+keybind = ctrl+shift+f=start_search
+
 keybind = ctrl+shift+i=inspector:toggle
 
-keybind = ctrl+shift+,=unbind
 keybind = ctrl+shift+f5=reload_config
 
 keybind = ctrl+shift+p=toggle_command_palette
