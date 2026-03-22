@@ -46,7 +46,7 @@ keybind = ctrl+equal=increase_font_size:1
 keybind = ctrl+minus=decrease_font_size:1
 keybind = ctrl+zero=reset_font_size
 
-keybind = f1=toggle_command_palette
+# keybind = f1=toggle_command_palette
 
 keybind = ctrl+shift+f=start_search
 
