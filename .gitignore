@@ -2,10 +2,6 @@
 
 ansible/ansible/ansible.secret
 
-# aws
-
-aws/aws/credentials
-
 # cava
 
 cava/cava/shaders/
