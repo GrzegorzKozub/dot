@@ -46,6 +46,30 @@ if [[ $HOST =~ ^(drifter|worker)$ ]]; then
     }'
   fi
 
+  # shellcheck disable=SC2016
+  if ! claude mcp get SonarQube &> /dev/null; then
+    claude mcp add-json --scope user SonarQube '{
+      "type": "stdio",
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "--pull=always",
+        "-e",
+        "SONARQUBE_TOKEN",
+        "-e",
+        "SONARQUBE_URL",
+        "mcp/sonarqube"
+      ],
+      "env": {
+        "SONARQUBE_TOKEN": "${SONARQUBE_TOKEN}",
+        "SONARQUBE_URL": "https://sonarqube.efficy.cloud/"
+      }
+    }'
+  fi
+
   if ! claude mcp get Bedrock &> /dev/null; then
     claude mcp add-json --scope user Bedrock '{
       "type": "stdio",
