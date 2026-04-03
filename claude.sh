@@ -37,12 +37,25 @@ if ! claude mcp get GitHub &> /dev/null; then
   }'
 fi
 
-if [[ $HOST =~ ^(drifter|worker)$ ]]; then
+if [[ $HOST == 'worker' ]]; then
 
   if ! claude mcp get Atlassian &> /dev/null; then
     claude mcp add-json --scope user Atlassian '{
       "type": "http",
       "url": "https://mcp.atlassian.com/v1/mcp"
+    }'
+  fi
+
+  if ! claude mcp get Bedrock &> /dev/null; then
+    claude mcp add-json --scope user Bedrock '{
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["awslabs.bedrock-kb-retrieval-mcp-server@latest"],
+      "env": {
+        "AWS_PROFILE": "sms_sandbox",
+        "AWS_REGION": "eu-west-1",
+        "BEDROCK_KB_RERANKING_ENABLED": "false"
+      }
     }'
   fi
 
@@ -66,19 +79,6 @@ if [[ $HOST =~ ^(drifter|worker)$ ]]; then
       "env": {
         "SONARQUBE_TOKEN": "${SONARQUBE_TOKEN}",
         "SONARQUBE_URL": "https://sonarqube.efficy.cloud/"
-      }
-    }'
-  fi
-
-  if ! claude mcp get Bedrock &> /dev/null; then
-    claude mcp add-json --scope user Bedrock '{
-      "type": "stdio",
-      "command": "uvx",
-      "args": ["awslabs.bedrock-kb-retrieval-mcp-server@latest"],
-      "env": {
-        "AWS_PROFILE": "sms_sandbox",
-        "AWS_REGION": "eu-west-1",
-        "BEDROCK_KB_RERANKING_ENABLED": "false"
       }
     }'
   fi
