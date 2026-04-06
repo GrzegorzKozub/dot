@@ -1,12 +1,32 @@
 {
   "active_pane_modifiers": { "inactive_opacity": 0.7 },
   "agent": {
-    "default_profile": "write",
     "default_height": 256,
-    "default_model": { "provider": "llama", "model": "llama" },
+    "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
+      "model": "claude-sonnet-4.6",
+      "provider": "copilot_chat",
+    },
+    "default_profile": "write",
     "default_width": 512,
-    "enable_feedback": false,
-    "favorite_models": [{ "provider": "llama", "model": "llama" }],
+    "favorite_models": [
+      {
+        "enable_thinking": true,
+        "model": "claude-opus-4.6",
+        "provider": "copilot_chat",
+      },
+      {
+        "enable_thinking": true,
+        "model": "claude-sonnet-4.6",
+        "provider": "copilot_chat",
+      },
+      {
+        "enable_thinking": true,
+        "model": "llama",
+        "provider": "llama",
+      },
+    ],
     "tool_permissions": {
       "tools": {
         "edit_file": {
