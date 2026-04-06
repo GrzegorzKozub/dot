@@ -153,11 +153,13 @@
   colorMoved = default
   guitool = code
   renames = copies
-  tool = nvim
+  tool = nvim-difftool
 [difftool]
   prompt = false
 [difftool "nvim"]
   cmd = nvim -d "$LOCAL" "$REMOTE"
+[difftool "nvim-difftool"]
+  cmd = nvim -c 'packadd nvim.difftool' -c \"DiffTool $LOCAL $REMOTE\"
 [difftool "code"]
   cmd = code --wait --diff "$LOCAL" "$REMOTE"
 [filter "lfs"]
