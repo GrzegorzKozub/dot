@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
-# links (keep settings provided by installer)
+# links (keep existing config or settings provided by installer)
 
 CONFIG=/run/media/$USER/data/.config
 
-mkdir -p "$CONFIG"/claude
+if [[ ! -L "$XDG_CONFIG_HOME"/claude ]] && [[ -d "$XDG_CONFIG_HOME"/claude ]] && [[ ! -d "$CONFIG"/claude ]]; then
 
-if [[ ! -L "$XDG_CONFIG_HOME"/claude ]] && [[ -d "$XDG_CONFIG_HOME"/claude ]]; then
-
-  # rm -rf "$CONFIG"/claude/*
+  mkdir "$CONFIG"/claude
 
   shopt -s dotglob
   mv "$XDG_CONFIG_HOME"/claude/* "$CONFIG"/claude
   shopt -u dotglob
 
-  rm -r "$XDG_CONFIG_HOME"/claude/
-
 fi
 
-[[ -L "$XDG_CONFIG_HOME"/claude ]] || ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
+# mkdir -p "$CONFIG"/claude
+
+[[ -d "$XDG_CONFIG_HOME"/claude ]] && rm -rf "$XDG_CONFIG_HOME"/claude
+[[ -L "$XDG_CONFIG_HOME"/claude ]] && rm "$XDG_CONFIG_HOME"/claude
+
+ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
 
 ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings.json \
   "$XDG_CONFIG_HOME"/claude/settings.json
