@@ -676,7 +676,9 @@ alias code='code 2> /dev/null'
 
 # wget
 
-alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
+export WGETRC=$XDG_CONFIG_HOME/wgetrc
+
+# alias wget="wget --hsts-file=$XDG_STATE_HOME/wget-hsts"
 
 # worktrunk
 
