@@ -2,10 +2,12 @@
   "env": {
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_BUG_COMMAND": "1",
     "DISABLE_ERROR_REPORTING": "1",
-    "DISABLE_TELEMETRY": "1"
+    "DISABLE_TELEMETRY": "1",
+    "MCP_TIMEOUT": "15000"
   },
   "attribution": {
     "commit": "",
@@ -29,10 +31,8 @@
   },
   "sandbox": {
     "enabled": false,
-    "excludedCommands": [
-      "docker",
-      "git"
-    ]
+    "excludedCommands": ["docker", "git"]
   },
-  "effortLevel": "medium"
+  "effortLevel": "medium",
+  "model": "opus[1m]"
 }
