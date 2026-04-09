@@ -78,6 +78,7 @@ if [[ $HOST == 'worker' ]]; then
         "mcp/sonarqube"
       ],
       "env": {
+        "MCP_TIMEOUT": "15000",
         "SONARQUBE_TOKEN": "${SONARQUBE_TOKEN}",
         "SONARQUBE_URL": "https://sonarqube.efficy.cloud/"
       }
