@@ -6,8 +6,7 @@
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_BUG_COMMAND": "1",
     "DISABLE_ERROR_REPORTING": "1",
-    "DISABLE_TELEMETRY": "1",
-    "MCP_TIMEOUT": "15000"
+    "DISABLE_TELEMETRY": "1"
   },
   "attribution": {
     "commit": "",
@@ -29,10 +28,21 @@
       "Read(**/keys/**)"
     ]
   },
+  "model": "opus[1m]",
+  "enabledPlugins": {
+    "dev@apsis": true
+  },
+  "extraKnownMarketplaces": {
+    "apsis": {
+      "source": {
+        "source": "github",
+        "repo": "efficy-sa/apsis-claude-plugins"
+      }
+    }
+  },
   "sandbox": {
     "enabled": false,
     "excludedCommands": ["docker", "git"]
   },
-  "effortLevel": "medium",
-  "model": "opus[1m]"
+  "effortLevel": "medium"
 }
