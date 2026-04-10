@@ -30,7 +30,8 @@
   },
   "model": "opus[1m]",
   "enabledPlugins": {
-    "dev@apsis": true
+    "apsis-mcp@apsis": true,
+    "apsis-katie@apsis": true
   },
   "extraKnownMarketplaces": {
     "apsis": {

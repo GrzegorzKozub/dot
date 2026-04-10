@@ -28,8 +28,8 @@ ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings.json \
 # mcp
 
 # shellcheck disable=SC2016
-if ! claude mcp get GitHub &> /dev/null; then
-  claude mcp add-json --scope user GitHub '{
+if ! claude mcp get github &> /dev/null; then
+  claude mcp add-json --scope user github '{
     "type": "http",
     "url": "https://api.githubcopilot.com/mcp",
     "headers": {
@@ -40,15 +40,15 @@ fi
 
 if [[ $HOST == 'worker' ]]; then
 
-  if ! claude mcp get Atlassian &> /dev/null; then
-    claude mcp add-json --scope user Atlassian '{
+  if ! claude mcp get atlassian &> /dev/null; then
+    claude mcp add-json --scope user atlassian '{
       "type": "http",
       "url": "https://mcp.atlassian.com/v1/mcp"
     }'
   fi
 
-  if ! claude mcp get Bedrock &> /dev/null; then
-    claude mcp add-json --scope user Bedrock '{
+  if ! claude mcp get bedrock &> /dev/null; then
+    claude mcp add-json --scope user bedrock '{
       "type": "stdio",
       "command": "uvx",
       "args": ["awslabs.bedrock-kb-retrieval-mcp-server@latest"],
@@ -61,8 +61,8 @@ if [[ $HOST == 'worker' ]]; then
   fi
 
   # shellcheck disable=SC2016
-  if ! claude mcp get SonarQube &> /dev/null; then
-    claude mcp add-json --scope user SonarQube '{
+  if ! claude mcp get sonarqube &> /dev/null; then
+    claude mcp add-json --scope user sonarqube '{
       "type": "stdio",
       "command": "docker",
       "args": [
