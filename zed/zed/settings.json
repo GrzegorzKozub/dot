@@ -3,30 +3,12 @@
   "agent": {
     "default_height": 256,
     "default_model": {
-      "effort": "high",
-      "enable_thinking": true,
-      "model": "claude-sonnet-4.6",
-      "provider": "copilot_chat",
+      "enable_thinking": false,
+      "model": "llama",
+      "provider": "llama",
     },
     "default_profile": "write",
     "default_width": 512,
-    "favorite_models": [
-      {
-        "enable_thinking": true,
-        "model": "claude-opus-4.6",
-        "provider": "copilot_chat",
-      },
-      {
-        "enable_thinking": true,
-        "model": "claude-sonnet-4.6",
-        "provider": "copilot_chat",
-      },
-      {
-        "enable_thinking": true,
-        "model": "llama",
-        "provider": "llama",
-      },
-    ],
     "tool_permissions": {
       "tools": {
         "edit_file": {
