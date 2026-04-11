@@ -63,8 +63,10 @@ CACHE=/run/media/$USER/data/.cache
 
 if [[ $HOST =~ ^(player|worker)$ ]]; then
 
-  [[ -d $CACHE/llama.cpp ]] || mkdir "$CACHE"/llama.cpp
-  [[ -e $XDG_CACHE_HOME/llama.cpp ]] && rm -rf "$XDG_CACHE_HOME"/llama.cpp
-  ln -s "$CACHE"/llama.cpp "$XDG_CACHE_HOME"/llama.cpp
+  for DIR in huggingface llama.cpp; do
+    [[ -d "$CACHE/$DIR" ]] || mkdir "$CACHE/$DIR"
+    [[ -e "$XDG_CACHE_HOME/$DIR" ]] && rm -rf "${XDG_CACHE_HOME:?}/$DIR"
+    ln -s "$CACHE/$DIR" "$XDG_CACHE_HOME/$DIR"
+  done
 
 fi
