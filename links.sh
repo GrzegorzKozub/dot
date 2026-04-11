@@ -46,13 +46,13 @@ ln -sf "$DIR"/flags/code-flags.conf "$XDG_CONFIG_HOME"/code-flags.conf
 [[ -d $XDG_CONFIG_HOME/environment.d ]] || mkdir -p "$XDG_CONFIG_HOME"/environment.d
 ln -sf "$DIR"/environment/environment.d/10-common.conf "$XDG_CONFIG_HOME"/environment.d/10-common.conf
 
-[[ $HOST = 'drifter' ]] &&
+[[ $HOST == 'drifter' ]] &&
   ln -sf "$DIR"/environment/environment.d/20-intel.conf "$XDG_CONFIG_HOME"/environment.d/20-intel.conf
 
 [[ $HOST =~ ^(player|worker)$ ]] &&
   ln -sf "$DIR"/environment/environment.d/20-nvidia.conf "$XDG_CONFIG_HOME"/environment.d/20-nvidia.conf
 
-[[ $HOST = 'sacrifice' ]] &&
+[[ $HOST == 'sacrifice' ]] &&
   ln -sf "$DIR"/environment/environment.d/20-amd.conf "$XDG_CONFIG_HOME"/environment.d/20-amd.conf
 
 ln -sf "$DIR"/wget/wgetrc "$XDG_CONFIG_HOME"/wgetrc

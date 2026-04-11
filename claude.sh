@@ -22,67 +22,76 @@ fi
 
 ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
 
-ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings.json \
-  "$XDG_CONFIG_HOME"/claude/settings.json
+if [[ -f "${BASH_SOURCE%/*}"/claude/claude/settings.$HOST.json ]]; then
+  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings."$HOST".json \
+    "$XDG_CONFIG_HOME"/claude/settings.json
+else
+  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings.json \
+    "$XDG_CONFIG_HOME"/claude/settings.json
+fi
 
 # mcp
 
-# shellcheck disable=SC2016
-if ! claude mcp get github &> /dev/null; then
-  claude mcp add-json --scope user github '{
-    "type": "http",
-    "url": "https://api.githubcopilot.com/mcp",
-    "headers": {
-      "Authorization": "Bearer ${GITHUB_TOKEN}"
-    }
-  }'
-fi
-
-if [[ $HOST == 'worker' ]]; then
-
-  if ! claude mcp get atlassian &> /dev/null; then
-    claude mcp add-json --scope user atlassian '{
-      "type": "http",
-      "url": "https://mcp.atlassian.com/v1/mcp"
-    }'
-  fi
-
-  if ! claude mcp get bedrock &> /dev/null; then
-    claude mcp add-json --scope user bedrock '{
-      "type": "stdio",
-      "command": "uvx",
-      "args": ["awslabs.bedrock-kb-retrieval-mcp-server@latest"],
-      "env": {
-        "AWS_PROFILE": "sms_sandbox",
-        "AWS_REGION": "eu-west-1",
-        "BEDROCK_KB_RERANKING_ENABLED": "false"
-      }
-    }'
-  fi
+if [[ $HOST =~ ^(drifter|player)$ ]]; then
 
   # shellcheck disable=SC2016
-  if ! claude mcp get sonarqube &> /dev/null; then
-    claude mcp add-json --scope user sonarqube '{
-      "type": "stdio",
-      "command": "docker",
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "--init",
-        "--pull=always",
-        "-e",
-        "SONARQUBE_TOKEN",
-        "-e",
-        "SONARQUBE_URL",
-        "mcp/sonarqube"
-      ],
-      "env": {
-        "MCP_TIMEOUT": "15000",
-        "SONARQUBE_TOKEN": "${SONARQUBE_TOKEN}",
-        "SONARQUBE_URL": "https://sonarqube.efficy.cloud/"
+  if ! claude mcp get github &> /dev/null; then
+    claude mcp add-json --scope user github '{
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_TOKEN}"
       }
     }'
   fi
 
 fi
+
+# if [[ $HOST == 'worker' ]]; then
+#
+#   if ! claude mcp get atlassian &> /dev/null; then
+#     claude mcp add-json --scope user atlassian '{
+#       "type": "http",
+#       "url": "https://mcp.atlassian.com/v1/mcp"
+#     }'
+#   fi
+#
+#   if ! claude mcp get bedrock &> /dev/null; then
+#     claude mcp add-json --scope user bedrock '{
+#       "type": "stdio",
+#       "command": "uvx",
+#       "args": ["awslabs.bedrock-kb-retrieval-mcp-server@latest"],
+#       "env": {
+#         "AWS_PROFILE": "sms_sandbox",
+#         "AWS_REGION": "eu-west-1",
+#         "BEDROCK_KB_RERANKING_ENABLED": "false"
+#       }
+#     }'
+#   fi
+#
+#   # shellcheck disable=SC2016
+#   if ! claude mcp get sonarqube &> /dev/null; then
+#     claude mcp add-json --scope user sonarqube '{
+#       "type": "stdio",
+#       "command": "docker",
+#       "args": [
+#         "run",
+#         "-i",
+#         "--rm",
+#         "--init",
+#         "--pull=always",
+#         "-e",
+#         "SONARQUBE_TOKEN",
+#         "-e",
+#         "SONARQUBE_URL",
+#         "mcp/sonarqube"
+#       ],
+#       "env": {
+#         "MCP_TIMEOUT": "15000",
+#         "SONARQUBE_TOKEN": "${SONARQUBE_TOKEN}",
+#         "SONARQUBE_URL": "https://sonarqube.efficy.cloud/"
+#       }
+#     }'
+#   fi
+#
+# fi

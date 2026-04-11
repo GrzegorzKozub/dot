@@ -29,18 +29,6 @@
     ]
   },
   "model": "opus[1m]",
-  "enabledPlugins": {
-    "apsis-mcp@apsis": true,
-    "apsis-katie@apsis": true
-  },
-  "extraKnownMarketplaces": {
-    "apsis": {
-      "source": {
-        "source": "github",
-        "repo": "efficy-sa/apsis-claude-plugins"
-      }
-    }
-  },
   "sandbox": {
     "enabled": false,
     "excludedCommands": [
