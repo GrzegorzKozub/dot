@@ -364,7 +364,7 @@ zsh-defer my-bindkey '^r' fzf-history-widget-no-numbers
 
 # last working dir
 
-[[ $TMUX ]] && zinit snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
+[[ $TMUX ]] && zsh-defer zinit snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
 
 # dir history
 
@@ -415,7 +415,7 @@ my-bindkey '^f' my-fetch-cd
 
 autoload -Uz colors && colors
 
-eval $(dircolors -b $XDG_CONFIG_HOME/zsh/dir_colors)
+zsh-defer eval $(dircolors -b $XDG_CONFIG_HOME/zsh/dir_colors)
 
 # syntax highlighting
 
