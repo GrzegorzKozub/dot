@@ -1,0 +1,52 @@
+{
+  "env": {
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_BUG_COMMAND": "1",
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_TELEMETRY": "1"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "deny": [
+      "Read(**/*.*env)",
+      "Read(**/*.cert)",
+      "Read(**/*.crt)",
+      "Read(**/*.env)",
+      "Read(**/*.key)",
+      "Read(**/*.ovpn)",
+      "Read(**/*.pem)",
+      "Read(**/*.secret)",
+      "Read(**/*credentials)",
+      "Read(**/*settings.xml)",
+      "Read(**/.secrets/**)",
+      "Read(**/keys/**)"
+    ]
+  },
+  "model": "opus[1m]",
+  "enabledPlugins": {
+    "apsis-katie@apsis": true,
+    "apsis-mcp@apsis": true
+  },
+  "extraKnownMarketplaces": {
+    "apsis": {
+      "source": {
+        "source": "github",
+        "repo": "efficy-sa/apsis-claude-plugins"
+      }
+    }
+  },
+  "sandbox": {
+    "enabled": false,
+    "excludedCommands": [
+      "docker",
+      "git"
+    ]
+  },
+  "effortLevel": "medium"
+}
