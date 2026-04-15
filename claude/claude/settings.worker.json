@@ -31,7 +31,8 @@
   "model": "opus[1m]",
   "enabledPlugins": {
     "apsis-katie@apsis": true,
-    "apsis-mcp@apsis": true
+    "apsis-mcp@apsis": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "apsis": {
