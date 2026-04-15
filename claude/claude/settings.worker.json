@@ -44,10 +44,8 @@
   },
   "sandbox": {
     "enabled": false,
-    "excludedCommands": [
-      "docker",
-      "git"
-    ]
+    "excludedCommands": ["docker", "git"]
   },
-  "effortLevel": "medium"
+  "effortLevel": "medium",
+  "teammateMode": "tmux"
 }

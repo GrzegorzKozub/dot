@@ -31,10 +31,8 @@
   "model": "opus[1m]",
   "sandbox": {
     "enabled": false,
-    "excludedCommands": [
-      "docker",
-      "git"
-    ]
+    "excludedCommands": ["docker", "git"]
   },
-  "effortLevel": "medium"
+  "effortLevel": "medium",
+  "teammateMode": "tmux"
 }
