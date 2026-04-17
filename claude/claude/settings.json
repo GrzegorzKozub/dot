@@ -14,25 +14,59 @@
   },
   "permissions": {
     "deny": [
-      "Read(**/*.*env)",
-      "Read(**/*.cert)",
-      "Read(**/*.crt)",
-      "Read(**/*.env)",
-      "Read(**/*.key)",
-      "Read(**/*.ovpn)",
-      "Read(**/*.pem)",
-      "Read(**/*.secret)",
-      "Read(**/*credentials)",
-      "Read(**/*settings.xml)",
-      "Read(**/.secrets/**)",
-      "Read(**/keys/**)"
-    ]
+      "Edit(//**/*.*env)",
+      "Edit(//**/*.cert)",
+      "Edit(//**/*.crt)",
+      "Edit(//**/*.env)",
+      "Edit(//**/*.key)",
+      "Edit(//**/*.ovpn)",
+      "Edit(//**/*.pem)",
+      "Edit(//**/*.secret)",
+      "Edit(//**/*credentials)",
+      "Edit(//**/*settings.xml)",
+      "Edit(//**/.secrets/**)",
+      "Edit(//**/keys/**)",
+      "Read(//**/*.*env)",
+      "Read(//**/*.cert)",
+      "Read(//**/*.crt)",
+      "Read(//**/*.env)",
+      "Read(//**/*.key)",
+      "Read(//**/*.ovpn)",
+      "Read(//**/*.pem)",
+      "Read(//**/*.secret)",
+      "Read(//**/*credentials)",
+      "Read(//**/*settings.xml)",
+      "Read(//**/.secrets/**)",
+      "Read(//**/keys/**)",
+      "Write(//**/*.*env)",
+      "Write(//**/*.cert)",
+      "Write(//**/*.crt)",
+      "Write(//**/*.env)",
+      "Write(//**/*.key)",
+      "Write(//**/*.ovpn)",
+      "Write(//**/*.pem)",
+      "Write(//**/*.secret)",
+      "Write(//**/*credentials)",
+      "Write(//**/*settings.xml)",
+      "Write(//**/.secrets/**)",
+      "Write(//**/keys/**)"
+    ],
+    "defaultMode": "acceptEdits"
   },
   "model": "opus[1m]",
   "sandbox": {
-    "enabled": false,
-    "excludedCommands": ["docker", "git"]
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "allowWrite": ["."],
+      "denyWrite": ["~/", "/run/media"],
+      "denyRead": ["~/", "/run/media"],
+      "allowRead": ["."]
+    },
+    "excludedCommands": ["docker *", "podman *"]
   },
   "effortLevel": "medium",
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "skipAutoPermissionPrompt": true
 }
