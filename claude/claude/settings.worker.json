@@ -49,5 +49,6 @@
       "git"
     ]
   },
-  "effortLevel": "medium"
+  "effortLevel": "medium",
+  "tui": "fullscreen"
 }
