@@ -72,14 +72,28 @@
     "failIfUnavailable": true,
     "allowUnsandboxedCommands": false,
     "filesystem": {
-      "allowWrite": ["."],
-      "denyWrite": ["~/", "/run/media"],
-      "denyRead": ["~/", "/run/media"],
-      "allowRead": ["."]
+      "allowWrite": [
+        "."
+      ],
+      "denyWrite": [
+        "~/",
+        "/run/media"
+      ],
+      "denyRead": [
+        "~/",
+        "/run/media"
+      ],
+      "allowRead": [
+        "."
+      ]
     },
-    "excludedCommands": ["docker *", "podman *"]
+    "excludedCommands": [
+      "docker *",
+      "podman *"
+    ]
   },
   "effortLevel": "medium",
   "tui": "fullscreen",
   "skipAutoPermissionPrompt": true
 }
+
