@@ -26,6 +26,7 @@
       "Edit(//**/*settings.xml)",
       "Edit(//**/.secrets/**)",
       "Edit(//**/keys/**)",
+      "Edit(//**/pass/**)",
       "Read(//**/*.*env)",
       "Read(//**/*.cert)",
       "Read(//**/*.crt)",
@@ -38,6 +39,7 @@
       "Read(//**/*settings.xml)",
       "Read(//**/.secrets/**)",
       "Read(//**/keys/**)",
+      "Read(//**/pass/**)",
       "Write(//**/*.*env)",
       "Write(//**/*.cert)",
       "Write(//**/*.crt)",
@@ -49,7 +51,8 @@
       "Write(//**/*credentials)",
       "Write(//**/*settings.xml)",
       "Write(//**/.secrets/**)",
-      "Write(//**/keys/**)"
+      "Write(//**/keys/**)",
+      "Write(//**/pass/**)"
     ],
     "defaultMode": "acceptEdits"
   },
