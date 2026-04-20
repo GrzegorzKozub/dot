@@ -13,6 +13,9 @@
     "pr": ""
   },
   "permissions": {
+    "allow": [
+      "mcp__github"
+    ],
     "deny": [
       "Edit(//**/*.*env)",
       "Edit(//**/*.cert)",
@@ -78,8 +81,11 @@
       ]
     },
     "excludedCommands": [
+      "aws *",
       "docker *",
-      "podman *"
+      "git *",
+      "podman *",
+      "ssh *"
     ]
   },
   "effortLevel": "medium",

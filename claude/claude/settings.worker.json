@@ -13,6 +13,12 @@
     "pr": ""
   },
   "permissions": {
+    "allow": [
+      "mcp__plugin_apsis-mcp_atlassian",
+      "mcp__plugin_apsis-mcp_bedrock",
+      "mcp__plugin_apsis-mcp_github",
+      "mcp__plugin_apsis-mcp_sonarqube"
+    ],
     "deny": [
       "Edit(//**/*.*env)",
       "Edit(//**/*.cert)",
@@ -91,8 +97,11 @@
       ]
     },
     "excludedCommands": [
+      "aws *",
       "docker *",
-      "podman *"
+      "git *",
+      "podman *",
+      "ssh *"
     ]
   },
   "effortLevel": "medium",
