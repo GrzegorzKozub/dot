@@ -15,7 +15,7 @@ claude/**
 claude/claude/plugins/
 
 !claude/claude/settings.json
-!claude/claude/settings.worker.json
+!claude/claude/settings-work.json
 
 # copilot
 

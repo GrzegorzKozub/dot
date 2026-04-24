@@ -203,5 +203,8 @@
   },
   "effortLevel": "medium",
   "tui": "fullscreen",
+  "theme": "dark-ansi",
+  "editorMode": "vim",
+  "teammateMode": "tmux",
   "skipAutoPermissionPrompt": true
 }

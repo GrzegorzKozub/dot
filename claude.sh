@@ -22,29 +22,32 @@ fi
 
 ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
 
-if [[ -f "${BASH_SOURCE%/*}"/claude/claude/settings.$HOST.json ]]; then
-  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings."$HOST".json \
-    "$XDG_CONFIG_HOME"/claude/settings.json
-else
-  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings.json \
-    "$XDG_CONFIG_HOME"/claude/settings.json
-fi
+# if [[ -f "${BASH_SOURCE%/*}"/claude/claude/settings.$HOST.json ]]; then
+#   ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings."$HOST".json \
+#     "$XDG_CONFIG_HOME"/claude/settings.json
+# else
+#   ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings.json \
+#     "$XDG_CONFIG_HOME"/claude/settings.json
+# fi
+
+ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings.json \
+  "$XDG_CONFIG_HOME"/claude/settings.json
+
+[[ $HOST == 'worker' ]] &&
+  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings-work.json \
+    "$XDG_CONFIG_HOME"/claude/settings-work.json
 
 # mcp
 
-if [[ $HOST =~ ^(drifter|player)$ ]]; then
-
-  # shellcheck disable=SC2016
-  if ! claude mcp get github &> /dev/null; then
-    claude mcp add-json --scope user github '{
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp",
-      "headers": {
-        "Authorization": "Bearer ${GITHUB_TOKEN}"
-      }
-    }'
-  fi
-
+# shellcheck disable=SC2016
+if ! claude mcp get github &> /dev/null; then
+  claude mcp add-json --scope user github '{
+    "type": "http",
+    "url": "https://api.githubcopilot.com/mcp",
+    "headers": {
+      "Authorization": "Bearer ${GITHUB_TOKEN}"
+    }
+  }'
 fi
 
 # if [[ $HOST == 'worker' ]]; then
