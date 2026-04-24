@@ -30,12 +30,13 @@ ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
 #     "$XDG_CONFIG_HOME"/claude/settings.json
 # fi
 
-ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings.json \
-  "$XDG_CONFIG_HOME"/claude/settings.json
+FILES=(statusline.sh settings.json)
+[[ $HOST == 'worker' ]] && FILES+=(settings-work.json)
 
-[[ $HOST == 'worker' ]] &&
-  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings-work.json \
-    "$XDG_CONFIG_HOME"/claude/settings-work.json
+for FILE in "${FILES[@]}"; do
+  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/"$FILE" \
+    "$XDG_CONFIG_HOME"/claude/"$FILE"
+done
 
 # mcp
 

@@ -16,6 +16,7 @@ claude/claude/plugins/
 
 !claude/claude/settings.json
 !claude/claude/settings-work.json
+!claude/claude/statusline.sh
 
 # copilot
 

@@ -201,6 +201,10 @@
       "ssh *"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\""
+  },
   "effortLevel": "medium",
   "tui": "fullscreen",
   "theme": "dark-ansi",
