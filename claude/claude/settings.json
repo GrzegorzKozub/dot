@@ -167,6 +167,10 @@
     "defaultMode": "acceptEdits"
   },
   "model": "opus[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\""
+  },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true
   },
@@ -200,10 +204,6 @@
       "scp *",
       "ssh *"
     ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\""
   },
   "effortLevel": "medium",
   "tui": "fullscreen",
