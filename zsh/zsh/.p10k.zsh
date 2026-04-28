@@ -52,13 +52,14 @@
 
   # dir
 
-  local anchor_files=(.git go.mod mix.exs package.json)
-  typeset -g POWERLEVEL9K_SHORTEN_FOLDER_MARKER="(${(j:|:)anchor_files})"
-
-  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
-  typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
+  typeset -g POWERLEVEL9K_SHORTEN_DELIMITER='…'
 
   typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=64
+  typeset -g POWERLEVEL9K_SHORTEN_FOLDER_MARKER='(*.csproj|*.sln|.git|.luarc.json|Cargo.toml|go.mod|mix.exs|package.json|pom.xml)'
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+
+  # typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=64
+  # typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_absolute
 
   typeset -g POWERLEVEL9K_DIR_FOREGROUND='cyan'
   typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND='cyan'
@@ -100,7 +101,7 @@
       branch_or_tag=${(V)VCS_STATUS_TAG}
     fi
 
-    (( $#branch_or_tag > 32 )) && branch_or_tag[32,-1]='…'
+    (( $#branch_or_tag > 16 )) && branch_or_tag[16,-1]='…'
     prompt+="${branch_or_tag//\%/%%}"
 
     [[ -z $branch_or_tag ]] && prompt+="%3F${VCS_STATUS_COMMIT[1,7]}"

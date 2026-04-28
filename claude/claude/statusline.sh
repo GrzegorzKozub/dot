@@ -13,7 +13,9 @@ mapfile -t FIELDS < <(jq -r '
       (.cost.total_cost_usd // ""),
       .effort.level // "",
       .vim.mode // "",
-      .session_id // "default"
+      .session_id // "default",
+      .agent.name // "",
+      .workspace.git_worktree // ""
     )')
 DIR=${FIELDS[0]}
 MODEL=${FIELDS[1]}
@@ -24,6 +26,8 @@ COST=${FIELDS[5]}
 EFFORT=${FIELDS[6]}
 VIM_MODE=${FIELDS[7]}
 SESSION_ID=${FIELDS[8]}
+AGENT=${FIELDS[9]}
+WORKTREE=${FIELDS[10]}
 
 CACHE_FILE="${TMPDIR:-/tmp}/statusline-git-cache-$SESSION_ID"
 CACHE_MAX_AGE=5
@@ -88,6 +92,9 @@ fi
 
 IFS='|' read -r BRANCH TAG BEHIND AHEAD CONFLICTED STAGED UNSTAGED UNTRACKED < "$CACHE_FILE"
 
+((${#BRANCH} > 16)) && BRANCH="${BRANCH:0:15}…"
+((${#WORKTREE} > 16)) && WORKTREE="${WORKTREE:0:15}…"
+
 PARTS=()
 
 if [[ -n $VIM_MODE ]]; then
@@ -102,7 +109,9 @@ if [[ -n $VIM_MODE ]]; then
   PARTS+=("$P")
 fi
 
-printf -v P '\e[36m%s\e[0m' "${DIR/#$HOME/\~}"
+CWD="${DIR/#$HOME/\~}"
+((${#CWD} > 32)) && CWD="${CWD##*/}"
+printf -v P '\e[36m%s\e[0m' "$CWD"
 PARTS+=("$P")
 
 if [[ -n $BRANCH ]]; then
@@ -120,17 +129,29 @@ if [[ -n $BRANCH ]]; then
   PARTS+=("$GIT_STR")
 fi
 
+if [[ -n $WORKTREE ]]; then
+  printf -v P '\e[35m%s\e[0m' "$WORKTREE"
+  PARTS+=("$P")
+fi
+
 if [[ -n $USED ]]; then
   printf -v USED_INT '%.0f' "$USED"
   ctx_icon CTX_GLYPH "$USED"
+  if ((USED_INT >= 90)); then
+    CTX_FG=31; CTX_BG=41
+  elif ((USED_INT >= 80)); then
+    CTX_FG=33; CTX_BG=43
+  else
+    CTX_FG=37; CTX_BG=47
+  fi
   if [[ -n $CUR_IN && -n $MAX ]]; then
     fmt_tokens CUR_IN_STR "$CUR_IN"
     fmt_tokens MAX_STR "$MAX"
-    printf -v P '\e[37m\xee\x82\xb6\e[47;30;1m%s %s%% %s %s\e[0;37m\xee\x82\xb4\e[0m' \
-      "$CTX_GLYPH" "$USED_INT" "$CUR_IN_STR" "$MAX_STR"
+    printf -v P '\e[%sm\xee\x82\xb6\e[%s;30;1m%s %s%% %s %s\e[0;%sm\xee\x82\xb4\e[0m' \
+      "$CTX_FG" "$CTX_BG" "$CTX_GLYPH" "$USED_INT" "$CUR_IN_STR" "$MAX_STR" "$CTX_FG"
   else
-    printf -v P '\e[37m\xee\x82\xb6\e[47;30;1m%s %s%%\e[0;37m\xee\x82\xb4\e[0m' \
-      "$CTX_GLYPH" "$USED_INT"
+    printf -v P '\e[%sm\xee\x82\xb6\e[%s;30;1m%s %s%%\e[0;%sm\xee\x82\xb4\e[0m' \
+      "$CTX_FG" "$CTX_BG" "$CTX_GLYPH" "$USED_INT" "$CTX_FG"
   fi
   PARTS+=("$P")
 fi
@@ -153,6 +174,11 @@ fi
 
 if [[ -n $COST ]]; then
   printf -v P '\e[90m󰇁 %.2f\e[0m' "$COST"
+  PARTS+=("$P")
+fi
+
+if [[ -n $AGENT ]]; then
+  printf -v P '\e[35m󰊠 %s\e[0m' "$AGENT"
   PARTS+=("$P")
 fi
 
