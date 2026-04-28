@@ -66,9 +66,8 @@ ctx_icon() {
 
 if cache_is_stale; then
   BRANCH=$(git -C "$DIR" symbolic-ref --short HEAD 2> /dev/null || :)
-  TAG=""
+  TAG=$(git -C "$DIR" describe --exact-match --tags HEAD 2> /dev/null || :)
   if [[ -z $BRANCH ]]; then
-    TAG=$(git -C "$DIR" describe --exact-match --tags HEAD 2> /dev/null || :)
     BRANCH="${TAG:-$(git -C "$DIR" rev-parse --short HEAD 2> /dev/null || :)}"
   fi
   BEHIND=0 AHEAD=0 CONFLICTED=0 STAGED=0 UNSTAGED=0 UNTRACKED=0
@@ -93,6 +92,7 @@ fi
 IFS='|' read -r BRANCH TAG BEHIND AHEAD CONFLICTED STAGED UNSTAGED UNTRACKED < "$CACHE_FILE"
 
 ((${#BRANCH} > 16)) && BRANCH="${BRANCH:0:15}…"
+((${#TAG} > 16)) && TAG="${TAG:0:15}…"
 ((${#WORKTREE} > 16)) && WORKTREE="${WORKTREE:0:15}…"
 
 PARTS=()
@@ -115,8 +115,10 @@ printf -v P '\e[36m%s\e[0m' "$CWD"
 PARTS+=("$P")
 
 if [[ -n $BRANCH ]]; then
-  if [[ -n $TAG ]]; then
+  if [[ -n $TAG && $BRANCH == "$TAG" ]]; then
     printf -v GIT_STR '\e[35m%s\e[0m' "$BRANCH"
+  elif [[ -n $TAG ]]; then
+    printf -v GIT_STR '\e[34m%s\e[0m \e[35m%s\e[0m' "$BRANCH" "$TAG"
   else
     printf -v GIT_STR '\e[34m%s\e[0m' "$BRANCH"
   fi
