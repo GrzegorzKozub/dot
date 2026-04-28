@@ -169,7 +169,8 @@
   "model": "opus[1m]",
   "statusLine": {
     "type": "command",
-    "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\""
+    "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\"",
+    "hideVimModeIndicator": true
   },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true
