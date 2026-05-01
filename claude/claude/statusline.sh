@@ -105,7 +105,7 @@ if [[ -n $VIM_MODE ]]; then
     VISUAL*) FG=32; BG=42 ;;
     *)       FG=37; BG=47 ;;
   esac
-  printf -v P '\e[%sm\xee\x82\xb6\e[%s;30;1m%s\e[0;%sm\xee\x82\xb4\e[0m' "$FG" "$BG" "$MODE_LETTER" "$FG"
+  printf -v P '\e[%sm\xee\x82\xb6\e[%s;30m%s\e[0;%sm\xee\x82\xb4\e[0m' "$FG" "$BG" "$MODE_LETTER" "$FG"
   PARTS+=("$P")
 fi
 
@@ -149,10 +149,10 @@ if [[ -n $USED ]]; then
   if [[ -n $CUR_IN && -n $MAX ]]; then
     fmt_tokens CUR_IN_STR "$CUR_IN"
     fmt_tokens MAX_STR "$MAX"
-    printf -v P '\e[%sm\xee\x82\xb6\e[%s;30;1m%s %s%% %s %s\e[0;%sm\xee\x82\xb4\e[0m' \
+    printf -v P '\e[%sm\xee\x82\xb6\e[%s;30m%s %s%% %s %s\e[0;%sm\xee\x82\xb4\e[0m' \
       "$CTX_FG" "$CTX_BG" "$CTX_GLYPH" "$USED_INT" "$CUR_IN_STR" "$MAX_STR" "$CTX_FG"
   else
-    printf -v P '\e[%sm\xee\x82\xb6\e[%s;30;1m%s %s%%\e[0;%sm\xee\x82\xb4\e[0m' \
+    printf -v P '\e[%sm\xee\x82\xb6\e[%s;30m%s %s%%\e[0;%sm\xee\x82\xb4\e[0m' \
       "$CTX_FG" "$CTX_BG" "$CTX_GLYPH" "$USED_INT" "$CTX_FG"
   fi
   PARTS+=("$P")
@@ -170,7 +170,7 @@ if [[ -n $MODEL ]]; then
     esac
     MODEL_STR+=" $EFFORT_SHORT"
   fi
-  printf -v P '\e[90m\xee\x82\xb6\e[100;30;1m󰚩 %s\e[0;90m\xee\x82\xb4\e[0m' "$MODEL_STR"
+  printf -v P '\e[90m\xee\x82\xb6\e[100;30m󰚩 %s\e[0;90m\xee\x82\xb4\e[0m' "$MODEL_STR"
   PARTS+=("$P")
 fi
 
