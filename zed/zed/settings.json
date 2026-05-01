@@ -9,6 +9,7 @@
     },
     "default_profile": "write",
     "default_width": 512,
+    "dock": "right",
     "tool_permissions": {
       "tools": {
         "edit_file": {
@@ -42,7 +43,7 @@
   "buffer_font_family": "Cascadia Code",
   "buffer_font_features": { "calt": true, "ss01": true },
   "buffer_font_size": 16,
-  "collaboration_panel": { "default_width": 256 },
+  "collaboration_panel": { "default_width": 256, "dock": "left" },
   "current_line_highlight": "line",
   "cursor_blink": false,
   "edit_predictions": {
@@ -66,7 +67,7 @@
   "expand_excerpt_lines": 4,
   "file_finder": { "modal_max_width": "medium" },
   "git": { "inline_blame": { "enabled": false } },
-  "git_panel": { "default_width": 256 },
+  "git_panel": { "default_width": 256, "dock": "left" },
   "gutter": { "min_line_number_digits": 3 },
   "horizontal_scroll_margin": 8,
   "icon_theme": {
@@ -215,6 +216,7 @@
   },
   "outline_panel": {
     "default_width": 256,
+    "dock": "left",
     "indent_guides": { "show": "never" },
     "indent_size": 8,
   },
@@ -235,6 +237,7 @@
   ],
   "project_panel": {
     "default_width": 256,
+    "dock": "left",
     "indent_guides": { "show": "never" },
     "indent_size": 8,
   },
