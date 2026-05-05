@@ -34,6 +34,7 @@
       "Bash(gh repo view:*)",
       "Bash(gh run list:*)",
       "Bash(gh run view:*)",
+      "Bash(gh search:*)",
       "Bash(git -C:*)",
       "Bash(git clone:*)",
       "Bash(git fetch:*)",
