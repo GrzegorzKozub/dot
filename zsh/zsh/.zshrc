@@ -672,8 +672,10 @@ export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 
 # vscode
 
-alias c='code . 2> /dev/null'
-alias code='code 2> /dev/null'
+# alias c='code . 2> /dev/null'
+# alias code='code 2> /dev/null'
+
+alias c='code .'
 
 # wget
 
@@ -691,7 +693,7 @@ fi
 # zed
 
 alias z='zeditor .'
-alias zed='zeditor'
+alias zed='zeditor .'
 
 export LLAMA_API_KEY='foo' # https://zed.dev/docs/ai/llm-providers#openai-api-compatible
 
