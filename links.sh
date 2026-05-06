@@ -29,7 +29,6 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   silicon \
   tidal-hifi tidal-dl-ng \
   tmux \
-  vscode \
   yamllint \
   yazi \
   yt-dlp \
@@ -38,12 +37,15 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
 
   # iex zellij
 
+mkdir -p "$XDG_CONFIG_HOME"/vscode
+stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME"/vscode --stow vscode
+
 DIR=$(dirname "$(realpath "$0")")
 
 ln -sf "$DIR"/flags/brave-flags.conf "$XDG_CONFIG_HOME"/brave-flags.conf
-ln -sf "$DIR"/flags/code-flags.conf "$XDG_CONFIG_HOME"/code-flags.conf
+# ln -sf "$DIR"/flags/code-flags.conf "$XDG_CONFIG_HOME"/code-flags.conf
 
-[[ -d $XDG_CONFIG_HOME/environment.d ]] || mkdir -p "$XDG_CONFIG_HOME"/environment.d
+mkdir -p "$XDG_CONFIG_HOME"/environment.d
 ln -sf "$DIR"/environment/environment.d/10-common.conf "$XDG_CONFIG_HOME"/environment.d/10-common.conf
 
 [[ $HOST == 'drifter' ]] &&

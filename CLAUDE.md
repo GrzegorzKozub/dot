@@ -34,7 +34,7 @@ $ZDOTDIR        (~/.config/zsh)
 
 ### Git Submodules
 
-Five separate repos tracked as submodules — update with `git submodule update --remote` or via `./update.sh`. The submodule paths are `nvim/nvim`, `vscode/Code`, `mpv/mpv`, `yazi/yazi`, `nushell/nushell`.
+Five separate repos tracked as submodules — update with `git submodule update --remote` or via `./update.sh`. The submodule paths are `nvim/nvim`, `vscode/user-data`, `mpv/mpv`, `yazi/yazi`, `nushell/nushell`.
 
 ### Claude Code Config
 

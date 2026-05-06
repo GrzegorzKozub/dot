@@ -2,8 +2,8 @@
 	path = nvim/nvim
 	url = git@github.com:GrzegorzKozub/nvim.git
 	branch = master
-[submodule "vscode/Code"]
-	path = vscode/Code
+[submodule "vscode/user-data"]
+	path = vscode/user-data
 	url = git@github.com:GrzegorzKozub/vscode.git
 	branch = master
 [submodule "mpv/mpv"]

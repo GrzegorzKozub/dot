@@ -672,8 +672,8 @@ export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 
 # vscode
 
-# alias c='code . 2> /dev/null'
-# alias code='code 2> /dev/null'
+export VSCODE_CLI_DATA_DIR=$XDG_CONFIG_HOME/vscode/cli
+export VSCODE_PORTABLE=$XDG_CONFIG_HOME/vscode
 
 alias c='code .'
 
