@@ -85,6 +85,13 @@ libreoffice/**
 
 maven/maven/settings.xml
 
+# obsidian
+
+obsidian/**
+!obsidian/**/
+
+!obsidian/obsidian/user-flags.conf
+
 # teams-for-linux
 
 teams-for-linux/**
