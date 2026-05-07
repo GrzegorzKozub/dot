@@ -99,3 +99,10 @@ fi
 #   fi
 #
 # fi
+
+# skills
+
+mkdir -p "$XDG_CONFIG_HOME"/claude/skills/grill-me
+curl -fsSL \
+  'https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md' \
+  -o "$XDG_CONFIG_HOME"/claude/skills/grill-me/SKILL.md
