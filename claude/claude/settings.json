@@ -166,7 +166,7 @@
     ],
     "defaultMode": "acceptEdits"
   },
-  "model": "sonnet[1m]",
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\""
