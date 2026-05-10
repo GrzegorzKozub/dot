@@ -106,10 +106,12 @@ tidal-hifi/**
 
 !tidal-hifi/tidal-hifi/config.json
 
-# tidal-dl-ng
+# tiddl
 
-tidal-dl-ng/tidal_dl_ng-dev/downloaded_history.json
-tidal-dl-ng/tidal_dl_ng-dev/token.json
+tiddl/**
+!tiddl/**/
+
+!tiddl/tiddl/config.toml
 
 # zsh
 

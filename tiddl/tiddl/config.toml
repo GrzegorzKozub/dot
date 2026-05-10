@@ -1,0 +1,12 @@
+[templates]
+track = "Tracks/{item.artists} - {item.title}"
+album = "Albums/{album.artist} - {album.title}/{item.number:02d}. {item.artists} - {item.title}"
+
+[download]
+track_quality = "max"
+download_path = "/run/media/greg/data/music"
+update_mtime = true
+atmos_filter = "allow"
+
+[metadata]
+cover = true

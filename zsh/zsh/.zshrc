@@ -670,6 +670,10 @@ fi
 
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 
+# tiddl
+
+export TIDDL_PATH=$XDG_CONFIG_HOME/tiddl
+
 # vscode
 
 export VSCODE_CLI_DATA_DIR=$XDG_CONFIG_HOME/vscode/cli

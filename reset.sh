@@ -19,6 +19,15 @@ if [[ ${1:-} == 'nvim' ]]; then
     -c 'autocmd User VeryLazy MasonToolsUpdate'
 fi
 
+if [[ ${1:-} == 'python' ]]; then
+  rm -rf "$XDG_CACHE_HOME"/pip
+  rm -rf "$XDG_CACHE_HOME"/uv
+  rm -rf "$XDG_DATA_HOME"/uv
+  rm -rf ~/.local/bin/*
+  for TOOL in lastversion tiddl; do uv tool install $TOOL; done
+  uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
+fi
+
 if [[ ${1:-} == 'rust' ]]; then
   rm -rf "$XDG_DATA_HOME"/cargo
   rm -rf "$XDG_DATA_HOME"/rustup
