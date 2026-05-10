@@ -4,7 +4,8 @@ album = "Albums/{album.artist} - {album.title}/{item.number:02d}. {item.artists}
 
 [download]
 track_quality = "max"
-download_path = "/run/media/greg/data/music"
+download_path = "/run/media/greg/data/music-tiddl"
+skip_existing = false # until the quality issue is resolved
 update_mtime = true
 atmos_filter = "allow"
 

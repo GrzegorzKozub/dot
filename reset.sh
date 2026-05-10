@@ -23,7 +23,11 @@ if [[ ${1:-} == 'python' ]]; then
   rm -rf "$XDG_CACHE_HOME"/pip
   rm -rf "$XDG_CACHE_HOME"/uv
   rm -rf "$XDG_DATA_HOME"/uv
-  rm -rf ~/.local/bin/*
+  for FILE in ~/.local/bin/*; do
+    [[ -L "$FILE" ]] &&
+      { ! [[ -e "$FILE" ]] || [[ "$(readlink -f "$FILE")" == "$XDG_DATA_HOME/uv/tools"* ]]; } &&
+      rm "$FILE"
+  done
   for TOOL in lastversion tiddl; do uv tool install $TOOL; done
   uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
 fi
