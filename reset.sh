@@ -23,13 +23,16 @@ if [[ ${1:-} == 'python' ]]; then
   rm -rf "$XDG_CACHE_HOME"/pip
   rm -rf "$XDG_CACHE_HOME"/uv
   rm -rf "$XDG_DATA_HOME"/uv
-  # for FILE in ~/.local/bin/*; do
-  #   [[ -L "$FILE" ]] &&
-  #     { ! [[ -e "$FILE" ]] || [[ "$(readlink -f "$FILE")" == "$XDG_DATA_HOME/uv/tools"* ]]; } &&
-  #     rm "$FILE"
-  # done
+  for FILE in ~/.local/bin/*; do
+    [[ -L "$FILE" ]] &&
+      { ! [[ -e "$FILE" ]] || [[ "$(readlink -f "$FILE")" == "$XDG_DATA_HOME/uv/tools"* ]]; } &&
+      rm "$FILE"
+  done
   for TOOL in lastversion tiddl; do uv tool install $TOOL; done
   uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
+  if [[ $HOST == 'worker' ]]; then
+    for TOOL in awscli-local cfn-lint; do uv tool install $TOOL; done
+  fi
 fi
 
 if [[ ${1:-} == 'rust' ]]; then
