@@ -46,9 +46,9 @@ tmux kill-server
 rm -rf ~/.local/state/yazi/packages
 pushd "$XDG_CONFIG_HOME"/yazi && git clean -dfx && popd
 
-# shellcheck disable=SC2043
 for PLUGIN in \
-  yazi-rs/plugins:git; do
+  yazi-rs/plugins:git \
+  yazi-rs/plugins:toggle-pane; do
   ya pkg add "$PLUGIN"
 done
 
@@ -101,6 +101,8 @@ curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify
 cargo install cargo-update
   # --force --features vendored-libgit2 --features vendored-openssl
   # https://github.com/nabijaczleweli/cargo-update/issues/243
+
+# cargo install markdown2pdf
 
 # neovim
 
