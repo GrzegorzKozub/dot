@@ -1,12 +1,16 @@
 [templates]
-track = "Tracks/{item.artist} - {item.title_version}"
-album = "Albums/{album.artist} - {album.title}/{item.number:02d}. {item.artist} - {item.title_version}"
+# track = "Tracks/{item.artist} - {item.title_version}"
+# album = "Albums/{album.artist} - {album.title}/{item.number:02d}. {item.artist} - {item.title_version}"
+track = "Tracks/{item.artists} - {item.title_version}"
+album = "Albums/{album.artists} - {album.title}/{item.number:02d}. {item.artists} - {item.title_version}"
 
 [download]
 track_quality = "max"
 download_path = "/run/media/greg/data/music"
-update_mtime = true
+# update_mtime = true
 atmos_filter = "allow"
+list_separator = ", "
+fav_mtime = true
 
 [metadata]
 cover = true
