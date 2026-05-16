@@ -139,9 +139,9 @@ fi
 if [[ -n $USED ]]; then
   printf -v USED_INT '%.0f' "$USED"
   ctx_icon CTX_GLYPH "$USED"
-  if ((USED_INT >= 90)); then
+  if ((USED_INT >= 80)); then
     CTX_FG=31; CTX_BG=41
-  elif ((USED_INT >= 80)); then
+  elif ((USED_INT >= 60)); then
     CTX_FG=33; CTX_BG=43
   else
     CTX_FG=37; CTX_BG=47
