@@ -18,6 +18,8 @@ claude/claude/plugins/
 !claude/claude/settings-work.json
 !claude/claude/statusline.sh
 
+!claude/claude/themes/gruvbox-material-dark.json
+
 # copilot
 
 copilot/**

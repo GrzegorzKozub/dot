@@ -1,0 +1,80 @@
+{
+  "name": "greg-dark",
+  "base": "dark-ansi",
+  "overrides": {
+    "claude":                     "ansi:redBright",
+    "claudeShimmer":              "ansi:red",
+
+    "text":                       "ansi:white",
+    "inverseText":                "ansi:black",
+    "inactive":                   "ansi:blackBright",
+    "inactiveShimmer":            "ansi:black",
+    "subtle":                     "ansi:blackBright",
+    "suggestion":                 "ansi:cyan",
+
+    "permission":                 "ansi:yellow",
+    "permissionShimmer":          "ansi:yellowBright",
+    "remember":                   "ansi:magenta",
+
+    "success":                    "ansi:greenBright",
+    "error":                      "ansi:redBright",
+    "warning":                    "ansi:yellowBright",
+    "warningShimmer":             "ansi:yellow",
+    "merged":                     "ansi:magentaBright",
+
+    "promptBorder":               "ansi:blue",
+    "promptBorderShimmer":        "ansi:blueBright",
+    "planMode":                   "ansi:yellowBright",
+    "autoAccept":                 "ansi:magentaBright",
+    "bashBorder":                 "ansi:green",
+    "ide":                        "ansi:cyanBright",
+    "fastMode":                   "ansi:yellowBright",
+    "fastModeShimmer":            "ansi:yellow",
+
+    "diffAdded":                  "ansi:green",
+    "diffRemoved":                "ansi:red",
+    "diffAddedDimmed":            "ansi:green",
+    "diffRemovedDimmed":          "ansi:red",
+    "diffAddedWord":              "ansi:greenBright",
+    "diffRemovedWord":            "ansi:redBright",
+    "diffAddedWordDimmed":        "ansi:green",
+    "diffRemovedWordDimmed":      "ansi:red",
+
+    "userMessageBackground":      "ansi:black",
+    "userMessageBackgroundHover": "ansi:blackBright",
+    "messageActionsBackground":   "ansi:black",
+    "bashMessageBackgroundColor": "ansi:black",
+    "memoryBackgroundColor":      "ansi:black",
+    "selectionBg":                "ansi:blue",
+
+    "rate_limit_fill":            "ansi:cyan",
+    "rate_limit_empty":           "ansi:blackBright",
+
+    "briefLabelYou":              "ansi:cyanBright",
+    "briefLabelClaude":           "ansi:redBright",
+
+    "red_FOR_SUBAGENTS_ONLY":     "ansi:red",
+    "blue_FOR_SUBAGENTS_ONLY":    "ansi:blue",
+    "green_FOR_SUBAGENTS_ONLY":   "ansi:green",
+    "yellow_FOR_SUBAGENTS_ONLY":  "ansi:yellow",
+    "purple_FOR_SUBAGENTS_ONLY":  "ansi:magenta",
+    "orange_FOR_SUBAGENTS_ONLY":  "ansi:yellowBright",
+    "pink_FOR_SUBAGENTS_ONLY":    "ansi:magentaBright",
+    "cyan_FOR_SUBAGENTS_ONLY":    "ansi:cyan",
+
+    "rainbow_red":                "ansi:redBright",
+    "rainbow_red_shimmer":        "ansi:red",
+    "rainbow_orange":             "ansi:yellowBright",
+    "rainbow_orange_shimmer":     "ansi:yellow",
+    "rainbow_yellow":             "ansi:yellow",
+    "rainbow_yellow_shimmer":     "ansi:yellowBright",
+    "rainbow_green":              "ansi:greenBright",
+    "rainbow_green_shimmer":      "ansi:green",
+    "rainbow_blue":               "ansi:blueBright",
+    "rainbow_blue_shimmer":       "ansi:blue",
+    "rainbow_indigo":             "ansi:blue",
+    "rainbow_indigo_shimmer":     "ansi:blueBright",
+    "rainbow_violet":             "ansi:magentaBright",
+    "rainbow_violet_shimmer":     "ansi:magenta"
+  }
+}
