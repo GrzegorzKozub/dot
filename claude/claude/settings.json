@@ -14,6 +14,8 @@
   },
   "permissions": {
     "allow": [
+      "Bash(aws --profile * cloudwatch *)",
+      "Bash(aws --profile * logs *)",
       "Bash(cargo:*)",
       "Bash(date:*)",
       "Bash(docker images:*)",
