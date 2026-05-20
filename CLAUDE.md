@@ -38,11 +38,19 @@ Five separate repos tracked as submodules — update with `git submodule update 
 
 ### Claude Code Config
 
-`.claude/settings.json` contains the main Claude Code config: sandboxing rules, permission allowlist/denylist (blocks `.ssh`, `.env`, `pass`, secrets), model selection, vim mode, and the custom statusline hook. `.claude/settings.local.json` holds machine-local overrides. `claude/claude/statusline.sh` is the 193-line bash script that renders the status line (git info, context %, tokens, cost, model, vim mode).
+Two separate Claude-related directories with different purposes:
+- `.claude/` — Claude Code settings *for this repo* (not deployed via stow): `settings.json` (sandboxing, permissions, model, vim mode, statusline hook), `settings.local.json` (machine-local overrides), plus `commands/`, `skills/`, and `agents/` subdirectories.
+- `claude/` — a stow package that deploys `claude/claude/statusline.sh` to `~/.config/claude/statusline.sh`. This ~200-line bash script renders the Claude Code status line (git info, context %, tokens, cost, model, vim mode, worktree).
+
+### Per-App Install Scripts
+
+Root-level `*.sh` files (e.g. `ansible.sh`, `aws.sh`, `copilot.sh`, `dbeaver.sh`, `intellij.sh`, `teams.sh`, `work.sh`) are optional per-app installers — each typically calls `stow` for its package and runs any app-specific setup. They are not called by `install.sh` or `update.sh`; run manually when installing that app.
+
+`zinit.zsh` updates zinit and zsh plugins; called by `update.sh`. `shared.sh` installs Go tools via `go install`; called by both `install.sh` and `update.sh`.
 
 ### Secrets
 
-Sensitive shell environment (API keys, tokens) lives on an external drive at `/run/media/data/.secrets/.zshenv`, sourced from `.zprofile`. Files like `btop/btop/btop.conf` and `tidal-hifi/tidal-hifi/config.json` are tracked with `git update-index --assume-unchanged` to avoid committing machine-local state.
+Sensitive shell environment (API keys, tokens) lives on an external drive at `/run/media/data/.secrets/.zshenv`, sourced from `.zprofile`. On `player`/`worker` hosts, HuggingFace and llama.cpp caches are redirected from `~/.cache/` to `/run/media/$USER/data/.cache/` via symlinks (set up in `links.sh`). Files like `btop/btop/btop.conf` and `tidal-hifi/tidal-hifi/config.json` are tracked with `git update-index --assume-unchanged` to avoid committing machine-local state.
 
 ## Shell Config
 
