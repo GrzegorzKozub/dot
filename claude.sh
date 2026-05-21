@@ -106,3 +106,9 @@ mkdir -p "$XDG_CONFIG_HOME"/claude/skills/grill-me
 curl -fsSL \
   'https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md' \
   -o "$XDG_CONFIG_HOME"/claude/skills/grill-me/SKILL.md
+
+if [[ $HOST == 'worker' ]]; then
+  curl -fsSL \
+    'https://raw.githubusercontent.com/efficy-sa/apsis-shared-ai/master/claude-code/CLAUDE.md' \
+    -o "$XDG_CONFIG_HOME"/claude/CLAUDE.md
+fi
