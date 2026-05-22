@@ -10,7 +10,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
   "enabledPlugins": {
     "apsis-katie@apsis": true,
     "apsis-mcp@apsis": true,
