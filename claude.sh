@@ -38,6 +38,10 @@ for FILE in "${FILES[@]}"; do
     "$XDG_CONFIG_HOME"/claude/"$FILE"
 done
 
+mkdir -p "$XDG_CONFIG_HOME"/claude/themes
+ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/themes/gruvbox-material-dark.json \
+  "$XDG_CONFIG_HOME"/claude/themes/gruvbox-material-dark.json
+
 # mcp
 
 # shellcheck disable=SC2016

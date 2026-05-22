@@ -206,7 +206,7 @@
   },
   "effortLevel": "medium",
   "tui": "fullscreen",
-  "theme": "dark-ansi",
+  "theme": "custom:gruvbox-material-dark",
   "editorMode": "vim",
   "teammateMode": "tmux",
   "skipAutoPermissionPrompt": true
