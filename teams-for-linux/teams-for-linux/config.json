@@ -1,6 +1,5 @@
 {
   "appIconType": "light",
-  "auth": { "webauthn": { "enabled": true } },
   "closeAppOnCross": true,
   "disableBadgeCount": true,
   "disableGpu": false,
