@@ -115,6 +115,10 @@ tiddl/**
 
 !tiddl/tiddl/config.toml
 
+# voxtype
+
+voxtype/voxtype/config.toml.bak
+
 # zsh
 
 zsh/zsh/.zcompdump
