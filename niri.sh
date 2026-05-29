@@ -5,3 +5,5 @@ set -eo pipefail -ux
 
 stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   niri
+
+ln -sf "$XDG_CONFIG_HOME"/niri/"$HOST".kdl "$XDG_CONFIG_HOME"/niri/host.kdl
