@@ -87,6 +87,10 @@ libreoffice/**
 
 maven/maven/settings.xml
 
+# niri
+
+niri/niri/host.kdl
+
 # obsidian
 
 obsidian/**
