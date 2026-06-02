@@ -169,6 +169,10 @@
     "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\"",
     "hideVimModeIndicator": true
   },
+  "subagentStatusLine": {
+    "type": "command",
+    "command": "bash \"$CLAUDE_CONFIG_DIR/subagent-statusline.sh\""
+  },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true
   },
