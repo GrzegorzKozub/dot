@@ -30,7 +30,7 @@ ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
 #     "$XDG_CONFIG_HOME"/claude/settings.json
 # fi
 
-FILES=(statusline.sh subagent-statusline.sh settings.json)
+FILES=(statusline.sh settings.json)
 [[ $HOST == 'worker' ]] && FILES+=(settings-work.json)
 
 for FILE in "${FILES[@]}"; do
