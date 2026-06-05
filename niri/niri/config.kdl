@@ -28,6 +28,27 @@ layout {
     softness 8
     offset x=4 y=4
     color "#0004"
+    inactive-color "#0002"
+  }
+  // default-column-width { }
+
+  // todo: how do the tabs work
+  tab-indicator {
+    width 4
+    gap 8
+    // length total-proportion=1.0
+    position "top"
+    place-within-column
+    gaps-between-tabs 4
+    corner-radius 2
+    active-color "#fabd2faa"
+    // inactive-color, urgent-color, active-gradient, inactive-gradient, urgent-gradient
+  }
+
+  // todo: what should the color be
+  insert-hint {
+    color "#fabd2faa"
+    gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
   }
 }
 hotkey-overlay {
@@ -42,11 +63,16 @@ window-rule {
   geometry-corner-radius 8
   clip-to-geometry true
 
+  // open-maximized true
 }
 gestures {
   hot-corners {
     off
   }
+}
+window-rule {
+  match app-id="^kitty$"
+  open-maximized true
 }
 layer-rule {
   match namespace="^noctalia-wallpaper*"
@@ -60,7 +86,6 @@ window-rule {
 }
 prefer-no-csd
 
-
 // todo: customize the overview
 // overview {
 //   workspace-shadow {
@@ -72,7 +97,6 @@ prefer-no-csd
 // }
 
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 
 
@@ -250,23 +274,6 @@ binds {
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
-    // Similarly, you can bind touchpad scroll "ticks".
-    // Touchpad scrolling is continuous, so for these binds it is split into
-    // discrete intervals.
-    // These binds are also affected by touchpad's natural-scroll, so these
-    // example binds are "inverted", since we have natural-scroll enabled for
-    // touchpads by default.
-    // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
-    // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
-
-    // You can refer to workspaces by index. However, keep in mind that
-    // niri is a dynamic workspace system, so these commands are kind of
-    // "best effort". Trying to refer to a workspace index bigger than
-    // the current workspace count will instead refer to the bottommost
-    // (empty) workspace.
-    //
-    // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-    // will all refer to the 3rd workspace.
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -290,7 +297,7 @@ binds {
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
+    Mod+Tab { focus-workspace-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
@@ -351,14 +358,6 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-    // Applications such as remote-desktop clients and software KVM switches may
-    // request that niri stops processing the keyboard shortcuts defined here
-    // so they may, for example, forward the key presses as-is to a remote machine.
-    // It's a good idea to bind an escape hatch to toggle the inhibitor,
-    // so a buggy application can't hold your session hostage.
-    //
-    // The allow-inhibiting=false property can be applied to other binds as well,
-    // which ensures niri always processes them, even when an inhibitor is active.
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
