@@ -1,9 +1,13 @@
+// defaults at https://github.com/niri-wm/niri/blob/main/resources/default-config.kdl
+
 input {
   keyboard { xkb { layout "pl"; }; }
   mouse { accel-speed -0.75; }
   touchpad { accel-speed 0.25; natural-scroll; tap; }
 }
+
 include "host.kdl"
+
 layout {
   background-color "transparent" // noctalia overview wallpaper
   gaps 16
@@ -94,28 +98,101 @@ recent-windows {
 }
 
 // brave pip
-window-rule {
-  match app-id="" title="Picture in picture"
-  open-floating true
-}
+window-rule { match app-id="" title="Picture in picture"; open-floating true; }
 
+binds { // defaults are are not merged
 
-binds {
-  Mod+Shift+Slash { show-hotkey-overlay; }
+  // overview
 
-  Mod+R { switch-preset-column-width; }
+  Mod+O repeat=false { toggle-overview; } // also with four finger swipe up
+
+  // columns
+
+  Mod+R       { switch-preset-column-width; }
   Mod+Shift+R { switch-preset-column-width-back; }
-  Mod+Ctrl+Shift+R { switch-preset-window-height; }
-  Mod+Ctrl+R { reset-window-height; }
 
+  Mod+Ctrl+Shift+R { switch-preset-window-height; }
+  Mod+Ctrl+R       { reset-window-height; }
+
+  // Mod+E { expand-column-to-available-width; }
   Mod+F { maximize-column; }
+
+  // windows
+
+
   Mod+M { maximize-window-to-edges; }
-  F11 { fullscreen-window; }
+
+  F11      { fullscreen-window; }
   Ctrl+F11 { toggle-windowed-fullscreen; }
 
+  Mod+Q repeat=false { close-window; }
 
-    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+  // focus
 
+  Mod+Left  { focus-column-left; }
+  // Mod+Down  { focus-window-down; }
+  Mod+Down  { focus-window-or-workspace-down; }
+  // Mod+Up    { focus-window-up; }
+  Mod+Up    { focus-window-or-workspace-up; }
+  Mod+Right { focus-column-right; }
+
+  Mod+H { focus-column-left; }
+  // Mod+J { focus-window-down; }
+  Mod+J { focus-window-or-workspace-down; }
+  // Mod+K { focus-window-up; }
+  Mod+K { focus-window-or-workspace-up; }
+  Mod+L { focus-column-right; }
+
+  Mod+Shift+Left  { focus-monitor-left; }
+  Mod+Shift+Down  { focus-monitor-down; }
+  Mod+Shift+Up    { focus-monitor-up; }
+  Mod+Shift+Right { focus-monitor-right; }
+
+  Mod+Shift+H { focus-monitor-left; }
+  Mod+Shift+J { focus-monitor-down; }
+  Mod+Shift+K { focus-monitor-up; }
+  Mod+Shift+L { focus-monitor-right; }
+
+  // move
+
+  Mod+Ctrl+Left  { move-column-left; }
+  Mod+Ctrl+Down  { move-window-down; }
+  Mod+Ctrl+Up    { move-window-up; }
+  Mod+Ctrl+Right { move-column-right; }
+
+  Mod+Shift+Ctrl+Down { move-window-down-or-to-workspace-down; }
+  Mod+Shift+Ctrl+Up   { move-window-up-or-to-workspace-up; }
+
+  Mod+Ctrl+H { move-column-left; }
+  Mod+Ctrl+J { move-window-down; }
+  Mod+Ctrl+K { move-window-up; }
+  Mod+Ctrl+L { move-column-right; }
+
+  Mod+Shift+Ctrl+J { move-window-down-or-to-workspace-down; }
+  Mod+Shift+Ctrl+K { move-window-up-or-to-workspace-up; }
+
+  Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+  // Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+  // Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+
+  Mod+Shift+Ctrl+H { move-column-to-monitor-left; }
+  // Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
+  // Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
+  Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+
+  // apps
+
+  Mod+T { spawn "kitty"; }
+
+  // noctalia
+
+  Mod+Space  { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+  Mod+S      { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+  Mod+Ctrl+S { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+
+
+// dirty from here
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
@@ -130,56 +207,17 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
-    // also four finger swipe up
-    Mod+O repeat=false { toggle-overview; }
+ // XF86AudioLowerVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    // XF86AudioMute { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
 
-    Mod+Q repeat=false { close-window; }
 
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
-
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
-
-    // Mod+J     { focus-window-or-workspace-down; }
-    // Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
 
-    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
@@ -258,7 +296,6 @@ binds {
 
 
 
-    Mod+Ctrl+F { expand-column-to-available-width; }
 
     Mod+C { center-column; }
 
