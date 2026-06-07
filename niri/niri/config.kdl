@@ -8,93 +8,48 @@ input {
 
 include "host.kdl"
 
+prefer-no-csd // no client side decorations
+
 layout {
-  background-color "transparent" // noctalia overview wallpaper
   gaps 16
-  preset-column-widths {
-    proportion 0.33333
-    proportion 0.5
-    proportion 0.66667
-    proportion 1.0
+
+  preset-column-widths { proportion 0.33333; proportion 0.5; proportion 0.66667; proportion 1.0; }
+  preset-window-heights { proportion 0.33333; proportion 0.5; proportion 0.66667; proportion 1.0; }
+  // default-column-width {}
+
+  // TODO
+  // background-color "transparent" // noctalia overview wallpaper
+
+  shadow {
+    on; offset x=0 y=0; spread 8; softness 16;
+    color "#0004"; inactive-color "#0002"
   }
-  preset-window-heights {
-    proportion 0.33333
-    proportion 0.5
-    proportion 0.66667
-    proportion 1.0
-  }
+
   focus-ring {
     width 2
     active-gradient from="#0000" to="#fabd2faa" angle=135
     inactive-color "#505050"
   }
-  shadow {
-    on
-    spread 4
-    softness 8
-    offset x=4 y=4
-    color "#0004"
-    inactive-color "#0002"
-  }
-  // default-column-width { }
 
-  // todo: how do the tabs work
-  tab-indicator {
+  tab-indicator { // TODO
     width 4
     gap 8
-    // length total-proportion=1.0
-    // position "top"
     place-within-column
     gaps-between-tabs 4
     corner-radius 2
     active-color "#fabd2faa"
-    // inactive-color, urgent-color, active-gradient, inactive-gradient, urgent-gradient
   }
 
-  // todo: what should the color be
-  insert-hint {
+  insert-hint { // TODO
     color "#fabd2faa"
     gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
   }
 }
-hotkey-overlay { skip-at-startup; }
-window-rule {
 
-  // no background for border & focus ring
-  draw-border-with-background false
-
-  // rounded corners
-  geometry-corner-radius 8
-  clip-to-geometry true
-
-  // open-maximized true
+overview { // TODO
 }
-gestures { hot-corners { off; }; }
-window-rule { match app-id="^kitty$"; open-maximized true; }
-layer-rule {
-  match namespace="^noctalia-wallpaper*"
-  place-within-backdrop true
-}
-window-rule {
-  match app-id="^kitty$"
-  background-effect {
-    blur true
-  }
-}
-prefer-no-csd
 
-// todo: customize the overview
-// overview {
-//   workspace-shadow {
-//   }
-// }
-// todo: orange border for screen casted windows
-// window-rule {
-//   match is-window-cast-target=true
-// }
-
-
-recent-windows {
+recent-windows { // TODO
   highlight {
     active-color "#990000cc"
     urgent-color "#999999ff"
@@ -109,8 +64,25 @@ recent-windows {
   }
 }
 
-// brave pip
+// layer-rule { match namespace="^noctalia-wallpaper*"; place-within-backdrop true; } // TODO
+
+window-rule {
+  // TODO: rounded corners on player & worker
+  geometry-corner-radius 8; clip-to-geometry true; // rounded corners
+  draw-border-with-background false // no background for border & focus ring
+}
+
+window-rule {
+  match is-window-cast-target=true
+  // TODO: orange border for screen casted windows
+}
+
+window-rule { match app-id="^kitty$"; open-maximized true; background-effect { blur true; }; }
 window-rule { match app-id="" title="Picture in picture"; open-floating true; }
+
+gestures { hot-corners { off; }; }
+
+hotkey-overlay { skip-at-startup; }
 
 binds { // defaults are are not merged
 
@@ -228,22 +200,42 @@ binds { // defaults are are not merged
   Mod+F       { toggle-window-floating; }
   Mod+Shift+F { switch-focus-between-floating-and-tiling; }
 
+  // settings
+
+  Mod+S      { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+  Mod+Ctrl+S { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+
+  // TODO
+
+  // launcher emoji
+  // launcher settings
+  // launcher windows
+  // lockScreen lock
+  // nightLight toggle
+  // notifications enableDND
+  // powerProfile cycle
+  // sessionMenu lockAndSuspend
+  // sessionMenu toggle
+
   // apps
 
   Mod+T { spawn "kitty"; }
+  Mod+B { spawn "brave"; }
+
+  Mod+A { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
 
   // audio
 
-  XF86AudioMute        allow-when-locked=true { spawn-sh "~/code/arch/audio mute"; }
-  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/code/arch/audio up"; }
-  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/code/arch/audio down"; }
+  XF86AudioMute        allow-when-locked=true { spawn "~/code/arch/audio" "mute"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "~/code/arch/audio" "up"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "~/code/arch/audio" "down"; }
 
   // playback
 
-  XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-  XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop"; }
-  XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
-  XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
+  XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
+  XF86AudioStop allow-when-locked=true { spawn "playerctl" "stop"; }
+  XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
+  XF86AudioNext allow-when-locked=true { spawn "playerctl" "next"; }
 
   // brightness
 
@@ -252,9 +244,9 @@ binds { // defaults are are not merged
 
   // screenshot
 
-  Print { screenshot; }
+  Print      { screenshot; }
   Ctrl+Print { screenshot-window; }
-  Alt+Print { screenshot-screen; }
+  Alt+Print  { screenshot-screen; }
 
   // take back keyboard shortcuts from another app
 
@@ -269,12 +261,8 @@ binds { // defaults are are not merged
   Mod+Shift+P { power-off-monitors; }
 
   Ctrl+Alt+Delete { quit; }
-
-  // noctalia
-
-  Mod+Space  { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-  Mod+S      { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
-  Mod+Ctrl+S { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
 }
+
+// startup
 
 spawn-at-startup "qs" "-c" "noctalia-shell"
