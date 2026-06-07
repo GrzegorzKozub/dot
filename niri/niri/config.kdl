@@ -43,7 +43,7 @@ layout {
     width 4
     gap 8
     // length total-proportion=1.0
-    position "top"
+    // position "top"
     place-within-column
     gaps-between-tabs 4
     corner-radius 2
@@ -118,69 +118,42 @@ binds { // defaults are are not merged
 
   Mod+O repeat=false { toggle-overview; } // also with four finger swipe up
 
-  // workspaces
-
-  Mod+Tab { focus-workspace-previous; }
-
-  // columns
-
-  Mod+C { center-column; }
-  Mod+Ctrl+C { center-visible-columns; }
-
-  Mod+W { toggle-column-tabbed-display; }
-
-  // windows
-
-  // ...
-
-  // columns & windows
+  // size & position
 
   Mod+R      { switch-preset-column-width; }
   Mod+Ctrl+R { switch-preset-window-height; }
 
-  Mod+F { maximize-column; }
+  Mod+C      { center-column; }
+  Mod+Ctrl+C { center-visible-columns; }
 
-  Mod+M { maximize-window-to-edges; }
+  Mod+M { maximize-column; }
+  Mod+Ctrl+M { maximize-window-to-edges; }
 
   F11      { fullscreen-window; }
   Ctrl+F11 { toggle-windowed-fullscreen; }
 
-  Mod+Q repeat=false { close-window; }
-
-  // focus
-
-  Mod+Home { focus-column-first; }
-  Mod+End  { focus-column-last; }
+  // focus (also with three finger swipes)
 
   Mod+Left  { focus-column-left; }
-  // Mod+Down  { focus-window-down; }
   Mod+Down  { focus-window-or-workspace-down; }
-  // Mod+Up    { focus-window-up; }
   Mod+Up    { focus-window-or-workspace-up; }
   Mod+Right { focus-column-right; }
 
   Mod+H { focus-column-left; }
-  // Mod+J { focus-window-down; }
   Mod+J { focus-window-or-workspace-down; }
-  // Mod+K { focus-window-up; }
   Mod+K { focus-window-or-workspace-up; }
   Mod+L { focus-column-right; }
 
   Mod+WheelScrollDown { focus-column-right; }
   Mod+WheelScrollUp   { focus-column-left; }
 
+  Mod+Home { focus-column-first; }
+  Mod+End  { focus-column-last; }
+
   Mod+Ctrl+WheelScrollDown { focus-workspace-down; }
   Mod+Ctrl+WheelScrollUp   { focus-workspace-up; }
 
-  Mod+Shift+Left  { focus-monitor-left; }
-  Mod+Shift+Down  { focus-monitor-down; }
-  Mod+Shift+Up    { focus-monitor-up; }
-  Mod+Shift+Right { focus-monitor-right; }
-
-  Mod+Shift+H { focus-monitor-left; }
-  Mod+Shift+J { focus-monitor-down; }
-  Mod+Shift+K { focus-monitor-up; }
-  Mod+Shift+L { focus-monitor-right; }
+  Mod+Tab { focus-workspace-previous; }
 
   Mod+1 { focus-workspace 1; }
   Mod+2 { focus-workspace 2; }
@@ -192,32 +165,30 @@ binds { // defaults are are not merged
   Mod+8 { focus-workspace 8; }
   Mod+9 { focus-workspace 9; }
 
+  Mod+Shift+Left  { focus-monitor-left; }
+  Mod+Shift+Down  { focus-monitor-down; }
+  Mod+Shift+Up    { focus-monitor-up; }
+  Mod+Shift+Right { focus-monitor-right; }
+
+  Mod+Shift+H { focus-monitor-left; }
+  Mod+Shift+J { focus-monitor-down; }
+  Mod+Shift+K { focus-monitor-up; }
+  Mod+Shift+L { focus-monitor-right; }
+
   // move
 
   Mod+Ctrl+Home { move-column-to-first; }
   Mod+Ctrl+End  { move-column-to-last; }
 
   Mod+Ctrl+Left  { move-column-left; }
-  Mod+Ctrl+Down  { move-window-down; }
-  Mod+Ctrl+Up    { move-window-up; }
+  Mod+Ctrl+Down  { move-window-down-or-to-workspace-down; }
+  Mod+Ctrl+Up    { move-window-up-or-to-workspace-up; }
   Mod+Ctrl+Right { move-column-right; }
 
-  Mod+Shift+Ctrl+Down { move-window-down-or-to-workspace-down; }
-  Mod+Shift+Ctrl+Up   { move-window-up-or-to-workspace-up; }
-
   Mod+Ctrl+H { move-column-left; }
-  Mod+Ctrl+J { move-window-down; }
-  Mod+Ctrl+K { move-window-up; }
+  Mod+Ctrl+J { move-window-down-or-to-workspace-down; }
+  Mod+Ctrl+K { move-window-up-or-to-workspace-up; }
   Mod+Ctrl+L { move-column-right; }
-
-  Mod+Shift+Ctrl+J { move-window-down-or-to-workspace-down; }
-  Mod+Shift+Ctrl+K { move-window-up-or-to-workspace-up; }
-
-  Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-  Mod+Shift+Ctrl+Right { move-window-to-monitor-right; }
-
-  Mod+Shift+Ctrl+H { move-window-to-monitor-left; }
-  Mod+Shift+Ctrl+L { move-window-to-monitor-right; }
 
   Mod+Ctrl+1 { move-window-to-workspace 1; }
   Mod+Ctrl+2 { move-window-to-workspace 2; }
@@ -229,12 +200,55 @@ binds { // defaults are are not merged
   Mod+Ctrl+8 { move-window-to-workspace 8; }
   Mod+Ctrl+9 { move-window-to-workspace 9; }
 
+  Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+  Mod+Shift+Ctrl+Down  { move-window-to-monitor-down; }
+  Mod+Shift+Ctrl+Up    { move-window-to-monitor-up; }
+  Mod+Shift+Ctrl+Right { move-window-to-monitor-right; }
+
+  Mod+Shift+Ctrl+H { move-window-to-monitor-left; }
+  Mod+Shift+Ctrl+J { move-window-to-monitor-down; }
+  Mod+Shift+Ctrl+K { move-window-to-monitor-up; }
+  Mod+Shift+Ctrl+L { move-window-to-monitor-right; }
+
   Mod+Page_Down { move-workspace-down; }
   Mod+Page_Up   { move-workspace-up; }
+
+  // multi window columns
+
+  Mod+Comma  { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
+
+  Mod+BracketLeft  { consume-or-expel-window-left; }
+  Mod+BracketRight { consume-or-expel-window-right; }
+
+  Mod+W { toggle-column-tabbed-display; }
+
+  // floating windows
+
+  Mod+F       { toggle-window-floating; }
+  Mod+Shift+F { switch-focus-between-floating-and-tiling; }
 
   // apps
 
   Mod+T { spawn "kitty"; }
+
+  // audio
+
+  XF86AudioMute        allow-when-locked=true { spawn-sh "~/code/arch/audio mute"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "~/code/arch/audio up"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "~/code/arch/audio down"; }
+
+  // playback
+
+  XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+  XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop"; }
+  XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
+  XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
+
+  // brightness
+
+  XF86MonBrightnessDown allow-when-locked=true { spawn "~/code/arch/brightness" "down"; }
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "~/code/arch/brightness" "up"; }
 
   // screenshot
 
@@ -242,9 +256,13 @@ binds { // defaults are are not merged
   Ctrl+Print { screenshot-window; }
   Alt+Print { screenshot-screen; }
 
-  // special
+  // take back keyboard shortcuts from another app
 
   Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  // close
+
+  Mod+Q repeat=false { close-window; }
 
   // exit
 
@@ -257,51 +275,6 @@ binds { // defaults are are not merged
   Mod+Space  { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
   Mod+S      { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
   Mod+Ctrl+S { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
-
-
-
-// dirty from here
-
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
-
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
-
- // XF86AudioLowerVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-    // XF86AudioMute { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-
-
-
-
-
-
-
-
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
-
-    // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
-    // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
-
-
-    // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-
-
-
-
-
 }
 
 spawn-at-startup "qs" "-c" "noctalia-shell"
