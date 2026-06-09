@@ -42,7 +42,8 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME"/vscode --stow vscode
 
 DIR=$(dirname "$(realpath "$0")")
 
-ln -sf "$DIR"/flags/brave-flags.conf "$XDG_CONFIG_HOME"/brave-flags.conf
+ln -sf "$DIR"/flags/brave-origin-flags.conf "$XDG_CONFIG_HOME"/brave-origin-flags.conf # or brave-flags.conf
+
 # ln -sf "$DIR"/flags/code-flags.conf "$XDG_CONFIG_HOME"/code-flags.conf
 
 mkdir -p "$XDG_CONFIG_HOME"/environment.d
