@@ -106,10 +106,12 @@ fi
 
 # skills
 
-mkdir -p "$XDG_CONFIG_HOME"/claude/skills/grill-me
-curl -fsSL \
-  'https://raw.githubusercontent.com/mattpocock/skills/main/skills/productivity/grill-me/SKILL.md' \
-  -o "$XDG_CONFIG_HOME"/claude/skills/grill-me/SKILL.md
+npx --yes skills add mattpocock/skills \
+  --agent claude-code --copy --global --yes \
+  --skill grill-me \
+  --skill handoff
+
+# instructions
 
 if [[ $HOST == 'worker' ]]; then
   curl -fsSL \
