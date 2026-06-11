@@ -17,6 +17,8 @@ theme[selected_fg]="#b47109" # term_orange
 
 theme[inactive_fg]="#3c3836" # bg1
 
+theme[meter_bg]="#3c3836" # bg1
+
 theme[temp_start]="#7daea3" # blue
 theme[temp_mid]="#d8a657" # yellow
 theme[temp_end]="#ea6962" # red
