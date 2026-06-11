@@ -169,9 +169,6 @@
     "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\"",
     "hideVimModeIndicator": true
   },
-  "enabledPlugins": {
-    "superpowers@claude-plugins-official": true
-  },
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,

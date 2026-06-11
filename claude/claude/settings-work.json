@@ -13,7 +13,8 @@
   "enabledPlugins": {
     "apsis-katie@apsis": true,
     "apsis-mcp@apsis": true,
-    "apsis-resolve@apsis": true
+    "apsis-resolve@apsis": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "apsis": {
