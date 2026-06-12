@@ -202,9 +202,9 @@
   },
   "effortLevel": "medium",
   "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
   "theme": "custom:gruvbox-material-dark",
   "editorMode": "vim",
   "teammateMode": "tmux",
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true
+  "skipAutoPermissionPrompt": true
 }

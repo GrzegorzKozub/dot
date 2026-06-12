@@ -62,6 +62,7 @@ EXEC 32
 .webm 35
 
 .SRCINFO 37
+.bun-version 37
 .cfnlintrc 37
 .classpath 37
 .claude.json 37
@@ -89,6 +90,7 @@ EXEC 32
 .prettierrc 37
 .project 37
 .pylintrc 37
+.stylintrc 37
 .stylua.toml 37
 .taplo.toml 37
 .vscodeignore 37
