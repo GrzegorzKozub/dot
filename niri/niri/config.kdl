@@ -220,7 +220,7 @@ binds { // defaults are are not merged
   // apps
 
   Mod+T { spawn "kitty"; }
-  Mod+B { spawn "brave"; }
+  Mod+B { spawn "brave-origin"; } // or brave
 
   Mod+A { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
 
