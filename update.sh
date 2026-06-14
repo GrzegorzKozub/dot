@@ -4,9 +4,10 @@ set -eo pipefail -ux
 # update self
 
 git pull
-git submodule update --init
-git submodule foreach --recursive git checkout master
-git submodule foreach --recursive git pull
+# git submodule update --init --jobs 8
+# git submodule foreach git checkout master
+# git submodule foreach git pull
+git submodule update --jobs 8 --merge --remote
 
 # zsh & zinit
 

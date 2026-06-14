@@ -200,6 +200,9 @@
   enabled = true
 [safe]
   directory = *
+[submodule]
+	fetchJobs = 8
+	# recurse = true
 [user]
   email = grzegorz.kozub@gmail.com
   name = greg
