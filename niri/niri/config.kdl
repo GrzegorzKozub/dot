@@ -17,9 +17,6 @@ layout {
   preset-window-heights { proportion 0.33333; proportion 0.5; proportion 0.66667; proportion 1.0; }
   // default-column-width {}
 
-  // TODO
-  // background-color "transparent" // noctalia overview wallpaper
-
   shadow {
     on; offset x=0 y=0; spread 8; softness 16;
     color "#0004"; inactive-color "#0002"
@@ -44,9 +41,15 @@ layout {
     color "#fabd2faa"
     gradient from="#ffbb6680" to="#ffc88080" angle=45 relative-to="workspace-view"
   }
+
+  background-color "transparent" // stationary overview wallpaper
 }
 
+// stationary overview wallpaper
+layer-rule { match namespace="^noctalia-wallpaper*"; place-within-backdrop true; }
+
 overview { // TODO
+  workspace-shadow { off; } // stationary overview wallpaper
 }
 
 recent-windows { // TODO
@@ -63,8 +66,6 @@ recent-windows { // TODO
     Alt+Shift+grave { previous-window filter="app-id"; }
   }
 }
-
-// layer-rule { match namespace="^noctalia-wallpaper*"; place-within-backdrop true; } // TODO
 
 window-rule {
   // TODO: rounded corners on player & worker
@@ -83,6 +84,8 @@ window-rule { match app-id="" title="Picture in picture"; open-floating true; }
 gestures { hot-corners { off; }; }
 
 hotkey-overlay { skip-at-startup; }
+
+debug { honor-xdg-activation-with-invalid-serial; } // noctalia
 
 binds { // defaults are are not merged
 
