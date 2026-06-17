@@ -12,7 +12,6 @@
       "AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder,VaapiOnNvidiaGPUs"
     ]
   ],
-  "followSystemTheme": true,
   "logConfig": false,
   "media": {
     "camera": {
