@@ -24,6 +24,7 @@
     },
     "microphone": { "disableAutogain": true }
   },
+  "screenSharing": { "thumbnail": { "enabled": false } },
   "spellCheckerLanguages": ["en", "pl"],
   "trayIconEnabled": false
 }
