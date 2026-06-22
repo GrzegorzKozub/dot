@@ -1,4 +1,5 @@
 output "DP-1" {
+  focus-at-startup
   scale 2
   position x=0 y=0
   variable-refresh-rate
