@@ -30,6 +30,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   tidal-hifi tiddl \
   tmux \
   yamllint \
+  yay \
   yazi \
   yt-dlp \
   zed \
