@@ -162,7 +162,10 @@ zle_bracketed_paste=() # don't select pasted text
 
 setopt NO_BEEP
 
-[[ -o login ]] && stty -ixon # disable flow control (^s and ^c)
+# disable flow control
+
+# [[ -o login ]] && stty -ixon
+setopt NO_FLOW_CONTROL
 
 # prompt
 
