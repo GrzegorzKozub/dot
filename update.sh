@@ -4,10 +4,7 @@ set -eo pipefail -ux
 # update self
 
 git pull
-# git submodule update --init --jobs 8
-# git submodule foreach git checkout master
-# git submodule foreach git pull
-git submodule update --jobs 8 --merge --remote
+"${BASH_SOURCE%/*}"/repos.sh update
 
 # zsh & zinit
 

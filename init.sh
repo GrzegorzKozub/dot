@@ -5,8 +5,7 @@ set -eo pipefail -ux
 
 [[ ${0:a:h} == $(pwd) ]] || SWITCHED=1 && pushd "${0:a:h}"
 
-git submodule update --init --jobs 8
-git submodule foreach git checkout master
+"${BASH_SOURCE%/*}"/repos.sh init
 
 git update-index --assume-unchanged btop/btop/btop.conf
 git update-index --assume-unchanged tidal-hifi/tidal-hifi/config.json
