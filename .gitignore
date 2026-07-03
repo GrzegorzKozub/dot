@@ -1,3 +1,10 @@
+# repos.sh
+
+/mpv/mpv
+/nvim/nvim
+/vscode/user-data
+/yazi/yazi
+
 # ansible
 
 ansible/ansible/ansible.secret
