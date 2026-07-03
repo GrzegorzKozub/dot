@@ -3,7 +3,8 @@ set -eo pipefail -ux
 
 # repo
 
-[[ ${0:a:h} == $(pwd) ]] || SWITCHED=1 && pushd "${0:a:h}"
+DIR=$(dirname "$(realpath "$0")")
+[[ $DIR == $(pwd) ]] || SWITCHED=1 && pushd "$DIR"
 
 "${BASH_SOURCE%/*}"/repos.sh init
 
