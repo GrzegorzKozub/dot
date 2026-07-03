@@ -8,7 +8,6 @@ REPOS=(
   "vscode/user-data|git@github.com:GrzegorzKozub/vscode.git"
   "mpv/mpv|git@github.com:GrzegorzKozub/mpv.git"
   "yazi/yazi|git@github.com:GrzegorzKozub/yazi.git"
-  "nushell/nushell|git@github.com:GrzegorzKozub/nushell.git"
 )
 
 DIR=$(dirname "$(realpath "$0")")
@@ -17,7 +16,7 @@ init() {
   for REPO in "${REPOS[@]}"; do
     PATH_=${REPO%%|*}
     URL=${REPO##*|}
-    [[ -d "$DIR/$PATH_/.git" ]] || git clone --branch master "$URL" "$DIR/$PATH_"
+    [[ -d "$DIR/$PATH_/.git" ]] || git clone "$URL" "$DIR/$PATH_"
   done
 }
 
