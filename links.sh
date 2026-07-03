@@ -20,7 +20,6 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   kitty \
   mpv \
   npm \
-  nushell \
   nvim \
   obsidian \
   rclone \
