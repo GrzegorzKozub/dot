@@ -4,7 +4,7 @@ set -eo pipefail -ux
 # update self
 
 git pull
-"${BASH_SOURCE%/*}"/repos.sh update
+# "${BASH_SOURCE%/*}"/repos.sh update
 
 # zsh & zinit
 
