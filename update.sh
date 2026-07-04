@@ -3,8 +3,8 @@ set -eo pipefail -ux
 
 # update self
 
-git pull
-# "${BASH_SOURCE%/*}"/repos.sh update
+pushd "${BASH_SOURCE%/*}" && git pull && popd
+"${BASH_SOURCE%/*}"/repos.sh
 
 # zsh & zinit
 

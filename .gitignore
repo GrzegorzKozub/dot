@@ -1,10 +1,3 @@
-# repos.sh
-
-/mpv/mpv
-/nvim/nvim
-/vscode/user-data
-/yazi/yazi
-
 # ansible
 
 ansible/ansible/ansible.secret
@@ -94,9 +87,17 @@ libreoffice/**
 
 maven/maven/settings.xml
 
+# mpv (nested repo)
+
+/mpv/mpv
+
 # niri
 
 niri/niri/host.kdl
+
+# nvim (nested repo)
+
+/nvim/nvim
 
 # obsidian
 
@@ -129,6 +130,14 @@ tiddl/**
 # voxtype
 
 voxtype/voxtype/config.toml.bak
+
+# vscode (nested repo)
+
+/vscode/user-data
+
+# yazi (nested repo)
+
+/yazi/yazi
 
 # zsh
 

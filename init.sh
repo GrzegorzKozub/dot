@@ -6,7 +6,7 @@ set -eo pipefail -ux
 DIR=$(dirname "$(realpath "$0")")
 [[ $DIR == $(pwd) ]] || SWITCHED=1 && pushd "$DIR"
 
-"${BASH_SOURCE%/*}"/repos.sh init
+"${BASH_SOURCE%/*}"/repos.sh
 
 git update-index --assume-unchanged btop/btop/btop.conf
 git update-index --assume-unchanged tidal-hifi/tidal-hifi/config.json
