@@ -10,12 +10,13 @@ Personal dotfiles for a Linux development environment. Configuration is deployed
 
 | Script | Purpose |
 |--------|---------|
-| `./init.sh` | One-time repo setup: git submodules, sensitive file masking |
+| `./init.sh` | One-time repo setup: clone nested repos (`repos.sh`), mask sensitive files, deploy links |
 | `./install.sh` | Full system bootstrap: zsh/zinit, tmux, node (fnm), python (uv), rust (rustup), neovim, vscode, docker buildx |
-| `./update.sh` | Incremental updates: self, submodules, zsh plugins, tmux plugins, language toolchains, neovim plugins, vscode extensions |
-| `./links.sh` | Deploy symlinks via stow (also handles host-specific `environment/` configs) |
+| `./update.sh` | Incremental updates: self, nested repos, zsh plugins, tmux plugins, yazi packages, language toolchains, neovim plugins, vscode extensions |
+| `./links.sh` | Deploy symlinks via stow (also handles host-specific `environment/` configs and cache redirects) |
+| `./repos.sh` | Clone/fast-forward the nested per-app repos (`mpv/mpv`, `nvim/nvim`, `vscode/user-data`, `yazi/yazi`) |
 | `./reset.sh` | Targeted teardown of node, nvim, or rust installs |
-| `./claude.sh` | Sync Claude Code config from external storage (for sensitive settings not in git) |
+| `./claude.sh` | Sync Claude Code config from external storage (for sensitive settings not in git); wires up the GitHub MCP server and host-specific skills/instructions |
 
 ## Architecture
 
@@ -32,9 +33,9 @@ $XDG_CACHE_HOME (~/.cache)
 $ZDOTDIR        (~/.config/zsh)
 ```
 
-### Git Submodules
+### Nested Repos (not submodules)
 
-Five separate repos tracked as submodules — update with `git submodule update --remote` or via `./update.sh`. The submodule paths are `nvim/nvim`, `vscode/user-data`, `mpv/mpv`, `yazi/yazi`, `nushell/nushell`.
+Four separate repos (`nvim/nvim`, `vscode/user-data`, `mpv/mpv`, `yazi/yazi`) are pulled in as plain nested git clones — **not** git submodules. `repos.sh` clones each on first run and does a `fetch` + `merge --ff-only` on subsequent runs (called by both `init.sh` and `update.sh`); there is no `.gitmodules` and no `git submodule` command involved. A `nushell/nushell` submodule existed previously and was removed entirely during the submodule-to-plain-repo migration — don't reintroduce it.
 
 ### Claude Code Config
 
