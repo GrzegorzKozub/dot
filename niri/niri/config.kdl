@@ -258,6 +258,7 @@ binds { // defaults are are not merged
   // close
 
   Mod+Q repeat=false { close-window; }
+  Alt+F4 repeat=false { close-window; }
 
   // exit
 
