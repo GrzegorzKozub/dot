@@ -600,6 +600,10 @@ alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw 
 
 # export LLAMA_CACHE=$XDG_CACHE_HOME/llama.cpp # default
 
+# mcp-remote
+
+export MCP_REMOTE_CONFIG_DIR=$XDG_CONFIG_HOME/mcp-remote
+
 # mpv
 
 alias music="mpv --no-resume-playback --shuffle /run/media/$USER/data/music"
