@@ -190,6 +190,38 @@
         "."
       ]
     },
+    "credentials": {
+      "envVars": [
+        {
+          "name": "GITHUB_TOKEN",
+          "mode": "deny"
+        },
+        {
+          "name": "RCLONE_DRIVE_CLIENT_SECRET",
+          "mode": "deny"
+        },
+        {
+          "name": "APSIS_MYSQL_USER",
+          "mode": "deny"
+        },
+        {
+          "name": "APSIS_MYSQL_PASSWORD",
+          "mode": "deny"
+        },
+        {
+          "name": "PAGERDUTY_USER_API_KEY",
+          "mode": "deny"
+        },
+        {
+          "name": "APSIS_POSTGRES_URI",
+          "mode": "deny"
+        },
+        {
+          "name": "SONARQUBE_TOKEN",
+          "mode": "deny"
+        }
+      ]
+    },
     "excludedCommands": [
       "aws *",
       "docker *",
