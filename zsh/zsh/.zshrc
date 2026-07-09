@@ -474,6 +474,8 @@ alias claude-work='claude --settings $CLAUDE_CONFIG_DIR/settings-work.json'
 
 # copilot
 
+export COPILOT_HOME=$XDG_CONFIG_HOME/copilot
+
 # alias copilot="copilot \
 #   --deny-tool 'read(.env)' \
 #   --deny-tool 'read(.secret)' \
