@@ -10,6 +10,7 @@ if [[ ${1:-} == 'node' ]]; then
 fi
 
 if [[ ${1:-} == 'nvim' ]]; then
+  rm -f "$XDG_CONFIG_HOME/nvim/lazy-lock.json"
   rm -rf "$XDG_CACHE_HOME"/nvim
   rm -rf "$XDG_DATA_HOME"/nvim
   rm -rf ~/.local/state/nvim
