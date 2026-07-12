@@ -68,21 +68,18 @@ pass init grzegorz.kozub@gmail.com
 
 bat cache --build
 
-# node
+# mise: node
 
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
-eval "$(fnm env)"
-fnm install --latest
-fnm use default
+# npm install --global \
+#   eslint \
+#   neovim \
+#   npm \
+#   typescript
 
-npm install --global \
-  eslint \
-  neovim \
-  typescript
-
-  # mdpdf
+mise install
 
 # python
 

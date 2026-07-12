@@ -29,19 +29,9 @@ ya pkg upgrade
 
 "${BASH_SOURCE%/*}"/shared.sh
 
-# node
+# mise: node
 
-CURRENT=$(fnm current)
-LATEST=$(fnm ls-remote | tail -1)
-if [[ $CURRENT != "$LATEST" ]]; then
-  fnm install --latest
-  fnm alias "$LATEST" default
-  fnm use default
-  fnm exec --using "$CURRENT" npm ls --global --json |
-    jq --raw-output '.dependencies | to_entries[] | .key' |
-    xargs npm install --global
-  fnm uninstall "$CURRENT"
-fi
+mise upgrade
 
 # python
 

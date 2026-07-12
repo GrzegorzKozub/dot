@@ -1,0 +1,11 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+
+node = "latest"
+
+"npm:eslint" = "latest"
+"npm:neovim" = "latest"
+"npm:npm" = "latest"
+"npm:typescript" = "latest"

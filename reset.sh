@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
-if [[ ${1:-} == 'node' ]]; then
+if [[ ${1:-} == 'mise' ]]; then
+  rm -rf "$XDG_CACHE_HOME"/mise
+  rm -rf "$XDG_DATA_HOME"/mise
+  rm -rf "$XDG_STATE_HOME"/mise
   rm -rf "$XDG_CACHE_HOME"/npm
-  npm install --global \
-    eslint \
-    neovim \
-    typescript
+  mise install
 fi
 
 if [[ ${1:-} == 'nvim' ]]; then

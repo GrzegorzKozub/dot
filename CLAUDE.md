@@ -11,7 +11,7 @@ Personal dotfiles for a Linux development environment. Configuration is deployed
 | Script | Purpose |
 |--------|---------|
 | `./init.sh` | One-time repo setup: clone nested repos (`repos.sh`), mask sensitive files, deploy links |
-| `./install.sh` | Full system bootstrap: zsh/zinit, tmux, node (fnm), python (uv), rust (rustup), neovim, vscode, docker buildx |
+| `./install.sh` | Full system bootstrap: zsh/zinit, tmux, node (mise), python (uv), rust (rustup), neovim, vscode, docker buildx |
 | `./update.sh` | Incremental updates: self, nested repos, zsh plugins, tmux plugins, yazi packages, language toolchains, neovim plugins, vscode extensions |
 | `./links.sh` | Deploy symlinks via stow (also handles host-specific `environment/` configs and cache redirects) |
 | `./repos.sh` | Clone/fast-forward the nested per-app repos (`mpv/mpv`, `nvim/nvim`, `vscode/user-data`, `yazi/yazi`) |

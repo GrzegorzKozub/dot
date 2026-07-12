@@ -18,6 +18,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   ghostty \
   keepass \
   kitty \
+  mise \
   mpv \
   npm \
   nvim \

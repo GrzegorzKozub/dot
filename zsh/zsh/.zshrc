@@ -625,14 +625,11 @@ export NODE_REPL_HISTORY=''
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
-if [[ -a $commands[fnm] ]]; then
-  _my-fnm-init() {
-    eval "$(fnm env --use-on-cd)"
-    fnm use default --log-level quiet
-  }
-  zsh-defer _my-fnm-init
-  _my-compdef-fnm() { eval "$(fnm completions --shell zsh)" }
-  zsh-defer compdef _my-compdef-fnm fnm
+if [[ -a $commands[mise] ]]; then
+  _my-mise-init() { eval "$(mise activate zsh)" }
+  zsh-defer _my-mise-init
+  _my-compdef-mise() { eval "$(mise completion zsh)" }
+  zsh-defer compdef _my-compdef-mise mise
 fi
 
 # pass
