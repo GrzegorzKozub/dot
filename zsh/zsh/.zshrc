@@ -604,6 +604,15 @@ alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw 
 
 export MCP_REMOTE_CONFIG_DIR=$XDG_CONFIG_HOME/mcp-remote
 
+# mise
+
+if [[ -a $commands[mise] ]]; then
+  _my-mise-init() { eval "$(mise activate zsh)" }
+  zsh-defer _my-mise-init
+  _my-compdef-mise() { eval "$(mise completion zsh)" }
+  zsh-defer compdef _my-compdef-mise mise
+fi
+
 # mpv
 
 alias music="mpv --no-resume-playback --shuffle /run/media/$USER/data/music"
@@ -624,13 +633,6 @@ export NODE_REPL_HISTORY=''
 
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-
-if [[ -a $commands[mise] ]]; then
-  _my-mise-init() { eval "$(mise activate zsh)" }
-  zsh-defer _my-mise-init
-  _my-compdef-mise() { eval "$(mise completion zsh)" }
-  zsh-defer compdef _my-compdef-mise mise
-fi
 
 # pass
 
