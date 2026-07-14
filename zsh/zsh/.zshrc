@@ -182,6 +182,7 @@ typeset -U path
 path=(
   ~/.local/bin
   $XDG_CACHE_HOME/dotnet/.dotnet/tools
+  $XDG_DATA_HOME/bun/bin
   $XDG_DATA_HOME/cargo/bin
   $XDG_DATA_HOME/go/bin
   $XDG_DATA_HOME/lmstudio/bin
@@ -189,8 +190,8 @@ path=(
   $path[@]
 )
 
-  # ~/.local/share/gem/ruby/3.0.0/bin
-  # ~/.local/share/npm/bin
+  # $XDG_DATA_HOME/gem/ruby/3.0.0/bin
+  # $XDG_DATA_HOME/npm/bin
 
 # completion
 
@@ -461,6 +462,15 @@ alias myip='curl http://checkip.amazonaws.com/'
 export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat --language=man --style=plain'"
 
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+# bun
+
+export DO_NOT_TRACK=1
+
+export BUN_INSTALL_BIN=$XDG_DATA_HOME/bun/bin
+export BUN_INSTALL_GLOBAL_DIR=$XDG_DATA_HOME/bun/install/global
+
+export BUN_INSTALL_CACHE_DIR=$XDG_CACHE_HOME/bun/install/cache
 
 # claude
 

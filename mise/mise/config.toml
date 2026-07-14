@@ -1,11 +1,18 @@
 [settings]
-idiomatic_version_file_enable_tools = ["node"]
+
+idiomatic_version_file_enable_tools = ["bun", "node"]
 
 [tools]
 
+bun = "latest"
+
 node = "latest"
 
-"npm:eslint" = "latest"
-"npm:neovim" = "latest"
 "npm:npm" = "latest"
-"npm:typescript" = "latest"
+"npm:eslint" = { version = "latest", depends = ["npm:npm"] }
+"npm:neovim" = { version = "latest", depends = ["npm:npm"] }
+"npm:typescript" = { version = "latest", depends = ["npm:npm"] }
+
+# [hooks]
+#
+# enter = "mise install"

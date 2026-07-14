@@ -1,0 +1,8 @@
+telemetry = false
+
+[install]
+globalBinDir = "~/.local/share/bun/bin"
+globalDir = "~/.local/share/bun/install/global"
+
+  [install.cache]
+  dir = "~/.cache/bun/install/cache"

@@ -29,6 +29,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   silicon \
   tidal-hifi tiddl \
   tmux \
+  wget \
   yamllint \
   yay \
   yazi \
@@ -36,7 +37,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   zed \
   zsh
 
-  # iex zellij
+  # bun iex zellij
 
 mkdir -p "$XDG_CONFIG_HOME"/vscode
 stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME"/vscode --stow vscode
@@ -58,8 +59,6 @@ ln -sf "$DIR"/environment/environment.d/10-common.conf "$XDG_CONFIG_HOME"/enviro
 
 [[ $HOST == 'sacrifice' ]] &&
   ln -sf "$DIR"/environment/environment.d/20-amd.conf "$XDG_CONFIG_HOME"/environment.d/20-amd.conf
-
-ln -sf "$DIR"/wget/wgetrc "$XDG_CONFIG_HOME"/wgetrc
 
 # cache
 
