@@ -2,15 +2,12 @@
   "appIconType": "light",
   "closeAppOnCross": true,
   "disableBadgeCount": true,
-  "disableGpu": false,
+  "disableGpu": true,
   "disableNotificationSound": true,
   "disableNotificationWindowFlash": true,
   "disableNotifications": true,
   "electronCLIFlags": [
-    [
-      "enable-features",
-      "AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder,VaapiOnNvidiaGPUs"
-    ]
+    ["enable-features", "AcceleratedVideoEncoder,VaapiOnNvidiaGPUs"]
   ],
   "logConfig": false,
   "media": {
