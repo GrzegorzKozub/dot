@@ -145,21 +145,7 @@
       "Read(//**/.secrets/**)",
       "Read(//**/BraveSoftware/**)",
       "Read(//**/keys/**)",
-      "Read(//**/pass/**)",
-      "Write(//**/*.*env)",
-      "Write(//**/*.cert)",
-      "Write(//**/*.crt)",
-      "Write(//**/*.env)",
-      "Write(//**/*.key)",
-      "Write(//**/*.ovpn)",
-      "Write(//**/*.pem)",
-      "Write(//**/*.secret)",
-      "Write(//**/*credentials)",
-      "Write(//**/*settings.xml)",
-      "Write(//**/.secrets/**)",
-      "Write(//**/BraveSoftware/**)",
-      "Write(//**/keys/**)",
-      "Write(//**/pass/**)"
+      "Read(//**/pass/**)"
     ],
     "defaultMode": "acceptEdits"
   },
