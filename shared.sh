@@ -20,16 +20,16 @@ export GOCACHE=$XDG_CACHE_HOME/go
 export GOPATH=$XDG_DATA_HOME/go
 
 for PACKAGE in \
-  github.com/cweill/gotests/gotests \
-  github.com/fatih/gomodifytags \
   github.com/go-delve/delve/cmd/dlv \
-  github.com/haya14busa/goplay/cmd/goplay \
-  github.com/josharian/impl \
   golang.org/x/tools/cmd/goimports \
   golang.org/x/tools/gopls \
   honnef.co/go/tools/cmd/staticcheck; do
   go install -v $PACKAGE@latest
 done
+
+  # github.com/cweill/gotests/gotests \
+  # github.com/haya14busa/goplay/cmd/goplay \
+  # github.com/josharian/impl \
 
 # ruby
 

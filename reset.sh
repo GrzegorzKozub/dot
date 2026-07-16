@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
+if [[ ${1:-} == 'go' ]]; then
+  rm -rf "$XDG_CACHE_HOME"/go
+  rm -rf "$XDG_CONFIG_HOME"/go
+  sudo rm -rf "$XDG_DATA_HOME"/go
+  for PACKAGE in \
+    github.com/go-delve/delve/cmd/dlv \
+    golang.org/x/tools/cmd/goimports \
+    golang.org/x/tools/gopls \
+    honnef.co/go/tools/cmd/staticcheck; do
+    go install -v $PACKAGE@latest
+  done
+fi
+
 if [[ ${1:-} == 'mise' ]]; then
   rm -rf "$XDG_CACHE_HOME"/mise
   rm -rf "$XDG_DATA_HOME"/mise

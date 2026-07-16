@@ -12,7 +12,3 @@ node = "latest"
 "npm:eslint" = { version = "latest", depends = ["npm:npm"] }
 "npm:neovim" = { version = "latest", depends = ["npm:npm"] }
 "npm:typescript" = { version = "latest", depends = ["npm:npm"] }
-
-# [hooks]
-#
-# enter = "mise install"
