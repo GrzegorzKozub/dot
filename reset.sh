@@ -2,9 +2,9 @@
 set -eo pipefail -ux
 
 if [[ ${1:-} == 'go' ]]; then
-  rm -rf "$XDG_CACHE_HOME"/go
+  rm -rf "$XDG_CACHE_HOME"/{go,goimports,gopls}
   rm -rf "$XDG_CONFIG_HOME"/go
-  sudo rm -rf "$XDG_DATA_HOME"/go
+  go clean -modcache && rm -rf "$XDG_DATA_HOME"/go
   for PACKAGE in \
     github.com/go-delve/delve/cmd/dlv \
     golang.org/x/tools/cmd/goimports \
