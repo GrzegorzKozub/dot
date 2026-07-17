@@ -24,7 +24,7 @@ for PACKAGE in \
   golang.org/x/tools/cmd/goimports \
   golang.org/x/tools/gopls \
   honnef.co/go/tools/cmd/staticcheck; do
-  go install -v $PACKAGE@latest
+  go install $PACKAGE@latest
 done
 
   # github.com/cweill/gotests/gotests \
