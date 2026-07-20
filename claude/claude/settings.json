@@ -177,6 +177,20 @@
       ]
     },
     "credentials": {
+      "files": [
+        {
+          "path": "~/.aws/credentials",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.gnupg",
+          "mode": "deny"
+        },
+        {
+          "path": "~/.ssh",
+          "mode": "deny"
+        }
+      ],
       "envVars": [
         {
           "name": "GITHUB_TOKEN",
