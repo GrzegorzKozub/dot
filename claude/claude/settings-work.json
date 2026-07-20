@@ -1,4 +1,7 @@
 {
+  "env": {
+    "ENABLE_CLAUDEAI_MCP_SERVERS": "1"
+  },
   "permissions": {
     "allow": [
       "Skill(apsis-katie:katie)",
