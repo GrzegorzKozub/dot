@@ -625,7 +625,7 @@
     },
     "wallpaper": {
         "automationEnabled": true,
-        "directory": "~/code/walls",
+        "directory": "/home/greg/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [

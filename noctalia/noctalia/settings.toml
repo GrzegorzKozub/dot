@@ -1,0 +1,18 @@
+config_version = 2
+
+[wallpaper]
+directory = "~/code/walls"
+directory_dark = "~/code/walls"
+directory_light = "~/code/walls"
+transition = ["fade"]
+
+  [wallpaper.automation]
+  enabled = true
+  interval_seconds = 3600
+  recursive = false
+
+  [wallpaper.default]
+  path = "/home/greg/code/walls/women.jpg"
+
+  [wallpaper.last]
+  path = "/home/greg/code/walls/women.jpg"

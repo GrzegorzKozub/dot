@@ -46,7 +46,7 @@ layout {
 }
 
 // stationary overview wallpaper
-layer-rule { match namespace="^noctalia-wallpaper*"; place-within-backdrop true; }
+layer-rule { match namespace="^noctalia-wallpaper"; place-within-backdrop true; }
 
 overview { // TODO
   workspace-shadow { off; } // stationary overview wallpaper
@@ -205,8 +205,17 @@ binds { // defaults are are not merged
 
   // settings
 
-  Mod+S      { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
-  Mod+Ctrl+S { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+  Mod+S      { spawn-sh "noctalia msg panel-toggle control-center"; }
+  Mod+Ctrl+S { spawn-sh "noctalia msg settings-toggle"; }
+
+  // apps
+
+  Mod+T { spawn "kitty"; }
+  Mod+B { spawn "brave-origin"; } // or brave
+
+  Mod+A { spawn-sh "noctalia msg panel-toggle launcher"; }
+
+  // Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
 
   // TODO
 
@@ -219,13 +228,6 @@ binds { // defaults are are not merged
   // powerProfile cycle
   // sessionMenu lockAndSuspend
   // sessionMenu toggle
-
-  // apps
-
-  Mod+T { spawn "kitty"; }
-  Mod+B { spawn "brave-origin"; } // or brave
-
-  Mod+A { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
 
   // audio
 
@@ -269,4 +271,4 @@ binds { // defaults are are not merged
 
 // startup
 
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia"
