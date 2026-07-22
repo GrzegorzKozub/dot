@@ -1,0 +1,3 @@
+# /etc/xdg/walker/config.toml
+[providers]
+default = ["desktopapplications", "files", "runner"]

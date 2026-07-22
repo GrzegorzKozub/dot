@@ -213,7 +213,8 @@ binds { // defaults are are not merged
   Mod+T { spawn "kitty"; }
   Mod+B { spawn "brave-origin"; } // or brave
 
-  Mod+A { spawn-sh "noctalia msg panel-toggle launcher"; }
+  // Mod+A { spawn-sh "noctalia msg panel-toggle launcher"; }
+  Mod+A { spawn "walker"; }
 
   // Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
 
@@ -272,3 +273,6 @@ binds { // defaults are are not merged
 // startup
 
 spawn-at-startup "noctalia"
+
+// TODO: switch to systemd service
+spawn-at-startup "walker" "--gapplication-service"
