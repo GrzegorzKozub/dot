@@ -1,0 +1,5 @@
+output "DP-3" {
+  mode "3840x2160@239.990"
+  scale 2
+  // variable-refresh-rate // vrr flicker on oled
+}
