@@ -1,4 +1,38 @@
 # /etc/xdg/walker/config.toml
 
+theme = "default"
+page_jump_items = 8
+
+[placeholders]
+"default" = { input = "", list = "" }
+
 [providers]
-default = ["windows", "desktopapplications", "symbols"]
+default = ["windows", "desktopapplications"]
+max_results = 32
+
+  [providers.actions]
+
+  fallback = [
+    { action = "menus:open", label = "Open", after = "Nothing" },
+    { action = "menus:default", label = "Run", after = "Close" },
+    { action = "menus:parent", label = "Back", bind = "Escape", after = "Nothing" },
+    { action = "erase_history", label = "Clear history", bind = "ctrl h", after = "AsyncReload" },
+  ]
+
+  windows = [
+    { action = "focus", label = "Focus", default = true, bind = "Return" },
+    { action = "focus_workspace", label = "Focus workspace", default = true, bind = "Return" },
+  ]
+
+  desktopapplications = [
+    { action = "start", label = "Run", default = true, bind = "Return" },
+    { action = "start:keep", label = "Run & stay", bind = "shift Return", after = "KeepOpen" },
+    { action = "pin", label = "Pin", bind = "ctrl p", after = "AsyncReload" },
+    { action = "unpin", label = "Unpin", bind = "ctrl p", after = "AsyncReload" },
+    { action = "pinup", label = "Pin up", bind = "ctrl n", after = "AsyncReload" },
+    { action = "pindown", label = "Pin down", bind = "ctrl m", after = "AsyncReload" },
+  ]
+
+  providerlist = [
+    { action = "activate", label = "Activate", default = true, bind = "Return", after = "ClearReload" },
+  ]
