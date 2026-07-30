@@ -1,5 +1,6 @@
 {
   "removemake": "yes",
   "answerdiff": "All",
-  "cleanmenu": false
+  "cleanmenu": false,
+  "devel": true
 }
