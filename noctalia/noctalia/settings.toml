@@ -1,5 +1,18 @@
 config_version = 2
 
+[dock]
+enabled = true
+launcher_position = "start"
+pinned = ["kitty", "brave-origin"]
+reserve_space = false
+smart_auto_hide = true
+
+[shell.screen_corners]
+size = 16
+
+[shell.shadow]
+alpha = 0.5
+
 [theme]
 builtin = "Gruvbox"
 community_palette = "Gruvbox Material"
@@ -10,6 +23,7 @@ directory = "~/code/walls"
 directory_dark = "~/code/walls"
 directory_light = "~/code/walls"
 transition = ["fade"]
+transition_duration = 1000
 
   [wallpaper.automation]
   enabled = true

@@ -17,9 +17,9 @@ layout {
   preset-window-heights { proportion 0.33333; proportion 0.5; proportion 0.66667; proportion 1.0; }
   // default-column-width {}
 
-  shadow {
-    on; offset x=0 y=0; spread 8; softness 16;
-    color "#0004"; inactive-color "#0002"
+  shadow { // match noctalia down direction & 50% opacity
+    on; offset x=0 y=2; spread 8; softness 16;
+    color "#0008"; inactive-color "#0004"
   }
 
   focus-ring {
@@ -213,10 +213,10 @@ binds { // defaults are are not merged
   Mod+T { spawn "kitty"; }
   Mod+B { spawn "brave-origin"; } // or brave
 
-  // Mod+A { spawn-sh "noctalia msg panel-toggle launcher"; }
-  Mod+A { spawn "walker"; }
+  Mod+A { spawn-sh "noctalia msg panel-toggle launcher"; }
+  // Mod+A { spawn "walker"; }
 
-  // Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
+  Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
 
   // TODO
 
