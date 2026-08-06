@@ -15,10 +15,12 @@
   },
   "model": "opus[1m]",
   "enabledPlugins": {
+    "apsis-implement@apsis": true,
+    "apsis-jira-creator@apsis": true,
     "apsis-katie@apsis": true,
     "apsis-mcp@apsis": true,
-    "apsis-resolve@apsis": true,
-    "superpowers@claude-plugins-official": true
+    "apsis-qa@apsis": true,
+    "apsis-resolve@apsis": true
   },
   "extraKnownMarketplaces": {
     "apsis": {

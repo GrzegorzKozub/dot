@@ -151,6 +151,10 @@
     "defaultMode": "acceptEdits"
   },
   "model": "sonnet[1m]",
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
+  },
   "statusLine": {
     "type": "command",
     "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\"",
