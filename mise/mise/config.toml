@@ -19,3 +19,4 @@ node = "latest"
 "npm:eslint" = { version = "latest", depends = ["npm:npm"] }
 "npm:neovim" = { version = "latest", depends = ["npm:npm"] }
 "npm:typescript" = { version = "latest", depends = ["npm:npm"] }
+"npm:typescript-language-server" = { version = "latest", depends = ["npm:npm"] }

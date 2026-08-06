@@ -77,13 +77,14 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 #   eslint \
 #   neovim \
 #   npm \
-#   typescript
+#   typescript \
+#   typescript-language-server
 
 mise install
 
 # python
 
-for TOOL in lastversion tiddl; do uv tool install $TOOL; done
+for TOOL in lastversion pyright tiddl; do uv tool install $TOOL; done
 
 uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
 
@@ -95,10 +96,8 @@ export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
 curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+rustup component add rust-analyzer
 cargo install cargo-update
-  # --force --features vendored-libgit2 --features vendored-openssl
-  # https://github.com/nabijaczleweli/cargo-update/issues/243
-
 # cargo install markdown2pdf
 
 # neovim
