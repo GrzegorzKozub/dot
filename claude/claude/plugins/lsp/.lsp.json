@@ -1,0 +1,43 @@
+{
+  "basedpyright": {
+    "command": "basedpyright",
+    "args": ["--stdio"],
+    "extensionToLanguage": { ".py": "python" }
+  },
+  "bash-language-server": {
+    "command": "bash-language-server",
+    "args": ["start"],
+    "extensionToLanguage": { ".sh": "bash" },
+    "settings": { "bashIde": { "globPattern": "*@(.sh)" } }
+  },
+  "csharp-ls": {
+    "command": "csharp-ls",
+    "extensionToLanguage": { ".cs": "csharp" }
+  },
+  "gopls": {
+    "command": "gopls",
+    "args": ["serve"],
+    "extensionToLanguage": { ".go": "go" },
+    "settings": { "gopls": { "analyses": { "shadow": true } } }
+  },
+  "lua-language-server": {
+    "command": "lua-language-server",
+    "extensionToLanguage": { ".lua": "lua" },
+    "settings": { "Lua": { "runtime": { "version": "LuaJIT" } } }
+  },
+  "rust-analyzer": {
+    "command": "rust-analyzer",
+    "extensionToLanguage": { ".rs": "rust" },
+    "settings": { "rust-analyzer": { "check": { "command": "clippy" } } }
+  },
+  "typescript-language-server": {
+    "command": "typescript-language-server",
+    "args": ["--stdio"],
+    "extensionToLanguage": {
+      ".js": "javascript",
+      ".jsx": "javascript",
+      ".ts": "typescript",
+      ".tsx": "typescript"
+    }
+  }
+}

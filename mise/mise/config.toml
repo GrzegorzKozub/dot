@@ -16,6 +16,8 @@ bun = "latest"
 node = "latest"
 
 "npm:npm" = "latest"
+
+"npm:bash-language-server" = { version = "latest", depends = ["npm:npm"] }
 "npm:eslint" = { version = "latest", depends = ["npm:npm"] }
 "npm:neovim" = { version = "latest", depends = ["npm:npm"] }
 "npm:typescript" = { version = "latest", depends = ["npm:npm"] }

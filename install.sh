@@ -74,6 +74,7 @@ export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 # npm install --global \
+#   bash-language-server
 #   eslint \
 #   neovim \
 #   npm \
@@ -84,7 +85,7 @@ mise install
 
 # python
 
-for TOOL in lastversion pyright tiddl; do uv tool install $TOOL; done
+for TOOL in basedpyright lastversion tiddl; do uv tool install $TOOL; done
 
 uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
 

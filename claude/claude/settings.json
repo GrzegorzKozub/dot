@@ -152,12 +152,15 @@
   },
   "model": "sonnet[1m]",
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "lsp@greg": true
+  },
+  "extraKnownMarketplaces": {
+    "greg": {
+      "source": {
+        "source": "directory",
+        "path": "/home/greg/code/dot/claude/claude/plugins"
+      }
+    }
   },
   "statusLine": {
     "type": "command",

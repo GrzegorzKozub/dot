@@ -12,7 +12,8 @@ cava/cava/themes/
 claude/**
 !claude/**/
 
-claude/claude/plugins/
+!claude/claude/plugins/
+!claude/claude/plugins/**
 
 !claude/claude/settings.json
 !claude/claude/settings-work.json

@@ -4,7 +4,12 @@
   },
   "permissions": {
     "allow": [
-      "Skill(apsis-katie:katie)",
+      "Skill(apsis-implement:*)",
+      "Skill(apsis-implement:*)",
+      "Skill(apsis-jira-creator:*)",
+      "Skill(apsis-katie:*)",
+      "Skill(apsis-qa:*)",
+      "Skill(apsis-resolve:*)",
       "mcp__plugin_apsis-mcp_atlassian",
       "mcp__plugin_apsis-mcp_bedrock",
       "mcp__plugin_apsis-mcp_github",
@@ -20,7 +25,8 @@
     "apsis-katie@apsis": true,
     "apsis-mcp@apsis": true,
     "apsis-qa@apsis": true,
-    "apsis-resolve@apsis": true
+    "apsis-resolve@apsis": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "apsis": {
