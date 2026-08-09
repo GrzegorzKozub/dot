@@ -26,6 +26,7 @@
     "apsis-mcp@apsis": true,
     "apsis-qa@apsis": true,
     "apsis-resolve@apsis": true,
+    "mcp@greg": false,
     "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
