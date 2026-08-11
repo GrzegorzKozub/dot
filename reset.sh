@@ -20,6 +20,10 @@ if [[ ${1:-} == 'mise' ]]; then
   rm -rf "$XDG_STATE_HOME"/mise
   rm -rf "$XDG_CACHE_HOME"/npm
   mise install
+  [[ $HOST == 'worker' ]] &&
+    mise install \
+      npm:bash-language-server@latest \
+      npm:typescript-language-server@latest # for claude code
 fi
 
 if [[ ${1:-} == 'nvim' ]]; then
@@ -42,10 +46,11 @@ if [[ ${1:-} == 'python' ]]; then
       { ! [[ -e "$FILE" ]] || [[ "$(readlink -f "$FILE")" == "$XDG_DATA_HOME/uv/tools"* ]]; } &&
       rm "$FILE"
   done
-  for TOOL in basedpyright lastversion tiddl; do uv tool install $TOOL; done
+  for TOOL in lastversion tiddl; do uv tool install $TOOL; done
   uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
   if [[ $HOST == 'worker' ]]; then
     for TOOL in awscli-local cfn-lint; do uv tool install $TOOL; done
+    uv tool install basedpyright # for claude code
   fi
 fi
 
@@ -53,6 +58,6 @@ if [[ ${1:-} == 'rust' ]]; then
   rm -rf "$XDG_DATA_HOME"/cargo
   rm -rf "$XDG_DATA_HOME"/rustup
   curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
-  rustup component add rust-analyzer
   cargo install cargo-update
+  [[ $HOST == 'worker' ]] && rustup component add rust-analyzer # for claude code
 fi

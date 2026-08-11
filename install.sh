@@ -85,9 +85,10 @@ mise install
 
 # python
 
-for TOOL in basedpyright lastversion tiddl; do uv tool install $TOOL; done
+for TOOL in lastversion tiddl; do uv tool install $TOOL; done
 
 uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
+# uv tool install basedpyright # for claude code
 
 # rust
 
@@ -97,9 +98,9 @@ export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
 curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
-rustup component add rust-analyzer
 cargo install cargo-update
 # cargo install markdown2pdf
+# rustup component add rust-analyzer # for claude code
 
 # neovim
 

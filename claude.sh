@@ -42,6 +42,16 @@ mkdir -p "$XDG_CONFIG_HOME"/claude/themes
 ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/themes/gruvbox-material-dark.json \
   "$XDG_CONFIG_HOME"/claude/themes/gruvbox-material-dark.json
 
+# lsp
+
+sudo pacman -S --noconfirm lua-language-server
+mise install \
+  npm:bash-language-server@latest \
+  npm:typescript-language-server@latest
+uv tool install basedpyright
+rustup component add rust-analyzer
+dotnet tool install --global csharp-ls
+
 # mcp
 
 # shellcheck disable=SC2016

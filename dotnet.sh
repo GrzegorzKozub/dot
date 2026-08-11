@@ -3,7 +3,7 @@ set -eo pipefail -ux
 
 # tools
 
-dotnet tool install --global csharp-ls
+# dotnet tool install --global csharp-ls # for claude code
 
 # vscode
 
