@@ -50,7 +50,7 @@ mise install \
   npm:typescript-language-server@latest
 uv tool install basedpyright
 rustup component add rust-analyzer
-dotnet tool install --global csharp-ls
+[[ $HOST == 'worker' ]] && dotnet tool install --global csharp-ls
 
 # mcp
 
