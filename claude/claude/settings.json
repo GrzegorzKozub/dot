@@ -174,7 +174,8 @@
     "allowUnsandboxedCommands": false,
     "filesystem": {
       "allowWrite": [
-        "."
+        ".",
+        "~/.cache/bun"
       ],
       "denyWrite": [
         "/run/media",
@@ -185,8 +186,9 @@
         "~/"
       ],
       "allowRead": [
+        ".",
         "~/.config/zsh",
-        "."
+        "~/.local/share/mise"
       ]
     },
     "credentials": {
