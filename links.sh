@@ -16,6 +16,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   fsh \
   git \
   ghostty \
+  imv \
   keepass \
   kitty \
   mise \
