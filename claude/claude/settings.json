@@ -151,6 +151,11 @@
     "defaultMode": "acceptEdits"
   },
   "model": "sonnet[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\"",
+    "hideVimModeIndicator": true
+  },
   "enabledPlugins": {
     "lsp@greg": true,
     "mcp@greg": true
@@ -162,11 +167,6 @@
         "path": "/home/greg/code/dot/claude/claude/plugins"
       }
     }
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\"",
-    "hideVimModeIndicator": true
   },
   "sandbox": {
     "enabled": true,
@@ -253,5 +253,6 @@
   "theme": "custom:gruvbox-material-dark",
   "editorMode": "vim",
   "teammateMode": "tmux",
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "awaySummaryEnabled": false
 }
