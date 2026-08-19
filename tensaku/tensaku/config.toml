@@ -1,0 +1,14 @@
+[general]
+early-exit = true
+corner-roundness = 8
+initial-tool = "rectangle"
+copy-command = "wl-copy"
+annotation-size-factor = 0.5
+output-filename = "~/Pictures/Screenshots/Screenshot From %Y-%m-%d %H-%M-%S.png"
+save-after-copy = true
+
+[font]
+family = "DejaVu Sans Condensed"
+
+[color-palette]
+palette = ["#cc241d", "#98971a", "#d79921", "#458588", "#b16286", "#d65d0e"]
