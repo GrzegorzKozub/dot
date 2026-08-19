@@ -1,5 +1,10 @@
 [general]
-early-exit = true
+close-on-copy = true
+close-on-save = true
+
+# hide-default-palette = true
+# start from corner-roundness and if resize is needed
+
 corner-roundness = 8
 initial-tool = "rectangle"
 copy-command = "wl-copy"
