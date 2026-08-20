@@ -26,7 +26,6 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   obsidian \
   rclone \
   ripgrep \
-  satty \
   silicon \
   tensaku \
   tidal-hifi tiddl \
@@ -39,7 +38,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   zed \
   zsh
 
-  # bun iex zellij
+  # bun iex satty zellij
 
 mkdir -p "$XDG_CONFIG_HOME"/vscode
 stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME"/vscode --stow vscode

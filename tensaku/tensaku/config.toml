@@ -1,19 +1,18 @@
 [general]
 close-on-copy = true
 close-on-save = true
-
-# hide-default-palette = true
-# start from corner-roundness and if resize is needed
-
-corner-roundness = 8
+sticky-session-defaults = true
 initial-tool = "rectangle"
-copy-command = "wl-copy"
-annotation-size-factor = 0.5
+annotation-size-factor = 1
 output-filename = "~/Pictures/Screenshots/Screenshot From %Y-%m-%d %H-%M-%S.png"
 save-after-copy = true
+default-hide-toolbars = true
+disable-notifications = true
+actions-on-enter = []
 
 [font]
 family = "DejaVu Sans Condensed"
 
 [color-palette]
 palette = ["#cc241d", "#98971a", "#d79921", "#458588", "#b16286", "#d65d0e"]
+custom = []
