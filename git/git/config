@@ -89,14 +89,13 @@
   autocrlf = false
   editor = nvim
   fscache = true
-  # fsmonitor = true # no perf improvement & yazi can't copy clone dirs when enabled
   # pager = less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub
   pager = delta
   symlinks = true
   untrackedCache = true
   whitespace = blank-at-eol,tab-in-indent
 [credential]
-	helper = gopass
+  helper = gopass
 [credential "http://osiris"]
   username = grkoz_adm
 [credential "http://tfs"]
@@ -201,8 +200,8 @@
 [safe]
   directory = *
 [submodule]
-	fetchJobs = 8
-	# recurse = true
+  fetchJobs = 8
+  # recurse = true
 [user]
   email = grzegorz.kozub@gmail.com
   name = greg
