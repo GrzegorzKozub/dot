@@ -85,7 +85,7 @@ mise install
 
 # python
 
-for TOOL in lastversion tiddl; do uv tool install $TOOL; done
+for TOOL in lastversion linecast tiddl; do uv tool install $TOOL; done
 
 uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
 # uv tool install basedpyright # for claude code

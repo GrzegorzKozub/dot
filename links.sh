@@ -19,6 +19,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   imv \
   keepass \
   kitty \
+  linecast \
   mise \
   mpv \
   npm \

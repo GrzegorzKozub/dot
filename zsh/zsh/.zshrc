@@ -607,6 +607,11 @@ export LESSHISTFILE=-
 
 alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub'
 
+# linecast
+
+export LINECAST_ICONS=emoji
+export WEATHER_UNITS=metric
+
 # llama.cpp
 
 # export LLAMA_CACHE=$XDG_CACHE_HOME/llama.cpp # default
