@@ -9,7 +9,7 @@ DIR=$(dirname "$(realpath "$0")")
 "${BASH_SOURCE%/*}"/repos.sh
 
 git update-index --assume-unchanged btop/btop/btop.conf
-git update-index --assume-unchanged tidal-hifi/tidal-hifi/config.json
+# git update-index --assume-unchanged tidal-hifi/tidal-hifi/config.json
 
 [[ ${SWITCHED:-} == 1 ]] && popd
 
