@@ -68,7 +68,7 @@ pass init grzegorz.kozub@gmail.com
 
 bat cache --build
 
-# mise: node
+# node (before mise)
 
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
@@ -81,6 +81,8 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 #   typescript \
 #   typescript-language-server
 
+# mise
+
 mise install
 
 # python
@@ -88,7 +90,6 @@ mise install
 for TOOL in lastversion linecast tiddl; do uv tool install $TOOL; done
 
 uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
-# uv tool install basedpyright # for claude code
 
 # rust
 
@@ -100,7 +101,6 @@ export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
 cargo install cargo-update
 # cargo install markdown2pdf
-# rustup component add rust-analyzer # for claude code
 
 # neovim
 

@@ -86,6 +86,10 @@ libreoffice/**
 
 maven/maven/settings.xml
 
+# mise
+
+mise/mise/**/*.local.toml
+
 # mpv (nested repo)
 
 /mpv/mpv

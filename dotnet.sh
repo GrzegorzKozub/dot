@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
-# tools
-
-# dotnet tool install --global csharp-ls # for claude code
-
 # vscode
 
 set e+

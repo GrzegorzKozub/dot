@@ -622,6 +622,8 @@ export MCP_REMOTE_CONFIG_DIR=$XDG_CONFIG_HOME/mcp-remote
 
 # mise
 
+# export MISE_ENV=$HOST
+
 if [[ -a $commands[mise] ]]; then
   _my-mise-init() { eval "$(mise activate zsh)" }
   zsh-defer _my-mise-init

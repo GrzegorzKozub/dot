@@ -7,7 +7,7 @@ CONFIG=/run/media/$USER/data/.config
 
 if [[ ! -L "$XDG_CONFIG_HOME"/claude ]] && [[ -d "$XDG_CONFIG_HOME"/claude ]] && [[ ! -d "$CONFIG"/claude ]]; then
 
-  mkdir "$CONFIG"/claude
+  mkdir -p "$CONFIG"/claude
 
   shopt -s dotglob
   mv "$XDG_CONFIG_HOME"/claude/* "$CONFIG"/claude
@@ -15,20 +15,12 @@ if [[ ! -L "$XDG_CONFIG_HOME"/claude ]] && [[ -d "$XDG_CONFIG_HOME"/claude ]] &&
 
 fi
 
-# mkdir -p "$CONFIG"/claude
+[[ ! -d "$CONFIG"/claude ]] && mkdir -p "$CONFIG"/claude
 
 [[ -d "$XDG_CONFIG_HOME"/claude ]] && rm -rf "$XDG_CONFIG_HOME"/claude
 [[ -L "$XDG_CONFIG_HOME"/claude ]] && rm "$XDG_CONFIG_HOME"/claude
 
 ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
-
-# if [[ -f "${BASH_SOURCE%/*}"/claude/claude/settings.$HOST.json ]]; then
-#   ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings."$HOST".json \
-#     "$XDG_CONFIG_HOME"/claude/settings.json
-# else
-#   ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/settings.json \
-#     "$XDG_CONFIG_HOME"/claude/settings.json
-# fi
 
 FILES=(statusline.sh settings.json)
 [[ $HOST == 'worker' ]] && FILES+=(settings-work.json)
@@ -44,8 +36,7 @@ ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/themes/gruvbox-material-dar
 
 # lsp
 
-sudo pacman -S --noconfirm lua-language-server
-mise install
+# mise install \
 #   npm:bash-language-server@latest \
 #   npm:typescript-language-server@latest
 uv tool install basedpyright
