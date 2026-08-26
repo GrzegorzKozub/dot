@@ -150,7 +150,7 @@
     ],
     "defaultMode": "acceptEdits"
   },
-  "model": "sonnet[1m]",
+  "disableRemoteControl": true,
   "statusLine": {
     "type": "command",
     "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\"",
@@ -248,11 +248,11 @@
     ]
   },
   "effortLevel": "medium",
+  "awaySummaryEnabled": false,
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "theme": "custom:gruvbox-material-dark",
   "editorMode": "vim",
   "teammateMode": "tmux",
-  "skipAutoPermissionPrompt": true,
-  "awaySummaryEnabled": false
+  "skipAutoPermissionPrompt": true
 }

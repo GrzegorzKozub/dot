@@ -45,9 +45,9 @@ ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/themes/gruvbox-material-dar
 # lsp
 
 sudo pacman -S --noconfirm lua-language-server
-mise install \
-  npm:bash-language-server@latest \
-  npm:typescript-language-server@latest
+mise install
+#   npm:bash-language-server@latest \
+#   npm:typescript-language-server@latest
 uv tool install basedpyright
 rustup component add rust-analyzer
 [[ $HOST == 'worker' ]] && dotnet tool install --global csharp-ls

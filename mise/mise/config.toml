@@ -5,6 +5,7 @@ idiomatic_version_file_enable_tools = ["bun", "node"]
 [tools]
 
 bun = "latest"
+claude = "latest"
 
 # go = "latest"
 #
@@ -22,5 +23,5 @@ node = "latest"
 "npm:typescript" = { version = "latest", depends = ["npm:npm"] }
 
 # for claude code
-# "npm:bash-language-server" = { version = "latest", depends = ["npm:npm"] }
-# "npm:typescript-language-server" = { version = "latest", depends = ["npm:npm"] }
+"npm:bash-language-server" = { version = "latest", depends = ["npm:npm"] }
+"npm:typescript-language-server" = { version = "latest", depends = ["npm:npm"] }
