@@ -438,22 +438,30 @@ zsh-defer zinit light zsh-users/zsh-autosuggestions
 
 # ansible
 
-export ANSIBLE_HOME=$XDG_CONFIG_HOME/ansible
-export ANSIBLE_CONFIG=$XDG_CONFIG_HOME/ansible/ansible.cfg
+if (( $+commands[ansible] )); then
 
-export ANSIBLE_GALAXY_CACHE_DIR=$XDG_CACHE_HOME/ansible/galaxy_cache
-export ANSIBLE_LOCAL_TEMP=$XDG_CACHE_HOME/ansible/tmp
+  export ANSIBLE_HOME=$XDG_CONFIG_HOME/ansible
+  export ANSIBLE_CONFIG=$XDG_CONFIG_HOME/ansible/ansible.cfg
+
+  export ANSIBLE_GALAXY_CACHE_DIR=$XDG_CACHE_HOME/ansible/galaxy_cache
+  export ANSIBLE_LOCAL_TEMP=$XDG_CACHE_HOME/ansible/tmp
+
+fi
 
 # aws
 
-# export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws/config
-export AWS_SDK_LOAD_CONFIG=1
+if (( $+commands[aws] )); then
 
-# export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials
+  # export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws/config
+  # export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials
 
-export SAM_CLI_TELEMETRY=0
+  export AWS_SDK_LOAD_CONFIG=1
 
-zsh-defer complete -C /usr/bin/aws_completer aws
+  export SAM_CLI_TELEMETRY=0
+
+  zsh-defer complete -C /usr/bin/aws_completer aws
+
+fi
 
 alias myip='curl http://checkip.amazonaws.com/'
 
@@ -474,13 +482,17 @@ export BUN_INSTALL_CACHE_DIR=$XDG_CACHE_HOME/bun/install/cache
 
 # claude
 
-export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
+if (( $+commands[claude] )); then
 
-alias claude-llama='ANTHROPIC_API_KEY=foo \
-  ANTHROPIC_BASE_URL=http://localhost:8080 \
-  ANTHROPIC_MODEL=llama \
-  claude'
-alias claude-work='claude --settings $CLAUDE_CONFIG_DIR/settings-work.json'
+  export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
+
+  alias claude-llama='ANTHROPIC_API_KEY=foo \
+    ANTHROPIC_BASE_URL=http://localhost:8080 \
+    ANTHROPIC_MODEL=llama \
+    claude'
+  alias claude-work='claude --settings $CLAUDE_CONFIG_DIR/settings-work.json'
+
+fi
 
 # copilot
 
@@ -505,17 +517,19 @@ export COMPOSE_BAKE=true
 
 # dotnet
 
-export DOTNET_CLI_HOME=$XDG_CACHE_HOME/dotnet # https://github.com/dotnet/runtime/issues/98276
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export DOTNET_GENERATE_ASPNET_CERTIFICATE=0
-export DOTNET_NOLOGO=1
-export DOTNET_SKIP_WORKLOAD_INTEGRITY_CHECK=1
+if (( $+commands[dotnet] )); then
 
-export OMNISHARPHOME=$XDG_DATA_HOME/omnisharp
+  export DOTNET_CLI_HOME=$XDG_CACHE_HOME/dotnet # https://github.com/dotnet/runtime/issues/98276
+  export DOTNET_CLI_TELEMETRY_OPTOUT=1
+  export DOTNET_GENERATE_ASPNET_CERTIFICATE=0
+  export DOTNET_NOLOGO=1
+  export DOTNET_SKIP_WORKLOAD_INTEGRITY_CHECK=1
 
-if [[ -a $commands[dotnet] ]]; then
+  export OMNISHARPHOME=$XDG_DATA_HOME/omnisharp
+
   _my-compdef-dotnet() { _values = "${(ps:\n:)$(dotnet complete "$words")}" }
   zsh-defer compdef _my-compdef-dotnet dotnet
+
 fi
 
 # elixir
@@ -586,19 +600,26 @@ alias pass='gopass'
 
 # intellij
 
-idea() {
-  nohup intellij-idea-community-edition "$@" >/dev/null 2>&1 &
-  disown
-}
+(( $+commands[intellij-idea-community-edition] )) &&
+  idea() {
+    nohup intellij-idea-community-edition "$@" >/dev/null 2>&1 &
+    disown
+  }
 
 # java
 
-# export JAVA_TOOL_OPTIONS="-Djava.util.prefs.userRoot=$XDG_DATA_HOME/java -Djavafx.cachedir=$XDG_CACHE_HOME/openjfx"
+if (( $+commands[java] )); then
 
-export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
+  # export JAVA_TOOL_OPTIONS="-Djava.util.prefs.userRoot=$XDG_DATA_HOME/java -Djavafx.cachedir=$XDG_CACHE_HOME/openjfx"
 
-export MAVEN_ARGS="--settings $XDG_CONFIG_HOME/maven/settings.xml"
-export MAVEN_OPTS="-Dmaven.repo.local=$XDG_CACHE_HOME/maven/repository"
+  export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
+
+fi
+
+if (( $+commands[maven] )); then
+  export MAVEN_ARGS="--settings $XDG_CONFIG_HOME/maven/settings.xml"
+  export MAVEN_OPTS="-Dmaven.repo.local=$XDG_CACHE_HOME/maven/repository"
+fi
 
 # less
 
@@ -622,9 +643,7 @@ export MCP_REMOTE_CONFIG_DIR=$XDG_CONFIG_HOME/mcp-remote
 
 # mise
 
-# export MISE_ENV=$HOST
-
-if [[ -a $commands[mise] ]]; then
+if (( $+commands[mise] )); then
   _my-mise-init() { eval "$(mise activate zsh)" }
   zsh-defer _my-mise-init
   _my-compdef-mise() { eval "$(mise completion zsh)" }
@@ -675,26 +694,20 @@ export RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgrep/ripgreprc
 export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
-# my-completions-rust() {
-#   local dir=$XDG_CACHE_HOME/zsh/completions
-#   [[ -a $commands[rustup] && ! -f $dir/_rustup ]] && rustup completions zsh > $dir/_rustup
-#   [[ -a $commands[cargo] && ! -f $dir/_cargo ]] && rustup completions zsh cargo > $dir/_cargo
-# }
-# zsh-defer my-completions-rust
-
-if [[ -a $commands[rustup] ]]; then
+if (( $+commands[rustup] )); then
   _my-compdef-rustup() { eval "$(rustup completions zsh)" }
   zsh-defer compdef _my-compdef-rustup rustup
 fi
 
-if [[ -a $commands[cargo] ]]; then
+if (( $+commands[cargo] )); then
   _my-compdef-cargo() { eval "$(rustup completions zsh cargo)" }
   zsh-defer compdef _my-compdef-cargo cargo
 fi
 
 # tex
 
-export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
+(( $+commands[cargo] )) &&
+  export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 
 # tiddl
 
@@ -715,7 +728,7 @@ export WGETRC=$XDG_CONFIG_HOME/wgetrc
 
 # worktrunk
 
-if [[ -a $commands[wt] ]]; then
+if (( $+commands[wt] )); then
   _my-compdef-wt() { eval "$(wt config shell init zsh)" }
   zsh-defer compdef _my-compdef-wt wt
 fi

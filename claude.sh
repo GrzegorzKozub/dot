@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
+# env
+
+export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
+
 # links (keep existing config or settings provided by installer)
 
 CONFIG=/run/media/$USER/data/.config
