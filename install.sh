@@ -62,17 +62,24 @@ pass init grzegorz.kozub@gmail.com
 
 # shared
 
-"${BASH_SOURCE%/*}"/shared.sh
+# "${BASH_SOURCE%/*}"/shared.sh
 
 # bat
 
 bat cache --build
 
-# node (before mise)
+# mise
 
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
+mise install
+
+# node
+
+# export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
+# export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+#
 # npm install --global \
 #   bash-language-server
 #   eslint \
@@ -81,14 +88,9 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 #   typescript \
 #   typescript-language-server
 
-# mise
-
-mise install
-
 # python
 
 for TOOL in lastversion linecast tiddl; do uv tool install $TOOL; done
-
 uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
 
 # rust
@@ -99,8 +101,10 @@ export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
 curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
+
 cargo install cargo-update
-# cargo install markdown2pdf
+
+  # markdown2pdf
 
 # neovim
 

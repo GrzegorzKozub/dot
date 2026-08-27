@@ -182,15 +182,15 @@ typeset -U path
 path=(
   ~/.local/bin
   $XDG_CACHE_HOME/dotnet/.dotnet/tools
-  $XDG_DATA_HOME/bun/bin
   $XDG_DATA_HOME/cargo/bin
-  $XDG_DATA_HOME/go/bin
   $XDG_DATA_HOME/lmstudio/bin
   ~/code/arch
   $path[@]
 )
 
+  # $XDG_DATA_HOME/bun/bin
   # $XDG_DATA_HOME/gem/ruby/3.0.0/bin
+  # $XDG_DATA_HOME/go/bin
   # $XDG_DATA_HOME/npm/bin
 
 # completion

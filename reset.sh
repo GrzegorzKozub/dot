@@ -1,68 +1,83 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
-if [[ ${1:-} == 'go' ]]; then
+if [[ ${1:-} == 'mise' ]]; then
+
+  # node
+
+  rm -rf "$XDG_CACHE_HOME"/npm
+
+  # go
+
   rm -rf "$XDG_CACHE_HOME"/{go,goimports,gopls}
   rm -rf "$XDG_CONFIG_HOME"/go
   go clean -modcache && rm -rf "$XDG_DATA_HOME"/go
-  for PACKAGE in \
-    github.com/go-delve/delve/cmd/dlv \
-    golang.org/x/tools/cmd/goimports \
-    golang.org/x/tools/gopls \
-    honnef.co/go/tools/cmd/staticcheck; do
-    go install -v $PACKAGE@latest
-  done
-fi
 
-if [[ ${1:-} == 'mise' ]]; then
+  # mise
+
   rm -rf "$XDG_CACHE_HOME"/mise
   rm -rf "$XDG_DATA_HOME"/mise
   rm -rf "$XDG_STATE_HOME"/mise
-  rm -rf "$XDG_CACHE_HOME"/npm
+
   mise install
+
   # if command -v claude > /dev/null 2>&1; then
   #   mise install \
   #     npm:bash-language-server@latest \
   #     npm:typescript-language-server@latest
   # fi
+
 fi
 
 if [[ ${1:-} == 'nvim' ]]; then
+
   rm -f "$XDG_CONFIG_HOME/nvim/lazy-lock.json"
   rm -rf "$XDG_CACHE_HOME"/nvim
   rm -rf "$XDG_DATA_HOME"/nvim
   rm -rf ~/.local/state/nvim
+
   nvim \
     -c 'lua vim.opt.messagesopt = "wait:100,history:500"' \
     -c 'autocmd User MasonToolsUpdateCompleted quitall' \
     -c 'autocmd User VeryLazy MasonToolsUpdate'
+
 fi
 
 if [[ ${1:-} == 'python' ]]; then
+
   rm -rf "$XDG_CACHE_HOME"/pip
   rm -rf "$XDG_CACHE_HOME"/uv
   rm -rf "$XDG_DATA_HOME"/uv
+
   for FILE in ~/.local/bin/*; do
     [[ -L "$FILE" ]] &&
       { ! [[ -e "$FILE" ]] || [[ "$(readlink -f "$FILE")" == "$XDG_DATA_HOME/uv/tools"* ]]; } &&
       rm "$FILE"
   done
+
   for TOOL in lastversion linecast tiddl; do uv tool install $TOOL; done
   uv tool install --with yt-dlp-ejs 'yt-dlp[secretstorage]'
+
   if [[ $HOST == 'worker' ]]; then
     for TOOL in awscli-local cfn-lint; do uv tool install $TOOL; done
   fi
+
   if command -v claude > /dev/null 2>&1; then
     uv tool install basedpyright
   fi
+
 fi
 
 if [[ ${1:-} == 'rust' ]]; then
+
   rm -rf "$XDG_DATA_HOME"/cargo
   rm -rf "$XDG_DATA_HOME"/rustup
+
   curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
   cargo install cargo-update
+
   if command -v claude > /dev/null 2>&1; then
     rustup component add rust-analyzer
   fi
+
 fi

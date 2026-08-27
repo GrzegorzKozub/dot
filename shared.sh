@@ -16,20 +16,16 @@ set -eo pipefail -ux
 
 # go
 
-export GOCACHE=$XDG_CACHE_HOME/go
-export GOPATH=$XDG_DATA_HOME/go
-
-for PACKAGE in \
-  github.com/go-delve/delve/cmd/dlv \
-  golang.org/x/tools/cmd/goimports \
-  golang.org/x/tools/gopls \
-  honnef.co/go/tools/cmd/staticcheck; do
-  go install $PACKAGE@latest
-done
-
-  # github.com/cweill/gotests/gotests \
-  # github.com/haya14busa/goplay/cmd/goplay \
-  # github.com/josharian/impl \
+# export GOCACHE=$XDG_CACHE_HOME/go
+# export GOPATH=$XDG_DATA_HOME/go
+#
+# for PACKAGE in \
+#   github.com/go-delve/delve/cmd/dlv \
+#   golang.org/x/tools/cmd/goimports \
+#   golang.org/x/tools/gopls \
+#   honnef.co/go/tools/cmd/staticcheck; do
+#   go install $PACKAGE@latest
+# done
 
 # ruby
 
