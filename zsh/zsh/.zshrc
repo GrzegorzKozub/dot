@@ -630,8 +630,10 @@ alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw 
 
 # linecast
 
-export LINECAST_ICONS=emoji
-export WEATHER_UNITS=metric
+if (( $+commands[linecast] )); then
+  _my-compdef-linecast() { eval "$(linecast completion zsh)" }
+  zsh-defer compdef _my-compdef-linecast linecast
+fi
 
 # llama.cpp
 
