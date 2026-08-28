@@ -179,11 +179,13 @@ zinit ice lucid depth=1 && zinit light romkatv/powerlevel10k
 
 typeset -U path
 
+path=(${path:#$XDG_DATA_HOME/mise/shims})
+
 path=(
-  ~/.local/bin
-  $XDG_CACHE_HOME/dotnet/.dotnet/tools
+  ${commands[lmstudio]:+$XDG_DATA_HOME/lmstudio/bin}
+  ${commands[dotnet]:+$XDG_CACHE_HOME/dotnet/.dotnet/tools}
   $XDG_DATA_HOME/cargo/bin
-  $XDG_DATA_HOME/lmstudio/bin
+  ~/.local/bin
   ~/code/arch
   $path[@]
 )
@@ -436,6 +438,15 @@ typeset -U ZSH_AUTOSUGGEST_STRATEGY && ZSH_AUTOSUGGEST_STRATEGY=(history complet
 zsh-defer zinit ice lucid depth=1
 zsh-defer zinit light zsh-users/zsh-autosuggestions
 
+# mise (before any other tools for commands check)
+
+if (( $+commands[mise] )); then
+  _my-mise-init() { eval "$(mise activate zsh)" }
+  zsh-defer _my-mise-init
+  _my-compdef-mise() { eval "$(mise completion zsh)" }
+  zsh-defer compdef _my-compdef-mise mise
+fi
+
 # ansible
 
 if (( $+commands[ansible] )); then
@@ -482,7 +493,8 @@ export BUN_INSTALL_CACHE_DIR=$XDG_CACHE_HOME/bun/install/cache
 
 # claude
 
-if (( $+commands[claude] )); then
+_my-claude-init() { # defer past mise activation
+  (( $+commands[claude] )) || return
 
   export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
 
@@ -492,7 +504,8 @@ if (( $+commands[claude] )); then
     claude'
   alias claude-work='claude --settings $CLAUDE_CONFIG_DIR/settings-work.json'
 
-fi
+}
+zsh-defer _my-claude-init
 
 # copilot
 
@@ -642,15 +655,6 @@ fi
 # mcp-remote
 
 export MCP_REMOTE_CONFIG_DIR=$XDG_CONFIG_HOME/mcp-remote
-
-# mise
-
-if (( $+commands[mise] )); then
-  _my-mise-init() { eval "$(mise activate zsh)" }
-  zsh-defer _my-mise-init
-  _my-compdef-mise() { eval "$(mise completion zsh)" }
-  zsh-defer compdef _my-compdef-mise mise
-fi
 
 # mpv
 
