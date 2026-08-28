@@ -61,17 +61,3 @@ ln -sf "$DIR"/environment/environment.d/10-common.conf "$XDG_CONFIG_HOME"/enviro
 
 [[ $HOST == 'sacrifice' ]] &&
   ln -sf "$DIR"/environment/environment.d/20-amd.conf "$XDG_CONFIG_HOME"/environment.d/20-amd.conf
-
-# cache
-
-CACHE=/run/media/$USER/data/.cache
-
-if [[ $HOST =~ ^(player|worker)$ ]]; then
-
-  for DIR in huggingface llama.cpp; do
-    [[ -d "$CACHE/$DIR" ]] || mkdir "$CACHE/$DIR"
-    [[ -e "$XDG_CACHE_HOME/$DIR" ]] && rm -rf "${XDG_CACHE_HOME:?}/$DIR"
-    ln -s "$CACHE/$DIR" "$XDG_CACHE_HOME/$DIR"
-  done
-
-fi

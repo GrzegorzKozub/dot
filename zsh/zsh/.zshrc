@@ -498,10 +498,10 @@ _my-claude-init() { # defer past mise activation
 
   export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
 
-  alias claude-llama='ANTHROPIC_API_KEY=foo \
-    ANTHROPIC_BASE_URL=http://localhost:8080 \
-    ANTHROPIC_MODEL=llama \
-    claude'
+  # alias claude-llama='ANTHROPIC_API_KEY=foo \
+  #   ANTHROPIC_BASE_URL=http://localhost:8080 \
+  #   ANTHROPIC_MODEL=llama \
+  #   claude'
   alias claude-work='claude --settings $CLAUDE_CONFIG_DIR/settings-work.json'
 
 }
@@ -647,10 +647,6 @@ if (( $+commands[linecast] )); then
   _my-compdef-linecast() { eval "$(linecast completion zsh)" }
   zsh-defer compdef _my-compdef-linecast linecast
 fi
-
-# llama.cpp
-
-# export LLAMA_CACHE=$XDG_CACHE_HOME/llama.cpp # default
 
 # mcp-remote
 
