@@ -478,9 +478,8 @@ alias myip='curl http://checkip.amazonaws.com/'
 
 # bat
 
-export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat --language=man --style=plain'"
-
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+# export MANPAGER="bat -plman"
+# alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # bun
 
@@ -637,9 +636,17 @@ fi
 # less
 
 export LESSHISTFILE=-
-# export MANPAGER='less --RAW-CONTROL-CHARS +Gg --squeeze-blank-lines --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub'
 
-alias less='less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub'
+alias less="less --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
+  -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR"
+alias -g -- --help='--help 2>&1 | less'
+
+man() {
+  GROFF_NO_SGR=1 \
+    MANPAGER="less +Gg --RAW-CONTROL-CHARS --squeeze-blank-lines --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
+      -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR" \
+    command man "$@"
+}
 
 # linecast
 

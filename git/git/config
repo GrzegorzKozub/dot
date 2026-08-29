@@ -89,7 +89,6 @@
   autocrlf = false
   editor = nvim
   fscache = true
-  # pager = less --quit-if-one-screen --RAW-CONTROL-CHARS --use-color -DEr -DPw -DSkY -Ddy -Dsm -Dub
   pager = delta
   symlinks = true
   untrackedCache = true
