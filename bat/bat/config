@@ -1,5 +1,4 @@
 --italic-text=always
---pager='less --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR'
 --style=plain
 --tabs=2
 --theme=gruvbox-material-dark

@@ -635,18 +635,21 @@ fi
 
 # less
 
+export LESS="--quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
+  -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR"
 export LESSHISTFILE=-
 
-alias less="less --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
-  -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR"
+# alias less="less --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
+#   -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR"
 alias -g -- --help='--help 2>&1 | less'
 
-man() {
-  GROFF_NO_SGR=1 \
-    MANPAGER="less +Gg --RAW-CONTROL-CHARS --squeeze-blank-lines --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
-      -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR" \
-    command man "$@"
-}
+# man() {
+#   GROFF_NO_SGR=1 \
+#     MANPAGER="less +Gg --RAW-CONTROL-CHARS --squeeze-blank-lines --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
+#       -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR" \
+#     command man "$@"
+# }
+man() { GROFF_NO_SGR=1 MANPAGER='less +Gg' command man "$@" }
 
 # linecast
 
