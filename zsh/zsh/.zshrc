@@ -435,6 +435,8 @@ zsh-defer zinit light z-shell/F-Sy-H
 
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=32
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 typeset -U ZSH_AUTOSUGGEST_STRATEGY && ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 zsh-defer zinit ice lucid depth=1
