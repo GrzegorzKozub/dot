@@ -421,7 +421,8 @@ my-bindkey '^f' my-fetch-cd
 
 autoload -Uz colors && colors
 
-zsh-defer eval $(dircolors -b $XDG_CONFIG_HOME/zsh/dir_colors)
+_my-dircolors-init() { eval "$(dircolors -b $XDG_CONFIG_HOME/zsh/dir_colors)" }
+zsh-defer _my-dircolors-init
 
 # syntax highlighting
 
@@ -757,7 +758,8 @@ export LLAMA_API_KEY='foo' # https://zed.dev/docs/ai/llm-providers#openai-api-co
 export _ZO_DATA_DIR=~/code/hist/$HOST
 export _ZO_FZF_OPTS=$FZF_DEFAULT_OPTS
 
-zsh-defer eval "$(zoxide init --cmd cd zsh)"
+_my-zoxide-init() { eval "$(zoxide init --cmd cd zsh)" }
+zsh-defer _my-zoxide-init
 
 # powerlevel10k
 
