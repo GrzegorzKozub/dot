@@ -12,8 +12,8 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   bat \
   btop \
   cava \
+  f-sy-h \
   fastfetch \
-  fsh \
   git \
   ghostty \
   imv \
@@ -53,11 +53,14 @@ ln -sf "$DIR"/flags/brave-origin-flags.conf "$XDG_CONFIG_HOME"/brave-origin-flag
 mkdir -p "$XDG_CONFIG_HOME"/environment.d
 ln -sf "$DIR"/environment/environment.d/10-common.conf "$XDG_CONFIG_HOME"/environment.d/10-common.conf
 
-[[ $HOST == 'drifter' ]] &&
+if [[ $HOST == 'drifter' ]]; then
   ln -sf "$DIR"/environment/environment.d/20-intel.conf "$XDG_CONFIG_HOME"/environment.d/20-intel.conf
+fi
 
-[[ $HOST =~ ^(player|worker)$ ]] &&
+if [[ $HOST =~ ^(player|worker)$ ]]; then
   ln -sf "$DIR"/environment/environment.d/20-nvidia.conf "$XDG_CONFIG_HOME"/environment.d/20-nvidia.conf
+fi
 
-[[ $HOST == 'sacrifice' ]] &&
+if [[ $HOST == 'sacrifice' ]]; then
   ln -sf "$DIR"/environment/environment.d/20-amd.conf "$XDG_CONFIG_HOME"/environment.d/20-amd.conf
+fi

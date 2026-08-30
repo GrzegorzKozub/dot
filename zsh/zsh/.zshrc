@@ -27,6 +27,7 @@ my-bindkey() {
 }
 
 my-redraw-prompt() {
+  local precmd
   for precmd in $precmd_functions; do $precmd; done
   zle reset-prompt
   zle zle-keymap-select
@@ -427,8 +428,8 @@ zsh-defer _my-dircolors-init
 # syntax highlighting
 
 # using zinit's wait ice instead of zsh-defer causes delays when typing zinit command
-zsh-defer zinit ice lucid depth=1 atload"fast-theme XDG:gruvbox-material-dark --quiet"
-zsh-defer zinit light zdharma-continuum/fast-syntax-highlighting
+zsh-defer zinit ice lucid depth=1 atload"fsh_theme CONFIG:gruvbox-material-dark --quiet"
+zsh-defer zinit light z-shell/F-Sy-H
 
 # autosuggestions
 
