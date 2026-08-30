@@ -8,17 +8,17 @@ export PS4='\e[90m→ \e[0m'
 
 # plugin support
 
-declare -A ZINIT
-export ZINIT[HOME_DIR]=$XDG_DATA_HOME/zinit
-export ZINIT[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
+declare -A ZI
+export ZI[HOME_DIR]=$XDG_DATA_HOME/zi
+export ZI[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
 
-source $ZINIT[HOME_DIR]/bin/zinit.zsh
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+source $ZI[HOME_DIR]/bin/zi.zsh
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
 
 # delay support
 
-zinit ice depth=1 && zinit light romkatv/zsh-defer
+zi ice depth=1 && zi light romkatv/zsh-defer
 
 # functions
 
@@ -174,7 +174,7 @@ setopt PROMPT_SUBST
 
 autoload -Uz promptinit && promptinit
 
-zinit ice lucid depth=1 && zinit light romkatv/powerlevel10k
+zi ice lucid depth=1 && zi light romkatv/powerlevel10k
 
 # paths
 
@@ -276,7 +276,7 @@ for key in '^[[6~' '^D' # page down, ctrl+d
 zsh-defer bindkey -M menuselect '^F' history-incremental-search-forward # ctrl+f
 zsh-defer bindkey -M menuselect '^B' history-incremental-search-backward # ctrl+b
 
-zinit wait lucid as'completion' for \
+zi wait lucid as'completion' for \
   OMZ::plugins/docker-compose/_docker-compose \
   OMZ::plugins/pip/_pip
 
@@ -287,7 +287,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
-zsh-defer zinit light Aloxaf/fzf-tab
+zsh-defer zi light Aloxaf/fzf-tab
 
 # history
 
@@ -369,13 +369,17 @@ fzf-history-widget-no-numbers() {
 zsh-defer zle -N fzf-history-widget-no-numbers
 zsh-defer my-bindkey '^r' fzf-history-widget-no-numbers
 
+# global oh-my-zsh config
+
+export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
+
 # last working dir
 
-[[ $TMUX ]] && zsh-defer zinit snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
+[[ $TMUX ]] && zsh-defer zi snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
 
 # dir history
 
-zsh-defer zinit snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
+zsh-defer zi snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
 
 zsh-defer bindkey -r '^[^[[B' # esc up
 zsh-defer bindkey -r '^[^[[A' # esc down
@@ -427,9 +431,9 @@ zsh-defer _my-dircolors-init
 
 # syntax highlighting
 
-# using zinit's wait ice instead of zsh-defer causes delays when typing zinit command
-zsh-defer zinit ice lucid depth=1 atload"fsh_theme CONFIG:gruvbox-material-dark --quiet"
-zsh-defer zinit light z-shell/F-Sy-H
+# using zi's wait ice instead of zsh-defer causes delays when typing zi command
+zsh-defer zi ice lucid depth=1 atload"fsh_theme CONFIG:gruvbox-material-dark --quiet"
+zsh-defer zi light z-shell/F-Sy-H
 
 # autosuggestions
 
@@ -439,8 +443,8 @@ export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 typeset -U ZSH_AUTOSUGGEST_STRATEGY && ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-zsh-defer zinit ice lucid depth=1
-zsh-defer zinit light zsh-users/zsh-autosuggestions
+zsh-defer zi ice lucid depth=1
+zsh-defer zi light zsh-users/zsh-autosuggestions
 
 # mise (before any other tools for commands check)
 
@@ -580,8 +584,8 @@ export FORGIT_FZF_DEFAULT_OPTS="
   --bind 'ctrl-r:toggle-raw,alt-p:change-preview-window(down|hidden|)'
 "
 
-zsh-defer zinit ice lucid depth=1
-zsh-defer zinit light wfxr/forgit
+zsh-defer zi ice lucid depth=1
+zsh-defer zi light wfxr/forgit
 
 # git
 

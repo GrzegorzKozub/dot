@@ -6,9 +6,9 @@ set -eo pipefail -ux
 pushd "${BASH_SOURCE%/*}" && git pull && popd
 "${BASH_SOURCE%/*}"/repos.sh
 
-# zsh & zinit
+# zsh & zi
 
-"${BASH_SOURCE%/*}"/zinit.zsh
+"${BASH_SOURCE%/*}"/zi.zsh
 
 # tmux
 

@@ -11,7 +11,7 @@ Personal dotfiles for a Linux development environment. Configuration is deployed
 | Script | Purpose |
 |--------|---------|
 | `./init.sh` | One-time repo setup: clone nested repos (`repos.sh`), mask sensitive files, deploy links |
-| `./install.sh` | Full system bootstrap: zsh/zinit, tmux, node (mise), python (uv), rust (rustup), neovim, vscode, docker buildx |
+| `./install.sh` | Full system bootstrap: zsh/zi, tmux, node (mise), python (uv), rust (rustup), neovim, vscode, docker buildx |
 | `./update.sh` | Incremental updates: self, nested repos, zsh plugins, tmux plugins, yazi packages, language toolchains, neovim plugins, vscode extensions |
 | `./links.sh` | Deploy symlinks via stow (also handles host-specific `environment/` configs and cache redirects) |
 | `./repos.sh` | Clone/fast-forward the nested per-app repos (`mpv/mpv`, `nvim/nvim`, `vscode/user-data`, `yazi/yazi`) |
@@ -47,7 +47,7 @@ Two separate Claude-related directories with different purposes:
 
 Root-level `*.sh` files (e.g. `ansible.sh`, `aws.sh`, `copilot.sh`, `dbeaver.sh`, `intellij.sh`, `teams.sh`, `work.sh`) are optional per-app installers — each typically calls `stow` for its package and runs any app-specific setup. They are not called by `install.sh` or `update.sh`; run manually when installing that app.
 
-`zinit.zsh` updates zinit and zsh plugins; called by `update.sh`. `shared.sh` installs Go tools via `go install`; called by both `install.sh` and `update.sh`.
+`zi.zsh` updates zi and zsh plugins; called by `update.sh`. `shared.sh` installs Go tools via `go install`; called by both `install.sh` and `update.sh`.
 
 ### Secrets
 
@@ -55,7 +55,7 @@ Sensitive shell environment (API keys, tokens) lives on an external drive at `/r
 
 ## Shell Config
 
-`zsh/zsh/.zshrc` (737 lines) sets up zinit plugin manager with `zsh-defer` lazy loading, Powerlevel10k prompt, fzf-tab completions, vi mode with cursor shape changes, and history filtering that strips bearer tokens/passwords/secrets. Zsh auto-launches tmux unless running inside VSCode, Zed, or JetBrains.
+`zsh/zsh/.zshrc` (737 lines) sets up the zi plugin manager with `zsh-defer` lazy loading, Powerlevel10k prompt, fzf-tab completions, vi mode with cursor shape changes, and history filtering that strips bearer tokens/passwords/secrets. Zsh auto-launches tmux unless running inside VSCode, Zed, or JetBrains.
 
 ## Neovim Updates
 

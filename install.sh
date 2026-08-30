@@ -14,17 +14,17 @@ export XDG_STATE_HOME=${XDG_DATA_HOME:-$HOME/.local/state}
 [[ -d $XDG_CACHE_HOME ]] || mkdir -p "$XDG_CACHE_HOME"
 [[ -d $XDG_DATA_HOME ]] || mkdir -p "$XDG_DATA_HOME"
 
-# zsh & zinit
+# zsh & zi
 
 export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
 
-[[ -d $XDG_CACHE_HOME/zsh ]] || mkdir -p "$XDG_CACHE_HOME"/zsh
-# [[ -d $XDG_DATA_HOME/zsh ]] || mkdir -p "$XDG_DATA_HOME"/zsh
+[[ -d $XDG_CACHE_HOME/zsh ]] && rm -rf "$XDG_CACHE_HOME"/zsh
+mkdir -p "$XDG_CACHE_HOME"/zsh
 
-[[ -d $XDG_DATA_HOME/zinit ]] && rm -rf "$XDG_DATA_HOME"/zinit
-mkdir -p "$XDG_DATA_HOME"/zinit
+[[ -d $XDG_DATA_HOME/zi ]] && rm -rf "$XDG_DATA_HOME"/zi
+mkdir -p "$XDG_DATA_HOME"/zi
 
-git clone https://github.com/zdharma-continuum/zinit.git "$XDG_DATA_HOME"/zinit/bin
+git clone https://github.com/z-shell/zi.git "$XDG_DATA_HOME"/zi/bin
 
 export TMUX=1
 zsh -c "source '$XDG_CONFIG_HOME/zsh/.zshrc' && exit"
