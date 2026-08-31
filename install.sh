@@ -26,18 +26,9 @@ export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
 [[ -d $XDG_DATA_HOME/zi ]] && rm -rf "$XDG_DATA_HOME"/zi
 mkdir -p "$XDG_DATA_HOME"/zi
 
-typeset -Ag ZI
-export ZI[HOME_DIR]=$XDG_DATA_HOME/zi
-export ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
-export ZI[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
-
-compaudit | xargs chown -R "$(whoami)" "${ZI[HOME_DIR]}"
-compaudit | xargs chmod -R go-w "${ZI[HOME_DIR]}"
-
 git clone https://github.com/z-shell/zi.git "$XDG_DATA_HOME"/zi/bin
 
-zsh -c "source '$XDG_CONFIG_HOME/zsh/.zshrc' && exit"
-# exec zsh -il && zi self-update
+script -c "env ZI_BOOTSTRAP=1 zsh -i" /dev/null
 
 # tmux
 
@@ -177,3 +168,7 @@ docker run --privileged --rm tonistiigi/binfmt --install arm64
 docker rmi "$(docker images tonistiigi/binfmt -a -q)"
 
 docker buildx create --name builder --use
+
+# everything above is done - hand off to a real interactive shell, which
+# auto-launches tmux per zshrc
+exec zsh -il

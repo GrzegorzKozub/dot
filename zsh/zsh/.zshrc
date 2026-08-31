@@ -770,6 +770,10 @@ export _ZO_FZF_OPTS=$FZF_DEFAULT_OPTS
 _my-zoxide-init() { eval "$(zoxide init --cmd cd zsh)" }
 zsh-defer _my-zoxide-init
 
+# install.sh
+
+[[ -n $ZI_BOOTSTRAP ]] && zsh-defer -c 'exit'
+
 # powerlevel10k
 
 [[ -f $XDG_CONFIG_HOME/zsh/.p10k.zsh ]] && source $XDG_CONFIG_HOME/zsh/.p10k.zsh
