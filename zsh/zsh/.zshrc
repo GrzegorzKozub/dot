@@ -85,22 +85,21 @@ my-bindkey '^[[1;5C' forward-word # ctrl+right
 my-bindkey '^[[1~' beginning-of-line # home
 my-bindkey '^[[4~' end-of-line # end
 
-my-bindkey '^P' up-history # ctrl+p
-my-bindkey '^N' down-history # ctrl+n
+# my-bindkey '^P' up-history # ctrl+p
+# my-bindkey '^N' down-history # ctrl+n
 
-my-bindkey '^[[3~' delete-char # delete
-bindkey -M viins '^?' backward-delete-char # backspace
+my-bindkey '^[[A' up-line-or-history # up
+my-bindkey '^[[B' down-line-or-history # down
 
-# complete from history
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey -M viins '^[[A' up-line-or-beginning-search # up
-bindkey -M viins '^[[B' down-line-or-beginning-search # down
 
-# handle muti-line commands
-bindkey -M vicmd '^[[A' up-line-or-history # up
-bindkey -M vicmd '^[[B' down-line-or-history # down
+my-bindkey '^[[1;5A' up-line-or-beginning-search # ctrl+up
+my-bindkey '^[[1;5B' down-line-or-beginning-search # ctrl+down
+
+my-bindkey '^[[3~' delete-char # delete
+bindkey -M viins '^?' backward-delete-char # backspace
 
 autoload -U select-bracketed select-quoted surround
 zle -N select-bracketed
@@ -120,7 +119,7 @@ bindkey -M vicmd 'ds' delete-surround
 
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd 'vv' edit-command-line
+my-bindkey '^E' edit-command-line # ctrl+e
 
 # vi mode cursor
 
