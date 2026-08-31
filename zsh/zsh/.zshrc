@@ -1,10 +1,38 @@
-# perf check: hyperfine 'zsh -i -c exit' --warmup 10
+#!/usr/bin/env zsh
+
+# perf check: hyperfine "TMUX=1 zsh -i -c exit" --warmup 10
 # key scan: cat -v or showkey -a
+
+# tmux
+
+if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $TMUX ]] && [[ -z $ZI_BOOTSTRAP ]] && [[ -t 1 ]]; then
+  if tmux has-session -t 0 2> /dev/null; then
+    if [[ $(tmux list-clients -f '#{==:#{client_session},0}' 2> /dev/null) ]]; then
+      exec tmux new-session
+    else
+      exec tmux attach-session -t 0
+    fi
+  else
+    exec tmux new-session -s 0
+  fi
+fi
+
+# zellij
+
+# if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $TMUX ]] && [[ -z $ZI_BOOTSTRAP ]] && [[ -t 1 ]]; then
+#   zellij attach --create
+# fi
 
 # debug
 
 export PS4='\e[90m→ \e[0m'
 # export PS4='\e[90m→ \e[37m${BASH_SOURCE##*/}:${LINENO} \e[0m'
+
+# powerlevel10k (https://wiki.zshell.dev/community/gallery/collection/themes#thp-romkatv-powerlevel10k)
+
+# if [[ -r "$XDG_CACHE_HOME"/p10k-instant-prompt-${(%):-%n}.zsh ]]; then
+#   source "$XDG_CACHE_HOME"/p10k-instant-prompt-${(%):-%n}.zsh
+# fi
 
 # zi
 
@@ -12,6 +40,7 @@ typeset -A ZI
 : ${ZI[HOME_DIR]:="${XDG_DATA_HOME}/zi"}
 : ${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}
 
+ZI[COMPINIT_OPTS]=-C
 ZI[OPTIMIZE_OUT_DISK_ACCESSES]=1
 ZI[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
 
@@ -19,10 +48,6 @@ source "${ZI[BIN_DIR]}"/zi.zsh
 
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
-
-# delay support
-
-zi ice depth=1 nocompletions && zi light romkatv/zsh-defer
 
 # functions
 
@@ -162,7 +187,9 @@ setopt SHORT_LOOPS
 # zsh line editor (zle)
 
 WORDCHARS='' # non-alphanumeric chars not considered part of a word
+
 zle_bracketed_paste=() # don't select pasted text
+zle_highlight=(paste:none) # don't highlight pasted text
 
 setopt NO_BEEP
 
@@ -176,8 +203,6 @@ setopt NO_FLOW_CONTROL
 setopt PROMPT_SUBST
 
 autoload -Uz promptinit && promptinit
-
-zi ice lucid depth=1 && zi light romkatv/powerlevel10k
 
 # paths
 
@@ -208,13 +233,6 @@ fpath=(
   $fpath[@]
 )
 
-# my-completions() {
-#   local dir=$XDG_CACHE_HOME/zsh/completions
-#   [[ ! -d $dir ]] && mkdir $dir
-#   fpath=($dir $fpath[@])
-# }
-# zsh-defer my-completions
-
 setopt ALWAYS_TO_END # put cursor at the end of the completed word
 setopt COMPLETE_ALIASES # don't substitute aliases
 setopt COMPLETE_IN_WORD # don't move cursor to the word end on completion
@@ -223,9 +241,9 @@ setopt LIST_PACKED # smaller completion list
 setopt MENU_COMPLETE # tab through matches on ambiguous completion
 setopt NO_LIST_TYPES # don't show file/dir types as trailing marks
 
-zsh-defer zmodload -i zsh/complist
-zsh-defer autoload -Uz compinit && zsh-defer compinit -d $XDG_CACHE_HOME/zsh/zcompdump
-zsh-defer autoload -Uz bashcompinit && zsh-defer bashcompinit # required by aws
+# zmodload -i zsh/complist
+# autoload -Uz compinit && compinit -d $XDG_CACHE_HOME/zsh/zcompdump
+# autoload -Uz bashcompinit && bashcompinit # for aws
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
@@ -268,20 +286,17 @@ zstyle ':completion:*' complete-options true
 zstyle ':completion:*' insert-sections true
 zstyle ':completion:*' separate-sections true
 
-zsh-defer bindkey -M menuselect '^[[Z' reverse-menu-complete # shift+tab
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/complist
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/completion # after complist
 
-for key in '^[[5~' '^U' # page up, ctrl+u
-  do zsh-defer bindkey -M menuselect $key backward-word; done
-
-for key in '^[[6~' '^D' # page down, ctrl+d
-  do zsh-defer bindkey -M menuselect $key forward-word; done
-
-zsh-defer bindkey -M menuselect '^F' history-incremental-search-forward # ctrl+f
-zsh-defer bindkey -M menuselect '^B' history-incremental-search-backward # ctrl+b
-
-zi wait lucid as'completion' for \
+# before zicompinit_fast
+zi as'completion' lucid wait'0' for \
   OMZ::plugins/docker-compose/_docker-compose \
   OMZ::plugins/pip/_pip
+
+# https://wiki.zshell.dev/docs/guides/commands#calling-compinit-with-turbo-mode
+zi ice atload'zicompinit_fast' lucid nocompletions wait'0'
+zi light "$ZDOTDIR"/compinit
 
 # fzf-tab
 
@@ -290,8 +305,9 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
-zsh-defer zi ice lucid depth=1
-zsh-defer zi light Aloxaf/fzf-tab
+# https://github.com/z-shell/zi/issues/471
+# https://github.com/z-shell/zi/issues/488
+zi ice depth'1' lucid nocompletions wait'0' && zi light Aloxaf/fzf-tab
 
 # history
 
@@ -323,8 +339,7 @@ alias ls='ls --color=auto'
 
 # fzf
 
-zsh-defer source /usr/share/fzf/completion.zsh
-zsh-defer source /usr/share/fzf/key-bindings.zsh
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/fzf
 
 export FZF_DEFAULT_OPTS="
   --bind=ctrl-d:page-down,ctrl-u:page-up
@@ -370,29 +385,22 @@ fzf-history-widget-no-numbers() {
   zle reset-prompt
   return $ret
 }
-zsh-defer zle -N fzf-history-widget-no-numbers
-zsh-defer my-bindkey '^r' fzf-history-widget-no-numbers
 
-# global oh-my-zsh config
+# oh my zsh
 
 export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 
-# last working dir
+# last working dir (must be synchronous)
 
-[[ $TMUX ]] && zsh-defer zi ice nocompletions
-[[ $TMUX ]] && zsh-defer zi snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
+zi ice lucid nocompletions
+zi snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
 
 # dir history
 
-zsh-defer zi ice nocompletions
-zsh-defer zi snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
+zi ice lucid nocompletions wait'0'
+zi snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
 
-zsh-defer bindkey -r '^[^[[B' # esc up
-zsh-defer bindkey -r '^[^[[A' # esc down
-
-zsh-defer bindkey -M viins '^O' dirhistory_zle_dirhistory_back # ctrl+o
-zsh-defer bindkey -M vicmd '^O' dirhistory_zle_dirhistory_back
-zsh-defer bindkey -M vicmd '^I' dirhistory_zle_dirhistory_future # ctrl+i
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/dirhistory
 
 # yazi
 
@@ -430,16 +438,12 @@ my-bindkey '^f' my-fetch-cd
 
 # dir colors
 
-autoload -Uz colors && colors
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/dircolors
 
-_my-dircolors-init() { eval "$(dircolors -b $XDG_CONFIG_HOME/zsh/dir_colors)" }
-zsh-defer _my-dircolors-init
+# feature-ritch syntax highlighting (https://wiki.zshell.dev/ecosystem/plugins/f-sy-h)
 
-# syntax highlighting
-
-# using zi's wait ice instead of zsh-defer causes delays when typing zi command
-zsh-defer zi ice lucid depth=1 atload"fsh_theme CONFIG:gruvbox-material-dark --quiet"
-zsh-defer zi light z-shell/F-Sy-H
+zi ice atload'fsh_theme CONFIG:gruvbox-material-dark --quiet' depth'1' lucid wait'0'
+zi light z-shell/F-Sy-H
 
 # autosuggestions
 
@@ -449,16 +453,14 @@ export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 typeset -U ZSH_AUTOSUGGEST_STRATEGY && ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-zsh-defer zi ice lucid depth=1
-zsh-defer zi light zsh-users/zsh-autosuggestions
+# atload'_zsh_autosuggest_start' ice makes autosuggetsions work for the first command in a new shell
+zi ice atload'_zsh_autosuggest_start' depth'1' lucid nocompletions wait'0'
+zi light zsh-users/zsh-autosuggestions
 
-# mise (before any other tools for commands check)
+# mise (before mise managed tools commands checks)
 
 if (( $+commands[mise] )); then
-  _my-mise-init() { eval "$(mise activate zsh)" }
-  zsh-defer _my-mise-init
-  _my-compdef-mise() { eval "$(mise completion zsh)" }
-  zsh-defer compdef _my-compdef-mise mise
+  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/mise
 fi
 
 # ansible
@@ -484,7 +486,7 @@ if (( $+commands[aws] )); then
 
   export SAM_CLI_TELEMETRY=0
 
-  zsh-defer complete -C /usr/bin/aws_completer aws
+  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/aws
 
 fi
 
@@ -495,7 +497,7 @@ alias myip='curl http://checkip.amazonaws.com/'
 # export MANPAGER="bat -plman"
 # alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
-# bun
+# bun (mise managed)
 
 export DO_NOT_TRACK=1
 
@@ -504,21 +506,9 @@ export BUN_INSTALL_GLOBAL_DIR=$XDG_DATA_HOME/bun/install/global
 
 export BUN_INSTALL_CACHE_DIR=$XDG_CACHE_HOME/bun/install/cache
 
-# claude
+# claude (mise managed)
 
-_my-claude-init() { # defer past mise activation
-  (( $+commands[claude] )) || return
-
-  export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
-
-  # alias claude-llama='ANTHROPIC_API_KEY=foo \
-  #   ANTHROPIC_BASE_URL=http://localhost:8080 \
-  #   ANTHROPIC_MODEL=llama \
-  #   claude'
-  alias claude-work='claude --settings $CLAUDE_CONFIG_DIR/settings-work.json'
-
-}
-zsh-defer _my-claude-init
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/claude
 
 # copilot
 
@@ -553,8 +543,7 @@ if (( $+commands[dotnet] )); then
 
   export OMNISHARPHOME=$XDG_DATA_HOME/omnisharp
 
-  _my-compdef-dotnet() { _values = "${(ps:\n:)$(dotnet complete "$words")}" }
-  zsh-defer compdef _my-compdef-dotnet dotnet
+  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/dotnet
 
 fi
 
@@ -569,7 +558,24 @@ fi
 
 # eza
 
-export EZA_COLORS="oc=37:ur=37:uw=37:ux=37:ue=37:gr=37:gw=37:gx=37:tr=37:tw=37:tx=37:su=37:sf=37:xa=37:nb=90:nk=37:nm=33:ng=31:nt=91:uu=90:uR=31:un=37:gu=90:gR=31:gn=37:ga=32:gm=33:gd=31:gv=33:gt=33:gi=90:gc=91:Gm=34:Go=34:Gc=30:Gd=33:da=37:bO=31:mp=34;4:cr=33:do=0:tm=90:bu=0:sc=0:ff=37"
+typeset -a eza_colors=(
+  # permissions
+  oc=37 ur=37 uw=37 ux=37 ue=37
+  gr=37 gw=37 gx=37 tr=37 tw=37 tx=37
+  su=37 sf=37 xa=37
+  # sizes
+  nb=90 nk=37 nm=33 ng=31 nt=91
+  # owner / group
+  uu=90 uR=31 un=37 gu=90 gR=31 gn=37
+  # git
+  ga=32 gm=33 gd=31 gv=33 gt=33 gi=90 gc=91
+  Gm=34 Go=34 Gc=30 Gd=33
+  # misc
+  da=37 bO=31 'mp=34;4' cr=33 do=0 tm=90 bu=0 sc=0 ff=37
+)
+export EZA_COLORS=${(j.:.)eza_colors}
+unset eza_colors
+
 export EZA_ICONS_AUTO=1
 
 alias ls='eza --all --group-directories-first'
@@ -590,8 +596,7 @@ export FORGIT_FZF_DEFAULT_OPTS="
   --bind 'ctrl-r:toggle-raw,alt-p:change-preview-window(down|hidden|)'
 "
 
-zsh-defer zi ice lucid depth=1
-zsh-defer zi light wfxr/forgit
+zi ice depth'1' lucid nocompletions wait'0' && zi light wfxr/forgit
 
 # git
 
@@ -613,7 +618,7 @@ my-bindkey '^gc' my-git-commit
 
 export GNUPGHOME=$XDG_DATA_HOME/gnupg
 
-# go
+# go (mise managed)
 
 export GOCACHE=$XDG_CACHE_HOME/go
 export GOPATH=$XDG_DATA_HOME/go
@@ -635,11 +640,8 @@ alias pass='gopass'
 # java
 
 if (( $+commands[java] )); then
-
   # export JAVA_TOOL_OPTIONS="-Djava.util.prefs.userRoot=$XDG_DATA_HOME/java -Djavafx.cachedir=$XDG_CACHE_HOME/openjfx"
-
   export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
-
 fi
 
 if (( $+commands[maven] )); then
@@ -649,8 +651,19 @@ fi
 
 # less
 
-export LESS="--quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
-  -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR"
+typeset -a less_opts=(
+  # behavior
+  --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color
+  # colors
+  -DEr -DTk -DPw -DSkY -Dd-d -Du-d
+  # man page colors
+  -D1rR -D2rR -D3rR -D4rR -D5rR
+  -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR
+)
+
+export LESS=${(j. .)less_opts}
+unset less_opts
+
 export LESSHISTFILE=-
 
 # alias less="less --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
@@ -668,8 +681,7 @@ man() { GROFF_NO_SGR=1 MANPAGER='less +Gg' command man "$@" }
 # linecast
 
 if (( $+commands[linecast] )); then
-  _my-compdef-linecast() { eval "$(linecast completion zsh)" }
-  zsh-defer compdef _my-compdef-linecast linecast
+  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/linecast
 fi
 
 # mcp-remote
@@ -689,7 +701,7 @@ export VISUAL='nvim'
 alias v='nvim'
 alias vim='nvim'
 
-# node
+# node (mise managed)
 
 export NODE_NO_WARNINGS=1
 export NODE_REPL_HISTORY=''
@@ -703,12 +715,11 @@ export PASSWORD_STORE_DIR=$XDG_DATA_HOME/pass
 
 # pkgfile
 
-zsh-defer source /usr/share/doc/pkgfile/command-not-found.zsh
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/command-not-found
 
 # python
 
 export PYLINTHOME=$XDG_CACHE_HOME/pylint
-
 export RUFF_CACHE_DIR=$XDG_CACHE_HOME/ruff
 
 # ripgrep
@@ -721,18 +732,16 @@ export CARGO_HOME=$XDG_DATA_HOME/cargo
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
 if (( $+commands[rustup] )); then
-  _my-compdef-rustup() { eval "$(rustup completions zsh)" }
-  zsh-defer compdef _my-compdef-rustup rustup
+  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/rustup
 fi
 
 if (( $+commands[cargo] )); then
-  _my-compdef-cargo() { eval "$(rustup completions zsh cargo)" }
-  zsh-defer compdef _my-compdef-cargo cargo
+  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/cargo
 fi
 
 # tex
 
-(( $+commands[cargo] )) &&
+(( $+commands[tex] )) &&
   export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 
 # tiddl
@@ -755,8 +764,7 @@ export WGETRC=$XDG_CONFIG_HOME/wgetrc
 # worktrunk
 
 if (( $+commands[wt] )); then
-  _my-compdef-wt() { eval "$(wt config shell init zsh)" }
-  zsh-defer compdef _my-compdef-wt wt
+  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/wt
 fi
 
 # zed
@@ -771,43 +779,20 @@ export LLAMA_API_KEY='foo' # https://zed.dev/docs/ai/llm-providers#openai-api-co
 export _ZO_DATA_DIR=~/code/hist/$HOST
 export _ZO_FZF_OPTS=$FZF_DEFAULT_OPTS
 
-_my-zoxide-init() { eval "$(zoxide init --cmd cd zsh)" }
-zsh-defer _my-zoxide-init
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/zoxide
+
+# powerlevel10k (https://wiki.zshell.dev/community/gallery/collection/themes#thp-romkatv-powerlevel10k)
+
+zi ice atload'source $XDG_CONFIG_HOME/zsh/.p10k.zsh' depth'1' lucid nocd nocompletions
+zi light romkatv/powerlevel10k
+
+# completion (continued)
+
+# https://wiki.zshell.dev/docs/guides/commands#calling-compinit-with-turbo-mode
+zi ice atload'zicdreplay' lucid nocompletions wait'0' && zi light "$ZDOTDIR"/zicdreplay
 
 # install.sh
 
-[[ -n $ZI_BOOTSTRAP ]] && zsh-defer -c 'exit'
-
-# powerlevel10k
-
-[[ -f $XDG_CONFIG_HOME/zsh/.p10k.zsh ]] && source $XDG_CONFIG_HOME/zsh/.p10k.zsh
-
-# env (replaced by .zshenv)
-
-# if [[ -f $XDG_CONFIG_HOME/zsh/.env ]]; then
-#   set -o allexport
-#   source $XDG_CONFIG_HOME/zsh/.env
-#   set +o allexport
-# fi
-
-# tmux
-
-if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $TMUX ]]; then
-  tmux has-session -t 0 2> /dev/null
-  if [[ $? = 0 ]]; then
-    if [[ $(tmux list-clients -f '#{==:#{client_session},0}' 2> /dev/null) ]]; then
-      tmux new-session
-    else
-      tmux attach-session -t 0
-    fi
-  else
-    tmux new-session -s 0
-  fi
+if [[ -n $ZI_BOOTSTRAP ]]; then
+  zi ice lucid nocompletions wait'2' && zi light "$ZDOTDIR"/exit
 fi
-
-# zellij
-
-# if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $ZELLIJ ]]; then
-#   zellij attach --create
-# fi
-

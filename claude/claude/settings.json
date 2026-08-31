@@ -150,6 +150,7 @@
     ],
     "defaultMode": "acceptEdits"
   },
+  "model": "sonnet",
   "disableRemoteControl": true,
   "statusLine": {
     "type": "command",
