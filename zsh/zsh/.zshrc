@@ -12,16 +12,17 @@ typeset -A ZI
 : ${ZI[HOME_DIR]:="${XDG_DATA_HOME}/zi"}
 : ${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}
 
-source "${ZI[BIN_DIR]}"/zi.zsh
+ZI[OPTIMIZE_OUT_DISK_ACCESSES]=1
+ZI[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
 
-export ZI[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
+source "${ZI[BIN_DIR]}"/zi.zsh
 
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 
 # delay support
 
-zi ice depth=1 && zi light romkatv/zsh-defer
+zi ice depth=1 nocompletions && zi light romkatv/zsh-defer
 
 # functions
 
@@ -289,6 +290,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
+zsh-defer zi ice lucid depth=1
 zsh-defer zi light Aloxaf/fzf-tab
 
 # history
@@ -377,10 +379,12 @@ export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 
 # last working dir
 
+[[ $TMUX ]] && zsh-defer zi ice nocompletions
 [[ $TMUX ]] && zsh-defer zi snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
 
 # dir history
 
+zsh-defer zi ice nocompletions
 zsh-defer zi snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
 
 zsh-defer bindkey -r '^[^[[B' # esc up
