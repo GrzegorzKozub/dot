@@ -6,9 +6,9 @@ set -eo pipefail -ux
 pushd "${BASH_SOURCE%/*}" && git pull && popd
 "${BASH_SOURCE%/*}"/repos.sh
 
-# zsh & zi
+# zi
 
-"${BASH_SOURCE%/*}"/zi.zsh
+zi self-update && zi update --all
 
 # tmux
 

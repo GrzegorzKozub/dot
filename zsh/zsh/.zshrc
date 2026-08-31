@@ -6,13 +6,16 @@
 export PS4='\e[90m→ \e[0m'
 # export PS4='\e[90m→ \e[37m${BASH_SOURCE##*/}:${LINENO} \e[0m'
 
-# plugin support
+# zi
 
-declare -A ZI
-export ZI[HOME_DIR]=$XDG_DATA_HOME/zi
+typeset -A ZI
+: ${ZI[HOME_DIR]:="${XDG_DATA_HOME}/zi"}
+: ${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}
+
+source "${ZI[BIN_DIR]}"/zi.zsh
+
 export ZI[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
 
-source $ZI[HOME_DIR]/bin/zi.zsh
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 

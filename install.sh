@@ -14,21 +14,30 @@ export XDG_STATE_HOME=${XDG_DATA_HOME:-$HOME/.local/state}
 [[ -d $XDG_CACHE_HOME ]] || mkdir -p "$XDG_CACHE_HOME"
 [[ -d $XDG_DATA_HOME ]] || mkdir -p "$XDG_DATA_HOME"
 
-# zsh & zi
-
-export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
+# zsh
 
 [[ -d $XDG_CACHE_HOME/zsh ]] && rm -rf "$XDG_CACHE_HOME"/zsh
 mkdir -p "$XDG_CACHE_HOME"/zsh
 
+export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
+
+# zi
+
 [[ -d $XDG_DATA_HOME/zi ]] && rm -rf "$XDG_DATA_HOME"/zi
 mkdir -p "$XDG_DATA_HOME"/zi
 
+typeset -Ag ZI
+export ZI[HOME_DIR]=$XDG_DATA_HOME/zi
+export ZI[BIN_DIR]="${ZI[HOME_DIR]}/bin"
+export ZI[ZCOMPDUMP_PATH]=$XDG_CACHE_HOME/zsh/zcompdump
+
+compaudit | xargs chown -R "$(whoami)" "${ZI[HOME_DIR]}"
+compaudit | xargs chmod -R go-w "${ZI[HOME_DIR]}"
+
 git clone https://github.com/z-shell/zi.git "$XDG_DATA_HOME"/zi/bin
 
-export TMUX=1
 zsh -c "source '$XDG_CONFIG_HOME/zsh/.zshrc' && exit"
-unset TMUX
+# exec zsh -il && zi self-update
 
 # tmux
 
