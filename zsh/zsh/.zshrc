@@ -560,18 +560,26 @@ fi
 
 typeset -a eza_colors=(
   # permissions
-  oc=37 ur=37 uw=37 ux=37 ue=37
-  gr=37 gw=37 gx=37 tr=37 tw=37 tx=37
+  oc=37
+  ur=37 uw=37 ux=37 ue=37
+  gr=37 gw=37 gx=37
+  tr=37 tw=37 tx=37
   su=37 sf=37 xa=37
-  # sizes
-  nb=90 nk=37 nm=33 ng=31 nt=91
-  # owner / group
-  uu=90 uR=31 un=37 gu=90 gR=31 gn=37
+  nb=90 nk=37 nm=33 ng=31 nt=91 # size
+  uu=90 uR=31 un=37 gu=90 gR=31 gn=37 # owner & group
   # git
   ga=32 gm=33 gd=31 gv=33 gt=33 gi=90 gc=91
   Gm=34 Go=34 Gc=30 Gd=33
-  # misc
-  da=37 bO=31 'mp=34;4' cr=33 do=0 tm=90 bu=0 sc=0 ff=37
+  da=37 # dates
+  bO=31 # symlinks
+  'mp=34;4' # mount points
+  im=35 vi=35 mu=35 lo=35 # media
+  cr=33 # cryptography
+  do=0 # documents
+  co=33 # compressed
+  tm=90 # temp
+  bu=0 sc=0 # dev
+  ff=37 # flags
 )
 export EZA_COLORS=${(j.:.)eza_colors}
 unset eza_colors
@@ -651,18 +659,14 @@ fi
 
 # less
 
-typeset -a less_opts=(
-  # behavior
+typeset -a less=(
   --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color
-  # colors
   -DEr -DTk -DPw -DSkY -Dd-d -Du-d
-  # man page colors
-  -D1rR -D2rR -D3rR -D4rR -D5rR
-  -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR
+  # flagged colors
+  -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR
 )
-
-export LESS=${(j. .)less_opts}
-unset less_opts
+export LESS=${(j. .)less}
+unset less
 
 export LESSHISTFILE=-
 
