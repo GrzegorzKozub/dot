@@ -459,9 +459,7 @@ zi light zsh-users/zsh-autosuggestions
 
 # mise (before mise managed tools commands checks)
 
-if (( $+commands[mise] )); then
-  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/mise
-fi
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/mise
 
 # ansible
 
