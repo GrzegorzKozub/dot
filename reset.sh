@@ -81,3 +81,16 @@ if [[ ${1:-} == 'rust' ]]; then
   fi
 
 fi
+
+if [[ ${1:-} == 'zi' ]]; then
+
+  rm -rf "$XDG_CACHE_HOME"/{f-sy-h,zsh,zi,p10k*}
+  mkdir -p "$XDG_CACHE_HOME"/zsh
+
+  rm -rf "$XDG_DATA_HOME"/zi && mkdir -p "$XDG_DATA_HOME"/zi
+
+  git clone https://github.com/z-shell/zi.git "$XDG_DATA_HOME"/zi/bin
+
+  script -c "env ZI_BOOTSTRAP=1 zsh -i" /dev/null
+
+fi
