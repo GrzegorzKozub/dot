@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-(( $+commands[claude] )) || exit
+(( $+commands[claude] )) || return
 
 export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
 
