@@ -89,8 +89,8 @@
 	"updateFrequency": 500,
 	"windowTransparency": false,
 	"windowBounds": {
-		"width": 960,
-		"height": 600
+		"width": 1080,
+		"height": 786
 	},
 	"__internal__": {
 		"migrations": {
