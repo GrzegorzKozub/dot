@@ -254,6 +254,5 @@
   "skipWorkflowUsageWarning": true,
   "theme": "custom:gruvbox-material-dark",
   "editorMode": "vim",
-  "teammateMode": "tmux",
-  "skipAutoPermissionPrompt": true
+  "teammateMode": "tmux"
 }

@@ -62,21 +62,20 @@ rustup component add rust-analyzer
 
 # skills
 
-# if [[ $HOST == 'worker' ]]; then
-#
-#   npx --yes skills add mattpocock/skills \
-#     --agent claude-code --copy --global --yes \
-#     --skill grill-me \
-#     --skill handoff
-#
-# fi
+if [[ $HOST == 'worker' ]]; then
+
+  npx --yes skills add mattpocock/skills \
+    --agent claude-code --copy --global --yes \
+    --skill grill-me \
+    --skill handoff
+
+fi
 
 # instructions
 
-# if [[ $HOST == 'worker' ]]; then
-#
-#   curl -fsSL \
-#     'https://raw.githubusercontent.com/efficy-sa/apsis-shared-ai/master/claude-code/CLAUDE.md' \
-#     -o "$XDG_CONFIG_HOME"/claude/CLAUDE.md
-#
-# fi
+if [[ $HOST == 'worker' ]]; then
+
+  gh api repos/efficy-sa/apsis-shared-ai/contents/claude-code/CLAUDE.md \
+    --jq '.content' | base64 -d > "$XDG_CONFIG_HOME"/claude/CLAUDE.md
+
+fi
