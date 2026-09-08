@@ -8,7 +8,7 @@ pushd "${BASH_SOURCE%/*}" && git pull && popd
 
 # zi
 
-zi self-update && zi update --all
+"${BASH_SOURCE%/*}"/zi.zsh
 
 # tmux
 
