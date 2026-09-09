@@ -639,6 +639,7 @@ export GOPRIVATE=github.com/efficy-sa/*
 # gopass
 
 alias pass='gopass'
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/gopass
 
 # intellij
 
@@ -688,6 +689,7 @@ man() { GROFF_NO_SGR=1 MANPAGER='less +Gg' command man "$@" }
 # linecast
 
 if (( $+commands[linecast] )); then
+  alias weather='linecast weather'
   zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/linecast
 fi
 
@@ -715,6 +717,8 @@ export NODE_REPL_HISTORY=''
 
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/npm
 
 # pass
 

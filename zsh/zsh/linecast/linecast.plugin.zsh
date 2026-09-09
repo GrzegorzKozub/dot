@@ -6,5 +6,3 @@ _my-compdef-linecast() {
 }
 
 compdef _my-compdef-linecast linecast
-
-alias weather='linecast weather'
