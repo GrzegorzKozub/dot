@@ -249,6 +249,11 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 
 zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only # _match does not repeat _complete results
+
+# scale _approximate allowed typo count with input length up to 8
+zstyle -e ':completion:*:approximate:*' max-errors \
+  'reply=($((($#PREFIX + $#SUFFIX) / 3 > 8 ? 8 : ($#PREFIX + $#SUFFIX) / 3))numeric)'
 
 zstyle ':completion:*' menu select
 
