@@ -604,13 +604,6 @@ zi ice depth'1' lucid nocompletions wait'0' && zi light wfxr/forgit
 
 # git
 
-my-git-checkout-branch() {
-  BUFFER='git checkout -b '
-  zle vi-end-of-line && zle vi-insert
-}
-zle -N my-git-checkout-branch
-my-bindkey '^gb' my-git-checkout-branch
-
 my-git-commit() {
   BUFFER="git commit -m ''"
   zle vi-end-of-line && zle vi-backward-char && zle vi-insert
