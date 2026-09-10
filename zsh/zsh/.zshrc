@@ -398,14 +398,7 @@ export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
 # last working dir (must be synchronous)
 
 zi ice lucid nocompletions
-zi snippet OMZ::plugins/last-working-dir/last-working-dir.plugin.zsh
-
-# dir history
-
-zi ice lucid nocompletions wait'0'
-zi snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
-
-zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/dirhistory
+zi light "$ZDOTDIR"/lwd
 
 # yazi
 
