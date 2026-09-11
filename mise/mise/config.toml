@@ -16,6 +16,8 @@ go = { version = "latest", postinstall = """
 "go:golang.org/x/tools/gopls" = "latest"
 "go:honnef.co/go/tools/cmd/staticcheck" = "latest"
 
+"go:github.com/z-shell/zsh-lint/cmd/zsh-lint" = "latest"
+
 node = "latest"
 
 "npm:npm" = "latest"

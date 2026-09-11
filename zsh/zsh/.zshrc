@@ -152,12 +152,12 @@ my-bindkey '^E' edit-command-line # ctrl+e
 
 # vi mode cursor
 
-function my-cursor() {
+my-cursor() {
   case ${1:-'main'} in vicmd|viopp|visual) local shape=2;; main|viins|*) local shape=6;; esac
-  printf $'\e[%d q' $shape
+  printf $'\e[%d q' "$shape"
 }
 
-function zle-keymap-select() { my-cursor $KEYMAP }
+zle-keymap-select() { my-cursor "$KEYMAP" }
 zle -N zle-keymap-select
 
 function zle-line-init() { my-cursor main }
