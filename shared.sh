@@ -21,6 +21,7 @@ set -eo pipefail -ux
 #
 # for PACKAGE in \
 #   github.com/go-delve/delve/cmd/dlv \
+#   github.com/z-shell/zsh-lint/cmd/zsh-lint \
 #   golang.org/x/tools/cmd/goimports \
 #   golang.org/x/tools/gopls \
 #   honnef.co/go/tools/cmd/staticcheck; do
