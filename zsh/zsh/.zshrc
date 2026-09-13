@@ -380,6 +380,8 @@ export FZF_DEFAULT_OPTS="
   --tabstop 2
 "
 
+[[ -n $TMUX ]] && tmux set-environment -g FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS"
+
 fzf-history-widget-no-numbers() {
   setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
   local opts="$FZF_DEFAULT_OPTS $FZF_CTRL_R_OPTS --scheme=history --query=${(qqq)LBUFFER}"
