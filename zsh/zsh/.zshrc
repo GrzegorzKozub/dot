@@ -651,23 +651,23 @@ fi
 
 typeset -a less=(
   --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color
-  -DEr -DTk -DPw -DSkY -Dd-d -Du-d
+  -DEr -DTk -DPw -DRk -DSkY -Dd-d -Du-d
   # flagged colors
-  -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR
+  -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DWrR -DkrR -DsrR
 )
 export LESS=${(j. .)less}
 unset less
 
 export LESSHISTFILE=-
 
-# alias less="less --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
-#   -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR"
+# alias less="less --quit-if-one-screen --RAW-CONTROL-CHARS --tilde --use-color -DEr -DTk -DPw -DRk -DSkY -Dd-d -Du-d \
+#   -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DWrR -DkrR -DsrR"
 alias -g -- --help='--help 2>&1 | less'
 
 # man() {
 #   GROFF_NO_SGR=1 \
-#     MANPAGER="less +Gg --RAW-CONTROL-CHARS --squeeze-blank-lines --tilde --use-color -DEr -DTk -DPw -DSkY -Dd-d -Du-d \
-#       -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DRrR -DWrR -DkrR -DsrR" \
+#     MANPAGER="less +Gg --RAW-CONTROL-CHARS --squeeze-blank-lines --tilde --use-color -DEr -DTk -DPw -DRk -DSkY -Dd-d -Du-d \
+#       -D1rR -D2rR -D3rR -D4rR -D5rR -DBrR -DCrR -DHrR -DJrR -DMrR -DNrR -DWrR -DkrR -DsrR" \
 #     command man "$@"
 # }
 man() { GROFF_NO_SGR=1 MANPAGER='less +Gg' command man "$@" }
