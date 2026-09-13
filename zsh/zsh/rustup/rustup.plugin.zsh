@@ -4,7 +4,7 @@
 zstyle ':completion:*:*:rustup:argument-1:*' ignored-patterns '*'
 
 _my-compdef-rustup() {
-  eval "$(rustup completions zsh)"
+  eval "$(rustup completions zsh)" # zsh-lint disable=security/eval
   _rustup "$@" # make the completion menu appear on first tab press
 }
 

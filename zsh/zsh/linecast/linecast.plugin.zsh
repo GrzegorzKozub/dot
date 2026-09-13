@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 _my-compdef-linecast() {
-  eval "$(linecast completion zsh)"
+  eval "$(linecast completion zsh)" # zsh-lint disable=security/eval
   _linecast "$@" # make the completion menu appear on first tab press
 }
 

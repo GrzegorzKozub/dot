@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "project": {
+    "identifier": "dotfiles",
+    "kind": "application",
+    "minimum_zsh": "5.8"
+  },
+  "sources": [
+    { "root": "zi.zsh", "profile": "standalone-executable" },
+    { "root": "zsh/zsh", "profile": "sourced-library" },
+    { "root": "zsh/zsh/.zshrc", "profile": "startup-file" }
+  ]
+}

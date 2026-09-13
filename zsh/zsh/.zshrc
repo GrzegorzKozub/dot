@@ -37,8 +37,8 @@ export PS4='\e[90m→ \e[0m'
 # zi
 
 typeset -A ZI
-: ${ZI[HOME_DIR]:="${XDG_DATA_HOME}/zi"}
-: ${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}
+: "${ZI[HOME_DIR]:="${XDG_DATA_HOME}/zi"}"
+: "${ZI[BIN_DIR]:="${ZI[HOME_DIR]}/bin"}"
 
 ZI[COMPINIT_OPTS]=-C
 ZI[OPTIMIZE_OUT_DISK_ACCESSES]=1
@@ -52,12 +52,12 @@ autoload -Uz _zi
 # functions
 
 my-bindkey() {
-  for keymap in vicmd viins; do bindkey -M $keymap $1 $2; done
+  for keymap in vicmd viins; do bindkey -M "$keymap" "$1" "$2"; done
 }
 
 my-redraw-prompt() {
   local precmd
-  for precmd in $precmd_functions; do $precmd; done
+  for precmd in $precmd_functions; do "$precmd"; done
   zle reset-prompt
   zle zle-keymap-select
 }
@@ -89,11 +89,11 @@ procs() {
     local filter=$arg
   done
   local cores=$(nproc)
-  local ps=$(ps -eo pid=pid,user:4=usr,%cpu=cpu,rss=mem,cmd=cmd --sort=-$sort --no-headers)
-  [[ $filter ]] && local ps=$(echo $ps | grep $filter)
-  echo $ps |
+  local ps=$(ps -eo pid=pid,user:4=usr,%cpu=cpu,rss=mem,cmd=cmd --sort=-"$sort" --no-headers)
+  [[ $filter ]] && local ps=$(echo "$ps" | grep "$filter")
+  echo "$ps" |
     numfmt --field=4 --from-unit=1000 --to=iec --padding=4 |
-    awk -v cores=$cores --use-lc-numeric 'BEGIN { OFS = "" } {
+    awk -v cores="$cores" --use-lc-numeric 'BEGIN { OFS = "" } {
       $3 = $3 / cores;
       printf "%6i %4s %5.2f %4s", $1, $2, $3, $4;
       $1 = $2 = $3 = $4 = "";
@@ -138,8 +138,8 @@ zle -N delete-surround surround
 zle -N change-surround surround
 
 for keymap in viopp visual; do
-  for sequence in {a,i}${(s..)^:-'()[]{}<>bB'}; do bindkey -M $keymap $sequence select-bracketed; done
-  for sequence in {a,i}{\',\",\`}; do bindkey -M $keymap $sequence select-quoted; done
+  for sequence in {a,i}${(s..)^:-'()[]{}<>bB'}; do bindkey -M $keymap $sequence select-bracketed; done # https://github.com/z-shell/zsh-lint/issues/196
+  for sequence in {a,i}{\',\",\`}; do bindkey -M "$keymap" "$sequence" select-quoted; done
 done
 
 bindkey -M visual 'S' add-surround
@@ -246,7 +246,7 @@ setopt NO_LIST_TYPES # don't show file/dir types as trailing marks
 # autoload -Uz bashcompinit && bashcompinit # for aws
 
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only # _match does not repeat _complete results
@@ -388,7 +388,7 @@ fzf-history-widget-no-numbers() {
   BUFFER=$selected
   zle vi-end-of-line
   zle reset-prompt
-  return $ret
+  return "$ret"
 }
 
 # oh my zsh
@@ -422,7 +422,7 @@ my-cd() {
 my-yazi-cd() {
   local temp_file="$(mktemp)"
   yazi "$@" --cwd-file="$temp_file" < $TTY
-  my-cd $temp_file
+  my-cd "$temp_file"
 }
 zle -N my-yazi-cd
 my-bindkey '\el' my-yazi-cd
