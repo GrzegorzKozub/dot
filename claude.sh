@@ -1,6 +1,21 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
+# packages
+
+ln -sf "$XDG_CONFIG_HOME"/mise/conf.d/claude.env.toml \
+  "$XDG_CONFIG_HOME"/mise/conf.d/claude."$HOST".local.toml
+
+[[ $HOST == 'worker' ]] &&
+  ln -sf "$XDG_CONFIG_HOME"/mise/conf.d/csharp-ls.env.toml \
+    "$XDG_CONFIG_HOME"/mise/conf.d/csharp-ls."$HOST".local.toml
+
+mise install
+
+uv tool install basedpyright
+rustup component add rust-analyzer
+# [[ $HOST == 'worker' ]] && dotnet tool install --global csharp-ls
+
 # env
 
 export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
@@ -37,15 +52,6 @@ done
 mkdir -p "$XDG_CONFIG_HOME"/claude/themes
 ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/themes/gruvbox-material-dark.json \
   "$XDG_CONFIG_HOME"/claude/themes/gruvbox-material-dark.json
-
-# lsp
-
-# mise install \
-#   npm:bash-language-server@latest \
-#   npm:typescript-language-server@latest
-uv tool install basedpyright
-rustup component add rust-analyzer
-[[ $HOST == 'worker' ]] && dotnet tool install --global csharp-ls
 
 # mcp
 

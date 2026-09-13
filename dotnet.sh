@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
+# packages
+
+ln -sf "$XDG_CONFIG_HOME"/mise/conf.d/dotnet.env.toml \
+  "$XDG_CONFIG_HOME"/mise/conf.d/dotnet."$HOST".local.toml
+
+mise install
+
 # vscode
 
 set e+

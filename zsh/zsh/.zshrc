@@ -212,12 +212,13 @@ path=(${path:#$XDG_DATA_HOME/mise/shims})
 
 path=(
   ${commands[lmstudio]:+$XDG_DATA_HOME/lmstudio/bin}
-  ${commands[dotnet]:+$XDG_CACHE_HOME/dotnet/.dotnet/tools}
   $XDG_DATA_HOME/cargo/bin
   ~/.local/bin
   ~/code/arch
   $path[@]
 )
+
+  # ${commands[dotnet]:+$XDG_CACHE_HOME/dotnet/.dotnet/tools}
 
   # $XDG_DATA_HOME/bun/bin
   # $XDG_DATA_HOME/gem/ruby/3.0.0/bin
@@ -529,21 +530,9 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock # rootless
 
 export COMPOSE_BAKE=true
 
-# dotnet
+# dotnet (mise managed)
 
-if (( $+commands[dotnet] )); then
-
-  export DOTNET_CLI_HOME=$XDG_CACHE_HOME/dotnet # https://github.com/dotnet/runtime/issues/98276
-  export DOTNET_CLI_TELEMETRY_OPTOUT=1
-  export DOTNET_GENERATE_ASPNET_CERTIFICATE=0
-  export DOTNET_NOLOGO=1
-  export DOTNET_SKIP_WORKLOAD_INTEGRITY_CHECK=1
-
-  export OMNISHARPHOME=$XDG_DATA_HOME/omnisharp
-
-  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/dotnet
-
-fi
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/dotnet
 
 # elixir
 
