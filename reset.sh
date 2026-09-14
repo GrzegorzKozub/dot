@@ -3,6 +3,11 @@ set -eo pipefail -ux
 
 if [[ ${1:-} == 'mise' ]]; then
 
+  # dotnet
+
+  rm -rf "$XDG_CACHE_HOME"/{csdevkit,dotnet,Microsoft,Microsoft\ DevDiv}
+  rm -rf "$XDG_DATA_HOME"/{dotnet,Microsoft,NuGet}
+
   # node
 
   rm -rf "$XDG_CACHE_HOME"/npm

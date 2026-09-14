@@ -218,7 +218,7 @@ path=(
   $path[@]
 )
 
-  # ${commands[dotnet]:+$XDG_CACHE_HOME/dotnet/.dotnet/tools}
+  # ${commands[dotnet]:+$XDG_CACHE_HOME/dotnet/.dotnet/tools} # mise managed
 
   # $XDG_DATA_HOME/bun/bin
   # $XDG_DATA_HOME/gem/ruby/3.0.0/bin
@@ -228,11 +228,7 @@ path=(
 # completion
 
 typeset -U fpath
-
-fpath=(
-  ~/code/arch
-  $fpath[@]
-)
+fpath=(~/code/arch $fpath[@])
 
 setopt ALWAYS_TO_END # put cursor at the end of the completed word
 setopt COMPLETE_ALIASES # don't substitute aliases

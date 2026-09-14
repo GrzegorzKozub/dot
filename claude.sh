@@ -6,7 +6,7 @@ set -eo pipefail -ux
 ln -sf "$XDG_CONFIG_HOME"/mise/conf.d/claude.env.toml \
   "$XDG_CONFIG_HOME"/mise/conf.d/claude."$HOST".local.toml
 
-[[ $HOST == 'worker' ]] &&
+command -v dotnet > /dev/null 2>&1 &&
   ln -sf "$XDG_CONFIG_HOME"/mise/conf.d/csharp-ls.env.toml \
     "$XDG_CONFIG_HOME"/mise/conf.d/csharp-ls."$HOST".local.toml
 
@@ -14,7 +14,7 @@ mise install
 
 uv tool install basedpyright
 rustup component add rust-analyzer
-# [[ $HOST == 'worker' ]] && dotnet tool install --global csharp-ls
+# command -v dotnet > /dev/null 2>&1 && dotnet tool install --global csharp-ls
 
 # env
 

@@ -27,9 +27,9 @@ ya pkg upgrade
 
 # shared
 
-"${BASH_SOURCE%/*}"/shared.sh
+# "${BASH_SOURCE%/*}"/shared.sh
 
-# mise: node
+# mise: bun, claude, dotnet, go, node
 
 mise upgrade
 
