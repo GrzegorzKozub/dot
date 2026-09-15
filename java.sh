@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
+# packages
+
+ln -sf "$XDG_CONFIG_HOME"/mise/conf.d/java.env.toml \
+  "$XDG_CONFIG_HOME"/mise/conf.d/java."$HOST".local.toml
+
+mise install
+
 # links
 
 stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \

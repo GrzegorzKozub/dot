@@ -39,7 +39,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
 
 # plugins
 
-intellij-idea-community-edition installPlugins \
+idea-community installPlugins \
   com.intellij.plugins.vscodekeymap \
   cucumber-java \
   gherkin
