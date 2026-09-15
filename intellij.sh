@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
+# TODO: update config to latest version & setup jdk 21 from mise
+
 # repo
 
 pushd "${BASH_SOURCE%/*}"
@@ -42,4 +44,4 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
 idea-community installPlugins \
   com.intellij.plugins.vscodekeymap \
   cucumber-java \
-  gherkin
+  gherkin || true
