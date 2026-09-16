@@ -126,6 +126,10 @@ if [[ ${1:-} == 'vscode' ]]; then
 
 fi
 
+if [[ ${1:-} == 'zed' ]]; then
+  rm -rf "$XDG_DATA_HOME"/zed
+fi
+
 if [[ ${1:-} == 'zi' ]]; then
 
   rm -rf "$XDG_CACHE_HOME"/{f-sy-h,zsh,zi,p10k*}

@@ -25,20 +25,20 @@
   },
   "auto_install_extensions": {
     "catppuccin-icons": true,
-    "csharp": true,
+    "csharp": false,
     "docker-compose": true,
     "dockerfile": true,
     "env": true,
     "git-firefly": true,
     "golangci-lint": true,
     "html": true,
-    "java": true,
+    "java": false,
     "lua": true,
-    "sql": true,
+    "sql": false,
     "symbols": true,
-    "terraform": true,
+    "terraform": false,
     "toml": true,
-    "xml": true,
+    "xml": false,
   },
   "buffer_font_family": "Cascadia Code",
   "buffer_font_features": { "calt": true, "ss01": true },
@@ -116,11 +116,11 @@
         },
       },
     },
-    "Terraform": {
-      "formatter": {
-        "external": { "command": "terraform", "arguments": ["fmt", "-"] },
-      },
-    },
+    // "Terraform": {
+    //   "formatter": {
+    //     "external": { "command": "terraform", "arguments": ["fmt", "-"] },
+    //   },
+    // },
     "TypeScript": {
       "formatter": [
         {
@@ -159,17 +159,17 @@
         },
       },
     },
-    "jdtls": {
-      "initialization_options": {
-        "settings": {
-          "java": {
-            "configuration": {
-              "maven": { "userSettings": "~/.config/maven/settings.xml" },
-            },
-          },
-        },
-      },
-    },
+    // "jdtls": {
+    //   "initialization_options": {
+    //     "settings": {
+    //       "java": {
+    //         "configuration": {
+    //           "maven": { "userSettings": "~/.config/maven/settings.xml" },
+    //         },
+    //       },
+    //     },
+    //   },
+    // },
     "rust-analyzer": {
       "initialization_options": {
         "check": { "command": "clippy" },
@@ -186,11 +186,11 @@
         },
       },
     },
-    "terraform-ls": {
-      "initialization_options": {
-        "experimentalFeatures": { "prefillRequiredFields": true },
-      },
-    },
+    // "terraform-ls": {
+    //   "initialization_options": {
+    //     "experimentalFeatures": { "prefillRequiredFields": true },
+    //   },
+    // },
     "typescript-language-server": {
       "initialization_options": {
         "preferences": {
