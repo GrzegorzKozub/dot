@@ -5,24 +5,24 @@ if [[ ${1:-} == 'mise' ]]; then
 
   # dotnet
 
-  rm -rf "$XDG_CACHE_HOME"/{csdevkit,dotnet,Microsoft,Microsoft\ DevDiv}
-  rm -rf "$XDG_DATA_HOME"/{dotnet,Microsoft,NuGet}
+  rm -rf "$XDG_CACHE_HOME"/{csdevkit,dotnet,Microsoft,Microsoft\ DevDiv}/
+  rm -rf "$XDG_DATA_HOME"/{dotnet,Microsoft,NuGet}/
 
   # node
 
-  rm -rf "$XDG_CACHE_HOME"/npm
+  rm -rf "$XDG_CACHE_HOME"/npm/
 
   # go
 
-  rm -rf "$XDG_CACHE_HOME"/{go,goimports,gopls}
-  rm -rf "$XDG_CONFIG_HOME"/go
-  go clean -modcache && rm -rf "$XDG_DATA_HOME"/go
+  rm -rf "$XDG_CACHE_HOME"/{go,goimports,gopls}/
+  rm -rf "$XDG_CONFIG_HOME"/go/
+  go clean -modcache && rm -rf "$XDG_DATA_HOME"/go/
 
   # mise
 
-  rm -rf "$XDG_CACHE_HOME"/mise
-  rm -rf "$XDG_DATA_HOME"/mise
-  rm -rf "$XDG_STATE_HOME"/mise
+  rm -rf "$XDG_CACHE_HOME"/mise/
+  rm -rf "$XDG_DATA_HOME"/mise/
+  rm -rf "$XDG_STATE_HOME"/mise/
 
   mise install
 
@@ -36,10 +36,10 @@ fi
 
 if [[ ${1:-} == 'nvim' ]]; then
 
-  rm -f "$XDG_CONFIG_HOME/nvim/lazy-lock.json"
-  rm -rf "$XDG_CACHE_HOME"/nvim
-  rm -rf "$XDG_DATA_HOME"/nvim
-  rm -rf ~/.local/state/nvim
+  rm -f "$XDG_CONFIG_HOME"/nvim/lazy-lock.json
+  rm -rf "$XDG_CACHE_HOME"/{luarocks,nvim}/
+  rm -rf "$XDG_DATA_HOME"/nvim/
+  rm -rf "$XDG_STATE_HOME"/nvim/
 
   nvim \
     -c 'lua vim.opt.messagesopt = "wait:100,history:500"' \
@@ -50,9 +50,8 @@ fi
 
 if [[ ${1:-} == 'python' ]]; then
 
-  rm -rf "$XDG_CACHE_HOME"/pip
-  rm -rf "$XDG_CACHE_HOME"/uv
-  rm -rf "$XDG_DATA_HOME"/uv
+  rm -rf "$XDG_CACHE_HOME"/{pip,uv}/
+  rm -rf "$XDG_DATA_HOME"/uv/
 
   for FILE in ~/.local/bin/*; do
     [[ -L "$FILE" ]] &&
@@ -75,8 +74,8 @@ fi
 
 if [[ ${1:-} == 'rust' ]]; then
 
-  rm -rf "$XDG_DATA_HOME"/cargo
-  rm -rf "$XDG_DATA_HOME"/rustup
+  rm -rf "$XDG_DATA_HOME"/cargo/
+  rm -rf "$XDG_DATA_HOME"/rustup/
 
   curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
   cargo install cargo-update
@@ -90,7 +89,8 @@ fi
 if [[ ${1:-} == 'vscode' ]]; then
 
   pushd ~/code/dot/vscode/user-data && git clean -dfx && popd
-  rm -rf "$XDG_CONFIG_HOME"/vscode/{cli,extensions,shared-data,argv.json}
+  rm -rf "$XDG_CONFIG_HOME"/vscode/{cli,extensions,shared-data}/
+  rm -f "$XDG_CONFIG_HOME"/vscode/argv.json
 
   set +e
 
@@ -127,15 +127,20 @@ if [[ ${1:-} == 'vscode' ]]; then
 fi
 
 if [[ ${1:-} == 'zed' ]]; then
-  rm -rf "$XDG_DATA_HOME"/zed
+
+  rm -rf "$XDG_CACHE_HOME"/zed/
+  rm -rf "$XDG_DATA_HOME"/zed/
+
 fi
 
 if [[ ${1:-} == 'zi' ]]; then
 
-  rm -rf "$XDG_CACHE_HOME"/{f-sy-h,zsh,zi,p10k*}
-  mkdir -p "$XDG_CACHE_HOME"/zsh
+  rm -rf "$XDG_CACHE_HOME"/{f-sy-h,zsh,zi,p10k-"$USER"}
+  rm -f "$XDG_CACHE_HOME"/p10k-*
+  rm -rf "$XDG_DATA_HOME"/zi/
 
-  rm -rf "$XDG_DATA_HOME"/zi && mkdir -p "$XDG_DATA_HOME"/zi
+  mkdir -p "$XDG_CACHE_HOME"/zsh
+  mkdir -p "$XDG_DATA_HOME"/zi
 
   git clone https://github.com/z-shell/zi.git "$XDG_DATA_HOME"/zi/bin
 
