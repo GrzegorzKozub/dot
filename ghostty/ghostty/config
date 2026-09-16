@@ -55,6 +55,9 @@ keybind = ctrl+shift+i=inspector:show
 
 keybind = ctrl+shift+f5=reload_config
 
+# workaround ghosty not reporting shift on ctrl+letter for tmux C-S-t
+keybind = ctrl+shift+t=text:\x1b[116;6u
+
 window-padding-x = 8
 window-padding-y = 8
 window-padding-balance = true
