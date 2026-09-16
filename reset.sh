@@ -89,6 +89,7 @@ fi
 if [[ ${1:-} == 'vscode' ]]; then
 
   pushd ~/code/dot/vscode/user-data && git clean -dfx && popd
+  rm -rf "$XDG_CONFIG_HOME"/copilot/
   rm -rf "$XDG_CONFIG_HOME"/vscode/{cli,extensions,shared-data}/
   rm -f "$XDG_CONFIG_HOME"/vscode/argv.json
 

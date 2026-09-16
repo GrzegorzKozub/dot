@@ -609,6 +609,8 @@ export GOPATH=$XDG_DATA_HOME/go
 
 export GOPRIVATE=github.com/efficy-sa/*
 
+export GOTELEMETRY=off
+
 # gopass
 
 alias pass='gopass'
