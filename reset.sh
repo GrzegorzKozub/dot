@@ -36,8 +36,8 @@ fi
 
 if [[ ${1:-} == 'nvim' ]]; then
 
-  rm -f "$XDG_CONFIG_HOME"/nvim/lazy-lock.json
   rm -rf "$XDG_CACHE_HOME"/{luarocks,nvim}/
+  rm -f "$XDG_CONFIG_HOME"/nvim/lazy-lock.json
   rm -rf "$XDG_DATA_HOME"/nvim/
   rm -rf "$XDG_STATE_HOME"/nvim/
 
@@ -74,8 +74,7 @@ fi
 
 if [[ ${1:-} == 'rust' ]]; then
 
-  rm -rf "$XDG_DATA_HOME"/cargo/
-  rm -rf "$XDG_DATA_HOME"/rustup/
+  rm -rf "$XDG_DATA_HOME"/{cargo,rustup}/
 
   curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
   cargo install cargo-update
@@ -89,6 +88,8 @@ fi
 if [[ ${1:-} == 'vscode' ]]; then
 
   pushd ~/code/dot/vscode/user-data && git clean -dfx && popd
+
+  rm -rf "$XDG_CACHE_HOME"/Microsoft/
   rm -rf "$XDG_CONFIG_HOME"/copilot/
   rm -rf "$XDG_CONFIG_HOME"/vscode/{cli,extensions,shared-data}/
   rm -f "$XDG_CONFIG_HOME"/vscode/argv.json
