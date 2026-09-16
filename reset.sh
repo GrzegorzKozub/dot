@@ -87,6 +87,45 @@ if [[ ${1:-} == 'rust' ]]; then
 
 fi
 
+if [[ ${1:-} == 'vscode' ]]; then
+
+  pushd ~/code/dot/vscode/user-data && git clean -dfx && popd
+  rm -rf "$XDG_CONFIG_HOME"/vscode/{cli,extensions,shared-data,argv.json}
+
+  set +e
+
+  for EXTENSION in \
+    Catppuccin.catppuccin-vsc-icons \
+    charliermarsh.ruff \
+    dbaeumer.vscode-eslint \
+    detachhead.basedpyright \
+    editorconfig.editorconfig \
+    esbenp.prettier-vscode \
+    github.copilot-chat \
+    golang.go \
+    grzegorzkozub.gruvbox-material-flat \
+    miguelsolorio.symbols \
+    ms-azuretools.vscode-containers \
+    ms-python.debugpy \
+    ms-python.python \
+    ms-vscode-remote.remote-containers \
+    rust-lang.rust-analyzer \
+    streetsidesoftware.code-spell-checker \
+    sumneko.lua \
+    tamasfe.even-better-toml; do
+    code --install-extension $EXTENSION --force
+  done
+
+  for EXTENSION in \
+    ms-python.vscode-pylance \
+    ms-python.vscode-python-envs; do
+    code --uninstall-extension $EXTENSION --force
+  done
+
+  set -e
+
+fi
+
 if [[ ${1:-} == 'zi' ]]; then
 
   rm -rf "$XDG_CACHE_HOME"/{f-sy-h,zsh,zi,p10k*}
