@@ -660,7 +660,17 @@ if (( $+commands[linecast] )); then
   zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/linecast
 fi
 
-# mcp-remote
+# mcp inspector
+
+# export MCP_CATALOG_PATH="$XDG_DATA_HOME"/mcp-inspector/mcp.json
+
+export MCP_STORAGE_DIR="$XDG_DATA_HOME"/mcp-inspector/storage
+# export MCP_CLIENT_CONFIG_PATH="$XDG_DATA_HOME"/mcp-inspector/storage/client.json
+# export MCP_INSPECTOR_OAUTH_STATE_PATH="$XDG_DATA_HOME"/mcp-inspector/storage/oauth.json
+
+# export MCP_INSPECTOR_LOG_DIR="$XDG_DATA_HOME"/mcp-inspector
+
+# mcp remote
 
 export MCP_REMOTE_CONFIG_DIR=$XDG_CONFIG_HOME/mcp-remote
 
