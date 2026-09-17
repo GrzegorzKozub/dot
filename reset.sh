@@ -124,6 +124,22 @@ if [[ ${1:-} == 'vscode' ]]; then
     code --uninstall-extension $EXTENSION --force
   done
 
+  if [[ $HOST == 'worker' ]]; then
+
+    # aws
+
+    code --install-extension kddejong.vscode-cfn-lint --force
+
+    # work
+
+    for EXTENSION in \
+      bierner.markdown-mermaid \
+      kddejong.vscode-cfn-lint; do
+      code --install-extension $EXTENSION --force
+    done
+
+  fi
+
   set -e
 
 fi
