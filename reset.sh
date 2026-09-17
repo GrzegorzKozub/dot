@@ -36,7 +36,7 @@ fi
 
 if [[ ${1:-} == 'nvim' ]]; then
 
-  rm -rf "$XDG_CACHE_HOME"/{luarocks,nvim}/
+  rm -rf "$XDG_CACHE_HOME"/{luarocks,nvim,tree-sitter}/
   rm -f "$XDG_CONFIG_HOME"/nvim/lazy-lock.json
   rm -rf "$XDG_DATA_HOME"/nvim/
   rm -rf "$XDG_STATE_HOME"/nvim/
@@ -89,7 +89,7 @@ if [[ ${1:-} == 'vscode' ]]; then
 
   pushd ~/code/dot/vscode/user-data && git clean -dfx && popd
 
-  rm -rf "$XDG_CACHE_HOME"/Microsoft/
+  rm -rf "$XDG_CACHE_HOME"/{copilot,Microsoft}/
   rm -rf "$XDG_CONFIG_HOME"/copilot/
   rm -rf "$XDG_CONFIG_HOME"/vscode/{cli,extensions,shared-data}/
   rm -f "$XDG_CONFIG_HOME"/vscode/argv.json
