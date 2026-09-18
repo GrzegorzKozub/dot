@@ -307,8 +307,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
-# https://github.com/z-shell/zi/issues/471
-# https://github.com/z-shell/zi/issues/488
 zi ice depth'1' lucid nocompletions wait'0' && zi light Aloxaf/fzf-tab
 
 # history
