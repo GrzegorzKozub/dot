@@ -24,12 +24,6 @@ ln -s "$CACHE"/maven "$XDG_CACHE_HOME"/maven
 
 # vscode
 
-set +e
-
-for EXTENSION in \
-  redhat.java \
-  redhat.vscode-yaml; do
-  code --install-extension $EXTENSION --force
-done
-
-set -e
+set e+
+code --install-extension redhat.java --force
+set e-

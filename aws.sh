@@ -12,6 +12,12 @@ for TOOL in awscli-local cfn-lint; do uv tool install $TOOL; done
 
 # vscode
 
-set e+
-code --install-extension kddejong.vscode-cfn-lint --force
-set e-
+set +e
+
+for EXTENSION in \
+  kddejong.vscode-cfn-lint \
+  redhat.vscode-yaml; do
+  code --install-extension $EXTENSION --force
+done
+
+set -e

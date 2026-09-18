@@ -4,11 +4,5 @@ set -eo pipefail -u
 # vscode
 
 set e+
-
-for EXTENSION in \
-  bierner.markdown-mermaid \
-  cucumberopen.cucumber-official; do
-  code --install-extension $EXTENSION --force
-done
-
+code --install-extension cucumberopen.cucumber-official --force
 set e-

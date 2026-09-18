@@ -148,9 +148,6 @@ for EXTENSION in \
   code --install-extension $EXTENSION --force
 done
 
-  # jakebecker.elixir-ls \
-  # vadimcn.vscode-lldb \
-
 for EXTENSION in \
   ms-python.vscode-pylance \
   ms-python.vscode-python-envs; do

@@ -128,15 +128,15 @@ if [[ ${1:-} == 'vscode' ]]; then
 
     # aws
 
-    code --install-extension kddejong.vscode-cfn-lint --force
+    for EXTENSION in \
+      kddejong.vscode-cfn-lint \
+      redhat.vscode-yaml; do
+      code --install-extension $EXTENSION --force
+    done
 
     # work
 
-    for EXTENSION in \
-      bierner.markdown-mermaid \
-      kddejong.vscode-cfn-lint; do
-      code --install-extension $EXTENSION --force
-    done
+    code --install-extension cucumberopen.cucumber-official --force
 
   fi
 
