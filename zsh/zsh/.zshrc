@@ -507,16 +507,6 @@ zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/claude
 
 export COPILOT_HOME=$XDG_CONFIG_HOME/copilot
 
-# alias copilot="copilot \
-#   --deny-tool 'read(.env)' \
-#   --deny-tool 'read(.secret)' \
-#   --deny-tool 'read(.secrets)' \
-#   --deny-tool 'read(.zshenv)' \
-#   --deny-tool 'read(~/.ssh)' \
-#   --deny-tool 'read(~/code/keys)' \
-#   --deny-tool 'read(credentials)' \
-#   --deny-tool 'read(settings.xml)'"
-
 # docker
 
 export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
