@@ -43,8 +43,10 @@ rm -rf "$XDG_STATE_HOME"/tensaku/
 
 # vscode
 
-rm -rf "$XDG_CACHE_HOME"/copilot/
-rm -rf "$XDG_CONFIG_HOME"/copilot/
+if [[ ${1:-} == 'deep' ]]; then
+  rm -rf "$XDG_CACHE_HOME"/copilot/
+  rm -rf "$XDG_CONFIG_HOME"/copilot/
+fi
 
 # wget
 
@@ -52,7 +54,9 @@ rm -f ~/.wget-hsts
 
 # zed
 
-rm -rf "$XDG_CACHE_HOME"/zed/
+if [[ ${1:-} == 'deep' ]]; then
+  rm -rf "$XDG_CACHE_HOME"/zed/
+fi
 
 # zsh
 
