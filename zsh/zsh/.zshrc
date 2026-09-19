@@ -138,7 +138,7 @@ zle -N delete-surround surround
 zle -N change-surround surround
 
 for keymap in viopp visual; do
-  for sequence in {a,i}${(s..)^:-'()[]{}<>bB'}; do bindkey -M $keymap $sequence select-bracketed; done # https://github.com/z-shell/zsh-lint/issues/196
+  for sequence in {a,i}${(s..)^:-'()[]{}<>bB'}; do bindkey -M "$keymap" "$sequence" select-bracketed; done
   for sequence in {a,i}{\',\",\`}; do bindkey -M "$keymap" "$sequence" select-quoted; done
 done
 
