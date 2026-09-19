@@ -14,18 +14,19 @@ theme = gruvbox-material-dark
 
 cursor-style = bar
 
-# https://github.com/ghostty-org/ghostty/discussions/11342
-# https://github.com/ghostty-org/ghostty/discussions/5362
-# https://github.com/ghostty-org/ghostty/discussions/9974
+# fix switching tmux panes with mouse - not needed for 1.4.0
 cursor-click-to-move = false
 
 mouse-hide-while-typing = true
 
 background-opacity = 0.95
+# will work on GNOME 51 which supports ext-background-effect-v1 Wayland protocol
+background-blur = true
 
 unfocused-split-opacity = 0.9
 unfocused-split-fill = #000000
 
+# rename to scrollback-limit-lines for 1.4.0
 scrollback-limit = 10000
 
 keybind = clear
@@ -65,6 +66,7 @@ keybind = ctrl+shift+t=text:\x1b[116;6u
 
 window-padding-x = 8
 window-padding-y = 8
+# change equal for 1.4.0
 window-padding-balance = true
 
 window-theme = ghostty
