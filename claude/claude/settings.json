@@ -187,9 +187,9 @@
         "~/"
       ],
       "allowRead": [
-        "~/code/apsis",
         "~/.config/zsh",
-        "~/.local/share/mise"
+        "~/.local/share/mise",
+        "~/code/apsis"
       ]
     },
     "credentials": {
