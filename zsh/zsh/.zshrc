@@ -762,6 +762,11 @@ zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/zoxide
 zi ice atload'source $XDG_CONFIG_HOME/zsh/.p10k.zsh' depth'1' lucid nocd nocompletions
 zi light romkatv/powerlevel10k
 
+# starship
+
+# export STARSHIP_CONFIG="$XDG_CONFIG_HOME"/starship/starship.toml
+# eval "$(starship init zsh)" # zsh-lint disable=security/eval
+
 # completion (continued)
 
 # https://wiki.zshell.dev/docs/guides/commands#calling-compinit-with-turbo-mode
@@ -772,3 +777,4 @@ zi ice atload'zicdreplay' lucid nocompletions wait'0' && zi light "$ZDOTDIR"/zic
 if [[ -n $ZI_BOOTSTRAP ]]; then
   zi ice lucid nocompletions wait'2' && zi light "$ZDOTDIR"/exit
 fi
+
