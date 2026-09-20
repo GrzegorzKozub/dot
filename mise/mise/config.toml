@@ -2,6 +2,9 @@
 
 idiomatic_version_file_enable_tools = ["bun", "node"] # dotnet
 
+  [settings.upgrade]
+  prune_after = "0s"
+
 [tools]
 
 bun = "latest"
