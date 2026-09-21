@@ -254,5 +254,7 @@
   "skipWorkflowUsageWarning": true,
   "theme": "custom:gruvbox-material-dark",
   "editorMode": "vim",
-  "teammateMode": "tmux"
+  "teammateMode": "tmux",
+  "syncClaudeAiSkills": false,
+  "syncClaudeAiPlugins": false
 }
