@@ -188,6 +188,7 @@
       ],
       "allowRead": [
         "~/.config/zsh",
+        "~/.local/share/mcp-inspector",
         "~/.local/share/mise",
         "~/code/apsis"
       ]
