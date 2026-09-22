@@ -130,6 +130,14 @@ my-bindkey '^[[1;5B' down-line-or-beginning-search # ctrl+down
 my-bindkey '^[[3~' delete-char # delete
 bindkey -M viins '^?' backward-delete-char # backspace
 
+insert-line() { LBUFFER+=$'\n' }
+zle -N insert-line
+my-bindkey '^[^M' insert-line # alt+enter inserts new line (without continuation prompt)
+
+# insert-or-accept-line() { [[ $BUFFER == *'\' ]] && zle insert-line || zle accept-line }
+# zle -N insert-or-accept-line
+# my-bindkey '^M' insert-or-accept-line # enter inserts new line after trailing \ else submits
+
 autoload -U select-bracketed select-quoted surround
 zle -N select-bracketed
 zle -N select-quoted
@@ -188,7 +196,6 @@ setopt SHORT_LOOPS
 
 WORDCHARS='' # non-alphanumeric chars not considered part of a word
 
-zle_bracketed_paste=() # don't select pasted text
 zle_highlight=(paste:none) # don't highlight pasted text
 
 setopt NO_BEEP
@@ -199,6 +206,8 @@ setopt NO_BEEP
 setopt NO_FLOW_CONTROL
 
 # prompt
+
+PS2='%F{8}> %f' # continuation prompt
 
 setopt PROMPT_SUBST
 
