@@ -1,5 +1,5 @@
 {
-  "active_pane_modifiers": { "inactive_opacity": 0.7 },
+  "active_pane_modifiers": { "inactive_opacity": 0.8 },
   "agent": {
     "default_height": 256,
     "default_model": {
@@ -10,6 +10,8 @@
     "default_profile": "write",
     "default_width": 512,
     "dock": "right",
+    "enable_feedback": false,
+    "max_content_width": 768,
     "tool_permissions": {
       "tools": {
         "edit_file": {
@@ -45,11 +47,16 @@
   "buffer_font_family": "Cascadia Code",
   "buffer_font_features": { "calt": true, "ss01": true },
   "buffer_font_size": 16,
-  "collaboration_panel": { "default_width": 256, "dock": "left" },
+  "collaboration_panel": {
+    "button": false,
+    "default_width": 256,
+    "dock": "left",
+  },
   "completions": { "words_min_length": 4 },
   "cli_default_open_behavior": "new_window",
   "current_line_highlight": "line",
   "cursor_blink": false,
+  "diagnostics": { "inline": { "padding": 2 } },
   "edit_predictions": {
     "disabled_globs": [
       "//**/*.*env",
@@ -70,8 +77,11 @@
   },
   "expand_excerpt_lines": 4,
   "file_finder": { "modal_max_width": "medium" },
+  "file_scan_depth": 4,
   "format_on_save": "on",
-  "git": { "inline_blame": { "enabled": false } },
+  "git": {
+    "inline_blame": { "enabled": true, "location": "status_bar", "padding": 2 },
+  },
   "git_panel": { "default_width": 256, "dock": "left" },
   "gutter": { "min_line_number_digits": 3 },
   "horizontal_scroll_margin": 8,
@@ -219,7 +229,7 @@
       },
     },
   },
-  "minimum_split_diff_width": 128.0,
+  "minimum_split_diff_width": 128,
   "mouse_wheel_zoom": true,
   "outline_panel": {
     "default_width": 256,
@@ -245,13 +255,16 @@
   ],
   "project_panel": {
     "default_width": 256,
+    "diagnostic_badges": true,
     "dock": "left",
+    "git_status_indicator": true,
     "indent_guides": { "show": "never" },
     "indent_size": 8,
   },
   "restore_on_startup": "launchpad",
   "session": { "trust_all_worktrees": true },
   "show_whitespaces": "trailing",
+  "status_bar": { "line_endings_button": true },
   "sticky_scroll": { "enabled": true },
   "tab_bar": { "show_nav_history_buttons": false },
   "tab_size": 2,
@@ -259,6 +272,7 @@
   "telemetry": { "diagnostics": false, "metrics": false },
   "terminal": {
     "copy_on_select": true,
+    "cursor_shape": "bar",
     "default_height": 256,
     "default_width": 512,
     "font_size": 16,
@@ -270,8 +284,10 @@
     "light": "Gruvbox Material Flat Light",
     "mode": "dark",
   },
+  "title_bar": { "show_onboarding_banner": false },
   "toolbar": { "code_actions": true },
   "ui_font_size": 16,
+  "use_smartcase_search": true,
   "vertical_scroll_margin": 4,
   "vim_mode": false,
   "which_key": { "enabled": true },
