@@ -123,7 +123,7 @@
   "expand_excerpt_lines": 4,
   "file_finder": { "modal_max_width": "medium" },
   "file_scan_depth": 4,
-  "format_on_save": "on",
+  "format_on_save": "modifications_if_available",
   "git": {
     "inline_blame": { "enabled": true, "location": "status_bar", "padding": 2 },
   },
