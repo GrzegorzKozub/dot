@@ -4,8 +4,8 @@
     "default_height": 256,
     "default_model": {
       "enable_thinking": false,
-      "model": "llama",
-      "provider": "llama",
+      "model": "unsloth/Qwen3.5-9B-GGUF:UD-Q4_K_XL",
+      "provider": "llama.cpp",
     },
     "default_profile": "write",
     "default_width": 512,
@@ -137,14 +137,6 @@
   },
   "indent_guides": { "enabled": false },
   "journal": { "hour_format": "hour24" },
-  "language_models": {
-    "openai_compatible": {
-      "llama": {
-        "api_url": "http://127.0.0.1:8080/v1",
-        "available_models": [{ "max_tokens": 32768, "name": "llama" }],
-      },
-    },
-  },
   "languages": {
     "Go": { "language_servers": ["gopls", "golangci-lint"] },
     "JavaScript": {

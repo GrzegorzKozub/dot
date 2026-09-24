@@ -757,7 +757,7 @@ fi
 alias z='zeditor .'
 alias zed='zeditor .'
 
-export LLAMA_API_KEY='foo' # https://zed.dev/docs/ai/use-api-access
+export LLAMACPP_API_KEY='foo' # https://zed.dev/docs/ai/use-a-local-model#llama-cpp
 
 # zoxide
 
