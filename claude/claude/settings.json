@@ -163,6 +163,19 @@
     "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\"",
     "hideVimModeIndicator": true
   },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_CONFIG_DIR/sandbox.sh\""
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "lsp@greg": true,
     "mcp@greg": true

@@ -18,6 +18,7 @@ claude/**
 !claude/claude/keybindings.json
 !claude/claude/settings.json
 !claude/claude/settings-work.json
+!claude/claude/sandbox.sh
 !claude/claude/statusline.sh
 
 !claude/claude/themes/gruvbox-material-dark.json

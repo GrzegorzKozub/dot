@@ -41,7 +41,7 @@ fi
 
 ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
 
-FILES=(keybindings.json statusline.sh settings.json)
+FILES=(keybindings.json sandbox.sh settings.json statusline.sh)
 [[ $HOST == 'worker' ]] && FILES+=(settings-work.json)
 
 for FILE in "${FILES[@]}"; do
