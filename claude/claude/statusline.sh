@@ -91,9 +91,9 @@ fi
 
 IFS='|' read -r BRANCH TAG BEHIND AHEAD CONFLICTED STAGED UNSTAGED UNTRACKED < "$CACHE_FILE"
 
+((${#WORKTREE} > 16)) && WORKTREE="${WORKTREE:0:15}…"
 ((${#BRANCH} > 16)) && BRANCH="${BRANCH:0:15}…"
 ((${#TAG} > 16)) && TAG="${TAG:0:15}…"
-((${#WORKTREE} > 16)) && WORKTREE="${WORKTREE:0:15}…"
 
 PARTS=()
 
@@ -114,6 +114,11 @@ CWD="${DIR/#$HOME/\~}"
 printf -v P '\e[36m%s\e[0m' "$CWD"
 PARTS+=("$P")
 
+if [[ -n $WORKTREE ]]; then
+  printf -v P '\e[94m%s\e[0m' "$WORKTREE"
+  PARTS+=("$P")
+fi
+
 if [[ -n $BRANCH ]]; then
   if [[ -n $TAG && $BRANCH == "$TAG" ]]; then
     printf -v GIT_STR '\e[35m%s\e[0m' "$BRANCH"
@@ -129,11 +134,6 @@ if [[ -n $BRANCH ]]; then
   if ((UNSTAGED > 0)); then printf -v P '\e[33m~%d\e[0m' "$UNSTAGED"; GIT_STR+=" $P"; fi
   if ((UNTRACKED > 0)); then printf -v P '\e[31m*%d\e[0m' "$UNTRACKED"; GIT_STR+=" $P"; fi
   PARTS+=("$GIT_STR")
-fi
-
-if [[ -n $WORKTREE ]]; then
-  printf -v P '\e[35m%s\e[0m' "$WORKTREE"
-  PARTS+=("$P")
 fi
 
 if [[ -n $USED ]]; then

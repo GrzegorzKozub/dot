@@ -91,7 +91,20 @@
     local icon_untracked='*'
 
     local prompt
+
+    local worktree
     local branch_or_tag
+
+    local file="${VCS_STATUS_WORKDIR}/.git"
+    if [[ -f $file ]]; then
+      local line=$(<$file)
+      if [[ $line == gitdir:*/worktrees/* ]]; then
+        worktree=${line##*/worktrees/}
+        worktree=${worktree%%$'\n'*}
+        (( $#worktree > 16 )) && worktree[16,-1]='…'
+        prompt+="%F{12}${worktree//\%/%%}%f "
+      fi
+    fi
 
     if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
       prompt+='%4F'
