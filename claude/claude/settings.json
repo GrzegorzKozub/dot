@@ -135,7 +135,9 @@
       "Edit(//**/*.secret)",
       "Edit(//**/*credentials)",
       "Edit(//**/*settings.xml)",
+      "Edit(//**/.gnupg/**)",
       "Edit(//**/.secrets/**)",
+      "Edit(//**/.ssh/**)",
       "Edit(//**/BraveSoftware/**)",
       "Edit(//**/keys/**)",
       "Edit(//**/pass/**)",
@@ -149,7 +151,9 @@
       "Read(//**/*.secret)",
       "Read(//**/*credentials)",
       "Read(//**/*settings.xml)",
+      "Read(//**/.gnupg/**)",
       "Read(//**/.secrets/**)",
+      "Read(//**/.ssh/**)",
       "Read(//**/BraveSoftware/**)",
       "Read(//**/keys/**)",
       "Read(//**/pass/**)"
@@ -203,12 +207,9 @@
       ],
       "denyRead": [
         "/run/media",
-        "~/",
-        "~/.aws/credentials"
+        "~/"
       ],
       "allowRead": [
-        "~/.aws",
-        "~/.config/zsh",
         "~/.local/share/mcp-inspector",
         "~/.local/share/mise",
         "~/code/apsis"
@@ -230,6 +231,10 @@
         }
       ],
       "envVars": [
+        {
+          "name": "COPILOT_GITHUB_TOKEN",
+          "mode": "deny"
+        },
         {
           "name": "GITHUB_TOKEN",
           "mode": "deny"
