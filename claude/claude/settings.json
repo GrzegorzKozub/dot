@@ -23,6 +23,7 @@
       "Bash(eslint:*)",
       "Bash(file:*)",
       "Bash(gh api:*)",
+      "Bash(gh auth status)",
       "Bash(gh issue list:*)",
       "Bash(gh issue view:*)",
       "Bash(gh pr checks:*)",
@@ -33,7 +34,6 @@
       "Bash(gh run list:*)",
       "Bash(gh run view:*)",
       "Bash(gh search:*)",
-      "Bash(git -C:*)",
       "Bash(git clone:*)",
       "Bash(git fetch:*)",
       "Bash(git pull:*)",
@@ -89,7 +89,13 @@
       "Bash(dotnet nuget push:*)",
       "Bash(dotnet tool install --global:*)",
       "Bash(dotnet tool install -g:*)",
-      "Bash(gh auth:*)",
+      "Bash(gh auth login*)",
+      "Bash(gh auth logout*)",
+      "Bash(gh auth refresh*)",
+      "Bash(gh auth setup-git*)",
+      "Bash(gh auth status -*)",
+      "Bash(gh auth switch*)",
+      "Bash(gh auth token*)",
       "Bash(gh secret:*)",
       "Bash(git checkout .)",
       "Bash(git config --global:*)",
@@ -184,9 +190,11 @@
       ],
       "denyRead": [
         "/run/media",
-        "~/"
+        "~/",
+        "~/.aws/credentials"
       ],
       "allowRead": [
+        "~/.aws",
         "~/.config/zsh",
         "~/.local/share/mcp-inspector",
         "~/.local/share/mise",
@@ -240,6 +248,7 @@
       ]
     },
     "excludedCommands": [
+      "auth0 *",
       "aws *",
       "docker *",
       "gh *",
