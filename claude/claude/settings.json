@@ -158,7 +158,8 @@
       "Read(//**/keys/**)",
       "Read(//**/pass/**)"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "acceptEdits",
+    "blockReadsOutsideWorkingDirectories": true
   },
   "model": "sonnet",
   "disableRemoteControl": true,
@@ -284,5 +285,6 @@
   "editorMode": "vim",
   "teammateMode": "tmux",
   "syncClaudeAiSkills": false,
-  "syncClaudeAiPlugins": false
+  "syncClaudeAiPlugins": false,
+  "timeFormat": "24-hour"
 }

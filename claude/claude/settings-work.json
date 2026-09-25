@@ -18,7 +18,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "enabledPlugins": {
     "apsis-implement@apsis": true,
     "apsis-jira-creator@apsis": true,
