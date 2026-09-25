@@ -1,11 +1,29 @@
 #!/usr/bin/env bash
 set -eo pipefail -u
 
-# PreToolUse: block edits in the main checkout of repos under ~/code/apsis
+# PreToolUse: under ~/code/apsis, block edits in main checkouts and uppercase worktree names
 
 ROOT=$HOME/code/apsis
+ADD='git[[:space:]]+worktree[[:space:]]+add'
+UPPER='(\.worktrees/|-[bB][[:space:]]+)[^[:space:]]*[A-Z]'
 
-FILE=$(jq -r '.tool_input.file_path // .tool_input.notebook_path // ""')
+INPUT=$(cat)
+
+CMD=$(jq -r '.tool_input.command // ""' <<< "$INPUT")
+if [[ -n $CMD ]]; then
+  [[ $(jq -r '.cwd // ""' <<< "$INPUT") == "$ROOT"* ]] || exit 0
+  [[ $CMD =~ $ADD && $CMD =~ $UPPER ]] || exit 0
+  read -ra W <<< "$CMD"
+  for I in "${!W[@]}"; do
+    if [[ ${W[I]} == .worktrees/* ]] || { ((I > 0)) && [[ ${W[I - 1]} == -[bB] ]]; }; then
+      W[I]=${W[I],,}
+    fi
+  done
+  echo "Use the lowercase Jira key in the worktree path and branch: ${W[*]}" >&2
+  exit 2
+fi
+
+FILE=$(jq -r '.tool_input.file_path // .tool_input.notebook_path // ""' <<< "$INPUT")
 [[ $FILE == "$ROOT"/* ]] || exit 0
 
 DIR=$(dirname "$FILE")
