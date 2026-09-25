@@ -28,6 +28,19 @@
     "defaultMode": "auto"
   },
   "model": "opus",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_CONFIG_DIR/worktree.sh\""
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "apsis-implement@apsis": true,
     "apsis-jira-creator@apsis": true,

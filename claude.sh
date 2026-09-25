@@ -42,7 +42,7 @@ fi
 ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
 
 FILES=(keybindings.json sandbox.sh settings.json statusline.sh)
-[[ $HOST == 'worker' ]] && FILES+=(settings-work.json)
+[[ $HOST == 'worker' ]] && FILES+=(settings-work.json worktree.sh)
 
 for FILE in "${FILES[@]}"; do
   ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/"$FILE" \

@@ -20,6 +20,7 @@ claude/**
 !claude/claude/settings-work.json
 !claude/claude/sandbox.sh
 !claude/claude/statusline.sh
+!claude/claude/worktree.sh
 
 !claude/claude/themes/gruvbox-material-dark.json
 
