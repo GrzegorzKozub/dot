@@ -72,6 +72,7 @@
   },
   "auto_install_extensions": {
     "catppuccin-icons": true,
+    "codebook": true,
     "csharp": false,
     "docker-compose": true,
     "dockerfile": true,
