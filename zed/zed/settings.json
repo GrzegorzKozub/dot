@@ -14,76 +14,20 @@
     "max_content_width": 768,
     "tool_permissions": {
       "tools": {
-        "copy_path": {
-          "always_deny": [
-            { "pattern": "(\\.gnupg|\\.ssh)/" },
-            { "pattern": "(\\.secrets|keys|pass|BraveSoftware)/" },
-            { "pattern": "(credentials|settings.xml)$" },
-            { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
-            { "pattern": "\\.aws/credentials$" },
-            { "pattern": "env$" },
-          ],
-        },
         "create_directory": { "default": "allow" },
-        "delete_path": {
-          "always_deny": [
-            { "pattern": "(\\.gnupg|\\.ssh)/" },
-            { "pattern": "(\\.secrets|keys|pass|BraveSoftware)/" },
-            { "pattern": "(credentials|settings.xml)$" },
-            { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
-            { "pattern": "\\.aws/credentials$" },
-            { "pattern": "env$" },
-          ],
-        },
-        "edit_file": {
-          "always_deny": [
-            { "pattern": "(\\.gnupg|\\.ssh)/" },
-            { "pattern": "(\\.secrets|keys|pass|BraveSoftware)/" },
-            { "pattern": "(credentials|settings.xml)$" },
-            { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
-            { "pattern": "\\.aws/credentials$" },
-            { "pattern": "env$" },
-          ],
-        },
         "fetch": { "default": "allow" },
-        "move_path": {
-          "always_deny": [
-            { "pattern": "(\\.gnupg|\\.ssh)/" },
-            { "pattern": "(\\.secrets|keys|pass|BraveSoftware)/" },
-            { "pattern": "(credentials|settings.xml)$" },
-            { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
-            { "pattern": "\\.aws/credentials$" },
-            { "pattern": "env$" },
-          ],
-        },
         "search_web": { "default": "allow" },
-        "write_file": {
-          "always_deny": [
-            { "pattern": "(\\.gnupg|\\.ssh)/" },
-            { "pattern": "(\\.secrets|keys|pass|BraveSoftware)/" },
-            { "pattern": "(credentials|settings.xml)$" },
-            { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
-            { "pattern": "\\.aws/credentials$" },
-            { "pattern": "env$" },
-          ],
-        },
       },
     },
   },
   "auto_install_extensions": {
     "catppuccin-icons": true,
-    "csharp": false,
-    "docker-compose": true,
-    "dockerfile": true,
     "env": true,
     "git-firefly": true,
     "golangci-lint": true,
     "html": true,
-    "java": false,
     "lua": true,
-    "sql": true,
     "symbols": true,
-    "terraform": false,
     "toml": true,
     "xml": true,
   },
@@ -160,19 +104,6 @@
     },
     "Python": { "tab_size": 4 },
     "Rust": { "tab_size": 4 },
-    "Shell Script": {
-      "formatter": {
-        "external": {
-          "command": "shfmt",
-          "arguments": ["--filename", "{buffer_path}"],
-        },
-      },
-    },
-    // "Terraform": {
-    //   "formatter": {
-    //     "external": { "command": "terraform", "arguments": ["fmt", "-"] },
-    //   },
-    // },
     "TypeScript": {
       "formatter": [
         {
@@ -211,17 +142,6 @@
         },
       },
     },
-    // "jdtls": {
-    //   "initialization_options": {
-    //     "settings": {
-    //       "java": {
-    //         "configuration": {
-    //           "maven": { "userSettings": "~/.config/maven/settings.xml" },
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
     "rust-analyzer": {
       "initialization_options": {
         "check": { "command": "clippy" },
@@ -238,11 +158,6 @@
         },
       },
     },
-    // "terraform-ls": {
-    //   "initialization_options": {
-    //     "experimentalFeatures": { "prefillRequiredFields": true },
-    //   },
-    // },
     "typescript-language-server": {
       "initialization_options": {
         "preferences": {
@@ -275,21 +190,6 @@
     "indent_guides": { "show": "never" },
     "indent_size": 8,
   },
-  "private_files": [
-    "//**/*.*env",
-    "//**/*.cert",
-    "//**/*.crt",
-    "//**/*.env",
-    "//**/*.key",
-    "//**/*.ovpn",
-    "//**/*.pem",
-    "//**/*.secret",
-    "//**/*credentials",
-    "//**/*settings.xml",
-    "//**/.secrets/**",
-    "//**/keys/**",
-    "//**/pass/**",
-  ],
   "project_panel": {
     "default_width": 256,
     "diagnostic_badges": true,
@@ -329,4 +229,192 @@
   "vim_mode": false,
   "which_key": { "enabled": true },
   "wrap_guides": [80],
+
+  // linux
+
+  "linux": {
+    "agent": {
+      "tool_permissions": {
+        "tools": {
+          "copy_path": {
+            "always_deny": [
+              { "pattern": "(\\.gnupg|\\.ssh)/" },
+              { "pattern": "(\\.secrets|BraveSoftware|keys|pass)/" },
+              { "pattern": "(credentials|settings.xml)$" },
+              { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
+              { "pattern": "\\.aws/credentials$" },
+              { "pattern": "env$" },
+            ],
+          },
+          "delete_path": {
+            "always_deny": [
+              { "pattern": "(\\.gnupg|\\.ssh)/" },
+              { "pattern": "(\\.secrets|BraveSoftware|keys|pass)/" },
+              { "pattern": "(credentials|settings.xml)$" },
+              { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
+              { "pattern": "\\.aws/credentials$" },
+              { "pattern": "env$" },
+            ],
+          },
+          "edit_file": {
+            "always_deny": [
+              { "pattern": "(\\.gnupg|\\.ssh)/" },
+              { "pattern": "(\\.secrets|BraveSoftware|keys|pass)/" },
+              { "pattern": "(credentials|settings.xml)$" },
+              { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
+              { "pattern": "\\.aws/credentials$" },
+              { "pattern": "env$" },
+            ],
+          },
+          "move_path": {
+            "always_deny": [
+              { "pattern": "(\\.gnupg|\\.ssh)/" },
+              { "pattern": "(\\.secrets|BraveSoftware|keys|pass)/" },
+              { "pattern": "(credentials|settings.xml)$" },
+              { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
+              { "pattern": "\\.aws/credentials$" },
+              { "pattern": "env$" },
+            ],
+          },
+          "write_file": {
+            "always_deny": [
+              { "pattern": "(\\.gnupg|\\.ssh)/" },
+              { "pattern": "(\\.secrets|BraveSoftware|keys|pass)/" },
+              { "pattern": "(credentials|settings.xml)$" },
+              { "pattern": "\\.(cert|crt|env|key|ovpn|pem|secret)$" },
+              { "pattern": "\\.aws/credentials$" },
+              { "pattern": "env$" },
+            ],
+          },
+        },
+      },
+    },
+    "auto_install_extensions": {
+      "csharp": false,
+      "docker-compose": true,
+      "dockerfile": true,
+      "java": false,
+      "sql": true,
+      "symbols": true,
+      "terraform": false,
+      "toml": true,
+      "xml": true,
+    },
+    "languages": {
+      "Shell Script": {
+        "formatter": {
+          "external": {
+            "command": "shfmt",
+            "arguments": ["--filename", "{buffer_path}"],
+          },
+        },
+      },
+      // "Terraform": {
+      //   "formatter": {
+      //     "external": { "command": "terraform", "arguments": ["fmt", "-"] },
+      //   },
+      // },
+    },
+    "lsp": {
+      // "jdtls": {
+      //   "initialization_options": {
+      //     "settings": {
+      //       "java": {
+      //         "configuration": {
+      //           "maven": { "userSettings": "~/.config/maven/settings.xml" },
+      //         },
+      //       },
+      //     },
+      //   },
+      // },
+      // "terraform-ls": {
+      //   "initialization_options": {
+      //     "experimentalFeatures": { "prefillRequiredFields": true },
+      //   },
+      // },
+    },
+    "private_files": [
+      "//**/*.*env",
+      "//**/*.cert",
+      "//**/*.crt",
+      "//**/*.env",
+      "//**/*.key",
+      "//**/*.ovpn",
+      "//**/*.pem",
+      "//**/*.secret",
+      "//**/*credentials",
+      "//**/*settings.xml",
+      "//**/.secrets/**",
+      "//**/BraveSoftware/**",
+      "//**/keys/**",
+      "//**/pass/**",
+    ],
+  },
+
+  // windows
+
+  "windows": {
+    "agent": {
+      "tool_permissions": {
+        "tools": {
+          "copy_path": {
+            "always_deny": [
+              { "pattern": "(\\.ssh)/" },
+              { "pattern": "(\\BraveSoftware|keys|pass)/" },
+              { "pattern": "\\.(cert|crt|env|key|pem)$" },
+              { "pattern": "env$" },
+            ],
+          },
+          "delete_path": {
+            "always_deny": [
+              { "pattern": "(\\.ssh)/" },
+              { "pattern": "(\\BraveSoftware|keys|pass)/" },
+              { "pattern": "\\.(cert|crt|env|key|pem)$" },
+              { "pattern": "env$" },
+            ],
+          },
+          "edit_file": {
+            "always_deny": [
+              { "pattern": "(\\.ssh)/" },
+              { "pattern": "(\\BraveSoftware|keys|pass)/" },
+              { "pattern": "\\.(cert|crt|env|key|pem)$" },
+              { "pattern": "env$" },
+            ],
+          },
+          "move_path": {
+            "always_deny": [
+              { "pattern": "(\\.ssh)/" },
+              { "pattern": "(\\BraveSoftware|keys|pass)/" },
+              { "pattern": "\\.(cert|crt|env|key|pem)$" },
+              { "pattern": "env$" },
+            ],
+          },
+          "write_file": {
+            "always_deny": [
+              { "pattern": "(\\.ssh)/" },
+              { "pattern": "(\\BraveSoftware|keys|pass)/" },
+              { "pattern": "\\.(cert|crt|env|key|pem)$" },
+              { "pattern": "env$" },
+            ],
+          },
+        },
+      },
+    },
+    "private_files": [
+      "//**/*.*env",
+      "//**/*.cert",
+      "//**/*.crt",
+      "//**/*.env",
+      "//**/*.key",
+      "//**/*.pem",
+      "//**/BraveSoftware/**",
+      "//**/keys/**",
+      "//**/pass/**",
+    ],
+    "terminal": {
+      "shell": {
+        "with_arguments": { "program": "pwsh.exe", "args": ["-NoLogo"] },
+      },
+    },
+  },
 }
