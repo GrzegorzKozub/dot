@@ -212,6 +212,7 @@
     "cursor_shape": "bar",
     "default_height": 256,
     "default_width": 512,
+    "font_family": "Cascadia Code NF",
     "font_size": 16,
     "line_height": "standard",
     "minimum_contrast": 0,
