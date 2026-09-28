@@ -145,6 +145,10 @@ voxtype/voxtype/config.toml.bak
 
 /yazi/yazi
 
+# zed (nested repo)
+
+/zed/zed
+
 # zsh
 
 zsh/zsh/.zcompdump

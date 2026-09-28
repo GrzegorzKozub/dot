@@ -9,6 +9,7 @@ declare -A REPOS=(
   ["nvim/nvim"]="$GH/nvim.git"
   ["vscode/user-data"]="$GH/vscode.git"
   ["yazi/yazi"]="$GH/yazi.git"
+  ["zed/zed"]="$GH/zed.git"
 )
 
 for CLONE in "${!REPOS[@]}"; do
