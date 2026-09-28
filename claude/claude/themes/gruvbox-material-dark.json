@@ -2,6 +2,7 @@
   "name": "gruvbox-material-dark",
   "base": "dark-ansi",
   "overrides": {
+    "composerSidebarBackground": "ansi:black",
     "permission": "ansi:white",
     "permissionShimmer": "ansi:white",
     "promptBorder": "ansi:blackBright",
