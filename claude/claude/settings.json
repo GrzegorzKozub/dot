@@ -1,4 +1,6 @@
 {
+  "syncClaudeAiSkills": false,
+  "syncClaudeAiPlugins": false,
   "env": {
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": "1",
@@ -268,11 +270,9 @@
   "effortLevel": "medium",
   "awaySummaryEnabled": false,
   "tui": "fullscreen",
+  "timeFormat": "24-hour",
   "skipWorkflowUsageWarning": true,
   "theme": "custom:gruvbox-material-dark",
   "editorMode": "vim",
-  "teammateMode": "tmux",
-  "syncClaudeAiSkills": false,
-  "syncClaudeAiPlugins": false,
-  "timeFormat": "24-hour"
+  "teammateMode": "tmux"
 }
