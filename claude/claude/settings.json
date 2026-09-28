@@ -159,7 +159,7 @@
       "Read(//**/pass/**)"
     ],
     "defaultMode": "acceptEdits",
-    "blockReadsOutsideWorkingDirectories": true
+    "blockReadsOutsideWorkingDirectories": false
   },
   "model": "sonnet",
   "disableRemoteControl": true,
@@ -167,19 +167,6 @@
     "type": "command",
     "command": "bash \"$CLAUDE_CONFIG_DIR/statusline.sh\"",
     "hideVimModeIndicator": true
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash \"$CLAUDE_CONFIG_DIR/sandbox.sh\""
-          }
-        ]
-      }
-    ]
   },
   "enabledPlugins": {
     "lsp@greg": true,
@@ -196,7 +183,7 @@
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,
-    "allowUnsandboxedCommands": false,
+    "allowUnsandboxedCommands": true,
     "filesystem": {
       "allowWrite": [
         ".",
