@@ -9,9 +9,10 @@ SUBST="\\\$\\(|\`"
 BARE="^($TOOLS)([[:space:]]|$)"
 REDIR='[<>]'
 GITDIR='^git[[:space:]]+(-C|-c|--git-dir|--work-tree)'
+AWSFLAG='^aws[[:space:]].*--(profile|endpoint-url)([[:space:]=]|$)'
 
 deny() {
-  echo "Runs sandboxed ($1), so $TOOLS can't read their credentials. Use one bare command per call: no pipes, ;, cd, env prefix, \$(...), file redirects or git -C/-c/--git-dir. Filter with --jq/--query, cd in its own call, pass text via files under the working dir." >&2
+  echo "Runs sandboxed ($1), so $TOOLS can't read their credentials. ${2:-Use one bare command per call: no pipes, ;, cd, env prefix, \$(...), file redirects or git -C/-c/--git-dir. Filter with --jq/--query, cd in its own call, pass text via files under the working dir.}" >&2
   exit 2
 }
 
@@ -32,6 +33,7 @@ while read -r P; do
   [[ $P =~ $BARE ]] || deny "\`${P%% *}\` is not excluded"
   [[ $P =~ $REDIR ]] && deny 'file redirection'
   [[ $P =~ $GITDIR ]] && deny 'git path flag'
+  [[ $P =~ $AWSFLAG ]] && deny 'aws --profile/--endpoint-url, anthropics/claude-code#97810' "Don't retry or work around it: ask the user to run the same command with ! in front."
 done <<< "$S"
 
 exit 0
