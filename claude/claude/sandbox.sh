@@ -3,7 +3,7 @@ set -eo pipefail -u
 
 # PreToolUse: block Bash calls that won't escape the sandbox via excludedCommands
 
-TOOLS='auth0|aws|docker|gh|git|podman|scp|ssh'
+TOOLS='auth0|aws|docker|fetch|gh|git|podman|scp|ssh'
 USES="(^|[;&|(\`]|\\\$\\()[[:space:]]*([[:alnum:]_]+=[^[:space:]]*[[:space:]]+)*($TOOLS)([[:space:]]|$)"
 SUBST="\\\$\\(|\`"
 BARE="^($TOOLS)([[:space:]]|$)"

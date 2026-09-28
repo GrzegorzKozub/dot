@@ -270,6 +270,7 @@
       "auth0 *",
       "aws *",
       "docker *",
+      "fetch *",
       "gh *",
       "git *",
       "podman *",
