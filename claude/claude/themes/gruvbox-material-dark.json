@@ -2,51 +2,58 @@
   "name": "gruvbox-material-dark",
   "base": "dark-ansi",
   "overrides": {
+    "clawd_body": "#c35e0a",
     "clawd_background": "ansi256(256)",
-    "clawd_body": "ansi:red",
 
-    "composerSidebarBackground": "ansi256(256)",
-    "bashMessageBackgroundColor": "ansi256(256)",
+    "claude": "#c35e0a",
+    "claudeShimmer": "#c35e0a",
+    "claudeBlue_FOR_SYSTEM_SPINNER": "#c35e0a",
+    "claudeBlueShimmer_FOR_SYSTEM_SPINNER": "#c35e0a",
 
-    "bashBorder": "ansi:magenta",
-    "permission": "ansi:white",
-    "permissionShimmer": "ansi:white",
-    "planMode": "ansi:green",
     "promptBorder": "ansi:blackBright",
-    "promptBorderShimmer": "ansi:white",
-    "selectionBg": "ansi:blackBright",
+    "promptBorderShimmer": "ansi:blackBright",
+
+    "error": "ansi:redBright",
+    "success": "ansi:greenBright",
+    "warning": "ansi:yellowBright",
+    "warningShimmer": "ansi:yellowBright",
+
+    "autoAccept": "ansi:magentaBright",
+    "planMode": "ansi:greenBright",
+
+    "effortUltra": "ansi:redBright",
+
     "suggestion": "ansi:blueBright",
 
-    "rate_limit_fill": "ansi:magentaBright",
-    "rate_limit_empty": "ansi:black",
+    "userMessageBackground": "ansi256(256)",
+    "userMessageBackgroundHover": "ansi:black",
 
+    "selectionBg": "ansi:blackBright",
+
+    "bashBorder": "ansi:magentaBright",
+    "bashMessageBackgroundColor": "ansi256(256)",
+
+    "composerSidebarBackground": "ansi256(256)",
+
+    "diffAdded": "ansi256(256)",
+    "diffRemoved": "ansi256(256)",
+    "diffAddedDimmed": "ansi256(256)",
+    "diffRemovedDimmed": "ansi256(256)",
+    "diffAddedWord": "ansi256(256)",
+    "diffRemovedWord": "ansi256(256)",
     "text": "ansi:whiteBright",
     "inactive": "ansi:white",
     "inactiveShimmer": "ansi:white",
-    "inverseText": "ansi:black",
     "subtle": "ansi:blackBright",
-    "userMessageBackground": "ansi:black",
-    "userMessageBackgroundHover": "ansi:black",
 
-    "claude": "ansi:red",
-    "claudeShimmer": "ansi:redBright",
-    "claudeBlue_FOR_SYSTEM_SPINNER": "ansi:blue",
-    "claudeBlueShimmer_FOR_SYSTEM_SPINNER": "ansi:blueBright",
+    "permission": "ansi:blueBright",
+    "permissionShimmer": "ansi:blueBright",
+    "inverseText": "ansi:black",
 
-    "effortUltra": "ansi:red",
+    "remember": "ansi:blueBright",
 
-    "autoAccept": "ansi:magenta",
-    "error": "ansi:red",
-    "success": "ansi:green",
-    "warning": "ansi:yellow",
-    "warningShimmer": "ansi:yellowBright",
-
-    "diffAdded": "ansi:black",
-    "diffRemoved": "ansi:black",
-    "diffAddedDimmed": "ansi:black",
-    "diffRemovedDimmed": "ansi:black",
-    "diffAddedWord": "ansi:black",
-    "diffRemovedWord": "ansi:black",
+    "rate_limit_fill": "ansi:magentaBright",
+    "rate_limit_empty": "ansi256(256)",
 
     "blue_FOR_SUBAGENTS_ONLY": "ansi:blue",
     "cyan_FOR_SUBAGENTS_ONLY": "ansi:cyan",
@@ -57,19 +64,19 @@
     "red_FOR_SUBAGENTS_ONLY": "ansi:red",
     "yellow_FOR_SUBAGENTS_ONLY": "ansi:yellow",
 
-    "rainbow_blue": "ansi:blue",
+    "rainbow_blue": "ansi:blueBright",
     "rainbow_blue_shimmer": "ansi:blueBright",
-    "rainbow_green": "ansi:green",
+    "rainbow_green": "ansi:greenBright",
     "rainbow_green_shimmer": "ansi:greenBright",
-    "rainbow_indigo": "ansi:blue",
+    "rainbow_indigo": "ansi:blueBright",
     "rainbow_indigo_shimmer": "ansi:blueBright",
-    "rainbow_orange": "ansi:yellow",
+    "rainbow_orange": "ansi:yellowBright",
     "rainbow_orange_shimmer": "ansi:yellowBright",
-    "rainbow_red": "ansi:red",
+    "rainbow_red": "ansi:redBright",
     "rainbow_red_shimmer": "ansi:redBright",
-    "rainbow_violet": "ansi:magenta",
+    "rainbow_violet": "ansi:magentaBright",
     "rainbow_violet_shimmer": "ansi:magentaBright",
-    "rainbow_yellow": "ansi:yellow",
+    "rainbow_yellow": "ansi:yellowBright",
     "rainbow_yellow_shimmer": "ansi:yellowBright",
 
     "background": "ansi:redBright",
@@ -82,7 +89,6 @@
     "memoryBackgroundColor": "ansi:redBright",
     "merged": "ansi:redBright",
     "professionalBlue": "ansi:redBright",
-    "remember": "ansi:redBright",
     "skill": "ansi:redBright"
   }
 }
