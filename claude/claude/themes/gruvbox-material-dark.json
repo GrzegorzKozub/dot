@@ -30,6 +30,7 @@
 
     "selectionBg": "ansi:blackBright",
 
+    "background": "ansi:magentaBright",
     "bashBorder": "ansi:magentaBright",
     "bashMessageBackgroundColor": "ansi256(256)",
 
@@ -79,7 +80,6 @@
     "rainbow_yellow": "ansi:yellowBright",
     "rainbow_yellow_shimmer": "ansi:yellowBright",
 
-    "background": "ansi:redBright",
     "briefLabelClaude": "ansi:redBright",
     "briefLabelYou": "ansi:redBright",
     "chromeYellow": "ansi:redBright",
