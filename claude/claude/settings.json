@@ -264,7 +264,8 @@
       "git *",
       "podman *",
       "scp *",
-      "ssh *"
+      "ssh *",
+      "wt *"
     ]
   },
   "effortLevel": "medium",
