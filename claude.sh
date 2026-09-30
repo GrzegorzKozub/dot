@@ -78,11 +78,16 @@ if [[ $HOST == 'worker' ]]; then
 
 fi
 
-# instructions
+# instructions & rules
 
 if [[ $HOST == 'worker' ]]; then
 
+  mkdir -p "$XDG_CONFIG_HOME"/claude/rules
+
+  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/rules/greg.md \
+    "$XDG_CONFIG_HOME"/claude/rules/greg.md
+
   gh api repos/efficy-sa/apsis-shared-ai/contents/claude-code/CLAUDE.md \
-    --jq '.content' | base64 -d > "$XDG_CONFIG_HOME"/claude/CLAUDE.md
+    --jq '.content' | base64 -d > "$XDG_CONFIG_HOME"/claude/rules/apsis.md
 
 fi
