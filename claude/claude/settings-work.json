@@ -54,8 +54,7 @@
     "apsis-mcp-sonarqube@apsis": false,
     "apsis-mcp@apsis": false,
     "apsis-resolve@apsis": true,
-    "mcp@greg": false,
-    "superpowers@claude-plugins-official": true
+    "mcp@greg": false
   },
   "extraKnownMarketplaces": {
     "apsis": {

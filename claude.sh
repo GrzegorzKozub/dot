@@ -72,9 +72,15 @@ if [[ $HOST == 'worker' ]]; then
 
   npx --yes skills add mattpocock/skills \
     --agent claude-code --copy --global --yes \
-    --skill grill-me \
-    --skill grilling \
-    --skill handoff
+    --skill \
+      codebase-design \
+      grill-me \
+      grilling \
+      handoff \
+      improve-codebase-architecture \
+      tdd \
+      to-spec \
+      to-tickets
 
 fi
 
