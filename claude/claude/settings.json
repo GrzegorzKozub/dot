@@ -160,7 +160,7 @@
       "Read(//**/keys/**)",
       "Read(//**/pass/**)"
     ],
-    "defaultMode": "acceptEdits",
+    "defaultMode": "auto",
     "blockReadsOutsideWorkingDirectories": false
   },
   "model": "sonnet",
