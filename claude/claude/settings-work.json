@@ -52,7 +52,6 @@
     "apsis-mcp-pagerduty@apsis": true,
     "apsis-mcp-postgres@apsis": false,
     "apsis-mcp-sonarqube@apsis": false,
-    "apsis-mcp@apsis": false,
     "apsis-resolve@apsis": true,
     "mcp@greg": false
   },
