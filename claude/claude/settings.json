@@ -71,6 +71,7 @@
       "Bash(tsc:*)",
       "Bash(tsx:*)",
       "Bash(which:*)",
+      "Bash(wt *)",
       "Bash(yarn:*)",
       "WebFetch",
       "WebSearch",
