@@ -15,7 +15,7 @@ go = { version = "latest", postinstall = """
 """ }
 
 "go:github.com/go-delve/delve/cmd/dlv" = "latest"
-"go:github.com/z-shell/zsh-lint/cmd/zsh-lint" = "latest"
+"go:github.com/z-shell/zsh-lint/cmd/zsh-lint" = "1.3.0" # https://github.com/z-shell/zsh-lint/issues/653
 "go:golang.org/x/tools/cmd/goimports" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "go:honnef.co/go/tools/cmd/staticcheck" = "latest"
