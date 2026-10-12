@@ -10,24 +10,26 @@ mapfile -t FIELDS < <(jq -r '
       (.context_window.used_percentage // ""),
       (.context_window.context_window_size // ""),
       ((($u.input_tokens // 0) + ($u.cache_creation_input_tokens // 0) + ($u.cache_read_input_tokens // 0)) | if . > 0 then . else "" end),
-      (.cost.total_cost_usd // ""),
       .effort.level // "",
       .vim.mode // "",
       .session_id // "default",
       .agent.name // "",
-      .workspace.git_worktree // ""
+      .workspace.git_worktree // "",
+      (.rate_limits.five_hour.used_percentage // ""),
+      (.rate_limits.seven_day.used_percentage // "")
     )')
 DIR=${FIELDS[0]}
 MODEL=${FIELDS[1]}
 USED=${FIELDS[2]}
 MAX=${FIELDS[3]}
 CUR_IN=${FIELDS[4]}
-COST=${FIELDS[5]}
-EFFORT=${FIELDS[6]}
-VIM_MODE=${FIELDS[7]}
-SESSION_ID=${FIELDS[8]}
-AGENT=${FIELDS[9]}
-WORKTREE=${FIELDS[10]}
+EFFORT=${FIELDS[5]}
+VIM_MODE=${FIELDS[6]}
+SESSION_ID=${FIELDS[7]}
+AGENT=${FIELDS[8]}
+WORKTREE=${FIELDS[9]}
+LIMIT_5H=${FIELDS[10]}
+LIMIT_7D=${FIELDS[11]}
 
 CACHE_FILE="${TMPDIR:-/tmp}/statusline-git-cache-$SESSION_ID"
 CACHE_MAX_AGE=5
@@ -174,14 +176,26 @@ if [[ -n $MODEL ]]; then
   PARTS+=("$P")
 fi
 
-if [[ -n $COST ]]; then
-  printf -v P '\e[90m󰇁 %.2f\e[0m' "$COST"
-  PARTS+=("$P")
-fi
-
 if [[ -n $AGENT ]]; then
   printf -v P '\e[35m󰊠 %s\e[0m' "$AGENT"
   PARTS+=("$P")
+fi
+
+# Usage limits (/usage): 5-hour and 7-day windows
+LIMITS=()
+for W in '\U000F051B:LIMIT_5H' '\U000F0679:LIMIT_7D'; do
+  ICON=${W%%:*}
+  VAR=${W#*:}
+  PCT=${!VAR}
+  [[ -z $PCT ]] && continue
+  printf -v PCT '%.0f' "$PCT"
+  if ((PCT >= 80)); then C=31; elif ((PCT >= 60)); then C=33; else C=90; fi
+  printf -v P "\\e[%sm${ICON} %s%%\\e[0m" "$C" "$PCT"
+  LIMITS+=("$P")
+done
+if ((${#LIMITS[@]})); then
+  printf -v P '%s ' "${LIMITS[@]}"
+  PARTS+=("${P% }")
 fi
 
 OUTPUT=${PARTS[0]}
