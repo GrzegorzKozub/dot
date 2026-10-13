@@ -43,7 +43,7 @@
     ]
   },
   "enabledPlugins": {
-    "apsis-commit-review@apsis": true,
+    "apsis-commit-review@apsis": false,
     "apsis-deploy@apsis": true,
     "apsis-guidelines@apsis": true,
     "apsis-implement@apsis": true,

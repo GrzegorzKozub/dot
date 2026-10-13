@@ -41,6 +41,8 @@ RESET_7D=${FIELDS[13]}
 
 CACHE_FILE="${TMPDIR:-/tmp}/statusline-git-cache-$SESSION_ID"
 CACHE_MAX_AGE=5
+COMPACT_HINT_TOKENS=${STATUSLINE_COMPACT_HINT_TOKENS:-250000}
+[[ $COMPACT_HINT_TOKENS =~ ^[0-9]+$ ]] || COMPACT_HINT_TOKENS=250000
 
 CTX_ICONS=('󰪞' '󰪟' '󰪠' '󰪡' '󰪢' '󰪣' '󰪤' '󰪥')
 
@@ -217,6 +219,10 @@ if [[ -n $USED ]]; then
       "$CTX_FG" "$CTX_BG" "$CTX_GLYPH" "$USED_INT" "$CTX_FG"
   fi
   PARTS+=("$P")
+  if [[ -n $CUR_IN ]] && ((CUR_IN > COMPACT_HINT_TOKENS)); then
+    printf -v P '\e[35m\xee\x82\xb6\e[45;30m󰡍\e[0;35m\xee\x82\xb4\e[0m'
+    PARTS+=("$P")
+  fi
 fi
 
 if [[ -n $AGENT ]]; then

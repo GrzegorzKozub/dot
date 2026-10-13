@@ -8,7 +8,8 @@
     "DISABLE_BUG_COMMAND": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_TELEMETRY": "1",
-    "ENABLE_CLAUDEAI_MCP_SERVERS": "0"
+    "ENABLE_CLAUDEAI_MCP_SERVERS": "0",
+    "STATUSLINE_COMPACT_HINT_TOKENS": "250000"
   },
   "permissions": {
     "allow": [
