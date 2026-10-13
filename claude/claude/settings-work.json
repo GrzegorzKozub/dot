@@ -4,7 +4,8 @@
   },
   "permissions": {
     "allow": [
-      "Skill(apsis-implement:*)",
+      "Skill(apsis-commit-review:*)",
+      "Skill(apsis-deploy:*)",
       "Skill(apsis-implement:*)",
       "Skill(apsis-jira-creator:*)",
       "Skill(apsis-katie:*)",
@@ -42,6 +43,9 @@
     ]
   },
   "enabledPlugins": {
+    "apsis-commit-review@apsis": true,
+    "apsis-deploy@apsis": true,
+    "apsis-guidelines@apsis": true,
     "apsis-implement@apsis": true,
     "apsis-jira-creator@apsis": true,
     "apsis-katie@apsis": true,
@@ -52,6 +56,7 @@
     "apsis-mcp-pagerduty@apsis": true,
     "apsis-mcp-postgres@apsis": false,
     "apsis-mcp-sonarqube@apsis": false,
+    "apsis-qa@apsis": false,
     "apsis-resolve@apsis": true,
     "mcp@greg": false
   },
@@ -59,7 +64,7 @@
     "apsis": {
       "source": {
         "source": "github",
-        "repo": "efficy-sa/apsis-claude-plugins"
+        "repo": "efficy-sa/apsis-shared-claude-plugins"
       }
     }
   },
