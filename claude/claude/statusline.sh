@@ -202,9 +202,9 @@ fi
 if [[ -n $USED ]]; then
   printf -v USED_INT '%.0f' "$USED"
   ctx_icon CTX_GLYPH "$USED"
-  if ((USED_INT >= 80)); then
+  if ((USED_INT >= 90)); then
     CTX_FG=31; CTX_BG=41
-  elif ((USED_INT >= 60)); then
+  elif ((USED_INT >= 80)); then
     CTX_FG=33; CTX_BG=43
   else
     CTX_FG=90; CTX_BG=100
@@ -237,7 +237,7 @@ for W in '\U000F051B:LIMIT_5H:RESET_5H' '\U000F0679:LIMIT_7D:RESET_7D'; do
   PCT=${!VAR}
   [[ -z $PCT ]] && continue
   printf -v PCT '%.0f' "$PCT"
-  if ((PCT >= 80)); then C=31; elif ((PCT >= 60)); then C=33; else C=90; fi
+  if ((PCT >= 90)); then C=31; elif ((PCT >= 80)); then C=33; else C=90; fi
   printf -v P "\\e[%sm${ICON} %s%%" "$C" "$PCT"
   if ((PCT >= 80)) && [[ -n ${!RESET_VAR} ]]; then
     fmt_remaining LEFT "${!RESET_VAR}"
