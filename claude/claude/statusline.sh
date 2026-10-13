@@ -16,7 +16,9 @@ mapfile -t FIELDS < <(jq -r '
       .agent.name // "",
       .workspace.git_worktree // "",
       (.rate_limits.five_hour.used_percentage // ""),
-      (.rate_limits.seven_day.used_percentage // "")
+      (.rate_limits.seven_day.used_percentage // ""),
+      (.rate_limits.five_hour.resets_at // ""),
+      (.rate_limits.seven_day.resets_at // "")
     )')
 DIR=${FIELDS[0]}
 MODEL=${FIELDS[1]}
@@ -28,8 +30,14 @@ VIM_MODE=${FIELDS[6]}
 SESSION_ID=${FIELDS[7]}
 AGENT=${FIELDS[8]}
 WORKTREE=${FIELDS[9]}
+# shellcheck disable=SC2034 # read via indirect expansion in the limits loop
 LIMIT_5H=${FIELDS[10]}
+# shellcheck disable=SC2034
 LIMIT_7D=${FIELDS[11]}
+# shellcheck disable=SC2034
+RESET_5H=${FIELDS[12]}
+# shellcheck disable=SC2034
+RESET_7D=${FIELDS[13]}
 
 CACHE_FILE="${TMPDIR:-/tmp}/statusline-git-cache-$SESSION_ID"
 CACHE_MAX_AGE=5
@@ -53,6 +61,25 @@ fmt_tokens() {
     printf -v OUT '%dk' $(((n + 500) / 1000))
   else
     printf -v OUT '%d' "$n"
+  fi
+}
+
+fmt_remaining() {
+  # shellcheck disable=SC2034
+  local -n OUT=$1
+  local at=$2 secs d h m
+  [[ $at =~ ^[0-9]+$ ]] || at=$(date -d "$at" +%s 2> /dev/null) || { OUT=""; return; }
+  secs=$((at - EPOCHSECONDS))
+  ((secs < 0)) && secs=0
+  d=$((secs / 86400))
+  h=$((secs % 86400 / 3600))
+  m=$((secs % 3600 / 60))
+  if ((d > 0)); then
+    printf -v OUT '%dd %dh' "$d" "$h"
+  elif ((h > 0)); then
+    printf -v OUT '%dh %dm' "$h" "$m"
+  else
+    printf -v OUT '%dm' "$m"
   fi
 }
 
@@ -122,20 +149,52 @@ if [[ -n $WORKTREE ]]; then
 fi
 
 if [[ -n $BRANCH ]]; then
-  if [[ -n $TAG && $BRANCH == "$TAG" ]]; then
+  GIT_STR=""
+  # the worktree segment already shows the branch when the names match
+  if [[ -n $WORKTREE && $BRANCH == "$WORKTREE" ]]; then
+    [[ -n $TAG && $BRANCH != "$TAG" ]] && printf -v GIT_STR '\e[35m%s\e[0m' "$TAG"
+  elif [[ -n $TAG && $BRANCH == "$TAG" ]]; then
     printf -v GIT_STR '\e[35m%s\e[0m' "$BRANCH"
   elif [[ -n $TAG ]]; then
     printf -v GIT_STR '\e[34m%s\e[0m \e[35m%s\e[0m' "$BRANCH" "$TAG"
   else
     printf -v GIT_STR '\e[34m%s\e[0m' "$BRANCH"
   fi
-  if ((BEHIND > 0)); then printf -v P '\e[33m↓%d\e[0m' "$BEHIND"; GIT_STR+=" $P"; fi
-  if ((AHEAD > 0)); then printf -v P '\e[32m↑%d\e[0m' "$AHEAD"; GIT_STR+=" $P"; fi
-  if ((CONFLICTED > 0)); then printf -v P '\e[31m?%d\e[0m' "$CONFLICTED"; GIT_STR+=" $P"; fi
-  if ((STAGED > 0)); then printf -v P '\e[32m+%d\e[0m' "$STAGED"; GIT_STR+=" $P"; fi
-  if ((UNSTAGED > 0)); then printf -v P '\e[33m~%d\e[0m' "$UNSTAGED"; GIT_STR+=" $P"; fi
-  if ((UNTRACKED > 0)); then printf -v P '\e[31m*%d\e[0m' "$UNTRACKED"; GIT_STR+=" $P"; fi
-  PARTS+=("$GIT_STR")
+  if ((BEHIND > 0)); then printf -v P '\e[33m↓%d\e[0m' "$BEHIND"; GIT_STR+="${GIT_STR:+ }$P"; fi
+  if ((AHEAD > 0)); then printf -v P '\e[32m↑%d\e[0m' "$AHEAD"; GIT_STR+="${GIT_STR:+ }$P"; fi
+  if ((CONFLICTED > 0)); then printf -v P '\e[31m?%d\e[0m' "$CONFLICTED"; GIT_STR+="${GIT_STR:+ }$P"; fi
+  if ((STAGED > 0)); then printf -v P '\e[32m+%d\e[0m' "$STAGED"; GIT_STR+="${GIT_STR:+ }$P"; fi
+  if ((UNSTAGED > 0)); then printf -v P '\e[33m~%d\e[0m' "$UNSTAGED"; GIT_STR+="${GIT_STR:+ }$P"; fi
+  if ((UNTRACKED > 0)); then printf -v P '\e[31m*%d\e[0m' "$UNTRACKED"; GIT_STR+="${GIT_STR:+ }$P"; fi
+  [[ -n $GIT_STR ]] && PARTS+=("$GIT_STR")
+fi
+
+if [[ -n $MODEL ]]; then
+  # background by cost tier: haiku < sonnet < opus < fable
+  case $MODEL in
+    *haiku*)  MODEL_FG=32; MODEL_BG=42 ;;
+    *opus*)   MODEL_FG=33; MODEL_BG=43 ;;
+    *fable*)  MODEL_FG=31; MODEL_BG=41 ;;
+    *)        MODEL_FG=37; MODEL_BG=47 ;;
+  esac
+  printf -v P '\e[%sm\xee\x82\xb6\e[%s;30m󰚩 %s\e[0;%sm\xee\x82\xb4\e[0m' \
+    "$MODEL_FG" "$MODEL_BG" "$MODEL" "$MODEL_FG"
+  PARTS+=("$P")
+fi
+
+if [[ -n $EFFORT ]]; then
+  # background by token-use tier: low < medium < high < xhigh < max
+  case $EFFORT in
+    low)    EFFORT_STR=lo;  EFFORT_FG=32; EFFORT_BG=42 ;;
+    medium) EFFORT_STR=med; EFFORT_FG=37; EFFORT_BG=47 ;;
+    high)   EFFORT_STR=hi;  EFFORT_FG=33; EFFORT_BG=43 ;;
+    xhigh)  EFFORT_STR=xhi; EFFORT_FG=31; EFFORT_BG=41 ;;
+    max)    EFFORT_STR=max; EFFORT_FG=91; EFFORT_BG=101 ;;
+    *)      EFFORT_STR=$EFFORT; EFFORT_FG=37; EFFORT_BG=47 ;;
+  esac
+  printf -v P '\e[%sm\xee\x82\xb6\e[%s;30m󰈸 %s\e[0;%sm\xee\x82\xb4\e[0m' \
+    "$EFFORT_FG" "$EFFORT_BG" "$EFFORT_STR" "$EFFORT_FG"
+  PARTS+=("$P")
 fi
 
 if [[ -n $USED ]]; then
@@ -146,7 +205,7 @@ if [[ -n $USED ]]; then
   elif ((USED_INT >= 60)); then
     CTX_FG=33; CTX_BG=43
   else
-    CTX_FG=37; CTX_BG=47
+    CTX_FG=90; CTX_BG=100
   fi
   if [[ -n $CUR_IN && -n $MAX ]]; then
     fmt_tokens CUR_IN_STR "$CUR_IN"
@@ -160,22 +219,6 @@ if [[ -n $USED ]]; then
   PARTS+=("$P")
 fi
 
-if [[ -n $MODEL ]]; then
-  MODEL_STR=$MODEL
-  if [[ -n $EFFORT ]]; then
-    case $EFFORT in
-      low)    EFFORT_SHORT=lo ;;
-      medium) EFFORT_SHORT=med ;;
-      high)   EFFORT_SHORT=hi ;;
-      xhigh)  EFFORT_SHORT=xhi ;;
-      *)      EFFORT_SHORT=$EFFORT ;;
-    esac
-    MODEL_STR+=" $EFFORT_SHORT"
-  fi
-  printf -v P '\e[90m\xee\x82\xb6\e[100;30m󰚩 %s\e[0;90m\xee\x82\xb4\e[0m' "$MODEL_STR"
-  PARTS+=("$P")
-fi
-
 if [[ -n $AGENT ]]; then
   printf -v P '\e[35m󰊠 %s\e[0m' "$AGENT"
   PARTS+=("$P")
@@ -183,14 +226,18 @@ fi
 
 # Usage limits (/usage): 5-hour and 7-day windows
 LIMITS=()
-for W in '\U000F051B:LIMIT_5H' '\U000F0679:LIMIT_7D'; do
-  ICON=${W%%:*}
-  VAR=${W#*:}
+for W in '\U000F051B:LIMIT_5H:RESET_5H' '\U000F0679:LIMIT_7D:RESET_7D'; do
+  IFS=: read -r ICON VAR RESET_VAR <<< "$W"
   PCT=${!VAR}
   [[ -z $PCT ]] && continue
   printf -v PCT '%.0f' "$PCT"
   if ((PCT >= 80)); then C=31; elif ((PCT >= 60)); then C=33; else C=90; fi
-  printf -v P "\\e[%sm${ICON} %s%%\\e[0m" "$C" "$PCT"
+  printf -v P "\\e[%sm${ICON} %s%%" "$C" "$PCT"
+  if ((PCT >= 80)) && [[ -n ${!RESET_VAR} ]]; then
+    fmt_remaining LEFT "${!RESET_VAR}"
+    [[ -n $LEFT ]] && P+=" $LEFT"
+  fi
+  P+=$'\e[0m'
   LIMITS+=("$P")
 done
 if ((${#LIMITS[@]})); then
