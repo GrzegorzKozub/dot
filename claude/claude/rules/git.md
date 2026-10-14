@@ -40,8 +40,3 @@ This also applies when you run `/implement-story`. If that skill checks out bran
 
 `.worktrees/` is ignored globally (`~/.config/git/ignore`). Don't add it to `.gitignore` or `.git/info/exclude`, and don't report on it. If a check says it isn't ignored, the check ran sandboxed, where the global ignore file is hidden. Re-check with a bare `git check-ignore -v .worktrees/`.
 
-# Launching subagents
-
-A subagent does not reliably inherit this file. **Every** agent prompt you write must restate the rules from this file that the agent's task could touch — copy the concrete values, don't paraphrase or refer to "the conventions".
-
-The same applies to agent teams, workflows, and any skill you invoke that spawns its own agents.

@@ -90,10 +90,14 @@ if [[ $HOST == 'worker' ]]; then
 
   mkdir -p "$XDG_CONFIG_HOME"/claude/rules
 
-  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/rules/greg.md \
-    "$XDG_CONFIG_HOME"/claude/rules/greg.md
+  ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/rules/git.md \
+    "$XDG_CONFIG_HOME"/claude/rules/git.md
 
-  gh api repos/efficy-sa/apsis-shared-ai/contents/claude-code/CLAUDE.md \
-    --jq '.content' | base64 -d > "$XDG_CONFIG_HOME"/claude/rules/apsis.md
+  for FILE in guidelines sandbox subagents worktrees; do
+
+    gh api repos/efficy-sa/apsis-shared-ai/contents/claude-code/rules/"$FILE".md \
+      --jq '.content' | base64 -d > "$XDG_CONFIG_HOME"/claude/rules/"$FILE".md
+
+  done
 
 fi
