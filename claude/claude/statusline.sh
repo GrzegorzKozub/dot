@@ -131,10 +131,11 @@ PARTS=()
 if [[ -n $VIM_MODE ]]; then
   MODE_LETTER=${VIM_MODE:0:1}
   MODE_LETTER=${MODE_LETTER,,}
+  # cap fg uses '38;5;N' (not 37): Claude Code 2.1.300+ draws a plain 37 foreground too dark, so light gray pill caps mismatched their 47 bodies
   case $VIM_MODE in
     INSERT)  FG=34; BG=44 ;;
     VISUAL*) FG=32; BG=42 ;;
-    *)       FG=37; BG=47 ;;
+    *)       FG='38;5;7'; BG=47 ;;
   esac
   printf -v P '\e[%sm\xee\x82\xb6\e[%s;30m%s\e[0;%sm\xee\x82\xb4\e[0m' "$FG" "$BG" "$MODE_LETTER" "$FG"
   PARTS+=("$P")
@@ -177,7 +178,7 @@ if [[ -n $MODEL ]]; then
     *haiku*)  MODEL_FG=32; MODEL_BG=42 ;;
     *opus*)   MODEL_FG=33; MODEL_BG=43 ;;
     *fable*)  MODEL_FG=31; MODEL_BG=41 ;;
-    *)        MODEL_FG=37; MODEL_BG=47 ;;
+    *)        MODEL_FG='38;5;7'; MODEL_BG=47 ;; # see vim-mode pill note on cap fg
   esac
   printf -v P '\e[%sm\xee\x82\xb6\e[%s;30m󰚩 %s\e[0;%sm\xee\x82\xb4\e[0m' \
     "$MODEL_FG" "$MODEL_BG" "$MODEL" "$MODEL_FG"
@@ -188,11 +189,11 @@ if [[ -n $EFFORT ]]; then
   # background by token-use tier: low < medium < high < xhigh < max
   case $EFFORT in
     low)    EFFORT_STR=lo;  EFFORT_FG=32; EFFORT_BG=42 ;;
-    medium) EFFORT_STR=med; EFFORT_FG=37; EFFORT_BG=47 ;;
+    medium) EFFORT_STR=med; EFFORT_FG='38;5;7'; EFFORT_BG=47 ;; # see vim-mode pill note on cap fg
     high)   EFFORT_STR=hi;  EFFORT_FG=33; EFFORT_BG=43 ;;
     xhigh)  EFFORT_STR=xhi; EFFORT_FG=31; EFFORT_BG=41 ;;
     max)    EFFORT_STR=max; EFFORT_FG=91; EFFORT_BG=101 ;;
-    *)      EFFORT_STR=$EFFORT; EFFORT_FG=37; EFFORT_BG=47 ;;
+    *)      EFFORT_STR=$EFFORT; EFFORT_FG='38;5;7'; EFFORT_BG=47 ;;
   esac
   printf -v P '\e[%sm\xee\x82\xb6\e[%s;30m󰈸 %s\e[0;%sm\xee\x82\xb4\e[0m' \
     "$EFFORT_FG" "$EFFORT_BG" "$EFFORT_STR" "$EFFORT_FG"
