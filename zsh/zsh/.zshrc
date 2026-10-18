@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# perf check: hyperfine "TMUX=1 zsh -i -c exit" --warmup 10
+# perf check: hyperfine --env 'TMUX=1' --warmup 10 'zsh -i -c exit'
 # key scan: cat -v or showkey -a
 
 # tmux
@@ -133,6 +133,13 @@ bindkey -M viins '^?' backward-delete-char # backspace
 insert-line() { LBUFFER+=$'\n' }
 zle -N insert-line
 my-bindkey '^[^M' insert-line # alt+enter inserts new line (without continuation prompt)
+
+paste() {
+  local text
+  text="$(wl-paste --no-newline --type text 2>/dev/null)" && LBUFFER+="$text"
+}
+zle -N paste
+my-bindkey '^V' paste
 
 # insert-or-accept-line() { [[ $BUFFER == *'\' ]] && zle insert-line || zle accept-line }
 # zle -N insert-or-accept-line
