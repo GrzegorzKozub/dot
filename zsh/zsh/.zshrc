@@ -714,6 +714,10 @@ zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/command-not-found
 export PYLINTHOME=$XDG_CACHE_HOME/pylint
 export RUFF_CACHE_DIR=$XDG_CACHE_HOME/ruff
 
+# restic
+
+export RESTIC_REPOSITORY=/run/media/$USER/data/restic
+
 # ripgrep
 
 export RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgrep/ripgreprc
