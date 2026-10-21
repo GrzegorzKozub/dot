@@ -716,7 +716,7 @@ export RUFF_CACHE_DIR=$XDG_CACHE_HOME/ruff
 
 # restic
 
-export RESTIC_REPOSITORY=/run/media/$USER/data/restic
+export RESTIC_REPOSITORY=/run/media/$USER/data/snaps
 
 # ripgrep
 
