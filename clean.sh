@@ -43,6 +43,10 @@ rm -rf "$XDG_CACHE_HOME"/{luarocks,nvim,tree-sitter}/
 rm -rf "$XDG_CACHE_HOME"/tensaku/
 rm -rf "$XDG_STATE_HOME"/tensaku/
 
+# typescript
+
+rm -rf "$XDG_CACHE_HOME"/typescript/
+
 # vscode
 
 if [[ ${1:-} == 'deep' ]]; then
