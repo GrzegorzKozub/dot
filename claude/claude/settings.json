@@ -231,6 +231,10 @@
           "mode": "deny"
         },
         {
+          "name": "GH_TOKEN",
+          "mode": "deny"
+        },
+        {
           "name": "GITHUB_TOKEN",
           "mode": "deny"
         },
