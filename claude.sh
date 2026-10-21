@@ -20,33 +20,21 @@ rustup component add rust-analyzer
 
 export CLAUDE_CONFIG_DIR=$XDG_CONFIG_HOME/claude
 
-# links (keep existing config or settings provided by installer)
+# links (keep existing config)
 
 CONFIG=/run/media/$USER/data/.config
 
-if [[ ! -L "$XDG_CONFIG_HOME"/claude ]] && [[ -d "$XDG_CONFIG_HOME"/claude ]] && [[ ! -d "$CONFIG"/claude ]]; then
-
-  mkdir -p "$CONFIG"/claude
-
-  shopt -s dotglob
-  mv "$XDG_CONFIG_HOME"/claude/* "$CONFIG"/claude
-  shopt -u dotglob
-
-fi
-
-[[ ! -d "$CONFIG"/claude ]] && mkdir -p "$CONFIG"/claude
-
-[[ -d "$XDG_CONFIG_HOME"/claude ]] && rm -rf "$XDG_CONFIG_HOME"/claude
-[[ -L "$XDG_CONFIG_HOME"/claude ]] && rm "$XDG_CONFIG_HOME"/claude
-
-ln -s "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
+mkdir -p "$CONFIG"/claude
+ln -sfn "$CONFIG"/claude "$XDG_CONFIG_HOME"/claude
 
 FILES=(keybindings.json settings.json statusline.sh)
 [[ $HOST == 'worker' ]] && FILES+=(settings-work.json worktree.sh)
 
 for FILE in "${FILES[@]}"; do
+
   ln -sf "$(dirname "$(realpath "$0")")"/claude/claude/"$FILE" \
     "$XDG_CONFIG_HOME"/claude/"$FILE"
+
 done
 
 mkdir -p "$XDG_CONFIG_HOME"/claude/themes
@@ -82,9 +70,11 @@ if [[ $HOST == 'worker' ]]; then
       to-spec \
       to-tickets
 
+  rm -rf "$XDG_STATE_HOME"/skills/
+
 fi
 
-# instructions & rules
+# rules
 
 if [[ $HOST == 'worker' ]]; then
 

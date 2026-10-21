@@ -7,8 +7,10 @@ rm -f ~/.{bash_history,bash_logout,bash_profile,bashrc}
 
 # claude
 
+rm -rf ~/.claude/
 rm -rf "$XDG_CACHE_HOME"/claude-cli-nodejs/
 # rm -rf "$XDG_CONFIG_HOME"/anthropic/
+rm -rf "$XDG_STATE_HOME"/skills/
 
 # github
 
