@@ -3,6 +3,11 @@ set -eo pipefail -ux
 
 if [[ ${1:-} == 'mise' ]]; then
 
+  # aube (npm package manager used by mise by default)
+
+  rm -rf "$XDG_CACHE_HOME"/aube/
+  rm -rf "$XDG_DATA_HOME"/aube/
+
   # dotnet
 
   rm -rf "$XDG_CACHE_HOME"/{csdevkit,dotnet,Microsoft,Microsoft\ DevDiv}/

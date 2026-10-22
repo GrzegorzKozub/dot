@@ -22,8 +22,7 @@ go = { version = "latest", postinstall = """
 
 node = "latest"
 
+"npm:eslint" = "latest"
+"npm:neovim" = "latest"
 "npm:npm" = "latest"
-
-"npm:eslint" = { version = "latest", depends = ["npm:npm"] }
-"npm:neovim" = { version = "latest", depends = ["npm:npm"] }
-"npm:typescript" = { version = "latest", depends = ["npm:npm"] }
+"npm:typescript" = "latest"
