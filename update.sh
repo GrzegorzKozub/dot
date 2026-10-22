@@ -37,6 +37,7 @@ mise upgrade
 
 uv tool upgrade --all
 uv cache prune
+pip cache purge
 
 # rust
 
