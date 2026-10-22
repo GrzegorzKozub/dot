@@ -36,6 +36,7 @@ mise upgrade
 # python
 
 uv tool upgrade --all
+uv cache prune
 
 # rust
 
