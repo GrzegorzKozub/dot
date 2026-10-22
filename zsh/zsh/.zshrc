@@ -484,6 +484,10 @@ if (( $+commands[ansible] )); then
 
 fi
 
+# auth0 (mise managed)
+
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/auth0
+
 # aws
 
 if (( $+commands[aws] )); then
