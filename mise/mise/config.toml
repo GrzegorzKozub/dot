@@ -22,7 +22,8 @@ go = { version = "latest", postinstall = """
 
 node = "latest"
 
-"npm:eslint" = "latest"
-"npm:neovim" = "latest"
+"npm:eslint" = "latest" # nvim
+"npm:neovim" = "latest" # nvim
 "npm:npm" = "latest"
+"npm:prettier" = "latest" # zed
 "npm:typescript" = "latest"

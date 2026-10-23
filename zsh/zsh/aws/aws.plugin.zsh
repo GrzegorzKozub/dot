@@ -1,3 +1,12 @@
 #!/usr/bin/env zsh
 
-complete -C /usr/bin/aws_completer aws
+(( $+commands[aws] )) || return
+
+# export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws/config
+# export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials
+
+export AWS_SDK_LOAD_CONFIG=1
+
+export SAM_CLI_TELEMETRY=0
+
+complete -C "${commands[aws_completer]}" aws

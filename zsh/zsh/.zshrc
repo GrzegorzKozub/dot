@@ -488,20 +488,9 @@ fi
 
 zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/auth0
 
-# aws
+# aws (mise managed)
 
-if (( $+commands[aws] )); then
-
-  # export AWS_CONFIG_FILE=$XDG_CONFIG_HOME/aws/config
-  # export AWS_SHARED_CREDENTIALS_FILE=$XDG_CONFIG_HOME/aws/credentials
-
-  export AWS_SDK_LOAD_CONFIG=1
-
-  export SAM_CLI_TELEMETRY=0
-
-  zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/aws
-
-fi
+zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/aws
 
 alias myip='curl http://checkip.amazonaws.com/'
 

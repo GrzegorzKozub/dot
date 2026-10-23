@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
+# packages
+
+ln -sf "$XDG_CONFIG_HOME"/mise/conf.d/aws.env.toml \
+  "$XDG_CONFIG_HOME"/mise/conf.d/aws."$HOST".local.toml
+
 # links
 
 ln -sf "$(dirname "$(realpath "$0")")"/environment/environment.d/30-aws.conf \
