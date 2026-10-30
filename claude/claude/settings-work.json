@@ -36,7 +36,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"$CLAUDE_CONFIG_DIR/worktree.sh\""
+            "command": "bash \"$CLAUDE_CONFIG_DIR/worktree.sh\"",
+            "onFailure": "block"
           }
         ]
       }
