@@ -170,7 +170,7 @@
     "blockReadsOutsideWorkingDirectories": false,
     "blockWritesOutsideWorkingDirectories": false
   },
-  "model": "sonnet",
+  "model": "opus",
   "disableRemoteControl": true,
   "statusLine": {
     "type": "command",
