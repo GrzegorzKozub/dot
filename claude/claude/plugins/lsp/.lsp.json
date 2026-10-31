@@ -30,14 +30,14 @@
     "extensionToLanguage": { ".rs": "rust" },
     "settings": { "rust-analyzer": { "check": { "command": "clippy" } } }
   },
-  "typescript-language-server": {
-    "command": "typescript-language-server",
-    "args": ["--stdio"],
+  "typescript": {
+    "command": "tsc",
+    "args": ["--lsp", "--stdio"],
     "extensionToLanguage": {
       ".js": "javascript",
-      ".jsx": "javascript",
+      ".jsx": "javascriptreact",
       ".ts": "typescript",
-      ".tsx": "typescript"
+      ".tsx": "typescriptreact"
     }
   }
 }
