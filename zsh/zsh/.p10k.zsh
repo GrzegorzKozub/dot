@@ -13,6 +13,7 @@
 
   typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
   typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true # osc 133 prompt navigation
+  [[ $TERM_PROGRAM == claude-desktop ]] && typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=false
   typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=same-dir
 
   # layout

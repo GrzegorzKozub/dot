@@ -5,7 +5,7 @@
 
 # tmux
 
-if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $TMUX ]] && [[ -z $ZI_BOOTSTRAP ]] && [[ -t 1 ]]; then
+if [[ ! $TERM_PROGRAM =~ 'claude-desktop|vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $TMUX ]] && [[ -z $ZI_BOOTSTRAP ]] && [[ -t 1 ]]; then
   if tmux has-session -t 0 2> /dev/null; then
     if [[ $(tmux list-clients -f '#{==:#{client_session},0}' 2> /dev/null) ]]; then
       exec tmux new-session
@@ -19,7 +19,7 @@ fi
 
 # zellij
 
-# if [[ ! $TERM_PROGRAM =~ 'vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $TMUX ]] && [[ -z $ZI_BOOTSTRAP ]] && [[ -t 1 ]]; then
+# if [[ ! $TERM_PROGRAM =~ 'claude-desktop|vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $TMUX ]] && [[ -z $ZI_BOOTSTRAP ]] && [[ -t 1 ]]; then
 #   zellij attach --create
 # fi
 
