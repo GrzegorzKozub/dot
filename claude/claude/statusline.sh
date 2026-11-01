@@ -233,7 +233,7 @@ fi
 
 # Usage limits (/usage): 5-hour and 7-day windows
 LIMITS=()
-for W in '\U000F051B:LIMIT_5H:RESET_5H' '\U000F0679:LIMIT_7D:RESET_7D'; do
+for W in '󰅐:LIMIT_5H:RESET_5H' '󰨳:LIMIT_7D:RESET_7D'; do
   IFS=: read -r ICON VAR RESET_VAR <<< "$W"
   PCT=${!VAR}
   [[ -z $PCT ]] && continue
