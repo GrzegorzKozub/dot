@@ -61,7 +61,7 @@ keybind = ctrl+shift+t=text:\x1b[116;6u
 
 window-padding-x = 8
 window-padding-y = 8
-window-padding-balance = equal
+window-padding-balance = true
 
 window-theme = ghostty
 
