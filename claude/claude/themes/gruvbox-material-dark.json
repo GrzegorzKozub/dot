@@ -24,6 +24,9 @@
 
     "effortUltra": "ansi:redBright",
 
+    "fastMode": "ansi:redBright",
+    "fastModeShimmer": "ansi:redBright",
+
     "suggestion": "ansi:blueBright",
 
     "userMessageBackground": "ansi256(256)",
@@ -58,6 +61,8 @@
     "rate_limit_fill": "ansi:magentaBright",
     "rate_limit_empty": "ansi256(256)",
 
+    "chromeYellow": "ansi:yellowBright",
+
     "blue_FOR_SUBAGENTS_ONLY": "ansi:blue",
     "cyan_FOR_SUBAGENTS_ONLY": "ansi:cyan",
     "green_FOR_SUBAGENTS_ONLY": "ansi:green",
@@ -84,9 +89,6 @@
 
     "briefLabelClaude": "ansi:redBright",
     "briefLabelYou": "ansi:redBright",
-    "chromeYellow": "ansi:redBright",
-    "fastMode": "ansi:redBright",
-    "fastModeShimmer": "ansi:redBright",
     "ide": "ansi:redBright",
     "memoryBackgroundColor": "ansi:redBright",
     "merged": "ansi:redBright",
