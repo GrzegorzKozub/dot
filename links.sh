@@ -40,7 +40,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   zed \
   zsh
 
-  # bun iex satty starship zellij
+  # bun iex satty starship
 
 mkdir -p "$XDG_CONFIG_HOME"/vscode
 stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME"/vscode --stow vscode
