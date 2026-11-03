@@ -326,7 +326,9 @@ HISTFILE=~/code/hist/$HOST/history
 HISTSIZE=100000 # history memory limit
 SAVEHIST=100000 # history file limit
 
-HISTORY_IGNORE='(#i)(*bearer*|*jwt*|*password*|*secret*|*token*)'
+HISTORY_IGNORE='(#i)(*bearer*|*jwt*|*password*|*secret*|*token*|*authorization*|*oauth2:*|*signature=*|*://*:*@*|docker login*-p*|(#I)*(ghp_|gho_|ghu_|ghs_|github_pat_|AKIA|ASIA|eyJ|sk-ant-)*)'
+
+zshaddhistory() { emulate -L zsh -o extended_glob; [[ ${1%%$'\n'} != ${~HISTORY_IGNORE} ]] } # keep HISTORY_IGNORE matches out of memory too
 
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FIND_NO_DUPS
