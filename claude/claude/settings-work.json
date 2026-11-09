@@ -1,6 +1,7 @@
 {
   "env": {
-    "ENABLE_CLAUDEAI_MCP_SERVERS": "0"
+    "ENABLE_CLAUDEAI_MCP_SERVERS": "0",
+    "KATIE_DIR": "~/code/apsis/katie"
   },
   "permissions": {
     "allow": [

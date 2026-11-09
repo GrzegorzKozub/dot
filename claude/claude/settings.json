@@ -207,9 +207,11 @@
         "~/"
       ],
       "allowRead": [
+        "~/.config/claude/plugins/cache",
         "~/.local/share/mcp-inspector",
         "~/.local/share/mise",
-        "~/code/apsis"
+        "~/code/apsis",
+        "/run/media/greg/data/.config/claude/plugins/cache"
       ]
     },
     "credentials": {
