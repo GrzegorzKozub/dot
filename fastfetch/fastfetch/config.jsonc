@@ -8,12 +8,19 @@
     },
     "brightColor": false,
     "color": { "keys": "white" },
+    "disableLinewrap": true,
     "key": { "width": 32 },
     "percent": {
       "color": { "green": "green", "red": "red", "yellow": "yellow" },
       "type": 9
     },
     "separator": ""
+  },
+  "general": {
+    "preload": {
+      // clean(...): drop [GTK2/3/4]-style toolkit tags and the parens around font sizes, then join the distinct non-empty parts with ", "
+      "lua": "function clean(...) local t, seen = {}, {}; for _, s in ipairs({...}) do s = s:gsub('%s*%[.-%]', ''):gsub('%((%d+pt)%)', '%1'); if s ~= '' and not seen[s] then seen[s] = true; t[#t + 1] = s end end; return table.concat(t, ', ') end"
+    }
   },
   "logo": {
     "source": "~/.config/fastfetch/arch.png",
@@ -31,10 +38,19 @@
     "break",
     { "key": "Desktop environment", "type": "de" },
     { "key": "Window manager", "type": "wm" },
-    "theme",
-    "icons",
-    "font",
-    "cursor",
+    {
+      "format": "lua:local val = ...; return clean(val.theme1, val.theme2)",
+      "type": "theme"
+    },
+    {
+      "format": "lua:local val = ...; return clean(val.icons1, val.icons2)",
+      "type": "icons"
+    },
+    {
+      "format": "lua:local val = ...; return clean(val.combined)",
+      "type": "font"
+    },
+    { "format": "{theme}{?size} {size}px{?}", "type": "cursor" },
     "break",
     "terminal",
     "shell",
@@ -49,9 +65,19 @@
     "board",
     "bios",
     "cpu",
-    "gpu",
     {
-      "format": "{width}x{height} @ {refresh-rate}Hz in {inch}\"",
+      "driverSpecific": true,
+      "format": "{name} (PCIe {pcie-curr-speed})",
+      "type": "gpu"
+    },
+    {
+      "format": "lua:local val = ...; local t = {}; for _, c in ipairs(val.types) do if c ~= 'MJPEG' then t[#t + 1] = c:gsub(' / H%.265', '') end end; return table.concat(t, ', ')", // drop MJPEG and shorten "HEVC / H.265"
+      "key": "Decoder",
+      "showType": "decoder",
+      "type": "codec"
+    },
+    {
+      "format": "{width}x{height} @ {refresh-rate}Hz in {inch}\"{?hdr-compatible} (HDR{?hdr-enabled} on{?}){?}",
       "order": "asc",
       "type": "display"
     },
