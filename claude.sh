@@ -70,9 +70,18 @@ if [[ $HOST == 'worker' ]]; then
       to-spec \
       to-tickets
 
-  rm -rf "$XDG_STATE_HOME"/skills/
+else
+
+  npx --yes skills add mattpocock/skills \
+    --agent claude-code --copy --global --yes \
+    --skill \
+      grill-me \
+      grilling \
+      handoff
 
 fi
+
+rm -rf "$XDG_STATE_HOME"/skills/
 
 # rules
 
