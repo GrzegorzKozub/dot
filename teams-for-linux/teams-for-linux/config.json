@@ -1,14 +1,4 @@
 {
-  "appIconType": "light",
-  "closeAppOnCross": true,
-  "disableBadgeCount": true,
-  "disableGpu": true,
-  "disableNotificationSound": true,
-  "disableNotificationWindowFlash": true,
-  "disableNotifications": true,
-  "electronCLIFlags": [
-    ["enable-features", "AcceleratedVideoEncoder,VaapiOnNvidiaGPUs"]
-  ],
   "logConfig": false,
   "media": {
     "camera": {
@@ -21,7 +11,20 @@
     },
     "microphone": { "disableAutogain": true }
   },
+  "notifications": {
+    "badgeCountEnabled": false,
+    "enabled": false,
+    "sound": { "enabled": false },
+    "windowFlash": false
+  },
+  "performance": {
+    "disableGpu": true,
+    "electronCLIFlags": [
+      ["enable-features", "AcceleratedVideoEncoder,VaapiOnNvidiaGPUs"]
+    ]
+  },
+  "platform": { "spellCheckerLanguages": ["en", "pl"] },
   "screenSharing": { "thumbnail": { "enabled": false } },
-  "spellCheckerLanguages": ["en", "pl"],
-  "trayIconEnabled": false
+  "tray": { "enabled": false, "iconType": "light" },
+  "window": { "closeOnCross": true }
 }
