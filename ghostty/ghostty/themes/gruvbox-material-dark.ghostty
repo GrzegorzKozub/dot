@@ -1,5 +1,3 @@
-# vim: filetype=confini
-
 # bg0, fg0
 background = #32302f
 foreground = #d4be98

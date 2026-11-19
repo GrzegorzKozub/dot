@@ -54,7 +54,7 @@ dbeaver/**
 # ghostty
 
 ghostty/ghostty/shaders/
-ghostty/ghostty/host.conf
+ghostty/ghostty/host.ghostty
 
 # intellij
 

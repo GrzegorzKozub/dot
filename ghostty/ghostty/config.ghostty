@@ -10,7 +10,7 @@ font-size = 12
 adjust-underline-position = 1
 adjust-cursor-thickness = 3
 
-theme = gruvbox-material-dark
+theme = gruvbox-material-dark.ghostty
 
 cursor-style = bar
 
@@ -77,13 +77,19 @@ right-click-action = ignore
 
 confirm-close-surface = false
 
+# keep app-com.mitchellh.ghostty.service running for faster startup next time
+quit-after-last-window-closed = false
+# quit-after-last-window-closed-delay = 1h
+
 shell-integration = none
 
 bell-features= no-system,no-audio,no-attention,title,no-border
 
 app-notifications = false
 
+# defaults to detect which uses heuristics per https://ghostty.org/docs/config/reference#gtk-single-instance
 # gtk-single-instance = true
+
 gtk-titlebar = false
 
 desktop-notifications = false
@@ -93,4 +99,4 @@ faint-opacity = 0.25
 auto-update = off
 
 # last in this config file so it wins
-config-file = ?host.conf
+config-file = ?host.ghostty
