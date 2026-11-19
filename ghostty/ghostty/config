@@ -92,3 +92,5 @@ faint-opacity = 0.25
 
 auto-update = off
 
+# last in this config file so it wins
+config-file = ?host.conf

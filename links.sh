@@ -65,3 +65,7 @@ fi
 if [[ $HOST == 'sacrifice' ]]; then
   ln -sf "$DIR"/environment/environment.d/20-amd.conf "$XDG_CONFIG_HOME"/environment.d/20-amd.conf
 fi
+
+if [[ -f "$DIR"/ghostty/ghostty/$HOST.conf ]]; then
+  ln -sf "$HOST".conf "$DIR"/ghostty/ghostty/host.conf
+fi
