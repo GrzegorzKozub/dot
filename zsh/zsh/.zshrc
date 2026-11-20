@@ -5,15 +5,22 @@
 
 # tmux
 
-if [[ ! $TERM_PROGRAM =~ 'claude-desktop|vscode|zed' ]] && [[ ! $TERMINAL_EMULATOR =~ 'JetBrains-JediTerm' ]] && [[ -z $TMUX ]] && [[ -z $ZI_BOOTSTRAP ]] && [[ -t 1 ]]; then
-  if tmux has-session -t 0 2> /dev/null; then
-    if [[ $(tmux list-clients -f '#{==:#{client_session},0}' 2> /dev/null) ]]; then
-      exec tmux new-session
+if [[ $TERM =~ '^xterm-(kitty|ghostty)$' ]] && [[ -z $TMUX ]] && [[ -z $ZI_BOOTSTRAP ]] && [[ -t 1 ]]; then
+  # sessions without terminal attached; oldest first
+  if ! tmux_free=$(tmux list-sessions -O creation -f '#{==:#{session_attached},0}' -F '#{session_name}' 2> /dev/null); then
+    if [[ -S $XDG_RUNTIME_DIR/bus ]]; then
+      # no server: start it in its own systemd scope so it outlives the terminal
+      exec systemd-run --user --scope --quiet tmux new-session
     else
-      exec tmux attach-session -t 0
+      # no server and no user D-Bus (ssh): start it directly
+      exec tmux new-session
     fi
+  elif [[ -n $tmux_free ]]; then
+    # unattached sessions exist: attach to the oldest
+    exec tmux new-session -A -s "${tmux_free%%$'\n'*}"
   else
-    exec tmux new-session -s 0
+    # every session has terminal attached: start a new one
+    exec tmux new-session
   fi
 fi
 
