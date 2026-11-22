@@ -9,17 +9,18 @@ if [[ $TERM =~ '^xterm-(kitty|ghostty)$' ]] && [[ -z $TMUX ]] && [[ -z $ZI_BOOTS
   # sessions without terminal attached; oldest first
   if ! tmux_free=$(tmux list-sessions -O creation -f '#{==:#{session_attached},0}' -F '#{session_name}' 2> /dev/null); then
     if [[ -S $XDG_RUNTIME_DIR/bus ]]; then
-      # no server: start it in its own systemd scope so it outlives the terminal
+      # no server: start it in its own systemd scope; daemonizing escapes SIGHUP but not the terminal cgroup,
+      # so stopping the terminal unit (or oomd) would kill the server with all sessions
       exec systemd-run --user --scope --quiet tmux new-session
     else
-      # no server and no user D-Bus (ssh): start it directly
+      # no server and no user d-bus (ssh): start it directly; systemd-run would fail and exec close the shell
       exec tmux new-session
     fi
   elif [[ -n $tmux_free ]]; then
-    # unattached sessions exist: attach to the oldest
+    # unattached sessions exist: attach to the oldest; server already runs in its own scope
     exec tmux new-session -A -s "${tmux_free%%$'\n'*}"
   else
-    # every session has terminal attached: start a new one
+    # every session has terminal attached: start a new one; created inside the server, so no scope needed
     exec tmux new-session
   fi
 fi
