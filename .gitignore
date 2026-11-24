@@ -108,13 +108,6 @@ niri/niri/host.kdl
 
 /nvim/nvim
 
-# obsidian
-
-obsidian/**
-!obsidian/**/
-
-!obsidian/obsidian/user-flags.conf
-
 # postman
 
 postman/**

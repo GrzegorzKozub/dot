@@ -26,7 +26,6 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   mpv \
   npm \
   nvim \
-  obsidian \
   rclone \
   ripgrep \
   silicon \
@@ -45,6 +44,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   # bun iex satty starship
 
 stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --no-folding --stow \
+  obsidian \
   tidal-hifi
 
 # environment
