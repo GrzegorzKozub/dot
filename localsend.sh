@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
-# repo
+# config
 
-pushd "${BASH_SOURCE%/*}"
+mkdir -p "$XDG_DATA_HOME"/org.localsend.localsend_app
 
-git update-index --assume-unchanged \
-  localsend/org.localsend.localsend_app/shared_preferences.json
-
-popd
-
-# links
-
-stow --dir="${BASH_SOURCE%/*}" --target="$XDG_DATA_HOME" --stow \
-  localsend
+[[ -e $XDG_DATA_HOME/org.localsend.localsend_app/shared_preferences.json ]] ||
+  sed -e "s/<alias>/$HOST/" \
+    "$(dirname "$(realpath "$0")")"/localsend/org.localsend.localsend_app/shared_preferences.json \
+    > "$XDG_DATA_HOME"/org.localsend.localsend_app/shared_preferences.json
