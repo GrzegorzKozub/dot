@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <oor:items xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<item oor:path="/org.openoffice.Office.Calc/Layout/Other/MeasureUnit"><prop oor:name="NonMetric" oor:op="fuse"><value>2</value></prop></item>
-<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="FirstRun" oor:op="fuse"><value>false</value></prop></item>
-<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="NotebookbarIconSize" oor:op="fuse"><value>1</value></prop></item>
 <item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="ShowTipOfTheDay" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Product"><prop oor:name="WhatsNew" oor:op="fuse"><value>false</value></prop></item>
+<item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="NotebookbarIconSize" oor:op="fuse"><value>1</value></prop></item>
 <item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="SidebarIconSize" oor:op="fuse"><value>1</value></prop></item>
 <item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="SymbolSet" oor:op="fuse"><value>0</value></prop></item>
 <item oor:path="/org.openoffice.Office.Common/Misc"><prop oor:name="SymbolStyle" oor:op="fuse"><value>colibre_svg</value></prop></item>
-<item oor:path="/org.openoffice.Office.Common/Save/Document"><prop oor:name="WarnAlienFormat" oor:op="fuse"><value>false</value></prop></item>
-<item oor:path="/org.openoffice.Office.Views/Windows/org.openoffice.Office.Views:WindowType['scalc/10336']/UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,H,0,AL:(5,16,0/0/48/450,48;1388)</value></prop></item>
-<item oor:path="/org.openoffice.Office.Views/Windows/org.openoffice.Office.Views:WindowType['swriter/10336']/UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,H,0,AL:(5,16,0/0/48/450,48;1388)</value></prop></item>
-<item oor:path="/org.openoffice.Office.Writer/Layout/Other"><prop oor:name="MeasureUnit" oor:op="fuse"><value>2</value></prop></item>
-<item oor:path="/org.openoffice.Office.Writer/Layout/Window"><prop oor:name="HorizontalRulerUnit" oor:op="fuse"><value>2</value></prop></item>
-<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.sheet.SpreadsheetDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>840,349,2161,1548;1;,,,;</value></prop></item>
-<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.text.TextDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>840,349,2161,1548;1;,,,;</value></prop></item>
+<item oor:path="/org.openoffice.Office.Views/Windows/org.openoffice.Office.Views:WindowType['scalc/10336']/UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,H,0,AL:(5,16,0/0/48/450,48;618)</value></prop></item>
+<item oor:path="/org.openoffice.Office.Views/Windows/org.openoffice.Office.Views:WindowType['swriter/10336']/UserData"><prop oor:name="Data" oor:op="fuse" oor:type="xs:string"><value>V2,H,0,AL:(5,16,0/0/48/450,48;618)</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.sheet.SpreadsheetDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>0,0,1081,750;1;,,,;</value></prop></item>
+<item oor:path="/org.openoffice.Setup/Office/Factories/org.openoffice.Setup:Factory['com.sun.star.text.TextDocument']"><prop oor:name="ooSetupFactoryWindowAttributes" oor:op="fuse"><value>0,0,1081,750;1;,,,;</value></prop></item>
 </oor:items>
