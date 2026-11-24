@@ -26,13 +26,6 @@ claude/**
 
 !claude/claude/themes/gruvbox-material-dark.json
 
-# copilot
-
-copilot/**
-!copilot/**/
-
-!copilot/copilot/settings.json
-
 # ghostty
 
 ghostty/ghostty/shaders/
