@@ -129,13 +129,6 @@ teams-for-linux/**
 
 !teams-for-linux/teams-for-linux/config.json
 
-# tidal-hifi
-
-tidal-hifi/**
-!tidal-hifi/**/
-
-!tidal-hifi/tidal-hifi/config.json
-
 # tiddl
 
 tiddl/**

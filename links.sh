@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
+DIR=$(dirname "$(realpath "$0")")
+
 # ~
 
 # stow --dir="${BASH_SOURCE%/*}" --target="$HOME" --stow \
@@ -29,7 +31,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   ripgrep \
   silicon \
   tensaku \
-  tidal-hifi tiddl \
+  tiddl \
   tmux \
   wget \
   worktrunk \
@@ -42,14 +44,10 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
 
   # bun iex satty starship
 
-mkdir -p "$XDG_CONFIG_HOME"/vscode
-stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME"/vscode --stow vscode
+stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --no-folding --stow \
+  tidal-hifi
 
-DIR=$(dirname "$(realpath "$0")")
-
-ln -sf "$DIR"/flags/brave-origin-flags.conf "$XDG_CONFIG_HOME"/brave-origin-flags.conf # or brave-flags.conf
-
-# ln -sf "$DIR"/flags/code-flags.conf "$XDG_CONFIG_HOME"/code-flags.conf
+# environment
 
 mkdir -p "$XDG_CONFIG_HOME"/environment.d
 ln -sf "$DIR"/environment/environment.d/10-common.conf "$XDG_CONFIG_HOME"/environment.d/10-common.conf
@@ -66,6 +64,18 @@ if [[ $HOST == 'sacrifice' ]]; then
   ln -sf "$DIR"/environment/environment.d/20-amd.conf "$XDG_CONFIG_HOME"/environment.d/20-amd.conf
 fi
 
+# flags
+
+ln -sf "$DIR"/flags/brave-origin-flags.conf "$XDG_CONFIG_HOME"/brave-origin-flags.conf # or brave-flags.conf
+# ln -sf "$DIR"/flags/code-flags.conf "$XDG_CONFIG_HOME"/code-flags.conf
+
+# ghostty
+
 if [[ -f "$DIR"/ghostty/ghostty/$HOST.ghostty ]]; then
   ln -sf "$HOST".ghostty "$DIR"/ghostty/ghostty/host.ghostty
 fi
+
+# vscode
+
+mkdir -p "$XDG_CONFIG_HOME"/vscode
+stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME"/vscode --stow vscode
