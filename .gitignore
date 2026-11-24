@@ -31,10 +31,6 @@ claude/**
 ghostty/ghostty/shaders/
 ghostty/ghostty/host.ghostty
 
-# maven
-
-maven/maven/settings.xml
-
 # mise
 
 mise/mise/**/*.local.toml

@@ -10,8 +10,11 @@ mise install
 
 # links
 
-stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
-  maven
+mkdir -p "$XDG_CONFIG_HOME"/maven
+
+[[ -e $XDG_CONFIG_HOME/maven/settings.xml || -L $XDG_CONFIG_HOME/maven/settings.xml ]] ||
+  ln -s "$(dirname "$(realpath "$0")")"/maven/maven/settings.xml \
+    "$XDG_CONFIG_HOME"/maven/settings.xml
 
 # ln -sf "$(dirname "$(realpath "$0")")"/environment/environment.d/30-java.conf \
 #   "$XDG_CONFIG_HOME"/environment.d/30-java.conf
