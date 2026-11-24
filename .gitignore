@@ -47,6 +47,13 @@ niri/niri/host.kdl
 
 /nvim/nvim
 
+# tiddl
+
+tiddl/**
+!tiddl/**/
+
+!tiddl/tiddl/config.toml
+
 # voxtype
 
 voxtype/voxtype/config.toml.bak

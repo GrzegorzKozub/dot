@@ -30,6 +30,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
   ripgrep \
   silicon \
   tensaku \
+  tiddl \
   tmux \
   wget \
   worktrunk \
@@ -44,8 +45,7 @@ stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
 
 stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --no-folding --stow \
   obsidian \
-  tidal-hifi \
-  tiddl
+  tidal-hifi
 
 # environment
 
