@@ -78,4 +78,5 @@ fi
 # vscode
 
 mkdir -p "$XDG_CONFIG_HOME"/vscode
-stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME"/vscode --no-folding --stow vscode
+stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME"/vscode --no-folding --stow \
+  vscode

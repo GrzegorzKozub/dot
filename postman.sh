@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
-# repo
+# config
 
-pushd "${BASH_SOURCE%/*}"
-git update-index --assume-unchanged postman/Postman/storage/settings.json
-popd
+mkdir -p "$XDG_CONFIG_HOME"/Postman/storage
 
-# links
-
-stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --no-folding --stow \
-  postman
+cp --update=none "$(dirname "$(realpath "$0")")"/postman/Postman/storage/settings.json \
+  "$XDG_CONFIG_HOME"/Postman/storage/settings.json
