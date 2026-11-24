@@ -115,13 +115,6 @@ postman/**
 
 !postman/Postman/storage/settings.json
 
-# teams-for-linux
-
-teams-for-linux/**
-!teams-for-linux/**/
-
-!teams-for-linux/teams-for-linux/config.json
-
 # tiddl
 
 tiddl/**
