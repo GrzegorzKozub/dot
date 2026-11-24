@@ -31,32 +31,6 @@ claude/**
 ghostty/ghostty/shaders/
 ghostty/ghostty/host.ghostty
 
-# intellij
-
-intellij/**
-!intellij/**/
-
-!/intellij/JetBrains/IdeaIC2025.2/codestyles/Default.xml
-
-!/intellij/JetBrains/IdeaIC2025.2/early-access-registry.txt
-!/intellij/JetBrains/IdeaIC2025.2/idea64.vmoptions
-
-!/intellij/JetBrains/IdeaIC2025.2/options/advancedSettings.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/colors.scheme.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/editor-font.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/editor.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/ide.general.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/jdk.table.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/laf.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/linux/keymap.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/notifications.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/other.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/project.default.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/terminal.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/trusted-paths.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/ui.lnf.xml
-!/intellij/JetBrains/IdeaIC2025.2/options/updates.xml
-
 # maven
 
 maven/maven/settings.xml

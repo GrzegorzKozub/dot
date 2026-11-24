@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
-# TODO: update config to latest version & setup jdk 21 from mise
+# TODO: setup jdk 21 from mise
 
-# repo
+# config
 
-pushd "${BASH_SOURCE%/*}"
+PRODUCT_INFO=$(pacman -Ql intellij-idea-oss | awk '/\/product-info\.json$/ { print $2; exit }')
+IDE_HOME=$(dirname "$PRODUCT_INFO")
+
+SRC=$(dirname "$(realpath "$0")")/intellij/config
+DST=$XDG_CONFIG_HOME/JetBrains/$(jq -r .dataDirectoryName "$PRODUCT_INFO")
 
 FILES=(
   codestyles/Default.xml
@@ -29,19 +33,13 @@ FILES=(
 )
 
 for FILE in "${FILES[@]}"; do
-  git update-index --assume-unchanged intellij/JetBrains/IdeaIC2025.2/"$FILE"
+  mkdir -p "$(dirname "$DST/$FILE")"
+  cp --update=none "$SRC/$FILE" "$DST/$FILE"
 done
-
-popd
-
-# links
-
-stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
-  intellij
 
 # plugins
 
-idea-community installPlugins \
+"$IDE_HOME"/bin/idea installPlugins \
   com.intellij.plugins.vscodekeymap \
   cucumber-java \
   gherkin || true
