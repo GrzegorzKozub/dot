@@ -33,23 +33,6 @@ copilot/**
 
 !copilot/copilot/settings.json
 
-# dbeaver
-
-dbeaver/**
-!dbeaver/**/
-
-!dbeaver/DBeaverData/workspace6/.metadata/.config/connection-types.xml
-
-!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs
-!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs
-!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.jkiss.dbeaver.core.prefs
-!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.jkiss.dbeaver.ui.app.standalone.prefs
-!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.jkiss.dbeaver.ui.statistics.prefs
-
-!dbeaver/DBeaverData/workspace6/.metadata/.plugins/org.jkiss.dbeaver.ui/dialog_settings.xml
-
-!dbeaver/DBeaverData/workspace6/General/.dbeaver/data-sources.json
-
 # ghostty
 
 ghostty/ghostty/shaders/

@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -eo pipefail -ux
 
-# repo
+# config
 
-pushd "${BASH_SOURCE%/*}"
+SRC=$(dirname "$(realpath "$0")")/dbeaver/DBeaverData/workspace6
+DST=$XDG_DATA_HOME/DBeaverData/workspace6
 
 FILES=(
   .metadata/.config/connection-types.xml
@@ -17,12 +18,6 @@ FILES=(
 )
 
 for FILE in "${FILES[@]}"; do
-  git update-index --assume-unchanged dbeaver/DBeaverData/workspace6/"$FILE"
+  mkdir -p "$(dirname "$DST/$FILE")"
+  cp --update=none "$SRC/$FILE" "$DST/$FILE"
 done
-
-popd
-
-# links
-
-stow --dir="${BASH_SOURCE%/*}" --target="$XDG_DATA_HOME" --stow \
-  dbeaver
