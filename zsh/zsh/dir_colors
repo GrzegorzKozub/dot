@@ -91,6 +91,7 @@ EXEC 32
 .prettierrc 37
 .project 37
 .pylintrc 37
+.stow-local-ignore 37
 .stylintrc 37
 .stylua.toml 37
 .taplo.toml 37
