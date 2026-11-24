@@ -81,13 +81,6 @@ intellij/**
 !/intellij/JetBrains/IdeaIC2025.2/options/ui.lnf.xml
 !/intellij/JetBrains/IdeaIC2025.2/options/updates.xml
 
-# libreoffice
-
-libreoffice/**
-!libreoffice/**/
-
-!/libreoffice/libreoffice/4/user/registrymodifications.xcu
-
 # maven
 
 maven/maven/settings.xml

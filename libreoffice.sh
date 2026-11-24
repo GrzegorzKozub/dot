@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 set -eo pipefail -u
 
-# repo
+# config
 
-pushd "${BASH_SOURCE%/*}"
-git update-index --assume-unchanged libreoffice/libreoffice/4/user/registrymodifications.xcu
-popd
+mkdir -p "$XDG_CONFIG_HOME"/libreoffice/4/user
 
-# links
-
-stow --dir="${BASH_SOURCE%/*}" --target="$XDG_CONFIG_HOME" --stow \
-  libreoffice
+cp --update=none \
+  "$(dirname "$(realpath "$0")")"/libreoffice/libreoffice/4/user/registrymodifications.xcu \
+  "$XDG_CONFIG_HOME"/libreoffice/4/user/
