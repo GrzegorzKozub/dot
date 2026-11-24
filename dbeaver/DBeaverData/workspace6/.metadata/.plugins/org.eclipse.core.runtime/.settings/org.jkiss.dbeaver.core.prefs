@@ -5,6 +5,4 @@ resultset.show.oddRows=false
 sample.database.canceled=true
 sql.format.formatter=COMPACT
 sql.format.keywordCase=UPPER
-tipOfTheDayInitializer.notFirstRun=true
-ui.auto.update.check.time=1703142388421
 ui.show.tip.of.the.day.on.startup=false
