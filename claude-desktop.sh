@@ -5,5 +5,5 @@ set -eo pipefail -ux
 
 mkdir -p "$XDG_CONFIG_HOME"/Claude/
 
-cp -r "$(dirname "$(realpath "$0")")"/claude-desktop/Claude/* \
+cp -r --update=none "$(dirname "$(realpath "$0")")"/claude-desktop/Claude/* \
   "$XDG_CONFIG_HOME"/Claude/
