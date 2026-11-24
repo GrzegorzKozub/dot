@@ -108,13 +108,6 @@ niri/niri/host.kdl
 
 /nvim/nvim
 
-# postman
-
-postman/**
-!postman/**/
-
-!postman/Postman/storage/settings.json
-
 # tiddl
 
 tiddl/**
