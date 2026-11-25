@@ -694,6 +694,7 @@ export NODE_NO_WARNINGS=1
 export NODE_REPL_HISTORY=''
 
 export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
+export npm_config_cache=$XDG_CACHE_HOME/npm # https://github.com/prebuild/prebuild-install
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 
 zi ice lucid nocompletions wait'0' && zi light "$ZDOTDIR"/npm
